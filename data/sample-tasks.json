@@ -1,0 +1,312 @@
+{
+  "schema_version": "0.1.0",
+  "community_id": "omniweave-community",
+  "task_policy": {
+    "data_policy": "fictional_or_synthetic_only",
+    "note": "Tasks are prototype scenarios that connect POIs, routes, users, property operations, and future robot workflows."
+  },
+  "task_types": [
+    "visitor_guidance",
+    "daily_navigation",
+    "activity_participation",
+    "community_quest",
+    "world_maintenance",
+    "repair_reporting",
+    "property_operation",
+    "robot_patrol"
+  ],
+  "tasks": [
+    {
+      "id": "task-guide-visitor-to-building-3",
+      "name": "Guide a Visitor to Building 3",
+      "type": "visitor_guidance",
+      "primary_user_role": "resident",
+      "secondary_user_roles": ["authorized_visitor", "property_operator"],
+      "status": "demo_ready",
+      "priority": "high",
+      "linked_route_id": "route-visitor-north-gate-to-building-3",
+      "start_poi_id": "poi-north-gate",
+      "target_poi_id": "poi-building-3",
+      "goal": "Generate a clear visitor route from the North Gate to Building 3.",
+      "user_value": "Residents can share a simple path with guests before they arrive.",
+      "property_value": "Reduces repeated visitor guidance questions at the gate and property center.",
+      "ai_intents": [
+        "guide my visitor",
+        "visitor route to building 3",
+        "how can my guest find my building"
+      ],
+      "expected_outputs": [
+        "route_preview",
+        "step_by_step_instructions",
+        "shareable_visitor_link"
+      ],
+      "privacy_notes": [
+        "Do not expose unit number by default.",
+        "Visitor access must follow community access-control rules."
+      ]
+    },
+    {
+      "id": "task-pick-up-package",
+      "name": "Pick Up a Package",
+      "type": "daily_navigation",
+      "primary_user_role": "resident",
+      "secondary_user_roles": [],
+      "status": "demo_ready",
+      "priority": "high",
+      "linked_route_id": "route-building-3-to-package-locker",
+      "start_poi_id": "poi-building-3",
+      "target_poi_id": "poi-package-locker",
+      "goal": "Help a resident find the package locker from Building 3.",
+      "user_value": "Turns a high-frequency daily errand into a visible and easy route.",
+      "property_value": "Reduces confusion for new residents and improves service perception.",
+      "ai_intents": [
+        "where is the package locker",
+        "route to package locker",
+        "pick up my delivery"
+      ],
+      "expected_outputs": [
+        "route_preview",
+        "estimated_time",
+        "poi_detail"
+      ],
+      "privacy_notes": [
+        "Package code or delivery information should never be stored in public route data."
+      ]
+    },
+    {
+      "id": "task-join-parent-child-activity",
+      "name": "Join Weekend Parent-child Activity",
+      "type": "activity_participation",
+      "primary_user_role": "resident",
+      "secondary_user_roles": ["family_member", "property_operator"],
+      "status": "demo_ready",
+      "priority": "high",
+      "linked_route_id": "route-building-3-to-kids-activity",
+      "linked_activity_id": "activity-weekend-parent-child-workshop",
+      "start_poi_id": "poi-building-3",
+      "target_poi_id": "poi-kids-playground",
+      "schedule_context": {
+        "time_label": "Saturday 10:00-11:30",
+        "place_label": "Kids' Playground",
+        "participation_status": "Open signup",
+        "action_hint": "Check in to unlock the Family Explorer stamp."
+      },
+      "goal": "Let residents discover, sign up for, navigate to, and check in at a community activity.",
+      "user_value": "Makes community activities easier to find and attend.",
+      "property_value": "Improves activity participation, check-in tracking, and post-event operation data.",
+      "ai_intents": [
+        "what activities are happening this weekend",
+        "join parent child activity",
+        "show me the route to the activity"
+      ],
+      "expected_outputs": [
+        "activity_card",
+        "signup_action",
+        "route_preview",
+        "checkin_action",
+        "badge_reward"
+      ],
+      "privacy_notes": [
+        "Children's information should not be publicly displayed.",
+        "Activity participant lists should follow community privacy settings."
+      ]
+    },
+    {
+      "id": "task-community-explorer-quest",
+      "name": "Start Community Explorer Quest",
+      "type": "community_quest",
+      "primary_user_role": "resident",
+      "secondary_user_roles": ["family_member", "new_resident", "property_operator"],
+      "status": "demo_ready",
+      "priority": "high",
+      "linked_route_id": "route-community-explorer-loop",
+      "linked_activity_id": "activity-community-explorer-trail",
+      "start_poi_id": "poi-building-3",
+      "target_poi_id": "poi-clubhouse",
+      "goal": "Turn first-week community onboarding into a playful exploration quest.",
+      "user_value": "Residents feel the community is alive, discover useful places, and earn a visible identity badge.",
+      "property_value": "Property teams can convert onboarding, activity discovery, and community culture into repeatable engagement.",
+      "ai_intents": [
+        "start a community explorer quest",
+        "help me explore the community",
+        "what can I do in this community",
+        "unlock a community badge"
+      ],
+      "expected_outputs": [
+        "quest_card",
+        "route_preview",
+        "poi_checkins",
+        "badge_reward",
+        "next_side_quests"
+      ],
+      "privacy_notes": [
+        "Quest progress should be private by default.",
+        "Badge sharing should require explicit resident consent."
+      ]
+    },
+    {
+      "id": "task-join-evening-basketball",
+      "name": "Join Evening Basketball Meetup",
+      "type": "activity_participation",
+      "primary_user_role": "resident",
+      "secondary_user_roles": ["sports_user", "property_operator"],
+      "status": "demo_ready",
+      "priority": "high",
+      "linked_route_id": "route-building-3-to-basketball-meetup",
+      "linked_activity_id": "activity-evening-basketball-meetup",
+      "start_poi_id": "poi-building-3",
+      "target_poi_id": "poi-basketball-court",
+      "schedule_context": {
+        "time_label": "Tonight 20:00-21:30",
+        "place_label": "Basketball Court",
+        "participation_status": "Draft party",
+        "action_hint": "Bring one neighbor or join solo."
+      },
+      "goal": "Turn an informal basketball invitation into a discoverable, navigable, and check-in-ready sports side quest.",
+      "user_value": "Residents can find nearby sports partners without searching through noisy chat groups.",
+      "property_value": "Activates the basketball court and measures demand, attendance, and repeat participation.",
+      "ai_intents": [
+        "join evening basketball",
+        "find a basketball meetup",
+        "play basketball tonight"
+      ],
+      "expected_outputs": [
+        "sports_party_card",
+        "signup_action",
+        "route_preview",
+        "checkin_action",
+        "sports_badge"
+      ],
+      "privacy_notes": [
+        "Participant identity should only be visible to confirmed members.",
+        "Activity organizers and court rules should be verified before publishing."
+      ]
+    },
+    {
+      "id": "task-maintain-shared-world",
+      "name": "Complete a World Maintenance Side Quest",
+      "type": "world_maintenance",
+      "primary_user_role": "resident",
+      "secondary_user_roles": ["property_operator"],
+      "status": "demo_ready",
+      "priority": "high",
+      "linked_route_id": "route-shared-space-maintenance-loop",
+      "start_poi_id": "poi-kids-playground",
+      "target_poi_id": "poi-property-center",
+      "schedule_context": {
+        "time_label": "Anytime this week",
+        "place_label": "Shared outdoor areas",
+        "participation_status": "Resident helper",
+        "action_hint": "Submit one location-aware issue and track the response."
+      },
+      "goal": "Let residents help maintain the shared world through a guided, privacy-aware issue discovery loop.",
+      "user_value": "Residents gain visible agency and progress by improving a place they use every day.",
+      "property_value": "Converts scattered complaints into structured spatial issues with clearer triage and resident follow-up.",
+      "ai_intents": [
+        "start world maintenance quest",
+        "help maintain the community",
+        "report an issue in a shared area"
+      ],
+      "expected_outputs": [
+        "maintenance_quest_card",
+        "inspection_route",
+        "location_aware_issue",
+        "resident_status_update",
+        "helper_progress"
+      ],
+      "privacy_notes": [
+        "Do not expose resident identity in public issue feeds.",
+        "Photos must avoid faces, unit numbers, vehicle plates, and private spaces."
+      ]
+    },
+    {
+      "id": "task-report-playground-light",
+      "name": "Report Broken Light near Kids' Playground",
+      "type": "repair_reporting",
+      "primary_user_role": "resident",
+      "secondary_user_roles": ["property_operator"],
+      "status": "demo_ready",
+      "priority": "high",
+      "linked_route_id": "route-repair-kids-playground-light",
+      "start_poi_id": "poi-kids-playground",
+      "target_poi_id": "poi-property-center",
+      "goal": "Create a repair report with precise spatial context.",
+      "user_value": "Residents can report problems without struggling to describe the exact location.",
+      "property_value": "Property teams receive structured, location-aware repair requests.",
+      "ai_intents": [
+        "report broken light",
+        "repair near playground",
+        "something is broken here"
+      ],
+      "expected_outputs": [
+        "repair_form",
+        "poi_location",
+        "issue_category",
+        "property_dashboard_ticket"
+      ],
+      "privacy_notes": [
+        "Do not attach resident identity to public issue feeds.",
+        "Photos should be reviewed for privacy-sensitive content before public display."
+      ]
+    },
+    {
+      "id": "task-create-weekend-activity",
+      "name": "Create Weekend Community Activity",
+      "type": "property_operation",
+      "primary_user_role": "property_operator",
+      "secondary_user_roles": ["resident"],
+      "status": "planned_for_demo",
+      "priority": "medium",
+      "linked_activity_id": "activity-weekend-parent-child-workshop",
+      "start_poi_id": "poi-property-center",
+      "target_poi_id": "poi-kids-playground",
+      "goal": "Allow property operators to publish a spatially anchored activity.",
+      "user_value": "Residents can discover activities in the community map instead of only in chat groups.",
+      "property_value": "Property teams can manage signup, route guidance, check-in, and engagement metrics.",
+      "ai_intents": [
+        "publish activity",
+        "create weekend event",
+        "make an activity at playground"
+      ],
+      "expected_outputs": [
+        "activity_record",
+        "public_activity_card",
+        "signup_list",
+        "route_binding"
+      ],
+      "privacy_notes": [
+        "Property operators should review activity content before publishing."
+      ]
+    },
+    {
+      "id": "task-robot-fire-passage-patrol",
+      "name": "Robot Fire Passage Patrol",
+      "type": "robot_patrol",
+      "primary_user_role": "service_robot",
+      "secondary_user_roles": ["property_operator"],
+      "status": "future_interface",
+      "priority": "medium",
+      "linked_route_id": "route-robot-fire-passage-patrol",
+      "start_poi_id": "poi-property-center",
+      "target_poi_id": "poi-property-center",
+      "goal": "Generate a structured patrol task for a future service robot.",
+      "user_value": "Residents benefit from safer and more consistent community inspections.",
+      "property_value": "Property teams can turn inspection workflows into structured robot-ready tasks.",
+      "ai_intents": [
+        "generate robot patrol",
+        "inspect fire passage",
+        "robot safety route"
+      ],
+      "expected_outputs": [
+        "semantic_route",
+        "inspection_goals",
+        "risk_notes",
+        "patrol_report_schema"
+      ],
+      "privacy_notes": [
+        "Robot operation must follow privacy, safety, and property approval rules.",
+        "Camera or sensor data should not be stored without explicit governance policies."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Community Spirit Demo</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow" data-i18n="app.eyebrow">Community Spirit Open Prototype</p>
+          <h1 data-i18n="app.title">OmniWeave Community</h1>
+          <p class="title-subtitle" data-i18n="app.subtitle">
+            AI-native community digital twin for residents, property teams, and future robots.
+          </p>
+        </div>
+        <div class="topbar-actions">
+          <div class="topbar-meta">
+            <span data-i18n="badges.digitalTwin">AI-native digital twin</span>
+            <span data-i18n="badges.spatialTasks">Spatial tasks</span>
+            <span data-i18n="badges.robotReady">Robot-ready map</span>
+          </div>
+          <div class="language-switch" aria-label="Language">
+            <button id="langEnButton" class="lang-button active" type="button">EN</button>
+            <button id="langZhButton" class="lang-button" type="button">中</button>
+          </div>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <aside class="assistant-panel" aria-label="AI assistant panel">
+          <section class="panel-section">
+            <h2 data-i18n="agent.title">Community Agent</h2>
+            <p class="muted" data-i18n="agent.description">
+              Ask a resident, property, or robot task. The prototype maps intent
+              to structured community data.
+            </p>
+            <label class="prompt-label" for="promptInput" data-i18n="agent.promptLabel">Prompt</label>
+            <div class="prompt-row">
+              <input
+                id="promptInput"
+                type="text"
+                value="How can my guest get from the North Gate to Building 3?"
+              />
+              <button id="askButton" type="button" data-i18n="agent.askButton">Ask</button>
+            </div>
+          </section>
+
+          <section class="panel-section">
+            <h3 data-i18n="agent.samplePrompts">Sample Prompts</h3>
+            <div id="promptButtons" class="prompt-buttons"></div>
+          </section>
+
+          <section class="panel-section answer-box">
+            <h3 data-i18n="agent.answerTitle">Grounded Answer</h3>
+            <div id="answerText" class="answer-text"></div>
+          </section>
+        </aside>
+
+        <section class="map-panel" aria-label="Community map">
+          <div class="map-header">
+            <div>
+              <h2>Spatial Community Map</h2>
+              <p id="mapSubtitle" class="muted">Loading community data...</p>
+            </div>
+            <div class="legend">
+              <span><i class="legend-dot public"></i>Public</span>
+              <span><i class="legend-dot resident"></i>Resident</span>
+              <span><i class="legend-dot property"></i>Property</span>
+              <span><i class="legend-line"></i>Selected route</span>
+            </div>
+          </div>
+          <div class="map-frame">
+            <svg
+              id="communityMap"
+              viewBox="0 0 190 210"
+              role="img"
+              aria-label="OmniWeave Community map"
+            ></svg>
+          </div>
+          <section class="property-dashboard" aria-label="Property dashboard">
+            <div class="dashboard-header">
+              <div>
+                <p class="eyebrow" data-i18n="dashboard.eyebrow">Property Dashboard</p>
+                <h2 data-i18n="dashboard.title">Today at a Glance</h2>
+              </div>
+              <p id="dashboardSummary" class="muted"></p>
+            </div>
+            <div id="dashboardMetrics" class="dashboard-metrics"></div>
+            <div class="dashboard-lanes">
+              <section>
+                <h3 data-i18n="dashboard.operationsTitle">Operational Queue</h3>
+                <div id="operationQueue" class="queue-list"></div>
+              </section>
+              <section>
+                <h3 data-i18n="dashboard.insightTitle">Spatial Insight</h3>
+                <div id="spatialInsight" class="insight-card"></div>
+              </section>
+            </div>
+          </section>
+        </section>
+
+        <aside class="detail-panel" aria-label="Task details">
+          <section class="panel-section">
+            <p class="eyebrow">Selected Task</p>
+            <h2 id="taskTitle">Loading...</h2>
+            <p id="taskGoal" class="muted"></p>
+            <div id="taskChips" class="chip-row"></div>
+            <div class="task-actions">
+              <button id="shareTaskButton" type="button" data-i18n="actions.copyLink">Copy Link</button>
+              <button id="exportTaskButton" class="secondary-button" type="button" data-i18n="actions.exportJson">Export JSON</button>
+            </div>
+            <p id="taskActionStatus" class="action-status" aria-live="polite"></p>
+          </section>
+
+          <section class="panel-section">
+            <h3>Route Steps</h3>
+            <ol id="routeSteps" class="route-steps"></ol>
+          </section>
+
+          <section class="panel-section" id="contextSection">
+            <h3 id="contextTitle">Context</h3>
+            <div id="contextBody" class="context-body"></div>
+          </section>
+        </aside>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

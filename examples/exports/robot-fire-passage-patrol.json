@@ -1,0 +1,43 @@
+{
+  "schema_version": "0.1.0",
+  "community_id": "omniweave-community",
+  "task_id": "task-robot-fire-passage-patrol",
+  "route_id": "route-robot-fire-passage-patrol",
+  "robot_types": [
+    "wheeled_patrol_robot",
+    "quadruped_patrol_robot"
+  ],
+  "route": [
+    {
+      "poi_id": "poi-property-center",
+      "action": "Start from the property center after task approval."
+    },
+    {
+      "poi_id": "poi-fire-passage",
+      "action": "Inspect the fire passage and detect possible obstructions."
+    },
+    {
+      "poi_id": "poi-underground-garage-entrance",
+      "action": "Inspect the underground garage entrance and capture abnormal conditions."
+    },
+    {
+      "poi_id": "poi-waste-collection",
+      "action": "Pass the waste collection point and optionally check sanitation status."
+    },
+    {
+      "poi_id": "poi-property-center",
+      "action": "Return to the property center and upload the patrol report."
+    }
+  ],
+  "dashboard_context": {
+    "managed_pois": 13,
+    "robot_ready_pois": 8,
+    "open_activities": 1
+  },
+  "privacy_policy": {
+    "require_property_approval": true,
+    "store_raw_video": false,
+    "enter_private_space": false
+  },
+  "data_policy": "fictional_or_synthetic_only"
+}

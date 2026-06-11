@@ -1,0 +1,322 @@
+{
+  "schema_version": "0.1.0",
+  "community_id": "omniweave-community",
+  "route_policy": {
+    "data_policy": "fictional_or_synthetic_only",
+    "note": "Routes reference fictional POI ids from sample-pois.json and are intended for prototype interaction only."
+  },
+  "routes": [
+    {
+      "id": "route-visitor-north-gate-to-building-3",
+      "name": "Visitor Route: North Gate to Building 3",
+      "scenario": "visitor_guidance",
+      "user_roles": ["resident", "authorized_visitor"],
+      "start_poi_id": "poi-north-gate",
+      "end_poi_id": "poi-building-3",
+      "estimated_minutes": 6,
+      "distance_meters": 310,
+      "access_requirements": [
+        "Visitor should be authorized by the resident before entering residential building areas.",
+        "Building entrance access should follow property access-control rules."
+      ],
+      "waypoints": [
+        {
+          "poi_id": "poi-north-gate",
+          "instruction": "Enter from the North Gate and pass the security desk."
+        },
+        {
+          "position": { "x": 58, "y": 160, "z": 0 },
+          "instruction": "Walk south along the main landscape path."
+        },
+        {
+          "position": { "x": 74, "y": 112, "z": 0 },
+          "instruction": "Turn right at the central garden and continue toward Building 3."
+        },
+        {
+          "poi_id": "poi-building-3",
+          "instruction": "Arrive at Building 3. Use the authorized visitor access method to enter."
+        }
+      ],
+      "ai_prompt_examples": [
+        "How can my guest get from the north gate to Building 3?",
+        "Guide my visitor from North Gate to Building 3."
+      ],
+      "tags": ["visitor", "navigation", "high_value_demo"]
+    },
+    {
+      "id": "route-building-3-to-package-locker",
+      "name": "Daily Task: Building 3 to Package Locker",
+      "scenario": "daily_life_task",
+      "user_roles": ["resident"],
+      "start_poi_id": "poi-building-3",
+      "end_poi_id": "poi-package-locker",
+      "estimated_minutes": 4,
+      "distance_meters": 220,
+      "access_requirements": [
+        "Resident identity is required for package pickup."
+      ],
+      "waypoints": [
+        {
+          "poi_id": "poi-building-3",
+          "instruction": "Exit Building 3 from the main lobby."
+        },
+        {
+          "position": { "x": 68, "y": 68, "z": 0 },
+          "instruction": "Follow the inner walkway west."
+        },
+        {
+          "poi_id": "poi-package-locker",
+          "instruction": "Arrive at the package locker and follow the pickup instructions."
+        }
+      ],
+      "ai_prompt_examples": [
+        "Where is the package locker from Building 3?",
+        "Show me the route from Building 3 to the package locker."
+      ],
+      "tags": ["package", "daily_task", "resident"]
+    },
+    {
+      "id": "route-building-3-to-kids-activity",
+      "name": "Activity Route: Building 3 to Kids' Playground",
+      "scenario": "activity_signup_and_checkin",
+      "user_roles": ["resident", "family_member"],
+      "start_poi_id": "poi-building-3",
+      "end_poi_id": "poi-kids-playground",
+      "estimated_minutes": 5,
+      "distance_meters": 260,
+      "activity_context": {
+        "activity_id": "activity-weekend-parent-child-workshop",
+        "activity_name": "Weekend Parent-child Workshop",
+        "signup_required": true,
+        "checkin_supported": true
+      },
+      "access_requirements": [
+        "Activity signup may be required before check-in.",
+        "Children should be accompanied by guardians."
+      ],
+      "waypoints": [
+        {
+          "poi_id": "poi-building-3",
+          "instruction": "Start from Building 3 and head toward the central garden."
+        },
+        {
+          "position": { "x": 96, "y": 92, "z": 0 },
+          "instruction": "Pass the garden path and follow signs to the playground."
+        },
+        {
+          "poi_id": "poi-kids-playground",
+          "instruction": "Arrive at the kids' playground and check in for the activity."
+        }
+      ],
+      "ai_prompt_examples": [
+        "How do I get to the weekend parent-child activity?",
+        "Show me the route from Building 3 to the kids' activity."
+      ],
+      "tags": ["activity", "parent_child", "resident_engagement"]
+    },
+    {
+      "id": "route-community-explorer-loop",
+      "name": "Community Explorer Loop: Building 3 to Playground, Court, and Clubhouse",
+      "scenario": "community_life_rpg",
+      "user_roles": ["resident", "family_member", "new_resident"],
+      "start_poi_id": "poi-building-3",
+      "end_poi_id": "poi-clubhouse",
+      "estimated_minutes": 12,
+      "distance_meters": 520,
+      "activity_context": {
+        "activity_id": "activity-community-explorer-trail",
+        "activity_name": "Community Explorer Trail",
+        "signup_required": false,
+        "checkin_supported": true
+      },
+      "access_requirements": [
+        "Residents should avoid private building areas unless authorized.",
+        "Children should be accompanied by guardians during exploration."
+      ],
+      "waypoints": [
+        {
+          "poi_id": "poi-building-3",
+          "instruction": "Start at Building 3 and accept the Community Explorer quest."
+        },
+        {
+          "poi_id": "poi-kids-playground",
+          "instruction": "Check in at the kids' playground and unlock the first discovery stamp."
+        },
+        {
+          "poi_id": "poi-basketball-court",
+          "instruction": "Visit the basketball court and discover the sports meetup side quest."
+        },
+        {
+          "poi_id": "poi-clubhouse",
+          "instruction": "Finish at the clubhouse and claim the Community Explorer badge."
+        }
+      ],
+      "ai_prompt_examples": [
+        "Start a community explorer quest.",
+        "Show me a fun route to discover the community.",
+        "I am new here, help me explore the community."
+      ],
+      "tags": ["rpg", "exploration", "new_resident", "badge", "community_identity"]
+    },
+    {
+      "id": "route-building-3-to-basketball-meetup",
+      "name": "Sports Side Quest: Building 3 to Basketball Court",
+      "scenario": "sports_matchmaking",
+      "user_roles": ["resident", "sports_user"],
+      "start_poi_id": "poi-building-3",
+      "end_poi_id": "poi-basketball-court",
+      "estimated_minutes": 4,
+      "distance_meters": 210,
+      "activity_context": {
+        "activity_id": "activity-evening-basketball-meetup",
+        "activity_name": "Evening Basketball Meetup",
+        "signup_required": true,
+        "checkin_supported": true
+      },
+      "access_requirements": [
+        "Resident identity is required to join the meetup.",
+        "Court usage rules and participant capacity should be confirmed before check-in."
+      ],
+      "waypoints": [
+        {
+          "poi_id": "poi-building-3",
+          "instruction": "Start from Building 3 and accept the evening sports side quest."
+        },
+        {
+          "position": { "x": 106, "y": 72, "z": 0 },
+          "instruction": "Follow the east walkway and look for the illuminated court entrance."
+        },
+        {
+          "poi_id": "poi-basketball-court",
+          "instruction": "Arrive at the basketball court, confirm the meetup rules, and check in."
+        }
+      ],
+      "ai_prompt_examples": [
+        "Join tonight's basketball meetup.",
+        "Find a basketball game in the community."
+      ],
+      "tags": ["sports", "side_quest", "neighbor_connection", "checkin"]
+    },
+    {
+      "id": "route-shared-space-maintenance-loop",
+      "name": "World Maintenance Loop: Playground to Waste Point and Property Center",
+      "scenario": "resident_world_maintenance",
+      "user_roles": ["resident", "property_operator"],
+      "start_poi_id": "poi-kids-playground",
+      "end_poi_id": "poi-property-center",
+      "estimated_minutes": 9,
+      "distance_meters": 410,
+      "maintenance_context": {
+        "issue_categories": ["lighting", "sanitation", "obstruction", "facility_damage"],
+        "photo_optional": true,
+        "location_required": true,
+        "resident_status_updates": true
+      },
+      "access_requirements": [
+        "Residents should only inspect publicly accessible shared spaces.",
+        "Reports must avoid faces, unit numbers, vehicle plates, and other private information."
+      ],
+      "waypoints": [
+        {
+          "poi_id": "poi-kids-playground",
+          "instruction": "Start at the playground and observe lighting, surfaces, and shared facilities."
+        },
+        {
+          "poi_id": "poi-waste-collection",
+          "instruction": "Check the shared path and waste point for sanitation or obstruction issues."
+        },
+        {
+          "poi_id": "poi-property-center",
+          "instruction": "Submit one location-aware issue and follow its resident-visible status."
+        }
+      ],
+      "ai_prompt_examples": [
+        "Start a world maintenance side quest.",
+        "Help me report an issue in a shared outdoor space."
+      ],
+      "tags": ["world_maintenance", "resident_helper", "spatial_issue", "closed_loop"]
+    },
+    {
+      "id": "route-repair-kids-playground-light",
+      "name": "Repair Report: Broken Light near Kids' Playground",
+      "scenario": "repair_reporting",
+      "user_roles": ["resident", "property_operator"],
+      "start_poi_id": "poi-kids-playground",
+      "end_poi_id": "poi-property-center",
+      "estimated_minutes": 0,
+      "distance_meters": 0,
+      "repair_context": {
+        "issue_type": "lighting",
+        "issue_priority": "medium",
+        "location_poi_id": "poi-kids-playground",
+        "example_description": "A pathway light near the kids' playground is not working."
+      },
+      "waypoints": [
+        {
+          "poi_id": "poi-kids-playground",
+          "instruction": "Select the kids' playground POI as the issue location."
+        },
+        {
+          "poi_id": "poi-property-center",
+          "instruction": "The repair report is routed to the property center dashboard."
+        }
+      ],
+      "ai_prompt_examples": [
+        "I want to report a broken light near the kids' playground.",
+        "Create a repair report for the playground light."
+      ],
+      "tags": ["repair", "property_workflow", "spatial_issue"]
+    },
+    {
+      "id": "route-robot-fire-passage-patrol",
+      "name": "Robot Patrol: Fire Passage and Garage Entrance",
+      "scenario": "robot_patrol",
+      "user_roles": ["property_operator", "service_robot"],
+      "start_poi_id": "poi-property-center",
+      "end_poi_id": "poi-property-center",
+      "estimated_minutes": 18,
+      "distance_meters": 760,
+      "robot_context": {
+        "robot_access_required": true,
+        "allowed_robot_types": ["wheeled_patrol_robot", "quadruped_patrol_robot"],
+        "inspection_goals": [
+          "Check whether the fire passage is blocked.",
+          "Check whether the garage entrance is clear.",
+          "Capture images of abnormal obstacles.",
+          "Return inspection results to the property dashboard."
+        ]
+      },
+      "access_requirements": [
+        "Property operator approval is required.",
+        "Robot operation should follow privacy, safety, and community management rules."
+      ],
+      "waypoints": [
+        {
+          "poi_id": "poi-property-center",
+          "instruction": "Start from the property center after task approval."
+        },
+        {
+          "poi_id": "poi-fire-passage",
+          "instruction": "Inspect the fire passage and detect possible obstructions."
+        },
+        {
+          "poi_id": "poi-underground-garage-entrance",
+          "instruction": "Inspect the underground garage entrance and capture abnormal conditions."
+        },
+        {
+          "poi_id": "poi-waste-collection",
+          "instruction": "Pass the waste collection point and optionally check sanitation status."
+        },
+        {
+          "poi_id": "poi-property-center",
+          "instruction": "Return to the property center and upload the patrol report."
+        }
+      ],
+      "ai_prompt_examples": [
+        "Generate a patrol route for a service robot.",
+        "Create a patrol task for the fire passage and garage entrance."
+      ],
+      "tags": ["robot_ready", "patrol", "safety", "future_interface"]
+    }
+  ]
+}

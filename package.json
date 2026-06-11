@@ -1,0 +1,22 @@
+{
+  "name": "community-spirit",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "validate:data": "node scripts/validate-data.mjs",
+    "validate:lifecycle": "node scripts/validate-pulse-lifecycle.mjs",
+    "validate:submission": "node scripts/validate-submission.mjs",
+    "check": "npm run validate:data && npm run validate:lifecycle && node --check demo/web/app.js && npm run build && npm run validate:submission"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^4.5.2",
+    "vite": "^6.3.5",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {}
+}

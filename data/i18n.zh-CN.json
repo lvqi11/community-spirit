@@ -1,0 +1,756 @@
+{
+  "schema_version": "0.1.0",
+  "locale": "zh-CN",
+  "app": {
+    "eyebrow": "社区生活 RPG 开源原型",
+    "title": "社区精灵",
+    "subtitle": "把万联创界社区变成可探索、可接任务、可运营，并能连接未来机器人的生活 RPG 世界。",
+    "modes": {
+      "rpg": "生活 RPG",
+      "quest": "空间任务引擎",
+      "ops": "世界运营后台",
+      "robot": "现实机器人任务层"
+    }
+  },
+  "badges": {
+    "digitalTwin": "社区生活 RPG",
+    "spatialTasks": "空间任务",
+    "robotReady": "机器人就绪地图"
+  },
+  "agent": {
+    "title": "社区精灵",
+    "description": "输入居民、物业或机器人任务，原型会把意图变成社区世界里的路线、活动、报修、巡检和支线任务。",
+    "promptLabel": "需求",
+    "askButton": "询问",
+    "samplePrompts": "示例需求",
+    "answerTitle": "基于数据的回答"
+  },
+  "actions": {
+    "copyLink": "复制链接",
+    "exportJson": "导出 JSON",
+    "linkCopied": "任务链接已复制。",
+    "exported": "当前工作流 JSON 已导出。"
+  },
+  "demo": {
+    "eyebrow": "黑客松演示模式",
+    "title": "一条故事，七次可见状态变化",
+    "progress": "剧情进度",
+    "on": "演示模式开启",
+    "off": "演示模式关闭",
+    "reset": "重置剧情",
+    "next": "运行下一步",
+    "complete": "剧情演示完成",
+    "resetStatus": "演示剧情已重置到初始匹配。",
+    "views": {
+      "world": "居民世界",
+      "task": "任务与权益",
+      "ops": "世界运营"
+    },
+    "steps": {
+      "match": {
+        "title": "个性化匹配",
+        "hint": "解释为什么推荐篮球局"
+      },
+      "join": {
+        "title": "加入 Pulse",
+        "hint": "生成参与名额与真实路线"
+      },
+      "checkin": {
+        "title": "到场签到",
+        "hint": "获得 XP、SP 与赛季进度"
+      },
+      "claim": {
+        "title": "领取权益",
+        "hint": "用 SP 领取赛后饮品"
+      },
+      "activate": {
+        "title": "激活权益",
+        "hint": "形成真实消费意图"
+      },
+      "redeem": {
+        "title": "模拟核销",
+        "hint": "完成不可重复的权益闭环"
+      },
+      "ops": {
+        "title": "运营复盘",
+        "hint": "查看空间与商业转化"
+      }
+    }
+  },
+  "pulse": {
+    "live": "社区脉冲正在发生",
+    "whyYou": "为什么推荐给你",
+    "profileSwitcher": "切换居民档案，观察推荐如何变化",
+    "matchScore": "匹配分",
+    "residentIdentity": "居民身份",
+    "time": "时间",
+    "walk": "步行",
+    "players": "参与者",
+    "join": "加入社区脉冲",
+    "viewRoute": "查看路线",
+    "checkin": "模拟到场签到",
+    "leave": "退出 Pulse",
+    "routeReady": "路线已生成",
+    "checkedIn": "你已到场，共享世界发生了变化。",
+    "sharedGoal": "社区共同目标",
+    "goalName": "解锁社区露天电影夜",
+    "goalReward": "在会所庭院举办居民电影夜",
+    "participation": "社区脉冲参与状态",
+    "identityUpgrade": "本次成长进度已写入居民身份。",
+    "safety": "只有双方确认参与后才显示个人资料。",
+    "joinedStatus": "已加入，路线和参与名额已准备完成。",
+    "leftStatus": "已退出 Pulse，参与名额重新回到匹配池。",
+    "unavailableStatus": "当前 Pulse 不再接受新的参与者。",
+    "checkinClosedStatus": "当前 Pulse 已停止签到。",
+    "checkinStatus": "已签到，经验值和社区共同目标已更新。",
+    "reason": {
+      "interests": "兴趣命中",
+      "time": "符合你的可参与时间",
+      "social": "符合你的社交舒适方式",
+      "nearby": "距离较近且当前可参与"
+    },
+    "stage": {
+      "discovered": "正在匹配",
+      "joined": "已加入",
+      "left": "已退出",
+      "checked_in": "已签到"
+    },
+    "operational": {
+      "matching": "匹配中",
+      "open": "开放参与",
+      "full": "已满员",
+      "expired": "报名已截止",
+      "ended": "活动已结束"
+    },
+    "operationalStatus": {
+      "matching": "Pulse 已恢复匹配。",
+      "open": "Pulse 已开放参与。",
+      "full": "Pulse 已设为满员。",
+      "expired": "Pulse 报名已截止。",
+      "ended": "Pulse 活动已结束。"
+    },
+    "unavailable": {
+      "full": "当前名额已满，请等待有人退出。",
+      "expired": "报名时间已截止。",
+      "ended": "本次活动已经结束。"
+    },
+    "steps": {
+      "matched": "根据兴趣和可用时间完成匹配",
+      "joined": "确认低压力的活动参与名额",
+      "checkedIn": "在真实社区空间完成签到"
+    },
+    "interests": {
+      "basketball": "篮球",
+      "night_activity": "夜间活动",
+      "meet_neighbors": "认识邻里",
+      "parent_child": "亲子",
+      "creative_activity": "创意活动",
+      "community_service": "社区共建",
+      "walking": "散步",
+      "shared_spaces": "公共空间"
+    }
+  },
+  "promptSamples": {
+    "task-guide-visitor-to-building-3": "引导访客到 3 号楼",
+    "task-pick-up-package": "寻找快递柜",
+    "task-join-parent-child-activity": "参加周末活动",
+    "task-community-explorer-quest": "开启社区探索任务",
+    "task-join-evening-basketball": "参加晚间篮球约球",
+    "task-maintain-shared-world": "开启世界维护支线",
+    "task-report-playground-light": "上报游乐场灯故障",
+    "task-robot-fire-passage-patrol": "生成机器人巡检"
+  },
+  "map": {
+    "subtitle": "万联创界社区：POI、路线、任务与机器人语义地图。"
+  },
+  "dashboard": {
+    "eyebrow": "物业运营台",
+    "title": "今日概览",
+    "summary": "同一套公开原型数据自动生成的轻量物业运营视图。",
+    "operationsTitle": "运营队列",
+    "insightTitle": "空间洞察",
+    "insightSelected": "当前工作流",
+    "workOrderTitle": "工单状态",
+    "robotTitle": "机器人巡检就绪度",
+    "robotSummary": "真实机器人运行前必须经过物业审批。",
+    "activityTitle": "活动报名管线",
+    "hotPoiTitle": "热门点位",
+    "internalCapacity": "内部",
+    "handoffTitle": "当前工作流交接",
+    "handoffTarget": "目标",
+    "handoffRoute": "路线",
+    "handoffOutputs": "输出",
+    "handoffGuardrails": "隐私约束",
+    "nextActionsTitle": "运营下一步",
+    "selectedContextTitle": "当前上下文",
+    "noLinkedActivity": "未绑定活动",
+    "riskTitle": "风险与权限审查",
+    "privacyLabel": "隐私",
+    "accessLabel": "权限",
+    "exportTitle": "工作流导出摘要",
+    "queueEmpty": "当前筛选下暂无工作流。",
+    "pulse": {
+      "eyebrow": "社区脉冲转化",
+      "title": "实时空间激活",
+      "impressions": "获得推荐",
+      "opens": "打开详情",
+      "joins": "确认加入",
+      "checkins": "实际签到",
+      "activation": "预计空间激活率",
+      "goalImpact": "共同目标贡献"
+      ,"lifecycle": "生命周期控制"
+    },
+    "season": {
+      "eyebrow": "赛季运营",
+      "resident": "当前居民",
+      "checkins": "赛季签到",
+      "xp": "居民经验值",
+      "history": "已完成 Pulse 任务"
+    },
+    "commerce": {
+      "eyebrow": "社区商业闭环",
+      "title": "参与到权益转化",
+      "awarded": "已发放 SP",
+      "spent": "已消费 SP",
+      "claimed": "已领取权益",
+      "activated": "已激活权益",
+      "redeemed": "已核销权益"
+    },
+    "metrics": {
+      "pois": "管理点位",
+      "openActivities": "开放活动",
+      "repairTickets": "报修工单",
+      "robotReady": "机器人可达点位",
+      "robotRoutes": "机器人路线"
+    },
+    "units": {
+      "workflow": "个工作流",
+      "workflows": "个工作流",
+      "route": "条路线",
+      "routes": "条路线",
+      "robotReadyPois": "个机器人可达点位"
+    },
+    "labels": {
+      "resident": "居民",
+      "property_operator": "物业运营",
+      "service_robot": "服务机器人",
+      "demo_ready": "演示就绪",
+      "planned_for_demo": "演示规划中",
+      "future_interface": "未来接口",
+      "draft": "草稿",
+      "internal": "内部"
+    },
+    "filters": {
+      "all": "全部"
+    },
+    "exportFields": {
+      "schema": "版本",
+      "task": "任务",
+      "route": "路线",
+      "activity": "活动",
+      "target": "目标",
+      "policy": "策略"
+    },
+    "reviewText": {
+      "noUnitNumber": "默认不暴露住户单元号。",
+      "visitorAccessRules": "访客通行必须遵守社区门禁规则。",
+      "noPackageCode": "取件码或配送信息不得存入公开路线数据。",
+      "noChildrenInfo": "儿童信息不得公开展示。",
+      "participantPrivacy": "活动参与名单应遵守社区隐私设置。",
+      "noResidentIdentity": "公开问题流中不得附带居民身份。",
+      "photoReview": "照片公开展示前应检查隐私敏感内容。",
+      "operatorReview": "物业运营人员发布前应复核活动内容。",
+      "robotGovernance": "机器人运行必须遵守隐私、安全和物业审批规则。",
+      "sensorGovernance": "没有明确治理策略时，不应存储摄像头或传感器数据。",
+      "residentAuthorizesVisitor": "访客进入住宅区域前应获得居民授权。",
+      "buildingAccessRules": "楼栋入口通行应遵守物业门禁规则。",
+      "packageIdentity": "取快递需要居民身份验证。",
+      "activitySignup": "活动签到前可能需要先完成报名。",
+      "childrenGuardians": "儿童应由监护人陪同。",
+      "propertyApproval": "需要物业运营人员审批。",
+      "robotCommunityRules": "机器人运行应遵守隐私、安全和社区管理规则。"
+    },
+    "actions": {
+      "repair": {
+        "verifyLocation": "核验上报点位和问题类型。",
+        "dispatch": "带着空间上下文派发维修负责人。",
+        "followUp": "用居民可见的状态更新完成闭环。"
+      },
+      "activity": {
+        "review": "复核活动文案、容量和安全提示。",
+        "publish": "发布带路线指引的活动卡片。",
+        "track": "追踪报名、签到和活动后参与数据。"
+      },
+      "robot": {
+        "approve": "机器人执行前确认物业审批。",
+        "checkRoute": "检查路线中的点位是否机器人可达。",
+        "export": "导出语义巡检 payload 用于集成。"
+      },
+      "navigation": {
+        "confirm": "确认路线符合公开可见性规则。",
+        "share": "把任务链接分享给居民或访客。",
+        "monitor": "按点位观察重复路线咨询需求。"
+      }
+    }
+  },
+  "context": {
+    "activityTitle": "活动上下文",
+    "questTitle": "任务上下文",
+    "maintenanceTitle": "世界维护上下文",
+    "repairTitle": "报修单预览",
+    "robotTitle": "机器人就绪导出",
+    "valueTitle": "任务价值",
+    "poiTitle": "点位详情"
+  },
+  "fields": {
+    "activity": "活动",
+    "signup": "报名",
+    "residentValue": "居民价值",
+    "propertyValue": "物业价值",
+    "issueType": "问题类型",
+    "priority": "优先级",
+    "location": "位置",
+    "description": "描述",
+    "estimatedTime": "预计时间",
+    "distance": "距离",
+    "name": "名称",
+    "type": "类型",
+    "access": "访问权限",
+    "robotAccessible": "机器人可达",
+    "questCheckins": "任务打卡点",
+    "reward": "奖励",
+    "maintenanceLoop": "维护闭环"
+  },
+  "status": {
+    "required": "需要报名",
+    "notRequired": "无需报名",
+    "yes": "是",
+    "no": "否",
+    "noRoute": "暂无路线"
+  },
+  "units": {
+    "minutes": "分钟",
+    "meters": "米"
+  },
+  "repair": {
+    "exampleDescription": "儿童游乐场附近的一盏步道灯无法正常工作。"
+  },
+  "schedule": {
+    "eyebrow": "排期支线任务",
+    "time": "时间",
+    "place": "地点",
+    "status": "状态"
+  },
+  "maintenance": {
+    "loop": "发现问题 -> 带位置上报 -> 物业分派 -> 居民可见更新",
+    "reward": "居民协助者成长进度"
+  },
+  "quest": {
+    "identityLabel": "居民身份",
+    "identityName": "社区精灵探索者",
+    "level": "Lv. 1",
+    "progress": "任务进度",
+    "badgeReward": "徽章奖励",
+    "nextSideQuests": "下一批支线",
+    "openSideQuest": "打开支线 ->",
+    "sideQuests": {
+      "sports": {
+        "title": "发现晚间篮球约球",
+        "time": "今晚 20:00-21:30",
+        "place": "篮球场",
+        "status": "组局草稿",
+        "action": "可以带一位邻居，也可以单人加入。"
+      },
+      "family": {
+        "title": "参加周末亲子活动",
+        "time": "周六 10:00-11:30",
+        "place": "儿童游乐场",
+        "status": "开放报名",
+        "action": "完成签到后解锁亲子探索印章。"
+      },
+      "helper": {
+        "title": "上报一个世界维护问题",
+        "time": "本周任意时间",
+        "place": "公共户外区域",
+        "status": "居民协助任务",
+        "action": "提交一个带位置的问题，帮助维护社区世界。"
+      }
+    }
+  },
+  "season": {
+    "eyebrow": "社区赛季",
+    "title": "入住第一周",
+    "progressValue": "2/5",
+    "description": "为新居民准备的起始赛季：发现地点、认识邻里、参与公共仪式。",
+    "activeQuest": "进行中任务",
+    "quest": {
+      "explorer": "完成社区探索任务",
+      "neighbor": "参加一次邻里活动",
+      "helper": "维护一个公共地点"
+    },
+    "rewardLabel": "赛季奖励",
+    "reward": "万联创界创始居民徽章"
+  },
+  "growth": {
+    "badges": "枚徽章",
+    "completed": "次完成"
+  },
+  "benefits": {
+    "eyebrow": "社区权益",
+    "title": "精灵积分钱包",
+    "description": "XP 用于身份成长，Spirit Points 用于解锁真实有用的社区权益。",
+    "provider": "提供方",
+    "cost": "积分成本",
+    "unlockHint": "完成对应社区脉冲后解锁。",
+    "claim": "领取权益",
+    "needPoints": "积分不足",
+    "activate": "激活 / 预约",
+    "redeem": "模拟核销",
+    "redeemed": "权益已成功核销",
+    "ledger": "钱包记录",
+    "emptyLedger": "完成一次 Pulse 后会生成第一笔钱包明细。",
+    "earnedFromPulse": "Pulse 签到奖励",
+    "claimTransaction": "领取权益",
+    "balance": "余额",
+    "credential": "居民权益凭证",
+    "credentialState": "凭证状态",
+    "issued": "签发时间",
+    "timeline": "凭证时间线",
+    "claimedStep": "已领取",
+    "activatedStep": "已激活",
+    "redeemedStep": "已核销",
+    "pending": "待完成",
+    "noCashValue": "合成原型积分，不具备现金价值。",
+    "claimedStatus": "权益领取成功，积分仅扣除一次。",
+    "activatedStatus": "权益已激活，可以进行核销。",
+    "redeemedStatus": "核销已记录，该权益不能重复使用。",
+    "states": {
+      "locked": "未解锁",
+      "available": "可领取",
+      "claimed": "已领取",
+      "activated": "已激活",
+      "redeemed": "已核销"
+    },
+    "types": {
+      "merchant_offer": "商户优惠",
+      "property_right": "物业权益",
+      "community_right": "社区共创权"
+    }
+  },
+  "entities": {
+    "profiles": {
+      "resident-profile-after-work": {
+        "profile_label": "下班后运动青年",
+        "identity_title": "社区精灵探索者"
+      },
+      "resident-profile-weekend-family": {
+        "profile_label": "周末亲子探索家庭",
+        "identity_title": "亲子领路人"
+      },
+      "resident-profile-community-helper": {
+        "profile_label": "社区共建参与者",
+        "identity_title": "世界维护者"
+      }
+    },
+    "seasons": {
+      "season-summer-night-sports": {
+        "short_name": "夏夜运动",
+        "name": "夏夜运动季",
+        "theme": "把晚间运动空间变成持续发生的邻里仪式。",
+        "operator_goal": "提升夜间运动空间激活率与重复参与。",
+        "milestone_sports-join": "参加一次社区运动活动",
+        "milestone_sports-return": "再次参加运动夜",
+        "milestone_sports-host": "帮助欢迎一位新球友",
+        "reward_name": "运动夜优先通行证"
+      },
+      "season-family-discovery": {
+        "short_name": "亲子探索",
+        "name": "亲子探索季",
+        "theme": "让家庭发现空间、共同创作并形成熟悉的邻里圈。",
+        "operator_goal": "提升家庭活动复访率与游乐场参与度。",
+        "milestone_family-join": "完成一次亲子探索活动",
+        "milestone_family-create": "为社区故事墙贡献一件创作",
+        "milestone_family-connect": "再次遇见一个熟悉的家庭小组",
+        "reward_name": "亲子工作坊优先报名权"
+      },
+      "season-world-keepers": {
+        "short_name": "世界维护",
+        "name": "世界维护季",
+        "theme": "把居民观察转化为共享空间中可见的真实改善。",
+        "operator_goal": "提升空间问题质量与居民可见的闭环率。",
+        "milestone_keeper-report": "完成一次共享空间观察",
+        "milestone_keeper-follow": "跟进一个问题至物业反馈",
+        "milestone_keeper-shape": "参与下一项空间微更新投票",
+        "reward_name": "共享空间共创投票权"
+      }
+    },
+    "benefits": {
+      "benefit-sports-drink": {
+        "name": "赛后运动饮品",
+        "provider_name": "万联创界街角咖啡",
+        "validity_label": "领取后 7 天内有效",
+        "description": "完成晚间篮球 Pulse 后可领取的合成运动饮品权益。"
+      },
+      "benefit-family-workshop-priority": {
+        "name": "亲子工作坊优先名额",
+        "provider_name": "万联创界社区会所",
+        "validity_label": "下一期工作坊开放时有效",
+        "description": "在下一场限额亲子工作坊中优先预约一个名额。"
+      },
+      "benefit-shared-space-vote": {
+        "name": "共享空间共创投票权",
+        "provider_name": "万联创界世界运营台",
+        "validity_label": "当前世界维护季内有效",
+        "description": "对下一项居民可见的共享空间微更新投出一票。"
+      }
+    },
+    "pulses": {
+      "pulse-tonight-basketball": {
+        "short_label": "今晚篮球缺人",
+        "headline": "今晚篮球场还差 2 人",
+        "hook": "距离你步行 4 分钟。先参加活动，双方确认后才开放交流。",
+        "signup_closes_label": "19:50 停止接受新加入",
+        "cancellation_policy": "签到前可以退出，名额会重新回到匹配池。",
+        "end_condition": "球场活动在 21:30 结束后关闭。",
+        "goal_name": "解锁社区露天电影夜",
+        "goal_reward": "在会所庭院举办居民电影夜",
+        "ops_title": "今晚篮球场空间激活"
+      },
+      "pulse-weekend-family-stamp": {
+        "short_label": "亲子探索组队",
+        "headline": "一个亲子探索小队正在组建",
+        "hook": "完成一件小创作、认识另一个家庭，并解锁游乐场发现印章。",
+        "signup_closes_label": "周五 20:00 停止报名",
+        "cancellation_policy": "工作坊开始前可以释放家庭名额。",
+        "end_condition": "主持人关闭签到后活动结束。",
+        "goal_name": "共同建设社区故事墙",
+        "goal_reward": "在会所落地居民共同创作的故事墙",
+        "ops_title": "周末游乐场家庭参与转化"
+      },
+      "pulse-shared-world-walk": {
+        "short_label": "共享空间维护",
+        "headline": "本周一起改善一个共享地点",
+        "hook": "完成一次短途观察，提交一个带位置的问题，并持续追踪处理反馈。",
+        "signup_closes_label": "周日 18:00 停止新加入",
+        "cancellation_policy": "提交观察记录前可以退出。",
+        "end_condition": "本周观察窗口关闭时结束。",
+        "goal_name": "修复 10 个共享空间问题",
+        "goal_reward": "由居民共同选择下一项空间微更新",
+        "ops_title": "共享空间共建闭环"
+      }
+    },
+    "pois": {
+      "poi-north-gate": {
+        "name": "北门",
+        "description": "居民与访客常用的人行入口。"
+      },
+      "poi-south-gate": {
+        "name": "南门",
+        "description": "靠近车辆入口的南侧主入口。"
+      },
+      "poi-building-1": {
+        "name": "1 号楼",
+        "description": "靠近北入口的住宅楼。"
+      },
+      "poi-building-2": {
+        "name": "2 号楼",
+        "description": "靠近儿童游乐场与景观步道的住宅楼。"
+      },
+      "poi-building-3": {
+        "name": "3 号楼",
+        "description": "访客路线 Demo 使用的目标楼栋。"
+      },
+      "poi-property-center": {
+        "name": "物业服务中心",
+        "description": "处理物业支持、报修、咨询与失物招领的服务点。"
+      },
+      "poi-package-locker": {
+        "name": "快递柜",
+        "description": "居民高频使用的快递取件点。"
+      },
+      "poi-kids-playground": {
+        "name": "儿童游乐场",
+        "description": "亲子活动、游玩和报修场景的核心点位。"
+      },
+      "poi-basketball-court": {
+        "name": "篮球场",
+        "description": "承载社区运动和青年活动的公共空间。"
+      },
+      "poi-clubhouse": {
+        "name": "会所",
+        "description": "承载活动、会议和增值服务的高端公共空间。"
+      },
+      "poi-underground-garage-entrance": {
+        "name": "地下车库入口",
+        "description": "连接车辆通行、地下停车与巡检路线的关键节点。"
+      },
+      "poi-fire-passage": {
+        "name": "消防通道",
+        "description": "面向物业和未来机器人巡检的安全关键点位。"
+      },
+      "poi-waste-collection": {
+        "name": "垃圾集中点",
+        "description": "日常清洁与卫生巡检点。"
+      }
+    },
+    "routes": {
+      "route-visitor-north-gate-to-building-3": {
+        "name": "访客路线：北门到 3 号楼",
+        "waypoints": [
+          "从北门进入，经过门岗。",
+          "沿主景观步道向南行走。",
+          "在中心花园右转，继续前往 3 号楼。",
+          "抵达 3 号楼，按授权访客方式进入。"
+        ]
+      },
+      "route-building-3-to-package-locker": {
+        "name": "日常任务：3 号楼到快递柜",
+        "waypoints": [
+          "从 3 号楼大堂出发。",
+          "沿内部步道向西行走。",
+          "抵达快递柜，并按照取件提示操作。"
+        ]
+      },
+      "route-building-3-to-kids-activity": {
+        "name": "活动路线：3 号楼到儿童游乐场",
+        "waypoints": [
+          "从 3 号楼出发，前往中心花园。",
+          "经过花园步道，按指引前往游乐场。",
+          "抵达儿童游乐场，完成活动签到。"
+        ]
+      },
+      "route-community-explorer-loop": {
+        "name": "社区探索路线：3 号楼到游乐场、篮球场和会所",
+        "waypoints": [
+          "从 3 号楼出发，接受社区探索任务。",
+          "在儿童游乐场打卡，解锁第一个发现印章。",
+          "前往篮球场，发现运动约球支线任务。",
+          "抵达会所，领取社区探索者徽章。"
+        ]
+      },
+      "route-building-3-to-basketball-meetup": {
+        "name": "运动支线：3 号楼到篮球场",
+        "waypoints": [
+          "从 3 号楼出发，接受晚间运动支线。",
+          "沿东侧步道前往亮灯的篮球场入口。",
+          "抵达篮球场，确认约球规则并完成签到。"
+        ]
+      },
+      "route-shared-space-maintenance-loop": {
+        "name": "世界维护路线：游乐场到垃圾集中点和物业中心",
+        "waypoints": [
+          "从游乐场出发，观察灯光、地面和公共设施。",
+          "检查共享步道与垃圾集中点的卫生或阻塞问题。",
+          "提交一个带位置的问题，并追踪居民可见的处理状态。"
+        ]
+      },
+      "route-repair-kids-playground-light": {
+        "name": "报修：儿童游乐场附近灯具故障",
+        "waypoints": [
+          "选择儿童游乐场作为问题位置。",
+          "报修单进入物业服务中心后台。"
+        ]
+      },
+      "route-robot-fire-passage-patrol": {
+        "name": "机器人巡检：消防通道与车库入口",
+        "waypoints": [
+          "物业审批任务后，从物业服务中心出发。",
+          "巡检消防通道，识别是否存在阻塞。",
+          "巡检地下车库入口，并记录异常情况。",
+          "经过垃圾集中点，可同步检查卫生状态。",
+          "返回物业服务中心并上传巡检报告。"
+        ]
+      }
+    },
+    "tasks": {
+      "task-guide-visitor-to-building-3": {
+        "name": "引导访客到 3 号楼",
+        "goal": "生成从北门到 3 号楼的清晰访客路线。",
+        "user_value": "居民可以在访客到达前分享简单路线。",
+        "property_value": "减少门岗和物业中心反复解答路线问题。"
+      },
+      "task-pick-up-package": {
+        "name": "取快递",
+        "goal": "帮助居民从 3 号楼找到快递柜。",
+        "user_value": "把高频日常事务变成可见、易走的路线。",
+        "property_value": "减少新居民迷路，提高服务体验。"
+      },
+      "task-join-parent-child-activity": {
+        "name": "参加周末亲子活动",
+        "goal": "让居民发现活动、报名、导航并到场签到。",
+        "user_value": "让社区活动更容易被发现和参与。",
+        "property_value": "提升活动参与率、签到追踪和活动运营数据。",
+        "schedule_time": "周六 10:00-11:30",
+        "schedule_place": "儿童游乐场",
+        "schedule_status": "开放报名",
+        "schedule_action": "完成签到后解锁亲子探索印章。"
+      },
+      "task-community-explorer-quest": {
+        "name": "开启社区探索任务",
+        "goal": "把新居民第一周熟悉社区的过程变成可玩的探索任务。",
+        "user_value": "居民会感觉社区是活的，能发现有用地点，并获得可见的身份徽章。",
+        "property_value": "物业可以把入住引导、活动发现和社区文化变成可重复的参与循环。"
+      },
+      "task-join-evening-basketball": {
+        "name": "参加晚间篮球约球",
+        "goal": "把非正式约球变成可发现、可导航、可签到的运动支线。",
+        "user_value": "居民无需翻找嘈杂群聊，也能发现附近的运动搭子。",
+        "property_value": "激活篮球场，并衡量需求、到场率和重复参与。",
+        "schedule_time": "今晚 20:00-21:30",
+        "schedule_place": "篮球场",
+        "schedule_status": "组局草稿",
+        "schedule_action": "可以带一位邻居，也可以单人加入。"
+      },
+      "task-maintain-shared-world": {
+        "name": "完成世界维护支线",
+        "goal": "让居民通过有路线、重隐私的问题发现闭环，共同维护社区世界。",
+        "user_value": "居民能通过改善每天使用的地点获得可见的参与感和成长进度。",
+        "property_value": "把零散投诉转成结构化空间问题，提升分派和居民回访效率。",
+        "schedule_time": "本周任意时间",
+        "schedule_place": "公共户外区域",
+        "schedule_status": "居民协助任务",
+        "schedule_action": "提交一个带位置的问题，并追踪处理反馈。"
+      },
+      "task-report-playground-light": {
+        "name": "上报儿童游乐场灯具故障",
+        "goal": "创建带有精确空间上下文的报修单。",
+        "user_value": "居民无需费力描述位置，也能准确上报问题。",
+        "property_value": "物业团队收到结构化、位置明确的报修请求。"
+      },
+      "task-create-weekend-activity": {
+        "name": "发布周末社区活动",
+        "goal": "允许物业运营人员发布绑定空间点位的活动。",
+        "user_value": "居民可以在社区地图中发现活动，而不只依赖群消息。",
+        "property_value": "物业可统一管理报名、路线、签到和参与数据。"
+      },
+      "task-robot-fire-passage-patrol": {
+        "name": "机器人消防通道巡检",
+        "goal": "为未来服务机器人生成结构化巡检任务。",
+        "user_value": "居民受益于更稳定、更持续的社区安全巡检。",
+        "property_value": "物业可把巡检流程转成机器人可执行的结构化任务。"
+      }
+    },
+    "activities": {
+      "activity-weekend-parent-child-workshop": {
+        "name": "周末亲子工作坊",
+        "resident_value": "为家庭提供低压力认识邻里、熟悉游乐场区域的机会。",
+        "property_value": "提升活动参与度，并形成可衡量的社区活跃数据。"
+      },
+      "activity-evening-basketball-meetup": {
+        "name": "晚间篮球约球",
+        "resident_value": "为居民提供安全、场景化的社区运动搭子发现方式。",
+        "property_value": "激活社区运动空间，而不只依赖聊天群。"
+      },
+      "activity-community-explorer-trail": {
+        "name": "社区探索路线",
+        "resident_value": "让社区更有生命感，也给居民一个超越日常事务的探索理由。",
+        "property_value": "把入住引导和社区文化转化为可持续的参与循环。"
+      },
+      "activity-fire-passage-safety-check": {
+        "name": "消防通道安全检查",
+        "resident_value": "通过更结构化的巡检提高社区安全。",
+        "property_value": "把物业运营与机器人语义路线连接起来。"
+      }
+    }
+  }
+}

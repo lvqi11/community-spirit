@@ -1,0 +1,67 @@
+{
+  "schema_version": "0.1.0",
+  "community_id": "omniweave-community",
+  "data_policy": "fictional_or_synthetic_only",
+  "seasons": [
+    {
+      "id": "season-summer-night-sports",
+      "name": "Summer Night Sports",
+      "theme": "Turn evening sports spaces into recurring neighbor rituals.",
+      "status": "active",
+      "accent": "amber",
+      "target_profiles": ["resident-profile-after-work"],
+      "linked_pulse_ids": ["pulse-tonight-basketball"],
+      "milestones": [
+        { "id": "sports-join", "label": "Join one community sports event", "required_checkins": 1 },
+        { "id": "sports-return", "label": "Return for a second sports night", "required_checkins": 2 },
+        { "id": "sports-host", "label": "Help welcome a new player", "required_checkins": 3 }
+      ],
+      "reward": {
+        "type": "community_right",
+        "name": "Sports Night Priority Pass",
+        "description": "Early access to the next resident-organized sports session."
+      },
+      "operator_goal": "Increase evening sports-space activation and repeat participation."
+    },
+    {
+      "id": "season-family-discovery",
+      "name": "Family Discovery Season",
+      "theme": "Help families discover places, create together, and form familiar neighbor circles.",
+      "status": "active",
+      "accent": "violet",
+      "target_profiles": ["resident-profile-weekend-family"],
+      "linked_pulse_ids": ["pulse-weekend-family-stamp"],
+      "milestones": [
+        { "id": "family-join", "label": "Complete one family discovery activity", "required_checkins": 1 },
+        { "id": "family-create", "label": "Contribute one creation to the story wall", "required_checkins": 2 },
+        { "id": "family-connect", "label": "Meet a returning family group", "required_checkins": 3 }
+      ],
+      "reward": {
+        "type": "community_right",
+        "name": "Family Workshop Early Access",
+        "description": "Priority registration for the next limited family workshop."
+      },
+      "operator_goal": "Improve family activity return rate and playground participation."
+    },
+    {
+      "id": "season-world-keepers",
+      "name": "World Keepers Season",
+      "theme": "Turn resident observations into visible improvements to shared spaces.",
+      "status": "active",
+      "accent": "green",
+      "target_profiles": ["resident-profile-community-helper"],
+      "linked_pulse_ids": ["pulse-shared-world-walk"],
+      "milestones": [
+        { "id": "keeper-report", "label": "Complete one shared-space observation", "required_checkins": 1 },
+        { "id": "keeper-follow", "label": "Follow one issue through property response", "required_checkins": 2 },
+        { "id": "keeper-shape", "label": "Vote on the next space micro-upgrade", "required_checkins": 3 }
+      ],
+      "reward": {
+        "type": "community_right",
+        "name": "Shared-space Co-creator Vote",
+        "description": "A vote on the next resident-visible shared-space improvement."
+      },
+      "operator_goal": "Increase location-aware issue quality and resident-visible closure."
+    }
+  ]
+}

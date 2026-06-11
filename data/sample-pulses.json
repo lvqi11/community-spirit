@@ -1,0 +1,183 @@
+{
+  "schema_version": "0.2.0",
+  "community_id": "omniweave-community",
+  "data_policy": "fictional_or_synthetic_only",
+  "resident_profiles": [
+    {
+      "id": "resident-profile-after-work",
+      "display_name": "Lin",
+      "profile_label": "After-work mover",
+      "identity_title": "Community Spirit Seeker",
+      "level": 2,
+      "xp": 180,
+      "next_level_xp": 260,
+      "spirit_points": 20,
+      "interests": ["basketball", "night_activity", "meet_neighbors"],
+      "availability": ["tonight_after_19_30", "weekday_evening"],
+      "social_mode": "low_pressure_activity_first",
+      "privacy_mode": "confirmed_participants_only"
+    },
+    {
+      "id": "resident-profile-weekend-family",
+      "display_name": "Mia",
+      "profile_label": "Weekend family explorer",
+      "identity_title": "Family Pathfinder",
+      "level": 3,
+      "xp": 310,
+      "next_level_xp": 420,
+      "spirit_points": 25,
+      "interests": ["parent_child", "creative_activity", "meet_neighbors"],
+      "availability": ["weekend_morning", "weekend_daytime"],
+      "social_mode": "family_activity_first",
+      "privacy_mode": "confirmed_participants_only"
+    },
+    {
+      "id": "resident-profile-community-helper",
+      "display_name": "Kai",
+      "profile_label": "Community helper",
+      "identity_title": "World Keeper",
+      "level": 4,
+      "xp": 470,
+      "next_level_xp": 600,
+      "spirit_points": 10,
+      "interests": ["community_service", "walking", "shared_spaces"],
+      "availability": ["flexible_this_week", "weekday_evening"],
+      "social_mode": "purpose_first",
+      "privacy_mode": "private_progress"
+    }
+  ],
+  "pulses": [
+    {
+      "id": "pulse-tonight-basketball",
+      "type": "spontaneous_social_event",
+      "status": "matching",
+      "headline": "Tonight's court needs 2 more players",
+      "hook": "A 4-minute walk away. Join through the activity first, chat only after confirmation.",
+      "match_tags": ["basketball", "night_activity", "meet_neighbors"],
+      "availability_tags": ["tonight_after_19_30", "weekday_evening"],
+      "social_modes": ["low_pressure_activity_first"],
+      "linked_task_id": "task-join-evening-basketball",
+      "linked_season_id": "season-summer-night-sports",
+      "linked_activity_id": "activity-evening-basketball-meetup",
+      "location_poi_id": "poi-basketball-court",
+      "time_label": "Tonight 20:00-21:30",
+      "lifecycle": {
+        "signup_closes_label": "Signup closes at 19:50",
+        "cancellation_policy": "Residents may leave before check-in so the slot can return to matching.",
+        "end_condition": "Ends after the court session closes at 21:30."
+      },
+      "distance_minutes": 4,
+      "participants": { "confirmed": 3, "target": 5, "capacity": 16 },
+      "reward": { "xp": 40, "spirit_points": 20, "badge_id": "badge-sports-neighbor", "badge_progress": "Sports Neighbor 1/3" },
+      "community_goal": {
+        "id": "goal-unlock-rooftop-movie-night",
+        "name": "Unlock the Community Movie Night",
+        "current_points": 62,
+        "target_points": 100,
+        "join_points": 2,
+        "checkin_points": 5,
+        "unlocked_reward": "Resident movie night at the clubhouse courtyard"
+      },
+      "operator_signals": {
+        "recommendation_impressions": 18,
+        "detail_opens": 9,
+        "confirmed_joins": 3,
+        "checkins": 2,
+        "space_activation_baseline_percent": 24,
+        "space_activation_projected_percent": 71
+      },
+      "safety_notes": [
+        "Participant profiles are visible only after both sides confirm.",
+        "The meetup stays inside an approved public activity space."
+      ]
+    },
+    {
+      "id": "pulse-weekend-family-stamp",
+      "type": "scheduled_family_event",
+      "status": "open",
+      "headline": "A family explorer team is forming",
+      "hook": "Make one small creation, meet another family, and unlock a playground discovery stamp.",
+      "match_tags": ["parent_child", "creative_activity", "meet_neighbors"],
+      "availability_tags": ["weekend_morning", "weekend_daytime"],
+      "social_modes": ["family_activity_first"],
+      "linked_task_id": "task-join-parent-child-activity",
+      "linked_season_id": "season-family-discovery",
+      "linked_activity_id": "activity-weekend-parent-child-workshop",
+      "location_poi_id": "poi-kids-playground",
+      "time_label": "Saturday 10:00-11:30",
+      "lifecycle": {
+        "signup_closes_label": "Signup closes Friday at 20:00",
+        "cancellation_policy": "Families may release their place before the workshop begins.",
+        "end_condition": "Ends when the workshop host closes attendance."
+      },
+      "distance_minutes": 5,
+      "participants": { "confirmed": 8, "target": 12, "capacity": 24 },
+      "reward": { "xp": 35, "spirit_points": 25, "badge_id": "badge-family-explorer", "badge_progress": "Family Explorer 2/3" },
+      "community_goal": {
+        "id": "goal-build-season-story-wall",
+        "name": "Build the Community Story Wall",
+        "current_points": 41,
+        "target_points": 80,
+        "join_points": 2,
+        "checkin_points": 4,
+        "unlocked_reward": "A resident-created story wall in the clubhouse"
+      },
+      "operator_signals": {
+        "recommendation_impressions": 31,
+        "detail_opens": 16,
+        "confirmed_joins": 8,
+        "checkins": 0,
+        "space_activation_baseline_percent": 36,
+        "space_activation_projected_percent": 78
+      },
+      "safety_notes": [
+        "Children remain accompanied by guardians.",
+        "Family profiles and participant lists are not publicly visible."
+      ]
+    },
+    {
+      "id": "pulse-shared-world-walk",
+      "type": "community_co_creation",
+      "status": "open",
+      "headline": "Help improve one shared place this week",
+      "hook": "Take a short observation walk, submit one location-aware issue, and follow the response.",
+      "match_tags": ["community_service", "walking", "shared_spaces"],
+      "availability_tags": ["flexible_this_week", "weekday_evening"],
+      "social_modes": ["purpose_first", "low_pressure_activity_first"],
+      "linked_task_id": "task-maintain-shared-world",
+      "linked_season_id": "season-world-keepers",
+      "linked_activity_id": null,
+      "location_poi_id": "poi-kids-playground",
+      "time_label": "Anytime this week",
+      "lifecycle": {
+        "signup_closes_label": "New joins close Sunday at 18:00",
+        "cancellation_policy": "Residents may leave until they submit their observation.",
+        "end_condition": "Ends when the weekly observation window closes."
+      },
+      "distance_minutes": 9,
+      "participants": { "confirmed": 6, "target": 10, "capacity": 30 },
+      "reward": { "xp": 45, "spirit_points": 30, "badge_id": "badge-world-keeper", "badge_progress": "World Keeper 2/4" },
+      "community_goal": {
+        "id": "goal-restore-shared-spaces",
+        "name": "Restore 10 Shared-space Issues",
+        "current_points": 6,
+        "target_points": 10,
+        "join_points": 0,
+        "checkin_points": 1,
+        "unlocked_reward": "Residents choose the next shared-space micro-upgrade"
+      },
+      "operator_signals": {
+        "recommendation_impressions": 22,
+        "detail_opens": 13,
+        "confirmed_joins": 6,
+        "checkins": 4,
+        "space_activation_baseline_percent": 18,
+        "space_activation_projected_percent": 54
+      },
+      "safety_notes": [
+        "Only publicly accessible shared spaces may be observed.",
+        "Reports must avoid faces, unit numbers, vehicle plates, and private spaces."
+      ]
+    }
+  ]
+}

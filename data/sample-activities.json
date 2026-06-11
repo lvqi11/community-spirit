@@ -1,0 +1,160 @@
+{
+  "schema_version": "0.1.0",
+  "community_id": "omniweave-community",
+  "activity_policy": {
+    "data_policy": "fictional_or_synthetic_only",
+    "note": "Activities are synthetic examples for validating spatial discovery, signup, route guidance, and property operations."
+  },
+  "activity_types": [
+    "parent_child",
+    "sports",
+    "pet",
+    "community_service",
+    "seasonal_event"
+  ],
+  "activities": [
+    {
+      "id": "activity-weekend-parent-child-workshop",
+      "name": "Weekend Parent-child Workshop",
+      "type": "parent_child",
+      "status": "open_for_signup",
+      "host_role": "property_operator",
+      "host_name": "OmniWeave Property Team",
+      "location_poi_id": "poi-kids-playground",
+      "linked_route_id": "route-building-3-to-kids-activity",
+      "time_window": {
+        "start": "2026-07-04T10:00:00+08:00",
+        "end": "2026-07-04T11:30:00+08:00"
+      },
+      "capacity": 24,
+      "signup_required": true,
+      "checkin_supported": true,
+      "target_residents": ["families", "new_residents"],
+      "description": "A small weekend workshop for families to explore the community and complete a creative activity together.",
+      "resident_value": "Creates a low-pressure way for families to meet neighbors and become familiar with the playground area.",
+      "property_value": "Improves activity participation and creates measurable community engagement.",
+      "rewards": [
+        {
+          "type": "badge",
+          "id": "badge-community-explorer",
+          "name": "Community Explorer"
+        }
+      ],
+      "safety_notes": [
+        "Children should be accompanied by guardians.",
+        "Participant information should not be publicly exposed."
+      ],
+      "ai_prompt_examples": [
+        "What parent-child activities are happening this weekend?",
+        "Sign me up for the weekend workshop."
+      ],
+      "tags": ["parent_child", "community_activity", "checkin", "badge"]
+    },
+    {
+      "id": "activity-evening-basketball-meetup",
+      "name": "Evening Basketball Meetup",
+      "type": "sports",
+      "status": "draft",
+      "host_role": "resident_group",
+      "host_name": "OmniWeave Sports Group",
+      "location_poi_id": "poi-basketball-court",
+      "linked_route_id": "route-building-3-to-basketball-meetup",
+      "time_window": {
+        "start": "2026-07-08T20:00:00+08:00",
+        "end": "2026-07-08T21:30:00+08:00"
+      },
+      "capacity": 16,
+      "signup_required": true,
+      "checkin_supported": true,
+      "target_residents": ["sports_users", "young_residents"],
+      "description": "A lightweight sports meetup for residents who want to find basketball partners inside the community.",
+      "resident_value": "Creates a safe and contextual way to find sports partners nearby.",
+      "property_value": "Activates community sports space without relying only on chat groups.",
+      "rewards": [
+        {
+          "type": "badge",
+          "id": "badge-sports-neighbor",
+          "name": "Sports Neighbor"
+        }
+      ],
+      "safety_notes": [
+        "Activity organizer identity should be verified.",
+        "Property rules for sports space usage should be shown before signup."
+      ],
+      "ai_prompt_examples": [
+        "Is there any basketball activity this week?",
+        "Find sports activities near me."
+      ],
+      "tags": ["sports", "neighbor_connection", "resident_group"]
+    },
+    {
+      "id": "activity-community-explorer-trail",
+      "name": "Community Explorer Trail",
+      "type": "seasonal_event",
+      "status": "open_for_signup",
+      "host_role": "property_operator",
+      "host_name": "Community Spirit Guide",
+      "location_poi_id": "poi-clubhouse",
+      "linked_route_id": "route-community-explorer-loop",
+      "time_window": {
+        "start": "2026-07-05T09:00:00+08:00",
+        "end": "2026-07-31T21:00:00+08:00"
+      },
+      "capacity": 120,
+      "signup_required": false,
+      "checkin_supported": true,
+      "target_residents": ["new_residents", "families", "young_residents"],
+      "description": "A lightweight discovery trail that turns useful community places into check-in points and badge rewards.",
+      "resident_value": "Makes the community feel more alive and gives residents a reason to explore beyond daily errands.",
+      "property_value": "Turns onboarding and community culture into a repeatable engagement loop.",
+      "rewards": [
+        {
+          "type": "badge",
+          "id": "badge-community-spirit-seeker",
+          "name": "Community Spirit Seeker"
+        }
+      ],
+      "safety_notes": [
+        "Quest progress should be private by default.",
+        "Children should be accompanied by guardians."
+      ],
+      "ai_prompt_examples": [
+        "Start the Community Explorer Trail.",
+        "Help my family explore the community.",
+        "What badge can I unlock today?"
+      ],
+      "tags": ["rpg", "quest", "badge", "new_resident", "community_identity"]
+    },
+    {
+      "id": "activity-fire-passage-safety-check",
+      "name": "Fire Passage Safety Check",
+      "type": "community_service",
+      "status": "internal",
+      "host_role": "property_operator",
+      "host_name": "OmniWeave Property Team",
+      "location_poi_id": "poi-fire-passage",
+      "linked_route_id": "route-robot-fire-passage-patrol",
+      "time_window": {
+        "start": "2026-07-10T09:00:00+08:00",
+        "end": "2026-07-10T10:00:00+08:00"
+      },
+      "capacity": null,
+      "signup_required": false,
+      "checkin_supported": false,
+      "target_residents": ["property_team", "future_service_robot"],
+      "description": "An internal safety inspection scenario that can later be converted into a robot patrol workflow.",
+      "resident_value": "Improves community safety through more structured inspection routines.",
+      "property_value": "Connects property operations with robot-ready semantic routes.",
+      "rewards": [],
+      "safety_notes": [
+        "This is an internal operation activity.",
+        "Robot or camera data requires explicit governance before real-world deployment."
+      ],
+      "ai_prompt_examples": [
+        "Create a safety patrol for the fire passage.",
+        "Generate a robot inspection task."
+      ],
+      "tags": ["property_operation", "safety", "robot_ready"]
+    }
+  ]
+}

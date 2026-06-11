@@ -1,0 +1,71 @@
+{
+  "schema_version": "0.1.0",
+  "community_id": "omniweave-community",
+  "data_policy": "fictional_or_synthetic_only",
+  "currency": {
+    "id": "spirit_points",
+    "name": "Spirit Points",
+    "symbol": "SP",
+    "note": "A synthetic community participation currency. It is separate from XP and has no cash value."
+  },
+  "benefits": [
+    {
+      "id": "benefit-sports-drink",
+      "name": "Post-game Sports Drink",
+      "type": "merchant_offer",
+      "provider_name": "OmniWeave Corner Cafe",
+      "linked_pulse_id": "pulse-tonight-basketball",
+      "linked_poi_id": "poi-clubhouse",
+      "points_cost": 30,
+      "credential_prefix": "SPORT",
+      "unlock_rule": "pulse_checkin",
+      "activation_mode": "claim_then_redeem",
+      "validity_label": "Valid for 7 days after claim",
+      "description": "A synthetic sports drink benefit for residents who complete the evening basketball Pulse.",
+      "resident_value": "Turns a sports check-in into an immediate, relevant real-life reward.",
+      "operator_value": "Connects sports-space activation to measurable partner conversion.",
+      "privacy_notes": ["Redemption history is private to the resident and authorized operator."]
+    },
+    {
+      "id": "benefit-family-workshop-priority",
+      "name": "Family Workshop Priority Slot",
+      "type": "property_right",
+      "provider_name": "OmniWeave Community Clubhouse",
+      "linked_pulse_id": "pulse-weekend-family-stamp",
+      "linked_poi_id": "poi-clubhouse",
+      "points_cost": 40,
+      "credential_prefix": "FAMILY",
+      "unlock_rule": "pulse_checkin",
+      "activation_mode": "claim_then_reserve_then_redeem",
+      "validity_label": "Valid for the next workshop release",
+      "description": "Priority access to reserve one place in the next limited family workshop.",
+      "resident_value": "Rewards returning families with useful access rather than another decorative badge.",
+      "operator_value": "Creates a measurable bridge from family participation to future booking.",
+      "privacy_notes": ["Children's information is not included in the benefit record."]
+    },
+    {
+      "id": "benefit-shared-space-vote",
+      "name": "Shared-space Co-creator Vote",
+      "type": "community_right",
+      "provider_name": "OmniWeave World Ops",
+      "linked_pulse_id": "pulse-shared-world-walk",
+      "linked_poi_id": "poi-property-center",
+      "points_cost": 25,
+      "credential_prefix": "VOTE",
+      "unlock_rule": "pulse_checkin",
+      "activation_mode": "claim_then_activate",
+      "validity_label": "Valid during the current World Keepers season",
+      "description": "One synthetic vote on the next resident-visible shared-space micro-upgrade.",
+      "resident_value": "Converts maintenance participation into visible agency over the community.",
+      "operator_value": "Makes resident co-creation traceable without exposing individual issue history.",
+      "privacy_notes": ["Voting choices are private by default."]
+    }
+  ],
+  "operator_baseline": {
+    "points_awarded": 420,
+    "points_spent": 185,
+    "benefits_claimed": 12,
+    "benefits_activated": 8,
+    "benefits_redeemed": 5
+  }
+}

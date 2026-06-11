@@ -1,0 +1,172 @@
+{
+  "schema_version": "0.1.0",
+  "community": {
+    "id": "omniweave-community",
+    "name": "OmniWeave Community",
+    "display_name": "OmniWeave Community / Wanlian Chuangjie",
+    "description": "A fictional mid-to-high-end residential community whose name means connecting everything and creating a world. It is used for the Community Spirit open prototype.",
+    "data_policy": "fictional_or_synthetic_only",
+    "coordinate_system": {
+      "type": "local_2d",
+      "unit": "meter",
+      "origin_description": "The southwest corner of the fictional community boundary."
+    }
+  },
+  "poi_types": [
+    "gate",
+    "building",
+    "property_service",
+    "package_service",
+    "activity_space",
+    "sports_space",
+    "clubhouse",
+    "parking",
+    "safety",
+    "waste_service"
+  ],
+  "pois": [
+    {
+      "id": "poi-north-gate",
+      "name": "North Gate",
+      "type": "gate",
+      "position": { "x": 52, "y": 188, "z": 0 },
+      "public_visibility": "residents_and_visitors",
+      "access_level": "public_entry",
+      "tags": ["visitor_entry", "pedestrian", "security"],
+      "description": "A common pedestrian entrance for residents and visitors.",
+      "robot_accessible": true
+    },
+    {
+      "id": "poi-south-gate",
+      "name": "South Gate",
+      "type": "gate",
+      "position": { "x": 58, "y": 12, "z": 0 },
+      "public_visibility": "residents_and_visitors",
+      "access_level": "public_entry",
+      "tags": ["vehicle_entry", "pedestrian", "security"],
+      "description": "Main south entrance near the vehicle access point.",
+      "robot_accessible": true
+    },
+    {
+      "id": "poi-building-1",
+      "name": "Building 1",
+      "type": "building",
+      "position": { "x": 28, "y": 135, "z": 0 },
+      "public_visibility": "residents_and_authorized_visitors",
+      "access_level": "resident_or_visitor_permission",
+      "tags": ["residential", "elevator", "unit_entry"],
+      "description": "Residential building near the north entrance.",
+      "robot_accessible": false
+    },
+    {
+      "id": "poi-building-2",
+      "name": "Building 2",
+      "type": "building",
+      "position": { "x": 84, "y": 132, "z": 0 },
+      "public_visibility": "residents_and_authorized_visitors",
+      "access_level": "resident_or_visitor_permission",
+      "tags": ["residential", "elevator", "unit_entry"],
+      "description": "Residential building near the playground and landscape walkway.",
+      "robot_accessible": false
+    },
+    {
+      "id": "poi-building-3",
+      "name": "Building 3",
+      "type": "building",
+      "position": { "x": 82, "y": 72, "z": 0 },
+      "public_visibility": "residents_and_authorized_visitors",
+      "access_level": "resident_or_visitor_permission",
+      "tags": ["residential", "elevator", "unit_entry", "demo_destination"],
+      "description": "The destination building used in the visitor route demo.",
+      "robot_accessible": false
+    },
+    {
+      "id": "poi-property-center",
+      "name": "Property Center",
+      "type": "property_service",
+      "position": { "x": 24, "y": 92, "z": 0 },
+      "public_visibility": "residents_and_visitors",
+      "access_level": "public_service",
+      "tags": ["service", "repair", "consultation", "lost_and_found"],
+      "description": "Service point for property support, repair requests, consultation, and lost-and-found.",
+      "robot_accessible": true
+    },
+    {
+      "id": "poi-package-locker",
+      "name": "Package Locker",
+      "type": "package_service",
+      "position": { "x": 36, "y": 64, "z": 0 },
+      "public_visibility": "residents",
+      "access_level": "resident",
+      "tags": ["package", "daily_task", "high_frequency"],
+      "description": "A high-frequency package pickup point for residents.",
+      "robot_accessible": true
+    },
+    {
+      "id": "poi-kids-playground",
+      "name": "Kids' Playground",
+      "type": "activity_space",
+      "position": { "x": 112, "y": 110, "z": 0 },
+      "public_visibility": "residents",
+      "access_level": "resident",
+      "tags": ["parent_child", "activity", "repair_demo", "outdoor"],
+      "description": "A core POI for parent-child activities, play, and repair reporting demos.",
+      "robot_accessible": true
+    },
+    {
+      "id": "poi-basketball-court",
+      "name": "Basketball Court",
+      "type": "sports_space",
+      "position": { "x": 132, "y": 72, "z": 0 },
+      "public_visibility": "residents",
+      "access_level": "resident",
+      "tags": ["sports", "youth", "community_activity"],
+      "description": "A public sports space for community activities and sports channels.",
+      "robot_accessible": true
+    },
+    {
+      "id": "poi-clubhouse",
+      "name": "Clubhouse",
+      "type": "clubhouse",
+      "position": { "x": 138, "y": 148, "z": 0 },
+      "public_visibility": "residents",
+      "access_level": "resident_or_booking",
+      "tags": ["indoor", "activity", "booking", "premium_service"],
+      "description": "A premium activity, meeting, and service space.",
+      "robot_accessible": false
+    },
+    {
+      "id": "poi-underground-garage-entrance",
+      "name": "Underground Garage Entrance",
+      "type": "parking",
+      "position": { "x": 116, "y": 26, "z": 0 },
+      "public_visibility": "residents_and_authorized_visitors",
+      "access_level": "vehicle_permission",
+      "tags": ["parking", "vehicle", "robot_patrol"],
+      "description": "A key node connecting vehicle access, underground parking, and patrol routes.",
+      "robot_accessible": true
+    },
+    {
+      "id": "poi-fire-passage",
+      "name": "Fire Passage",
+      "type": "safety",
+      "position": { "x": 148, "y": 104, "z": 0 },
+      "public_visibility": "property_only",
+      "access_level": "property_or_emergency",
+      "tags": ["safety", "inspection", "robot_patrol", "no_obstruction"],
+      "description": "A safety-critical POI for property and future robot patrols.",
+      "robot_accessible": true
+    },
+    {
+      "id": "poi-waste-collection",
+      "name": "Waste Collection Point",
+      "type": "waste_service",
+      "position": { "x": 18, "y": 42, "z": 0 },
+      "public_visibility": "residents",
+      "access_level": "resident",
+      "tags": ["daily_service", "sanitation", "inspection"],
+      "description": "A daily waste collection and cleaning inspection point.",
+      "robot_accessible": true
+    }
+  ]
+}
