@@ -44,7 +44,7 @@ http://127.0.0.1:4177/demo/web/index.html?task=task-robot-fire-passage-patrol
 2. Switch resident profiles and show the recommendation order change to family exploration and world maintenance.
 3. Return to the athlete profile and join: the task, real route, participant count, and privacy-aware participation state update together.
 4. Check in: resident XP and Sports Neighbor progress increase while the shared movie-night goal advances.
-5. Scroll to World Ops: show recommendation-to-check-in conversion and projected space activation.
+5. Scroll to World Ops: show recommendation-to-check-in conversion, projected space activation, and the Retention Loop.
 6. End with Community Explorer depth and robot patrol export as the future reality layer.
 
 ## What Is Built
@@ -63,6 +63,7 @@ http://127.0.0.1:4177/demo/web/index.html?task=task-robot-fire-passage-patrol
 - Spirit Points wallet and contextual benefit redemption without touching real payment systems.
 - Synthetic resident benefit passes and an itemized Spirit Points wallet ledger.
 - Commerce conversion from Pulse check-in to claim, activation, and redemption.
+- Retention Loop metrics for first participation, 7-day return, streaks, and season-by-season repeat visits.
 - Season Arc panel for recurring engagement and community identity.
 - Scheduled side quest cards with time, place, status, and action prompts.
 - Property Dashboard as a world operations console.
@@ -102,4 +103,4 @@ All public data is fictional or synthetic. Real pilots require permission manage
 npm.cmd run check
 ```
 
-This validates data references, Pulse lifecycle rules, the production build, submission materials, and generated assets.
+This validates data references, Pulse lifecycle rules, retention metrics, the production build, submission materials, and generated assets.

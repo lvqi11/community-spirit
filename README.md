@@ -18,6 +18,8 @@ Community Spirit should be introduced as a layered product, not as one flat smar
 
 The hackathon showcase adds **Community Pulse**: a live recommendation engine that scores multiple events against resident interests, availability, social comfort, and walking distance. A selected pulse becomes a task and route, records join/check-in progress, advances a shared community goal, and exposes the same conversion to World Ops.
 
+The latest prototype also closes a **Retention Loop**. It does not only ask whether a resident joined once; it measures first participation, 7-day return, current streaks, and season-by-season repeat visits from synthetic resident history plus in-session progress.
+
 ## Current Demo
 
 The first public demo uses a fictional community named **OmniWeave Community / 万联创界社区**. All data is synthetic.
@@ -83,6 +85,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\preflight.ps1
 - Synthetic resident benefit passes with a human-readable credential code and claim/activation/redemption timeline.
 - Itemized Spirit Points wallet entries with source, amount, timestamp, and resulting balance.
 - World Ops commerce metrics for points awarded, points spent, claims, activations, and redemptions.
+- World Ops Retention Loop metrics for first participation, 7-day return, average streak, and season comparison.
 - Three focused product views: Resident World, Task & Benefits, and World Ops.
 - Seven-step Hackathon Demo controller with deterministic reset and guarded step order.
 - Mobile-first demo navigation with a compact progress summary, horizontally scrollable story steps, sticky product views, and touch-sized primary actions.
@@ -123,6 +126,7 @@ Task = why the movement matters
 Activity = how community operation creates recurring reasons to return
 Quest = how residents experience the community as a living world
 Pulse = how current demand, resident intent, and an underused space become a live social event
+Retention = whether residents come back after real-space participation
 ```
 
 Files:
@@ -148,7 +152,7 @@ Run the full local check:
 npm.cmd run check
 ```
 
-The release gate validates data references, Pulse lifecycle rules, the production build, hackathon submission materials, current object counts, synthetic-data declarations, and generated assets.
+The release gate validates data references, Pulse lifecycle rules, retention metrics, the production build, hackathon submission materials, current object counts, synthetic-data declarations, and generated assets.
 
 ## Documentation
 
@@ -161,6 +165,7 @@ The release gate validates data references, Pulse lifecycle rules, the productio
 - `docs/hackathon-plan.md`: 48-hour hackathon execution plan.
 - `docs/hackathon-submission.md`: submission-ready summary.
 - `docs/github-release-checklist.md`: first release checklist.
+- `docs/github-promotion-plan.md`: GitHub launch, release, and promotion plan.
 - `docs/demo-qa-checklist.md`: demo verification checklist.
 - `docs/demo-recording-guide.md`: short video capture guide.
 - `docs/workflow-export-contract.md`: JSON workflow export contract.

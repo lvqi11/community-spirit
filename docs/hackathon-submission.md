@@ -14,7 +14,7 @@ Community activities are usually broadcast through noisy chat groups or static n
 
 ## Solution
 
-Community Pulse ranks live opportunities against a resident's interests, availability, social comfort, and walking distance. A recommendation becomes a real task and route, records join and check-in progress, advances resident XP and a shared community goal, awards Spirit Points, and unlocks a contextual benefit. World Ops receives the same event as an operating funnel.
+Community Pulse ranks live opportunities against a resident's interests, availability, social comfort, and walking distance. A recommendation becomes a real task and route, records join and check-in progress, advances resident XP and a shared community goal, awards Spirit Points, and unlocks a contextual benefit. World Ops receives the same event as an operating funnel and retention loop.
 
 ## Current Prototype
 
@@ -33,7 +33,7 @@ The React demo contains three focused views:
 
 1. **Resident World**: personalized Community Pulse, real-space map, resident identity, and Season Arc.
 2. **Task & Benefits**: route execution, check-in, Spirit Wallet, itemized transactions, and synthetic benefit passes.
-3. **World Ops**: recommendation-to-check-in conversion, Pulse lifecycle, space activation, season operations, and commerce conversion.
+3. **World Ops**: recommendation-to-check-in conversion, Pulse lifecycle, space activation, season operations, retention, and commerce conversion.
 
 ## Three-minute Story
 
@@ -45,7 +45,7 @@ Use the seven-step Hackathon Demo controller:
 4. Claim the contextual sports benefit.
 5. Activate its synthetic resident benefit pass.
 6. Redeem it once and show the wallet ledger.
-7. Switch to World Ops and review the complete operating funnel.
+7. Switch to World Ops and review the complete operating funnel, including whether residents come back.
 
 The Pulse lifecycle also supports leaving before check-in and operational states for matching, open, full, expired, and ended.
 
@@ -55,7 +55,7 @@ The Pulse lifecycle also supports leaving before check-in and operational states
 - Structured synthetic JSON for POIs, routes, tasks, activities, pulses, seasons, benefits, and zh-CN copy.
 - SVG spatial map and route highlighting.
 - Resident-specific in-session state with duplicate reward and duplicate redemption protection.
-- Automated cross-reference, lifecycle, submission-material, and production-build validation.
+- Automated cross-reference, lifecycle, retention, submission-material, and production-build validation.
 - Responsive mobile demo navigation with touch-sized actions.
 - Robot-ready semantic task export as a future reality-layer interface.
 
@@ -70,7 +70,7 @@ npm.cmd run check
 - **Innovation:** combines community life RPG mechanics with real spatial participation and an operator-visible conversion loop.
 - **Feasibility:** uses a small structured model and runs locally without private infrastructure.
 - **Resident value:** creates personalized reasons to explore, participate, grow, and return.
-- **Operator value:** connects recommendations, joins, arrivals, space activation, Spirit Points, and benefits.
+- **Operator value:** connects recommendations, joins, arrivals, repeat visits, space activation, Spirit Points, and benefits.
 - **Safety:** all current data is fictional or synthetic.
 
 ## Boundaries

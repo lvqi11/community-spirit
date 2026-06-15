@@ -53,11 +53,12 @@ The final guided step switches directly to the World Ops view.
 - detail opens;
 - confirmed joins;
 - actual check-ins;
+- first participation, 7-day return, and current streaks;
 - projected basketball-court activation.
 
 Briefly show the Pulse lifecycle control: full and expired stop new joins without removing confirmed participants, while ended closes check-in. Restore the Pulse to matching before resetting the story.
 
-Explain that property teams are not buying another dashboard. They are buying a repeatable way to turn underused spaces into measurable participation.
+Explain that property teams are not buying another dashboard. They are buying a repeatable way to turn underused spaces into measurable participation and repeat visits.
 
 ## 2:20-2:45 Living World Depth
 

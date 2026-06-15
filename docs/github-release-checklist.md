@@ -31,6 +31,7 @@ Highlights:
 - Chinese display copy in `data/i18n.zh-CN.json`.
 - React/Vite three-view product with a seven-step deterministic demo controller.
 - Community Pulse recommendation, lifecycle, resident growth, seasons, Spirit Points, benefit passes, and wallet ledger.
+- Retention Loop metrics for first participation, 7-day return, streaks, and season comparison.
 - Mobile-first demo navigation and touch-sized actions.
 - Hackathon submission package and demo script.
 - Demo QA checklist in `docs/demo-qa-checklist.md`.
@@ -43,3 +44,11 @@ The existing Pages workflow publishes the compatibility static demo. The React/V
 ```text
 /demo/web/index.html
 ```
+
+## Promotion Checklist
+
+- Pin the repository after publication.
+- Add topics: `community`, `civic-tech`, `ai-agents`, `spatial-computing`, `hackathon`, `property-tech`, `robotics`.
+- Use the README first screen as the public pitch; do not describe it as a generic smart-community dashboard.
+- Link the online demo, demo video, and release notes from the repository About section.
+- Publish one short launch post focused on the problem and one technical post focused on the structured data model.
