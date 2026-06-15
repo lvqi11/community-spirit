@@ -11,6 +11,7 @@ export function PropertyDashboard({
   pulseOperationalState,
   resident,
   residentProgress,
+  retentionMetrics,
   activeSeason,
   seasonCheckins,
   benefits,
@@ -49,7 +50,14 @@ export function PropertyDashboard({
     [robotPois, helpers.t("dashboard.metrics.robotReady", "Robot-ready POIs")]
   ];
   const pulseMetrics = createPulseMetrics(pulse, pulseStage, helpers);
-  const benefitMetrics = createBenefitMetrics(residentProgress, benefitBaseline);
+  const retentionRows = createRetentionRows(retentionMetrics, helpers);
+  const seasonRetentionRows = data.seasons.map((season) => ({
+    id: season.id,
+    label: helpers.seasonText(season, "short_name") || helpers.seasonText(season, "name"),
+    visits: retentionMetrics.seasonComparison[season.id] || 0
+  }));
+  const maxSeasonVisits = Math.max(1, ...seasonRetentionRows.map((row) => row.visits));
+  const benefitMetrics = createBenefitMetrics(residentProgress, benefitBaseline, helpers);
 
   return (
     <section className="property-dashboard">
@@ -144,6 +152,32 @@ export function PropertyDashboard({
             <span>{helpers.t("dashboard.season.history", "Completed Pulse tasks")}</span>
             <strong>{residentProgress.taskHistory.length}</strong>
           </div>
+        </div>
+      </section>
+      <section className="retention-ops-card">
+        <div className="retention-ops-header">
+          <div>
+            <p className="eyebrow">{helpers.t("dashboard.retention.eyebrow", "Retention Loop")}</p>
+            <h3>{helpers.t("dashboard.retention.title", "Residents who come back")}</h3>
+          </div>
+          <strong>{formatPercent(retentionMetrics.sevenDayReturnRate)}</strong>
+        </div>
+        <div className="retention-funnel">
+          {retentionRows.map(([value, label]) => (
+            <div key={label}>
+              <strong>{value}</strong>
+              <span>{label}</span>
+            </div>
+          ))}
+        </div>
+        <div className="season-retention-bars">
+          {seasonRetentionRows.map((row) => (
+            <div className="season-retention-row" key={row.id}>
+              <span>{row.label}</span>
+              <i><b style={{ width: `${Math.max(10, (row.visits / maxSeasonVisits) * 100)}%` }}></b></i>
+              <strong>{row.visits}</strong>
+            </div>
+          ))}
         </div>
       </section>
       <section className="commerce-ops-card">
@@ -362,6 +396,18 @@ function createBenefitMetrics(progress, baseline, helpers) {
     [baseline.benefits_activated + states.filter((state) => ["activated", "redeemed"].includes(state)).length, helpers.t("dashboard.commerce.activated", "Activated")],
     [baseline.benefits_redeemed + states.filter((state) => state === "redeemed").length, helpers.t("dashboard.commerce.redeemed", "Redeemed")]
   ];
+}
+
+function createRetentionRows(metrics, helpers) {
+  return [
+    [formatPercent(metrics.firstParticipationRate), helpers.t("dashboard.retention.firstParticipationRate", "First participation")],
+    [formatPercent(metrics.sevenDayReturnRate), helpers.t("dashboard.retention.sevenDayReturnRate", "7-day return")],
+    [metrics.averageStreak, helpers.t("dashboard.retention.averageStreak", "Avg. streak")]
+  ];
+}
+
+function formatPercent(value) {
+  return `${value}%`;
 }
 
 function createPulseMetrics(pulse, pulseStage, helpers) {

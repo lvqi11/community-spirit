@@ -964,6 +964,91 @@
   padding: 12px;
 }
 
+.retention-ops-card {
+  background: linear-gradient(135deg, rgba(24, 116, 91, 0.1), rgba(47, 111, 194, 0.07));
+  border: 1px solid rgba(24, 116, 91, 0.22);
+  border-radius: 8px;
+  display: grid;
+  gap: 11px;
+  margin-bottom: 14px;
+  padding: 12px;
+}
+
+.retention-ops-header {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.retention-ops-header h3 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.retention-ops-header > strong {
+  color: var(--green);
+  font-size: 18px;
+}
+
+.retention-funnel {
+  display: grid;
+  gap: 7px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.retention-funnel div {
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  display: grid;
+  gap: 3px;
+  padding: 9px;
+}
+
+.retention-funnel strong {
+  font-size: 17px;
+}
+
+.retention-funnel span,
+.season-retention-row span {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.season-retention-bars {
+  display: grid;
+  gap: 7px;
+}
+
+.season-retention-row {
+  align-items: center;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: minmax(82px, 0.7fr) minmax(80px, 1.3fr) 26px;
+}
+
+.season-retention-row i {
+  background: rgba(24, 116, 91, 0.12);
+  border-radius: 999px;
+  display: block;
+  height: 7px;
+  overflow: hidden;
+}
+
+.season-retention-row b {
+  background: linear-gradient(90deg, var(--green), var(--blue));
+  border-radius: inherit;
+  display: block;
+  height: 100%;
+}
+
+.season-retention-row strong {
+  font-size: 12px;
+  text-align: right;
+}
+
 .commerce-ops-header {
   align-items: center;
   display: flex;
@@ -1116,6 +1201,32 @@
   color: var(--muted);
   font-size: 10px;
   font-weight: 800;
+}
+
+.resident-retention-signals {
+  display: grid;
+  gap: 6px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.resident-retention-signals div {
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid rgba(24, 116, 91, 0.15);
+  border-radius: 6px;
+  display: grid;
+  gap: 3px;
+  padding: 8px;
+}
+
+.resident-retention-signals span {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.resident-retention-signals strong {
+  color: var(--green);
+  font-size: 12px;
 }
 
 .season-arc li.completed {
@@ -1461,8 +1572,14 @@
 
   .season-ops-card,
   .season-ops-metrics,
+  .retention-funnel,
+  .resident-retention-signals,
   .commerce-funnel {
     grid-template-columns: 1fr;
+  }
+
+  .season-retention-row {
+    grid-template-columns: minmax(78px, 0.8fr) minmax(70px, 1.2fr) 24px;
   }
 }
 

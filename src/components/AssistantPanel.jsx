@@ -15,6 +15,7 @@ export function AssistantPanel({
   seasonCheckins,
   resident,
   residentProgress,
+  residentRetention,
   onSelectSeason
 }) {
   return (
@@ -67,6 +68,7 @@ export function AssistantPanel({
           helpers={helpers}
           resident={resident}
           residentProgress={residentProgress}
+          residentRetention={residentRetention}
           seasonCheckins={seasonCheckins}
           seasons={seasons}
           selectedTask={selectedTask}
@@ -77,12 +79,13 @@ export function AssistantPanel({
   );
 }
 
-function SeasonArc({ activeSeason, helpers, resident, residentProgress, seasonCheckins, seasons, selectedTask, onSelectSeason }) {
+function SeasonArc({ activeSeason, helpers, resident, residentProgress, residentRetention, seasonCheckins, seasons, selectedTask, onSelectSeason }) {
   const completedMilestones = activeSeason.milestones.filter((milestone) => seasonCheckins >= milestone.required_checkins).length;
   const progress = (completedMilestones / activeSeason.milestones.length) * 100;
   const nextLevelBase = (resident.level - 1) * 150;
   const nextLevelTarget = resident.level * 150;
   const levelProgress = Math.min(100, ((resident.xp - nextLevelBase) / (nextLevelTarget - nextLevelBase)) * 100);
+  const activeSeasonVisits = residentRetention.seasonVisits[activeSeason.id] || 0;
 
   return (
     <div className="season-arc">
@@ -111,6 +114,24 @@ function SeasonArc({ activeSeason, helpers, resident, residentProgress, seasonCh
         </div>
         <i><span style={{ width: `${levelProgress}%` }}></span></i>
         <small>{residentProgress.badges.length} {helpers.t("growth.badges", "badges")} · {residentProgress.taskHistory.length} {helpers.t("growth.completed", "completed")}</small>
+      </div>
+      <div className="resident-retention-signals">
+        <div>
+          <span>{helpers.t("retention.personal.firstParticipation", "First participation")}</span>
+          <strong>{residentRetention.firstParticipated ? helpers.t("status.yes", "Yes") : helpers.t("status.no", "No")}</strong>
+        </div>
+        <div>
+          <span>{helpers.t("retention.personal.sevenDayReturn", "7-day return")}</span>
+          <strong>{residentRetention.returnedWithin7Days ? helpers.t("retention.personal.returning", "Returning") : helpers.t("retention.personal.needsReturn", "Needs return")}</strong>
+        </div>
+        <div>
+          <span>{helpers.t("retention.personal.currentStreak", "Current streak")}</span>
+          <strong>{residentRetention.currentStreak}</strong>
+        </div>
+        <div>
+          <span>{helpers.t("retention.personal.seasonVisits", "Season visits")}</span>
+          <strong>{activeSeasonVisits}</strong>
+        </div>
       </div>
       <div className="season-active">
         <span>{helpers.t("season.activeQuest", "Active quest")}</span>

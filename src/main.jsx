@@ -17,6 +17,7 @@ import {
   seasonForPulse
 } from "./domain";
 import { canCheckinPulse, isPulseAcceptingJoins } from "./pulseLifecycle";
+import { createRetentionMetrics } from "./retention";
 import "./styles.css";
 
 function createInitialResidentProgress() {
@@ -68,6 +69,11 @@ function App() {
     xp: currentProgress.xp,
     level: residentLevel(currentProgress.xp)
   };
+  const retentionMetrics = useMemo(
+    () => createRetentionMetrics(data.residentProfiles, residentProgress, data.seasons),
+    [data.residentProfiles, data.seasons, residentProgress]
+  );
+  const residentRetention = retentionMetrics.byProfile[residentProfile.id];
   const rankedPulses = useMemo(() => rankPulses(data.pulses, residentProfile), [data.pulses, residentProfile]);
   const activePulse = data.pulses.find((pulse) => pulse.id === activePulseId) || rankedPulses[0].pulse;
   const activePulseMatch = rankedPulses.find((entry) => entry.pulse.id === activePulse.id) || rankedPulses[0];
@@ -361,6 +367,12 @@ function App() {
             balance: currentProgress.spiritPoints,
             benefit_states: currentProgress.benefitStates,
             transaction_count: currentProgress.pointTransactions.length
+          },
+          retention: {
+            first_participated: residentRetention.firstParticipated,
+            returned_within_7_days: residentRetention.returnedWithin7Days,
+            current_streak: residentRetention.currentStreak,
+            season_visits: residentRetention.seasonVisits
           }
         } : null
       },
@@ -405,6 +417,7 @@ function App() {
           seasonCheckins={seasonCheckins}
           resident={residentProfile}
           residentProgress={currentProgress}
+          residentRetention={residentRetention}
           onSelectSeason={selectSeason}
         />}
 
@@ -486,6 +499,7 @@ function App() {
               pulseOperationalState={pulseOperationalState}
               resident={residentProfile}
               residentProgress={currentProgress}
+              retentionMetrics={retentionMetrics}
               activeSeason={activeSeason}
               seasonCheckins={seasonCheckins}
               benefits={data.benefits}

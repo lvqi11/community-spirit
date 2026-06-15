@@ -85,6 +85,14 @@ for (const profile of residentProfiles) {
   if (!profile.id || !profile.interests?.length || !profile.availability?.length || !profile.social_mode || typeof profile.spirit_points !== "number") {
     errors.push(`Resident profile ${profile.id ?? "unknown"} requires interests, availability, and social_mode`);
   }
+  if (typeof profile.retention?.prior_checkins_30d !== "number" || typeof profile.retention?.current_streak !== "number") {
+    errors.push(`Resident profile ${profile.id ?? "unknown"} requires synthetic retention prior_checkins_30d and current_streak`);
+  }
+  for (const season of seasons) {
+    if (typeof profile.retention?.season_visits?.[season.id] !== "number") {
+      errors.push(`Resident profile ${profile.id ?? "unknown"} is missing retention season visit count for ${season.id}`);
+    }
+  }
 }
 for (const pulse of pulses) {
   requireRef("Pulse", pulse.id, "linked_task_id", pulse.linked_task_id, taskIds);

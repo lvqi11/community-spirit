@@ -216,6 +216,13 @@
       "activated": "已激活权益",
       "redeemed": "已核销权益"
     },
+    "retention": {
+      "eyebrow": "\u7559\u5b58\u95ed\u73af",
+      "title": "\u4f1a\u56de\u6765\u7684\u5c45\u6c11",
+      "firstParticipationRate": "\u9996\u6b21\u53c2\u4e0e\u7387",
+      "sevenDayReturnRate": "7 \u65e5\u590d\u8bbf\u7387",
+      "averageStreak": "\u5e73\u5747\u8fde\u7eed\u53c2\u4e0e"
+    },
     "metrics": {
       "pois": "管理点位",
       "openActivities": "开放活动",
@@ -390,6 +397,16 @@
     },
     "rewardLabel": "赛季奖励",
     "reward": "万联创界创始居民徽章"
+  },
+  "retention": {
+    "personal": {
+      "firstParticipation": "\u9996\u6b21\u53c2\u4e0e",
+      "sevenDayReturn": "7 \u65e5\u590d\u8bbf",
+      "currentStreak": "\u8fde\u7eed\u53c2\u4e0e",
+      "seasonVisits": "\u672c\u8d5b\u5b63\u56de\u8bbf",
+      "returning": "\u5df2\u56de\u8bbf",
+      "needsReturn": "\u5f85\u56de\u8bbf"
+    }
   },
   "growth": {
     "badges": "枚徽章",
