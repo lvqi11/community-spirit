@@ -209,6 +209,7 @@ The release gate validates data references, Pulse lifecycle rules, retention met
 - `docs/prototype-plan.md`: original prototype execution plan.
 - `docs/project-summary.md`: submission-ready project summary.
 - `docs/project-submission-form.md`: copy-ready project profile answers.
+- `docs/devpost-world-product-day-submission.md`: copy-ready Devpost draft for Mind the Product World Product Day.
 - `docs/hackathon-submission-strategy.md`: competition framing that keeps Community Spirit from collapsing back into a hackathon-only project.
 - `docs/github-release-checklist.md`: first release checklist.
 - `docs/github-promotion-plan.md`: GitHub launch, release, and promotion plan.
