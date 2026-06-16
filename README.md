@@ -24,6 +24,12 @@ The latest prototype also closes a **Retention Loop**. It does not only ask whet
 
 The first public demo uses a fictional community named **OmniWeave Community / 万联创界社区**. All data is synthetic.
 
+Demo video:
+
+```text
+reports/community-spirit-demo.mp4
+```
+
 Static demo:
 
 ```powershell
