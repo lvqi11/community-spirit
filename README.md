@@ -1,6 +1,6 @@
-# Community Spirit / 社区精灵
+# Community Spirit / 社区精灵：未来社区 RPG 引擎
 
-Community Spirit is a community life RPG engine grounded in real spatial operations.
+Community Spirit is a future community RPG engine grounded in real spatial operations.
 
 社区精灵不是传统智慧社区后台，而是把真实社区变成一个可探索、可接任务、可运营、可连接未来机器人的生活 RPG 世界。
 
