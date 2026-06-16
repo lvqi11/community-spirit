@@ -10,7 +10,37 @@
 - Treat the React/Vite demo as the primary project experience and confirm it can install, build, and run.
 - Run `npm.cmd run check` and require submission validation to pass.
 
-## Suggested First Release
+## Suggested CACP Draft Release
+
+Release name:
+
+```text
+Community Spirit v0.2.0 - CACP Draft Release
+```
+
+Release summary:
+
+```text
+Community Spirit now includes the first CACP draft: a Community AI Collaboration Protocol direction with Community Task Contracts, schema validation, synthetic examples, and a visible Task Contract View in the React demo.
+```
+
+Highlights:
+
+- CACP protocol direction for coordinating people, places, operators, AI agents, and future robots.
+- Community Task Contract schema and validator.
+- Three synthetic contract examples for social Pulse, elder-friendly helper flow, and robot-assist patrol review.
+- Task Contract View in the React demo for interaction mode, permission, visibility, risk, resident touch, privacy boundary, fallback, feedback, and lifecycle.
+- Workflow export includes the selected community task contract when available.
+- Physical AI Community Roadmap from task execution to social collaboration.
+- Synthetic-only public data and automated release validation.
+
+Release gate:
+
+```powershell
+npm.cmd run check
+```
+
+## Previous Open Prototype Release
 
 Release name:
 

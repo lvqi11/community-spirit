@@ -5,6 +5,7 @@ const state = {
   routes: [],
   tasks: [],
   activities: [],
+  contracts: [],
   i18n: null,
   language: "en",
   selectedTask: null,
@@ -72,6 +73,11 @@ const els = {
   dashboardMetrics: document.querySelector("#dashboardMetrics"),
   operationQueue: document.querySelector("#operationQueue"),
   spatialInsight: document.querySelector("#spatialInsight"),
+  contractTitle: document.querySelector("#contractTitle"),
+  contractVersion: document.querySelector("#contractVersion"),
+  contractIntent: document.querySelector("#contractIntent"),
+  contractGrid: document.querySelector("#contractGrid"),
+  contractReview: document.querySelector("#contractReview"),
 };
 
 async function loadJson(file) {
@@ -82,13 +88,26 @@ async function loadJson(file) {
   return response.json();
 }
 
+async function loadContract(file) {
+  const response = await fetch(`../../examples/contracts/${file}`);
+  if (!response.ok) {
+    throw new Error(`Failed to load ${file}`);
+  }
+  return response.json();
+}
+
 async function boot() {
   try {
-    const [poiData, routeData, taskData, activityData, i18nData] = await Promise.all([
+    const [poiData, routeData, taskData, activityData, contractData, i18nData] = await Promise.all([
       loadJson("sample-pois.json"),
       loadJson("sample-routes.json"),
       loadJson("sample-tasks.json"),
       loadJson("sample-activities.json"),
+      Promise.all([
+        loadContract("evening-basketball-social-pulse.json"),
+        loadContract("elder-friendly-walking-helper.json"),
+        loadContract("robot-fire-passage-patrol.json"),
+      ]),
       loadJson("i18n.zh-CN.json").catch(() => null),
     ]);
 
@@ -96,6 +115,7 @@ async function boot() {
     state.routes = routeData.routes;
     state.tasks = taskData.tasks;
     state.activities = activityData.activities;
+    state.contracts = contractData;
     state.i18n = i18nData;
 
     applyLanguage();
@@ -181,6 +201,7 @@ function selectTask(taskId) {
   renderActivePrompt(taskId);
   renderMap();
   renderDetails();
+  renderTaskContract();
   renderAnswer();
   renderDashboard();
   syncTaskUrl(taskId);
@@ -372,6 +393,7 @@ function currentTaskExport() {
     task,
     route,
     activity,
+    community_task_contract: currentTaskContract(),
     dashboard_context: {
       managed_pois: state.pois.length,
       robot_ready_pois: state.pois.filter((poi) => poi.robot_accessible).length,
@@ -379,6 +401,10 @@ function currentTaskExport() {
     },
     data_policy: "fictional_or_synthetic_only",
   };
+}
+
+function currentTaskContract() {
+  return state.contracts.find((contract) => contract.place.task_id === state.selectedTask?.id) ?? null;
 }
 
 function taskShareUrl() {
@@ -563,6 +589,46 @@ function renderDashboard() {
       <div><dt>${escapeHtml(t("dashboard.metrics.robotRoutes", "Robot routes"))}</dt><dd>${escapeHtml(String(robotRoutes))}</dd></div>
     </dl>
   `;
+}
+
+function renderTaskContract() {
+  const contract = currentTaskContract();
+  els.contractGrid.innerHTML = "";
+  els.contractReview.innerHTML = "";
+
+  if (!contract) {
+    els.contractTitle.textContent = "No explicit contract yet";
+    els.contractVersion.textContent = "base";
+    els.contractIntent.textContent = "This workflow still runs through the base spatial task model.";
+    [
+      ["Mode", "base task"],
+      ["Permission", "task rules"],
+      ["Risk", "standard"],
+      ["Resident touch", "varies"],
+    ].forEach(([label, value]) => addContractMetric(els.contractGrid, label, value));
+    return;
+  }
+
+  els.contractTitle.textContent = contract.title;
+  els.contractVersion.textContent = contract.schema_version.replace("cacp.community_task_contract.", "");
+  els.contractIntent.textContent = contract.intent;
+  [
+    ["Mode", contract.interaction_mode],
+    ["Permission", contract.permission.level],
+    ["Risk", contract.risk_level],
+    ["Resident touch", contract.resident_touch],
+  ].forEach(([label, value]) => addContractMetric(els.contractGrid, label, value.replaceAll("_", " ")));
+  [
+    ["Visibility", contract.visibility],
+    ["Human review", contract.permission.human_review_required ? "Required" : "Not required"],
+    ["Resident notice", contract.permission.resident_notice_required ? "Required" : "Not required"],
+  ].forEach(([label, value]) => addContractMetric(els.contractReview, label, String(value).replaceAll("_", " ")));
+}
+
+function addContractMetric(parent, label, value) {
+  const item = document.createElement("div");
+  item.innerHTML = `<span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong>`;
+  parent.appendChild(item);
 }
 
 function applyLanguage() {

@@ -11,7 +11,7 @@ Community Spirit
 ## Tagline
 
 ```text
-A community life RPG engine grounded in real spatial operations.
+A community life RPG and physical-AI social layer grounded in real spatial operations.
 ```
 
 ## Short Description
@@ -75,11 +75,12 @@ intent -> place -> interaction mode -> permission -> privacy boundary -> actor -
 - World Ops cards for conversion, lifecycle, space activation, season operations, retention, commerce, and workflow handoff.
 - Robot-ready semantic task export as a future reality-layer interface.
 - Physical-AI social layer direction for interaction modes, permission, privacy, fallback, trust, and human / AI / robot handoff.
+- CACP draft assets: protocol design, Community Task Contract schema, synthetic examples, validator, and Task Contract View in the React demo.
 - Automated validation for data references, lifecycle rules, retention metrics, production build, and submission assets.
 
 ## Innovation
 
-Community Spirit combines five usually separate ideas into one small prototype:
+Community Spirit combines six usually separate ideas into one small prototype:
 
 ```text
 community life RPG
@@ -87,6 +88,7 @@ community life RPG
 + lightweight social activation
 + measurable resident retention
 + physical-AI task contracts
++ CACP protocol draft
 + robot-ready semantic tasks
 ```
 
@@ -128,7 +130,7 @@ https://github.com/lvqi11/community-spirit/blob/main/reports/community-spirit-de
 Release:
 
 ```text
-https://github.com/lvqi11/community-spirit/releases/tag/v0.1.0
+https://github.com/lvqi11/community-spirit/releases/tag/v0.2.0
 ```
 
 ## How To Run

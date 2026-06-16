@@ -5,6 +5,9 @@ import activityData from "../data/sample-activities.json";
 import pulseData from "../data/sample-pulses.json";
 import seasonData from "../data/sample-seasons.json";
 import benefitData from "../data/sample-benefits.json";
+import basketballContract from "../examples/contracts/evening-basketball-social-pulse.json";
+import walkingContract from "../examples/contracts/elder-friendly-walking-helper.json";
+import robotPatrolContract from "../examples/contracts/robot-fire-passage-patrol.json";
 
 export const communityData = {
   pois: poiData.pois,
@@ -16,7 +19,8 @@ export const communityData = {
   seasons: seasonData.seasons,
   benefits: benefitData.benefits,
   benefitCurrency: benefitData.currency,
-  benefitOperatorBaseline: benefitData.operator_baseline
+  benefitOperatorBaseline: benefitData.operator_baseline,
+  communityTaskContracts: [basketballContract, walkingContract, robotPatrolContract]
 };
 
 export const promptSamples = [

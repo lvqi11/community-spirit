@@ -1,7 +1,9 @@
 import { Metric } from "./Metric";
+import { TaskContractView } from "./TaskContractView";
 import { canCheckinPulse, hasActivePulsePlace, isPulseAcceptingJoins } from "../pulseLifecycle";
 
 export function TaskDetails({
+  contract,
   helpers,
   poiContext,
   selectedActivity,
@@ -91,6 +93,7 @@ export function TaskDetails({
           )}
         </div>
       </section>
+      <TaskContractView contract={contract} helpers={helpers} />
     </>
   );
 }

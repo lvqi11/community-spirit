@@ -20,6 +20,7 @@ const requiredFiles = [
   "docs/physical-ai-community-roadmap.md",
   "docs/physical-ai-social-layer.md",
   "docs/project-summary.md",
+  "docs/hackathon-submission-strategy.md",
   "schemas/community-task-contract.schema.json",
   "examples/contracts/evening-basketball-social-pulse.json",
   "examples/contracts/elder-friendly-walking-helper.json",
@@ -38,6 +39,7 @@ const requiredDocumentMarkers = {
   "docs/physical-ai-community-roadmap.md": ["can collaborate", "Community Task Contract", "Synthetic Community Simulator"],
   "docs/physical-ai-social-layer.md": ["social operating layer", "Trust and Acceptance Metrics", "Task Contract Direction"],
   "docs/project-summary.md": ["13 POIs", "seven-step", "Community Pulse"],
+  "docs/hackathon-submission-strategy.md": ["CACP", "synthetic-only", "event window"],
   "docs/demo-qa-checklist.md": ["npm.cmd run check", "Pulse lifecycle", "mobile"],
   "docs/demo-recording-guide.md": ["127.0.0.1:5173", "seven-step", "synthetic"]
 };

@@ -62,6 +62,7 @@ function App() {
   const selectedTask = helpers.task(selectedTaskId) || helpers.task(promptSamples[0].taskId);
   const selectedRoute = selectedTask?.linked_route_id ? helpers.route(selectedTask.linked_route_id) : null;
   const selectedActivity = selectedTask?.linked_activity_id ? helpers.activity(selectedTask.linked_activity_id) : null;
+  const selectedContract = data.communityTaskContracts.find((contract) => contract.place.task_id === selectedTask?.id) || null;
   const residentProfileBase = data.residentProfiles.find((profile) => profile.id === residentProfileId) || data.residentProfiles[0];
   const currentProgress = residentProgress[residentProfileBase.id];
   const residentProfile = {
@@ -340,6 +341,7 @@ function App() {
       task: selectedTask,
       route: selectedRoute,
       activity: selectedActivity,
+      community_task_contract: selectedContract,
       dashboard_context: {
         managed_pois: data.pois.length,
         robot_ready_pois: data.pois.filter((poi) => poi.robot_accessible).length,
@@ -472,6 +474,7 @@ function App() {
             onRedeem={redeemBenefit}
           />
           <TaskDetails
+            contract={selectedContract}
             helpers={helpers}
             poiContext={poiContext}
             selectedActivity={selectedActivity}
@@ -504,6 +507,7 @@ function App() {
               seasonCheckins={seasonCheckins}
               benefits={data.benefits}
               benefitBaseline={data.benefitOperatorBaseline}
+              selectedContract={selectedContract}
               selectedTask={selectedTask}
               selectedRoute={selectedRoute}
               onTask={selectTask}

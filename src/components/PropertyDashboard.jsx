@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { TaskContractView } from "./TaskContractView";
 import { hasActivePulsePlace } from "../pulseLifecycle";
 
 const queueFilters = ["all", "demo_ready", "planned_for_demo", "future_interface"];
@@ -16,6 +17,7 @@ export function PropertyDashboard({
   seasonCheckins,
   benefits,
   benefitBaseline,
+  selectedContract,
   selectedTask,
   selectedRoute,
   onTask,
@@ -227,6 +229,7 @@ export function PropertyDashboard({
           </div>
         </dl>
       </section>
+      <TaskContractView contract={selectedContract} helpers={helpers} compact />
       <div className="dashboard-lanes">
         <section>
           <h3>{helpers.t("dashboard.operationsTitle", "Operational Queue")}</h3>

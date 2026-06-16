@@ -36,6 +36,8 @@ Current protocol assets:
 - `examples/contracts/`
 - `scripts/validate-contracts.mjs`
 
+The React demo now includes a Task Contract View for selected workflows, so CACP appears as a visible product layer rather than a document-only appendix.
+
 ## Product Versions
 
 Community Spirit should be introduced as a layered product, not as one flat smart-community demo:
@@ -207,6 +209,7 @@ The release gate validates data references, Pulse lifecycle rules, retention met
 - `docs/prototype-plan.md`: original prototype execution plan.
 - `docs/project-summary.md`: submission-ready project summary.
 - `docs/project-submission-form.md`: copy-ready project profile answers.
+- `docs/hackathon-submission-strategy.md`: competition framing that keeps Community Spirit from collapsing back into a hackathon-only project.
 - `docs/github-release-checklist.md`: first release checklist.
 - `docs/github-promotion-plan.md`: GitHub launch, release, and promotion plan.
 - `docs/demo-qa-checklist.md`: demo verification checklist.

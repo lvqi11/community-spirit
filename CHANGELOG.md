@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.2.0 - CACP Draft Release
+
+### Added
+
+- CACP protocol direction for Community AI Collaboration Protocol.
+- Community Task Contract draft documentation, JSON schema, and validator.
+- Three synthetic contract examples covering low-pressure social participation, elder-friendly helper flow, and robot-assist patrol review.
+- Task Contract View in the React demo for selected workflow permission, risk, privacy, fallback, feedback, and lifecycle state.
+- Workflow JSON export now includes the selected community task contract when one exists.
+- Physical AI Community Roadmap from "can do" to "can adapt" to "can collaborate".
+
+### Validation
+
+- `npm run validate:protocol` validates CACP contract examples against schema and sample data references.
+- `npm run check` now includes protocol validation.
+
 ## 0.1.0 - Open Prototype
 
 ### Added
