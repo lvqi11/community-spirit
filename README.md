@@ -4,6 +4,10 @@ Community Spirit is a future community RPG engine grounded in real spatial opera
 
 社区精灵不是传统智慧社区后台，而是把真实社区变成一个可探索、可接任务、可运营、可连接未来机器人的生活 RPG 世界。
 
+This is not a dashboard for managing communities. It is an operating grammar for future communities: a shared task language that lets residents, property operators, AI agents, and future service robots understand the same physical space.
+
+The long-term goal is to prepare the interaction layer before physical AI enters daily life. Community Spirit turns lightweight, low-pressure community participation into spatial quests so young residents, families, elders, operators, and future robots can coordinate around real places without requiring heavy social networking or real personal data.
+
 The current prototype uses spatial data as the foundation: POIs become places, routes become paths, activities become quests, property workflows become world operations, and robot patrols become reality-layer tasks.
 
 ## Product Versions
@@ -16,7 +20,7 @@ Community Spirit should be introduced as a layered product, not as one flat smar
 4. **World Ops Console**: property teams operate the living world through activity pipelines, repair workflows, hot POIs, risk review, and workflow handoff.
 5. **Robot-ready Reality Layer**: the same quest/task model can export semantic patrol payloads for future service robots, with privacy and approval guardrails.
 
-The hackathon showcase adds **Community Pulse**: a live recommendation engine that scores multiple events against resident interests, availability, social comfort, and walking distance. A selected pulse becomes a task and route, records join/check-in progress, advances a shared community goal, and exposes the same conversion to World Ops.
+The public showcase adds **Community Pulse**: a live recommendation engine that scores multiple events against resident interests, availability, social comfort, and walking distance. A selected pulse becomes a task and route, records join/check-in progress, advances a shared community goal, and exposes the same conversion to World Ops.
 
 The latest prototype also closes a **Retention Loop**. It does not only ask whether a resident joined once; it measures first participation, 7-day return, current streaks, and season-by-season repeat visits from synthetic resident history plus in-session progress.
 
@@ -93,7 +97,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\preflight.ps1
 - World Ops commerce metrics for points awarded, points spent, claims, activations, and redemptions.
 - World Ops Retention Loop metrics for first participation, 7-day return, average streak, and season comparison.
 - Three focused product views: Resident World, Task & Benefits, and World Ops.
-- Seven-step Hackathon Demo controller with deterministic reset and guarded step order.
+- Seven-step guided demo controller with deterministic reset and guarded step order.
 - Mobile-first demo navigation with a compact progress summary, horizontally scrollable story steps, sticky product views, and touch-sized primary actions.
 
 ## Example Scenarios
@@ -158,19 +162,19 @@ Run the full local check:
 npm.cmd run check
 ```
 
-The release gate validates data references, Pulse lifecycle rules, retention metrics, the production build, hackathon submission materials, current object counts, synthetic-data declarations, and generated assets.
+The release gate validates data references, Pulse lifecycle rules, retention metrics, the production build, project materials, current object counts, synthetic-data declarations, and generated assets.
 
 ## Documentation
 
-- `HACKATHON.md`: submission landing page for judges and demos.
+- `PROJECT.md`: project landing page for reviewers and demos.
 - `docs/vision.md`: product vision and long-term direction.
 - `docs/architecture.md`: prototype architecture and system layers.
 - `docs/data-model.md`: core object model and reference rules.
 - `docs/competitive-landscape.md`: market context and differentiation.
 - `docs/robot-ready-map.md`: future robot-facing semantic map direction.
-- `docs/hackathon-plan.md`: 48-hour hackathon execution plan.
-- `docs/hackathon-submission.md`: submission-ready summary.
-- `docs/hackathon-submission-form.md`: copy-ready hackathon form answers.
+- `docs/prototype-plan.md`: original prototype execution plan.
+- `docs/project-summary.md`: submission-ready project summary.
+- `docs/project-submission-form.md`: copy-ready project profile answers.
 - `docs/github-release-checklist.md`: first release checklist.
 - `docs/github-promotion-plan.md`: GitHub launch, release, and promotion plan.
 - `docs/demo-qa-checklist.md`: demo verification checklist.
@@ -251,4 +255,4 @@ Do not commit real residential maps, resident information, unit numbers, access-
 
 ## Status
 
-The project is in the open prototype stage. The current goal is to validate the core concept through a runnable demo, technical report, hackathon submission package, and early customer interviews.
+The project is in the open prototype stage. The current goal is to validate the core concept through a runnable demo, technical report, GitHub project presentation, and early customer interviews.

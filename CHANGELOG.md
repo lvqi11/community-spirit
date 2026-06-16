@@ -15,7 +15,7 @@
 - Data validation script and `npm run check`.
 - GitHub CI and Pages deployment workflows.
 - GitHub issue templates and pull request template.
-- Hackathon submission package, demo script, and QA checklist.
+- Project summary, demo script, and QA checklist.
 - Windows helper scripts for static demo, Vite demo, and preflight.
 - Workflow export contract and robot patrol export example.
 - Competitive landscape and differentiation documentation.

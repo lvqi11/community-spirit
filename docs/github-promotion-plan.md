@@ -35,7 +35,6 @@ community
 civic-tech
 ai-agents
 spatial-computing
-hackathon
 property-tech
 robotics
 vite
@@ -48,7 +47,7 @@ synthetic-data
 Release name:
 
 ```text
-Community Spirit Hackathon Prototype v0.1
+Community Spirit Open Prototype v0.1
 ```
 
 Release summary:
@@ -61,7 +60,7 @@ Release highlights:
 
 - 13 POIs, 8 routes, 9 tasks, 4 activities, 3 Community Pulses, 3 synthetic resident profiles, 3 seasons, and 3 benefits.
 - React/Vite primary demo with Resident World, Task & Benefits, and World Ops.
-- Seven-step deterministic hackathon demo controller.
+- Seven-step deterministic guided demo controller.
 - Community Pulse recommendation, join, leave, check-in, lifecycle, and shared-goal loop.
 - Resident XP, badges, Spirit Points, benefit pass lifecycle, wallet ledger, and retention metrics.
 - World Ops conversion, lifecycle, commerce, season, and Retention Loop cards.
@@ -79,7 +78,7 @@ Release highlights:
 7. Add repository topics and About links.
 8. Pin the repository on the GitHub profile or organization.
 9. Publish launch posts.
-10. Submit to hackathon using `HACKATHON.md` and `docs/hackathon-submission.md`.
+10. Keep the repository positioned as a standalone GitHub project and use `PROJECT.md` plus `docs/project-summary.md` for external reviews.
 
 ## Launch Post
 
@@ -118,6 +117,6 @@ This keeps the prototype explainable, auditable, and safe for public demo data.
 
 ## Next Public Milestones
 
-- `v0.1.0`: hackathon prototype and public demo.
+- `v0.1.0`: open prototype and public demo.
 - `v0.1.1`: demo video, screenshots, and README polish after first feedback.
 - `v0.2.0`: permissioned pilot design with role-based access, consent, audit logs, and data minimization.

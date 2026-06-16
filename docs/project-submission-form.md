@@ -1,6 +1,6 @@
-# Hackathon Submission Form
+# Project Submission Profile
 
-Use this file as the copy-ready source for hackathon forms.
+Use this file as the copy-ready source for GitHub project pages, product directories, demo descriptions, and external project submissions.
 
 ## Project Name
 
@@ -17,16 +17,18 @@ A community life RPG engine grounded in real spatial operations.
 ## Short Description
 
 ```text
-Community Spirit turns real residential spaces into playable quests, personalized Community Pulse recommendations, resident growth, useful benefits, retention loops, World Ops, and robot-ready tasks.
+Community Spirit turns real residential spaces into a lightweight community RPG and physical-AI preparation layer: playable quests, low-pressure social participation, resident growth, retention loops, World Ops, and robot-ready tasks.
 ```
 
 ## Long Description
 
-Community Spirit is not a conventional smart-community dashboard. It is a community life RPG engine grounded in real spatial operations.
+Community Spirit is not a conventional smart-community dashboard. It is an operating grammar for future communities: a community life RPG engine grounded in real spatial operations, designed so residents, property operators, AI agents, and future service robots can understand the same physical space.
 
 The prototype uses a fictional residential community to show how structured spatial data can become a living operating loop. POIs become meaningful places, routes become paths, activities become quests, Pulse recommendations become real-space participation, and World Ops can measure what happened after residents joined.
 
 The headline feature is Community Pulse. It ranks live opportunities against a resident's interests, availability, social comfort, and walking distance. A recommendation becomes a task and route, records join and check-in progress, advances resident XP and a shared community goal, awards Spirit Points, unlocks contextual benefits, and exposes conversion plus retention metrics to operators.
+
+The social model is intentionally light. Instead of forcing residents into heavy social networking, Community Spirit creates low-pressure reasons to show up, help, play, walk, or maintain shared spaces. Different residents can receive different interaction modes: after-work sports, family discovery, elder-friendly walking or helper tasks, and community maintenance.
 
 The demo also includes resident identity, season arcs, benefit passes, wallet transactions, Pulse lifecycle controls, and robot-ready semantic workflow export. All current data is fictional or synthetic.
 
@@ -35,6 +37,8 @@ The demo also includes resident identity, season arcs, benefit passes, wallet tr
 Community activities are usually broadcast through noisy chat groups or static notices. Residents lack a personalized reason to participate, underused spaces stay quiet, and property teams cannot connect recommendations to actual arrival, repeat participation, or benefit conversion.
 
 Existing smart-community tools are often workflow-first, dashboard-first, or display-first. They rarely make the resident experience feel alive while still giving operators structured, measurable, spatially grounded data.
+
+At the same time, future physical AI needs more than maps and sensor feeds. Robots entering daily community life will need human-readable, permission-aware spatial tasks that connect places, routes, intent, safety, and operator approval. Most current community systems do not prepare that shared language.
 
 ## Solution
 
@@ -46,10 +50,16 @@ POI -> Route -> Task -> Pulse -> Check-in -> Growth -> Benefit -> Retention -> W
 
 Residents see a personalized community world. Operators see the same activity as a measurable operating funnel. Future robots can receive structured route/task exports from the same model.
 
+The prototype proves the loop with synthetic spatial data:
+
+```text
+recommendation -> route -> check-in -> growth -> benefit -> retention -> World Ops -> robot-ready export
+```
+
 ## What We Built
 
 - A React/Vite public demo with three focused views: Resident World, Task & Benefits, and World Ops.
-- A seven-step deterministic hackathon demo controller.
+- A seven-step deterministic guided demo controller.
 - A fictional community dataset with 13 POIs, 8 routes, 9 tasks, 4 activities, 3 Community Pulses, 3 synthetic resident profiles, 3 seasons, and 3 benefits.
 - Explainable Community Pulse ranking based on interests, availability, social mode, and walking distance.
 - Pulse lifecycle: matching, open, full, expired, ended, join, leave, and check-in.
@@ -62,11 +72,12 @@ Residents see a personalized community world. Operators see the same activity as
 
 ## Innovation
 
-Community Spirit combines four usually separate ideas into one small prototype:
+Community Spirit combines five usually separate ideas into one small prototype:
 
 ```text
 community life RPG
 + real spatial operations
++ lightweight social activation
 + measurable resident retention
 + robot-ready semantic tasks
 ```
@@ -147,9 +158,9 @@ All current data is fictional or synthetic. The prototype does not connect to re
 
 A real pilot would require verified spaces, resident consent, role-based permissions, audit logs, data minimization, retention policies, and property approval.
 
-## If Asked About Prior Work
+## If Asked About Project Stage
 
-This repository is an open prototype prepared before submission. If a hackathon requires new work during the event window, use the repository as the pre-existing open-source base and submit the event-window contribution as a clearly scoped release update, such as:
+This repository is an open prototype. If an external program requires new work during a specific event window, use the repository as the pre-existing open-source base and describe the event-window contribution as a clearly scoped release update, such as:
 
 - a judge landing page;
 - a demo video and submission package;

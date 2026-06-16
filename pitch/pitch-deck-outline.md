@@ -245,7 +245,7 @@ Looking for:
 - property digitalization partner;
 - AI agent developer;
 - robot or simulation collaborator;
-- hackathon or innovation competition opportunity.
+- GitHub project feedback or innovation competition opportunity.
 
 Closing message:
 

@@ -1,4 +1,4 @@
-# Hackathon Submission Package
+# Project Summary
 
 ## Project
 
@@ -37,7 +37,7 @@ The React demo contains three focused views:
 
 ## Three-minute Story
 
-Use the seven-step Hackathon Demo controller:
+Use the seven-step guided demo controller:
 
 1. Explain why tonight's basketball Pulse matches the selected resident.
 2. Join and generate the participant slot, task, and walking route.
@@ -55,7 +55,7 @@ The Pulse lifecycle also supports leaving before check-in and operational states
 - Structured synthetic JSON for POIs, routes, tasks, activities, pulses, seasons, benefits, and zh-CN copy.
 - SVG spatial map and route highlighting.
 - Resident-specific in-session state with duplicate reward and duplicate redemption protection.
-- Automated cross-reference, lifecycle, retention, submission-material, and production-build validation.
+- Automated cross-reference, lifecycle, retention, project-material, and production-build validation.
 - Responsive mobile demo navigation with touch-sized actions.
 - Robot-ready semantic task export as a future reality-layer interface.
 

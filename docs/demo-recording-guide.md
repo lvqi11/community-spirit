@@ -1,6 +1,6 @@
 # Demo Recording Guide
 
-Record the React/Vite product as the primary hackathon demo. The static demo is a compatibility fallback, not the main story.
+Record the React/Vite product as the primary public demo. The static demo is a compatibility fallback, not the main story.
 
 ## Setup
 

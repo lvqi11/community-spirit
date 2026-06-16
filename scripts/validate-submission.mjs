@@ -13,19 +13,19 @@ const expectedCounts = {
 
 const requiredFiles = [
   "README.md",
-  "HACKATHON.md",
+  "PROJECT.md",
   "pitch/demo-script.md",
-  "docs/hackathon-submission.md",
+  "docs/project-summary.md",
   "docs/demo-qa-checklist.md",
   "docs/demo-recording-guide.md",
   "dist/index.html"
 ];
 
 const requiredDocumentMarkers = {
-  "README.md": ["Community Pulse", "Seven-step Hackathon Demo controller", "fictional or synthetic"],
-  "HACKATHON.md": ["Community Life RPG", "Spirit Points", "fictional or synthetic"],
+  "README.md": ["Community Pulse", "Seven-step guided demo controller", "fictional or synthetic"],
+  "PROJECT.md": ["Community Life RPG", "Spirit Points", "fictional or synthetic"],
   "pitch/demo-script.md": ["Run next step", "resident benefit pass", "World Ops"],
-  "docs/hackathon-submission.md": ["13 POIs", "seven-step", "Community Pulse"],
+  "docs/project-summary.md": ["13 POIs", "seven-step", "Community Pulse"],
   "docs/demo-qa-checklist.md": ["npm.cmd run check", "Pulse lifecycle", "mobile"],
   "docs/demo-recording-guide.md": ["127.0.0.1:5173", "seven-step", "synthetic"]
 };
@@ -34,7 +34,7 @@ const errors = [];
 
 for (const file of requiredFiles) {
   if (!fs.existsSync(file) || fs.statSync(file).size === 0) {
-    errors.push(`Missing or empty submission artifact: ${file}`);
+    errors.push(`Missing or empty project artifact: ${file}`);
   }
 }
 
@@ -51,7 +51,7 @@ for (const [file, markers] of Object.entries(requiredDocumentMarkers)) {
   const content = fs.readFileSync(file, "utf8");
   for (const marker of markers) {
     if (!content.toLowerCase().includes(marker.toLowerCase())) {
-      errors.push(`${file} is missing submission marker: ${marker}`);
+      errors.push(`${file} is missing project marker: ${marker}`);
     }
   }
 }
@@ -71,6 +71,6 @@ if (errors.length) {
 }
 
 console.log(
-  "Validated hackathon submission: 13 POIs, 8 routes, 9 tasks, 4 activities, " +
+  "Validated project package: 13 POIs, 8 routes, 9 tasks, 4 activities, " +
   "3 pulses, 3 profiles, 3 seasons, 3 benefits, required docs, and production assets."
 );

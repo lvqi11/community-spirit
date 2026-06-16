@@ -1,6 +1,6 @@
-# Hackathon Plan
+# Prototype Plan
 
-This plan describes how to turn Community Spirit into a 48-hour hackathon demo.
+This plan describes the original fast prototype scope for Community Spirit.
 
 ## Demo Goal
 
@@ -79,7 +79,7 @@ Alternative:
 Next.js + React
 ```
 
-Avoid heavy engine dependency in the hackathon version.
+Avoid heavy engine dependency in the first public prototype.
 
 ## UI Layout
 
@@ -143,9 +143,9 @@ broken / light / repair -> task-report-playground-light
 robot / patrol / fire passage -> task-robot-fire-passage-patrol
 ```
 
-This is acceptable for a hackathon because the goal is to demonstrate data grounding and product flow, not general chatbot intelligence.
+This is acceptable for the prototype because the goal is to demonstrate data grounding and product flow, not general chatbot intelligence.
 
-## Judging Narrative
+## Review Narrative
 
 Three-minute pitch:
 
@@ -181,7 +181,7 @@ If only one developer is available, reduce scope to:
 - task details;
 - robot export preview.
 
-## Final Submission Checklist
+## Project Readiness Checklist
 
 - Runnable demo URL or local demo video.
 - GitHub repo with README.
@@ -193,7 +193,7 @@ If only one developer is available, reduce scope to:
 
 ## Success Criteria
 
-The hackathon demo succeeds if viewers understand:
+The prototype succeeds if viewers understand:
 
 - this is not just a 3D map;
 - the AI assistant is grounded in structured community data;

@@ -6,7 +6,7 @@ Community Spirit is an open prototype for an AI-native community digital twin. C
 
 - Demo UI improvements for resident, property, and robot-ready workflows.
 - Synthetic POIs, routes, tasks, and activities that improve the sample data.
-- Documentation that explains architecture, data policy, hackathon usage, or pilot validation.
+- Documentation that explains architecture, data policy, project usage, or pilot validation.
 - React/Vite components that preserve the current static demo behavior while improving maintainability.
 
 ## Data Rules

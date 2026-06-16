@@ -16,7 +16,7 @@ export function DemoController({ currentStep, helpers, isDemoMode, onReset, onRu
     <section className="demo-controller">
       <div className="demo-controller-header">
         <div>
-          <p className="eyebrow">{helpers.t("demo.eyebrow", "Hackathon Demo Mode")}</p>
+          <p className="eyebrow">{helpers.t("demo.eyebrow", "Guided Demo Mode")}</p>
           <h2>{helpers.t("demo.title", "One story, seven visible state changes")}</h2>
         </div>
         <div className="demo-controller-actions">

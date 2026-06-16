@@ -6,7 +6,7 @@ Community Spirit is a community life RPG engine grounded in real spatial operati
 
 Tonight, an underused basketball court needs two more players. Instead of posting another message in a noisy group chat, Community Pulse finds residents who like basketball, are free tonight, and prefer activity-first social connection.
 
-Use the Hackathon Demo controller at the top. Click **Reset story**, then advance with **Run next step**.
+Use the guided demo controller at the top. Click **Reset story**, then advance with **Run next step**.
 
 ## 0:20-0:55 Community Pulse Match
 

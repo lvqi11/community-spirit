@@ -1,4 +1,4 @@
-# Community Spirit Hackathon Submission
+# Community Spirit Project Overview
 
 ## Project
 
@@ -6,7 +6,11 @@ Community Spirit: Community Life RPG for Real Residential Spaces
 
 ## Pitch
 
-Community Spirit turns a residential community into a living RPG world: residents explore real places, accept community quests, join activities, report issues, and build a visible community identity, while property teams operate the world and future robots receive structured reality-layer tasks.
+Most community products digitize management. Community Spirit turns physical community life into a shared quest/task language for residents, operators, AI agents, and future robots.
+
+Community Spirit is not a dashboard for managing communities. It is an operating grammar for future communities: residents explore real places, accept community quests, join activities, report issues, and build a visible community identity, while property teams operate the world and future robots receive structured reality-layer tasks.
+
+The project is designed as a physical-AI preparation layer. Before robots enter everyday residential life, communities need spatial tasks that are understandable to people, auditable by operators, and exportable to machines. Community Spirit shows that loop with synthetic data and a resident-friendly RPG experience.
 
 The headline demo is Community Pulse: multiple real-space events are ranked against a resident's interests, available time, social comfort, and walking distance. Switching from an after-work athlete to a weekend family or community helper changes the top recommendation, route, shared goal, reward, and property conversion context.
 
@@ -51,7 +55,7 @@ http://127.0.0.1:4177/demo/web/index.html?task=task-robot-fire-passage-patrol
 
 - Current validated scale: 13 POIs, 8 routes, 9 tasks, 4 activities, 3 Community Pulses, 3 synthetic resident profiles, 3 seasons, and 3 benefits.
 - Static zero-dependency web demo.
-- Vite + React primary hackathon demo with Resident World, Task & Benefits, and World Ops views.
+- Vite + React primary product demo with Resident World, Task & Benefits, and World Ops views.
 - Synthetic POI, route, task, activity, and i18n data.
 - Community life RPG framing and spatial quest flow.
 - Community Explorer Quest with POI check-ins and badge reward.
@@ -70,7 +74,7 @@ http://127.0.0.1:4177/demo/web/index.html?task=task-robot-fire-passage-patrol
 - Risk/access review and workflow handoff cards.
 - Robot-ready semantic task export.
 - Data validation script and CI workflow.
-- Submission validation for current data scale, required materials, synthetic-data declarations, and built production assets.
+- Project validation for current data scale, required materials, synthetic-data declarations, and built production assets.
 - Mobile-first seven-step demo navigation with compact progress and touch-sized actions.
 - GitHub Pages workflow for publishing the static demo.
 
@@ -88,10 +92,13 @@ Community Spirit should not be judged as only a smart-community dashboard. Its d
 ```text
 community life RPG
 + resident-visible spatial quests
++ lightweight social participation across youth, families, and elders
 + recurring season arcs and badge identity
 + property world-ops workflows
 + robot-ready semantic exports
 ```
+
+The social model is intentionally light: the product creates low-pressure reasons to show up, help, play, walk, or maintain shared spaces, instead of forcing residents into heavy social networking. The same loop can reduce isolation, activate underused spaces, and create trustworthy physical context for future robots.
 
 ## Safety
 
@@ -103,4 +110,4 @@ All public data is fictional or synthetic. Real pilots require permission manage
 npm.cmd run check
 ```
 
-This validates data references, Pulse lifecycle rules, retention metrics, the production build, submission materials, and generated assets.
+This validates data references, Pulse lifecycle rules, retention metrics, the production build, project materials, and generated assets.

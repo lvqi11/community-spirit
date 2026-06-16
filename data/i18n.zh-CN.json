@@ -32,7 +32,7 @@
     "exported": "当前工作流 JSON 已导出。"
   },
   "demo": {
-    "eyebrow": "黑客松演示模式",
+    "eyebrow": "引导演示模式",
     "title": "一条故事，七次可见状态变化",
     "progress": "剧情进度",
     "on": "演示模式开启",
