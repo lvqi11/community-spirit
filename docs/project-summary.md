@@ -6,7 +6,7 @@
 
 **A community life RPG engine grounded in real spatial operations.**
 
-Community Spirit turns real community spaces into quests, relationships, shared goals, resident growth, useful benefits, and measurable world operations. It is not a conventional smart-community dashboard.
+Community Spirit turns real community spaces into quests, relationships, shared goals, resident growth, useful benefits, measurable world operations, and physical-AI task contracts. It is not a conventional smart-community dashboard.
 
 ## Problem
 
@@ -14,7 +14,7 @@ Community activities are usually broadcast through noisy chat groups or static n
 
 ## Solution
 
-Community Pulse ranks live opportunities against a resident's interests, availability, social comfort, and walking distance. A recommendation becomes a real task and route, records join and check-in progress, advances resident XP and a shared community goal, awards Spirit Points, and unlocks a contextual benefit. World Ops receives the same event as an operating funnel and retention loop.
+Community Pulse ranks live opportunities against a resident's interests, availability, social comfort, and walking distance. A recommendation becomes a real task and route, records join and check-in progress, advances resident XP and a shared community goal, awards Spirit Points, and unlocks a contextual benefit. World Ops receives the same event as an operating funnel, retention loop, and future human / AI / robot handoff context.
 
 ## Current Prototype
 
@@ -58,6 +58,7 @@ The Pulse lifecycle also supports leaving before check-in and operational states
 - Automated cross-reference, lifecycle, retention, project-material, and production-build validation.
 - Responsive mobile demo navigation with touch-sized actions.
 - Robot-ready semantic task export as a future reality-layer interface.
+- Physical-AI social layer direction: task intent, interaction mode, permission, privacy boundary, fallback, trust, and acceptance.
 
 Run the full release gate:
 
@@ -71,6 +72,7 @@ npm.cmd run check
 - **Feasibility:** uses a small structured model and runs locally without private infrastructure.
 - **Resident value:** creates personalized reasons to explore, participate, grow, and return.
 - **Operator value:** connects recommendations, joins, arrivals, repeat visits, space activation, Spirit Points, and benefits.
+- **Physical-AI value:** defines the social contract that should exist before an AI agent or robot acts in a residential setting.
 - **Safety:** all current data is fictional or synthetic.
 
 ## Boundaries

@@ -21,7 +21,7 @@ Community Spirit Open Prototype v0.1
 Release summary:
 
 ```text
-Community life RPG engine that connects personalized real-space participation, resident growth, benefits, World Ops, and future robot-ready tasks.
+Community life RPG and physical-AI social layer that connects personalized real-space participation, resident growth, benefits, World Ops, task contracts, and future robot-ready tasks.
 ```
 
 Highlights:
@@ -32,6 +32,7 @@ Highlights:
 - React/Vite three-view product with a seven-step deterministic demo controller.
 - Community Pulse recommendation, lifecycle, resident growth, seasons, Spirit Points, benefit passes, and wallet ledger.
 - Retention Loop metrics for first participation, 7-day return, streaks, and season comparison.
+- Physical-AI social layer documentation for task contracts, interaction modes, trust, and human / AI / robot handoff.
 - Mobile-first demo navigation and touch-sized actions.
 - Project summary and demo script.
 - Copy-ready project profile answers in `docs/project-submission-form.md`.

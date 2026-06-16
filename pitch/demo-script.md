@@ -2,7 +2,7 @@
 
 ## 0:00-0:20 Opening
 
-Community Spirit is a community life RPG engine grounded in real spatial operations.
+Community Spirit is a community life RPG and physical-AI social layer grounded in real spatial operations.
 
 Tonight, an underused basketball court needs two more players. Instead of posting another message in a noisy group chat, Community Pulse finds residents who like basketball, are free tonight, and prefer activity-first social connection.
 
@@ -59,6 +59,8 @@ The final guided step switches directly to the World Ops view.
 Briefly show the Pulse lifecycle control: full and expired stop new joins without removing confirmed participants, while ended closes check-in. Restore the Pulse to matching before resetting the story.
 
 Explain that property teams are not buying another dashboard. They are buying a repeatable way to turn underused spaces into measurable participation and repeat visits.
+
+This is also the social layer physical AI will need later: before a robot or agent acts, the community needs intent, permission, privacy, fallback, trust, and resident acceptance.
 
 ## 2:20-2:45 Living World Depth
 

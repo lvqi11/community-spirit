@@ -5,13 +5,13 @@
 Community Spirit should be promoted as:
 
 ```text
-A community life RPG engine grounded in real spatial operations.
+A community life RPG and physical-AI social layer grounded in real spatial operations.
 ```
 
 Do not describe it as a conventional smart-community dashboard. The public story is:
 
 ```text
-Community Pulse turns resident intent, real places, activities, rewards, benefits, and retention into one playable operating loop.
+Community Pulse turns resident intent, real places, activities, rewards, benefits, retention, and future human / AI / robot handoff into one playable operating loop.
 ```
 
 ## Repository Launch
@@ -25,7 +25,7 @@ community-spirit
 Recommended description:
 
 ```text
-Community life RPG engine for real residential spaces, with spatial quests, Community Pulse, World Ops, benefits, retention, and robot-ready exports.
+Community life RPG and physical-AI social layer for real residential spaces, with spatial quests, Community Pulse, World Ops, benefits, retention, task contracts, and robot-ready exports.
 ```
 
 Recommended topics:
@@ -53,7 +53,7 @@ Community Spirit Open Prototype v0.1
 Release summary:
 
 ```text
-Community Spirit is a community life RPG engine that connects personalized real-space participation, resident growth, benefits, retention, World Ops, and future robot-ready tasks.
+Community Spirit is a community life RPG and physical-AI social layer that connects personalized real-space participation, resident growth, benefits, retention, World Ops, explicit task contracts, and future robot-ready tasks.
 ```
 
 Release highlights:
@@ -65,6 +65,7 @@ Release highlights:
 - Resident XP, badges, Spirit Points, benefit pass lifecycle, wallet ledger, and retention metrics.
 - World Ops conversion, lifecycle, commerce, season, and Retention Loop cards.
 - Robot-ready semantic workflow export.
+- Physical-AI social layer direction for interaction modes, permission boundaries, trust, and human / AI / robot handoff.
 - Synthetic-only public data and automated release validation.
 
 ## Launch Sequence
@@ -85,11 +86,11 @@ Release highlights:
 Short post:
 
 ```text
-I built Community Spirit: a community life RPG engine grounded in real spatial operations.
+I built Community Spirit: a community life RPG and physical-AI social layer grounded in real spatial operations.
 
 Instead of treating a residential community as a static dashboard, it turns POIs, routes, activities, benefits, and property operations into playable resident quests.
 
-The demo includes Community Pulse recommendations, join/check-in lifecycle, XP, Spirit Points, benefit passes, World Ops conversion, retention metrics, and robot-ready exports.
+The demo includes Community Pulse recommendations, join/check-in lifecycle, XP, Spirit Points, benefit passes, World Ops conversion, retention metrics, task-contract direction, and robot-ready exports.
 
 All data is fictional or synthetic.
 ```
@@ -104,6 +105,7 @@ Route = how people and future robots move
 Task = why the movement matters
 Pulse = why a resident should participate now
 Retention = whether the resident comes back
+Trust = whether residents accept AI or robot-assisted tasks
 
 This keeps the prototype explainable, auditable, and safe for public demo data.
 ```

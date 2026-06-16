@@ -17,12 +17,12 @@ A community life RPG engine grounded in real spatial operations.
 ## Short Description
 
 ```text
-Community Spirit turns real residential spaces into a lightweight community RPG and physical-AI preparation layer: playable quests, low-pressure social participation, resident growth, retention loops, World Ops, and robot-ready tasks.
+Community Spirit turns real residential spaces into a lightweight community RPG and physical-AI social layer: playable quests, low-pressure social participation, resident growth, retention loops, World Ops, explicit task contracts, and robot-ready tasks.
 ```
 
 ## Long Description
 
-Community Spirit is not a conventional smart-community dashboard. It is an operating grammar for future communities: a community life RPG engine grounded in real spatial operations, designed so residents, property operators, AI agents, and future service robots can understand the same physical space.
+Community Spirit is not a conventional smart-community dashboard. It is an operating grammar for future communities: a community life RPG engine grounded in real spatial operations, designed so residents, property operators, AI agents, and future service robots can understand the same physical space and the same social rules around a task.
 
 The prototype uses a fictional residential community to show how structured spatial data can become a living operating loop. POIs become meaningful places, routes become paths, activities become quests, Pulse recommendations become real-space participation, and World Ops can measure what happened after residents joined.
 
@@ -38,7 +38,7 @@ Community activities are usually broadcast through noisy chat groups or static n
 
 Existing smart-community tools are often workflow-first, dashboard-first, or display-first. They rarely make the resident experience feel alive while still giving operators structured, measurable, spatially grounded data.
 
-At the same time, future physical AI needs more than maps and sensor feeds. Robots entering daily community life will need human-readable, permission-aware spatial tasks that connect places, routes, intent, safety, and operator approval. Most current community systems do not prepare that shared language.
+At the same time, future physical AI needs more than maps, sensor feeds, simulation, and action planning. Robots entering daily community life will need human-readable, permission-aware spatial tasks that connect places, routes, intent, resident touch, safety, operator approval, privacy boundaries, fallback ownership, and trust feedback. Most current community systems do not prepare that shared language.
 
 ## Solution
 
@@ -48,12 +48,18 @@ Community Spirit connects resident motivation and property operations through on
 POI -> Route -> Task -> Pulse -> Check-in -> Growth -> Benefit -> Retention -> World Ops
 ```
 
-Residents see a personalized community world. Operators see the same activity as a measurable operating funnel. Future robots can receive structured route/task exports from the same model.
+Residents see a personalized community world. Operators see the same activity as a measurable operating funnel. Future robots can receive structured route/task exports from the same model, after the task has a clear social contract.
 
 The prototype proves the loop with synthetic spatial data:
 
 ```text
 recommendation -> route -> check-in -> growth -> benefit -> retention -> World Ops -> robot-ready export
+```
+
+The longer-term task contract is:
+
+```text
+intent -> place -> interaction mode -> permission -> privacy boundary -> actor -> fallback -> feedback
 ```
 
 ## What We Built
@@ -68,6 +74,7 @@ recommendation -> route -> check-in -> growth -> benefit -> retention -> World O
 - Retention Loop: first participation, 7-day return, streaks, and season-by-season repeat visits.
 - World Ops cards for conversion, lifecycle, space activation, season operations, retention, commerce, and workflow handoff.
 - Robot-ready semantic task export as a future reality-layer interface.
+- Physical-AI social layer direction for interaction modes, permission, privacy, fallback, trust, and human / AI / robot handoff.
 - Automated validation for data references, lifecycle rules, retention metrics, production build, and submission assets.
 
 ## Innovation
@@ -79,6 +86,7 @@ community life RPG
 + real spatial operations
 + lightweight social activation
 + measurable resident retention
++ physical-AI task contracts
 + robot-ready semantic tasks
 ```
 

@@ -4,17 +4,17 @@
 
 Community Spirit / Shequ Jingling
 
-AI-native community digital twin platform for residents, property operators, and future service robots.
+Community life RPG and physical-AI social layer for residents, property operators, AI agents, and future service robots.
 
 ## Suggested Chinese Title
 
-社区精灵：面向 AI 机器人时代的游戏化社区数字孪生运营平台
+社区精灵：面向物理 AI 时代的社区生活 RPG 与社会任务层
 
 ## 1. Cover
 
 Key message:
 
-Community Spirit turns a residential community into an interactive, maintainable, and robot-ready digital space.
+Community Spirit turns a residential community into an interactive, maintainable, robot-ready, and socially acceptable task world.
 
 Visual suggestion:
 
@@ -249,4 +249,4 @@ Looking for:
 
 Closing message:
 
-Community Spirit starts as a community digital twin, but its long-term goal is to become the spatial operating layer for AI and robots in real communities.
+Community Spirit starts as a community life RPG, but its long-term goal is to become the social operating layer that lets people, operators, AI agents, and robots share intent, permission, privacy, tasks, feedback, and trust in real communities.

@@ -6,6 +6,8 @@ The open prototype does not control a real robot.
 
 Instead, it defines the first semantic layer that a future service robot could use.
 
+This layer should be downstream of a human-readable task contract. A robot-ready export should not only say where a robot can move. It should also preserve why the task exists, who approved it, what privacy boundary applies, what resident touch is expected, and who reviews uncertain outcomes.
+
 ## Why Robots Need More Than Geometry
 
 A robot cannot operate safely in a residential community with geometry alone.
@@ -106,6 +108,30 @@ A future robot task export might look like:
 }
 ```
 
+## Social Contract Fields
+
+Future exports should add social and governance context before connecting to real devices:
+
+```json
+{
+  "intent": "inspect shared fire passage for obstruction",
+  "actor": "robot",
+  "permission": "property_approved",
+  "visibility": "operator_only",
+  "resident_touch": "none",
+  "privacy_boundary": {
+    "capture_faces": false,
+    "store_raw_video": false,
+    "public_feed": false
+  },
+  "fallback": "human_operator_review",
+  "feedback": {
+    "trust_signal": "no resident interruption reported",
+    "ops_signal": "issue confirmed or cleared"
+  }
+}
+```
+
 ## Integration Path
 
 The integration path should be staged:
@@ -118,7 +144,7 @@ No real robot required.
 
 ### Stage 2: Simulation
 
-Convert the community data into a simple simulation environment.
+Convert the community data into a simple simulation environment. The goal is not only robot motion; it should also test resident touch, privacy risk, operator approval, and task acceptance.
 
 Possible future targets:
 

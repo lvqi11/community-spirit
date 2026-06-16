@@ -9,6 +9,7 @@ The prototype is intentionally small. It is designed to make the core model visi
 ```text
 Resident / Property / Robot Interfaces
   -> AI Community Agent
+  -> Physical AI Social Layer
   -> Task and Activity Layer
   -> Route Layer
   -> POI and Spatial Data Layer
@@ -141,7 +142,37 @@ The property dashboard should expose maintainable operations:
 
 The dashboard is essential because a community is not static.
 
-## 7. Robot-ready Interface
+## 7. Physical AI Social Layer
+
+The physical-AI social layer defines how a task becomes acceptable before a person, AI agent, or robot acts.
+
+It should encode:
+
+- intent;
+- actor type;
+- interaction mode;
+- permission;
+- visibility;
+- privacy boundary;
+- risk level;
+- resident touch;
+- fallback owner;
+- feedback and trust signals.
+
+This layer is different from robot control. It prepares the social contract around a task so future physical AI does not enter community life as a black-box automation.
+
+Example:
+
+```text
+Intent: activate an underused basketball court
+Interaction mode: parallel or buddy
+Actor: resident first, operator visible
+Permission: public community activity
+Privacy boundary: no real identity or camera feed in the public demo
+Feedback: check-in, repeat participation, and willingness to join again
+```
+
+## 8. Robot-ready Interface
 
 The robot-ready layer should start as a structured export.
 

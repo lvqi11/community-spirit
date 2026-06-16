@@ -8,6 +8,8 @@ This is not a dashboard for managing communities. It is an operating grammar for
 
 The long-term goal is to prepare the interaction layer before physical AI enters daily life. Community Spirit turns lightweight, low-pressure community participation into spatial quests so young residents, families, elders, operators, and future robots can coordinate around real places without requiring heavy social networking or real personal data.
 
+As world models and embodied AI improve, Community Spirit's role is not to replace robot perception, planning, simulation, or control. Its role is the social operating layer before physical AI acts in daily community life: intent, permissions, light social modes, operator approval, privacy boundaries, task contracts, feedback, trust, and retention.
+
 The current prototype uses spatial data as the foundation: POIs become places, routes become paths, activities become quests, property workflows become world operations, and robot patrols become reality-layer tasks.
 
 ## Product Versions
@@ -19,6 +21,7 @@ Community Spirit should be introduced as a layered product, not as one flat smar
 3. **Season Arc System**: communities can run recurring seasons such as first-week onboarding, summer sports, pet-friendly trails, and festival storylines.
 4. **World Ops Console**: property teams operate the living world through activity pipelines, repair workflows, hot POIs, risk review, and workflow handoff.
 5. **Robot-ready Reality Layer**: the same quest/task model can export semantic patrol payloads for future service robots, with privacy and approval guardrails.
+6. **Physical AI Social Layer**: community intent, trust, resident acceptance, and human / AI / robot handoff are expressed as explicit task contracts before deployment.
 
 The public showcase adds **Community Pulse**: a live recommendation engine that scores multiple events against resident interests, availability, social comfort, and walking distance. A selected pulse becomes a task and route, records join/check-in progress, advances a shared community goal, and exposes the same conversion to World Ops.
 
@@ -80,6 +83,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\preflight.ps1
 - Property Dashboard as a world operations console.
 - Risk/access review and workflow export summaries.
 - Robot-ready patrol export JSON as a future reality-layer interface.
+- Physical-AI social layer framing: human-readable task contracts, permission boundaries, trust signals, and low-pressure participation modes.
 - Shareable task deep links and current workflow JSON export.
 - English and Chinese display copy through `data/i18n.zh-CN.json`.
 - Three explainable resident profiles and three ranked Community Pulses.
@@ -172,6 +176,7 @@ The release gate validates data references, Pulse lifecycle rules, retention met
 - `docs/data-model.md`: core object model and reference rules.
 - `docs/competitive-landscape.md`: market context and differentiation.
 - `docs/robot-ready-map.md`: future robot-facing semantic map direction.
+- `docs/physical-ai-social-layer.md`: long-term social operating layer for physical-AI communities.
 - `docs/prototype-plan.md`: original prototype execution plan.
 - `docs/project-summary.md`: submission-ready project summary.
 - `docs/project-submission-form.md`: copy-ready project profile answers.
@@ -244,6 +249,13 @@ https://<owner>.github.io/<repo>/demo/web/index.html
 - Patrol route generation.
 - Robot task interface.
 - Dynamic update from inspection data.
+
+### Phase 5: Physical AI Social Layer
+
+- Human / AI / robot task contracts.
+- Interaction modes for solo, parallel, buddy, family, elder-friendly, helper, operator, and robot-assisted tasks.
+- Trust and acceptance metrics beyond retention.
+- Synthetic community simulation for social risk, privacy boundaries, and deployment readiness.
 
 ## Data Policy
 

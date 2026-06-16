@@ -1,8 +1,8 @@
 # Vision
 
-Community Spirit is an AI-native community digital twin prototype.
+Community Spirit is an AI-native community RPG and spatial operating prototype.
 
-The long-term goal is to turn residential communities from static physical places into interactive, maintainable, and robot-ready digital spaces.
+The long-term goal is to turn residential communities from static physical places into interactive, maintainable, robot-ready, and socially acceptable physical-AI environments.
 
 ## Core Idea
 
@@ -19,6 +19,8 @@ It is a living system made of:
 
 Community Spirit connects these layers into one spatial operating layer.
 
+As world models and embodied AI mature, the project should not try to own robot perception, planning, simulation, or control. Its stronger position is the social layer around those systems: what the community wants, who authorized it, how residents participate, what privacy boundaries apply, when operators review, and whether people trust the result.
+
 ## Market Context
 
 Community Spirit is not based on the assumption that smart community products do not exist. Property SaaS, smart community AIoT platforms, digital twin dashboards, AI property copilots, and robot operation platforms are already active categories.
@@ -29,6 +31,7 @@ The prototype explores a narrower but important missing layer:
 resident-visible spatial tasks
 + property-operable workflows
 + robot-ready semantic exports
++ physical-AI social contracts
 ```
 
 That is why the first demo is intentionally small. It tries to prove the task model before adding real community data, heavy 3D capture, access-control integrations, or robot fleets.
@@ -97,6 +100,20 @@ They need to know:
 
 Community Spirit treats robot readiness as a future layer on top of the same community spatial data.
 
+### 5. Physical AI needs social permission and acceptance
+
+Even a strong physical-AI system still needs a community-level answer to:
+
+- why this task should happen;
+- who approved it;
+- which residents might be touched by it;
+- whether the task should be solo, parallel, buddy-based, family-friendly, elder-friendly, operator-led, or robot-assisted;
+- what data must not be captured or exposed;
+- who handles uncertainty or failure;
+- whether residents feel more connected, safer, or interrupted.
+
+Community Spirit should make these social and governance questions explicit before a task reaches an AI agent or robot.
+
 ## Product Direction
 
 Community Spirit can evolve into multiple product versions:
@@ -105,11 +122,12 @@ Community Spirit can evolve into multiple product versions:
 - **Life:** resident-facing community life map with tasks, activities, repair, and light social channels.
 - **Play:** a separate high-freedom virtual community and avatar space for younger users.
 - **Robot-ready layer:** semantic maps, patrol routes, and task interfaces for future service robots.
+- **Physical AI social layer:** task contracts, permission boundaries, interaction modes, trust metrics, and human / AI / robot handoff.
 
 The open prototype focuses on the shared foundation:
 
 ```text
-Space + POI + Route + Task + Activity + AI + Robot-ready semantics
+Space + POI + Route + Task + Activity + Social Mode + AI + Robot-ready semantics
 ```
 
 ## Current Prototype Goal
@@ -119,7 +137,7 @@ The current goal is not to rebuild a real community.
 The goal is to prove the core interaction model with fictional data:
 
 ```text
-POI -> Route -> Task -> Activity -> AI Assistant -> Robot-ready Interface
+POI -> Route -> Task -> Activity -> Social Mode -> AI Assistant -> Robot-ready Interface
 ```
 
 If this model works, the next step is a permission-based pilot with a real community, apartment, park, or campus-like environment.

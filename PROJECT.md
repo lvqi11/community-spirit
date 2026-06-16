@@ -12,6 +12,8 @@ Community Spirit is not a dashboard for managing communities. It is an operating
 
 The project is designed as a physical-AI preparation layer. Before robots enter everyday residential life, communities need spatial tasks that are understandable to people, auditable by operators, and exportable to machines. Community Spirit shows that loop with synthetic data and a resident-friendly RPG experience.
 
+The durable position is not robot control. As world models, embodied AI, simulation, and reinforcement learning improve, Community Spirit focuses on the layer those systems still need in daily life: human intent, low-pressure participation, permission, privacy, operator review, task contracts, trust, and acceptance.
+
 The headline demo is Community Pulse: multiple real-space events are ranked against a resident's interests, available time, social comfort, and walking distance. Switching from an after-work athlete to a weekend family or community helper changes the top recommendation, route, shared goal, reward, and property conversion context.
 
 ## Demo Links
@@ -73,6 +75,7 @@ http://127.0.0.1:4177/demo/web/index.html?task=task-robot-fire-passage-patrol
 - Property Dashboard as a world operations console.
 - Risk/access review and workflow handoff cards.
 - Robot-ready semantic task export.
+- Physical-AI social layer: task contracts for human / AI / robot handoff, light social modes, privacy boundaries, and trust signals.
 - Data validation script and CI workflow.
 - Project validation for current data scale, required materials, synthetic-data declarations, and built production assets.
 - Mobile-first seven-step demo navigation with compact progress and touch-sized actions.
@@ -96,6 +99,7 @@ community life RPG
 + recurring season arcs and badge identity
 + property world-ops workflows
 + robot-ready semantic exports
++ physical-AI social task contracts
 ```
 
 The social model is intentionally light: the product creates low-pressure reasons to show up, help, play, walk, or maintain shared spaces, instead of forcing residents into heavy social networking. The same loop can reduce isolation, activate underused spaces, and create trustworthy physical context for future robots.

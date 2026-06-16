@@ -1,6 +1,6 @@
 # One-minute Pitch
 
-Community Spirit is a community life RPG engine grounded in real spatial operations.
+Community Spirit is a community life RPG and physical-AI social layer grounded in real spatial operations.
 
 Most community tools are either dashboards, notice boards, or workflow systems. They help property teams manage things, but they rarely give residents a personalized reason to participate, return, and build identity inside the community.
 
@@ -10,4 +10,4 @@ In the demo, a basketball Pulse becomes a real task and route. The resident join
 
 The prototype runs on fictional and synthetic data only. It includes 13 POIs, 8 routes, 9 tasks, 3 Pulses, 3 resident profiles, 3 seasons, and 3 benefits.
 
-The long-term idea is simple: communities should not be static dashboards. They should be living, measurable, AI-ready worlds that can eventually connect residents, operators, and service robots through the same spatial task model.
+The long-term idea is simple: communities should not be static dashboards. They should be living, measurable, AI-ready worlds that can eventually connect residents, operators, and service robots through the same spatial task model, with explicit social contracts around intent, permission, privacy, fallback, trust, and acceptance.
