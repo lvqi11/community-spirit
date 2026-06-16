@@ -1,0 +1,54 @@
+{
+  "schema_version": "cacp.community_task_contract.v0.1",
+  "contract_id": "ctc-evening-basketball-social-pulse",
+  "title": "Evening Basketball Social Pulse",
+  "intent": "Activate an underused basketball court through low-pressure after-work participation.",
+  "place": {
+    "poi_id": "poi-basketball-court",
+    "route_id": "route-building-3-to-basketball-meetup",
+    "activity_id": "activity-evening-basketball-meetup",
+    "task_id": "task-join-evening-basketball"
+  },
+  "actor": "resident",
+  "interaction_mode": "parallel",
+  "permission": {
+    "level": "public_activity",
+    "approved_by": "community_ops",
+    "human_review_required": false,
+    "resident_notice_required": false
+  },
+  "visibility": "participant_and_operator",
+  "risk_level": "low",
+  "resident_touch": "optional",
+  "privacy_boundary": {
+    "real_identity_required": false,
+    "camera_feed_allowed": false,
+    "raw_video_storage_allowed": false,
+    "public_profile_required": false,
+    "notes": ["Use synthetic profile state in the public demo."]
+  },
+  "fallback": {
+    "owner": "operator",
+    "condition": "Low turnout, safety issue, or resident discomfort.",
+    "action": "Pause the Pulse, notify participants, and convert to a later open activity."
+  },
+  "feedback": {
+    "retention_signal": "returned_within_7_days",
+    "trust_signal": "accepted_low_pressure_activity",
+    "acceptance_signal": "joined_without_public_profile"
+  },
+  "lifecycle": {
+    "state": "approved",
+    "allowed_next_states": ["scheduled", "running", "canceled"]
+  },
+  "artifacts": [
+    {
+      "artifact_type": "participation_summary",
+      "description": "Synthetic join, check-in, shared-goal, and benefit conversion summary."
+    }
+  ],
+  "extensions": [
+    "https://community-spirit.dev/cacp/extensions/light-social/v0.1"
+  ],
+  "data_policy": "fictional_or_synthetic_only"
+}

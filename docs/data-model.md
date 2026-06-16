@@ -10,6 +10,10 @@ Community
   -> Route
   -> Task
   -> Activity
+  -> Pulse
+  -> Season
+  -> Benefit
+  -> Community Task Contract
 ```
 
 ## Community
@@ -145,6 +149,73 @@ Product meaning:
 Activity = a recurring reason for residents and property teams to use the system
 ```
 
+## Pulse
+
+A Pulse is a live community opportunity matched to a resident profile.
+
+Important fields:
+
+- `id`
+- `title`
+- `linked_task_id`
+- `linked_route_id`
+- `linked_activity_id`
+- `social_mode`
+- `time_window`
+- `participant_goal`
+- `matching_reasons`
+- `lifecycle`
+
+Product meaning:
+
+```text
+Pulse = why this resident should participate now
+```
+
+## Community Task Contract
+
+A Community Task Contract is the future physical-AI social layer around a task.
+
+It should eventually connect the current objects:
+
+```text
+POI + Route + Task + Pulse + Benefit + Retention + World Ops + Robot-ready Export
+```
+
+Important fields:
+
+- `intent`
+- `place`
+- `actor`
+- `interaction_mode`
+- `permission`
+- `visibility`
+- `risk_level`
+- `resident_touch`
+- `privacy_boundary`
+- `fallback`
+- `feedback`
+- `data_policy`
+
+Product meaning:
+
+```text
+Community Task Contract = what must be socially true before a person, AI agent, or robot acts
+```
+
+Interaction modes should support:
+
+- `solo`
+- `parallel`
+- `buddy`
+- `family`
+- `elder_friendly`
+- `helper`
+- `operator`
+- `robot_assist`
+
+See `docs/community-task-contract.md` for the proposed contract language.
+
 ## Reference Integrity
 
 The data model uses ids to connect objects:
@@ -156,6 +227,12 @@ Task -> POI
 Activity -> POI
 Activity -> Route
 Route -> POI
+Pulse -> Task
+Pulse -> Route
+Pulse -> Activity
+Contract -> POI
+Contract -> Route
+Contract -> Task
 ```
 
 The current prototype should keep these references valid.

@@ -1,6 +1,6 @@
 # Community Spirit / 社区精灵：未来社区 RPG 引擎
 
-Community Spirit is a future community RPG engine grounded in real spatial operations.
+Community Spirit is a community life RPG and physical-AI social layer grounded in real spatial operations.
 
 社区精灵不是传统智慧社区后台，而是把真实社区变成一个可探索、可接任务、可运营、可连接未来机器人的生活 RPG 世界。
 
@@ -11,6 +11,30 @@ The long-term goal is to prepare the interaction layer before physical AI enters
 As world models and embodied AI improve, Community Spirit's role is not to replace robot perception, planning, simulation, or control. Its role is the social operating layer before physical AI acts in daily community life: intent, permissions, light social modes, operator approval, privacy boundaries, task contracts, feedback, trust, and retention.
 
 The current prototype uses spatial data as the foundation: POIs become places, routes become paths, activities become quests, property workflows become world operations, and robot patrols become reality-layer tasks.
+
+```text
+Pulse -> Route -> Check-in -> Benefit -> Retention -> World Ops -> Task Contract -> Robot-ready Export
+```
+
+The project does not build robot control. It defines the social task contract before AI or robots act in real communities.
+
+## Protocol Direction
+
+Community Spirit is incubating **CACP: Community AI Collaboration Protocol**.
+
+```text
+MCP connects models to tools and resources.
+A2A connects agents to agents.
+CACP connects people, places, operators, AI agents, and robots through community task contracts.
+```
+
+Current protocol assets:
+
+- `docs/protocol-design.md`
+- `docs/community-task-contract.md`
+- `schemas/community-task-contract.schema.json`
+- `examples/contracts/`
+- `scripts/validate-contracts.mjs`
 
 ## Product Versions
 
@@ -177,6 +201,9 @@ The release gate validates data references, Pulse lifecycle rules, retention met
 - `docs/competitive-landscape.md`: market context and differentiation.
 - `docs/robot-ready-map.md`: future robot-facing semantic map direction.
 - `docs/physical-ai-social-layer.md`: long-term social operating layer for physical-AI communities.
+- `docs/physical-ai-community-roadmap.md`: roadmap from can-do physical AI to safe human / AI / robot collaboration.
+- `docs/community-task-contract.md`: proposed contract language for intent, permission, privacy, interaction mode, fallback, trust, and handoff.
+- `docs/protocol-design.md`: CACP protocol direction, relationship to MCP/A2A, core objects, operations, and extraction path.
 - `docs/prototype-plan.md`: original prototype execution plan.
 - `docs/project-summary.md`: submission-ready project summary.
 - `docs/project-submission-form.md`: copy-ready project profile answers.

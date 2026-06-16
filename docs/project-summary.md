@@ -4,9 +4,17 @@
 
 **Community Spirit / 社区精灵**
 
-**A community life RPG engine grounded in real spatial operations.**
+**A community life RPG and physical-AI social layer grounded in real spatial operations.**
 
 Community Spirit turns real community spaces into quests, relationships, shared goals, resident growth, useful benefits, measurable world operations, and physical-AI task contracts. It is not a conventional smart-community dashboard.
+
+The long-term wedge is the collaboration layer for physical AI:
+
+```text
+can do -> can adapt -> can collaborate
+```
+
+Community Spirit focuses on what must be socially true before AI agents or robots act in a residential environment.
 
 ## Problem
 
@@ -59,6 +67,8 @@ The Pulse lifecycle also supports leaving before check-in and operational states
 - Responsive mobile demo navigation with touch-sized actions.
 - Robot-ready semantic task export as a future reality-layer interface.
 - Physical-AI social layer direction: task intent, interaction mode, permission, privacy boundary, fallback, trust, and acceptance.
+- Community Task Contract documentation for human / AI / robot handoff.
+- Physical AI Community Roadmap for evolving from structured tasks to safe collaboration.
 
 Run the full release gate:
 

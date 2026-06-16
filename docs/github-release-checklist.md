@@ -33,6 +33,7 @@ Highlights:
 - Community Pulse recommendation, lifecycle, resident growth, seasons, Spirit Points, benefit passes, and wallet ledger.
 - Retention Loop metrics for first participation, 7-day return, streaks, and season comparison.
 - Physical-AI social layer documentation for task contracts, interaction modes, trust, and human / AI / robot handoff.
+- Physical AI Community Roadmap and Community Task Contract as first-class repository assets.
 - Mobile-first demo navigation and touch-sized actions.
 - Project summary and demo script.
 - Copy-ready project profile answers in `docs/project-submission-form.md`.

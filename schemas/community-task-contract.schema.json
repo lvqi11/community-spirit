@@ -1,0 +1,199 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://community-spirit.dev/schemas/community-task-contract.v0.1.json",
+  "title": "Community Task Contract",
+  "description": "CACP draft schema for coordinating residents, operators, AI agents, and future robots around real community tasks.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "contract_id",
+    "title",
+    "intent",
+    "place",
+    "actor",
+    "interaction_mode",
+    "permission",
+    "visibility",
+    "risk_level",
+    "resident_touch",
+    "privacy_boundary",
+    "fallback",
+    "feedback",
+    "lifecycle",
+    "data_policy"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "cacp.community_task_contract.v0.1"
+    },
+    "contract_id": {
+      "type": "string",
+      "pattern": "^ctc-[a-z0-9-]+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3
+    },
+    "intent": {
+      "type": "string",
+      "minLength": 10
+    },
+    "place": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["poi_id", "route_id"],
+      "properties": {
+        "poi_id": { "type": "string" },
+        "route_id": { "type": "string" },
+        "activity_id": { "type": "string" },
+        "task_id": { "type": "string" }
+      }
+    },
+    "actor": {
+      "type": "string",
+      "enum": ["resident", "family", "elder", "operator", "ai_agent", "robot", "mixed"]
+    },
+    "interaction_mode": {
+      "type": "string",
+      "enum": ["solo", "parallel", "buddy", "family", "elder_friendly", "helper", "operator", "robot_assist"]
+    },
+    "permission": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["level", "approved_by", "human_review_required"],
+      "properties": {
+        "level": {
+          "type": "string",
+          "enum": ["resident_initiated", "public_activity", "operator_approved", "human_review_required", "restricted", "not_allowed"]
+        },
+        "approved_by": {
+          "type": "string"
+        },
+        "human_review_required": {
+          "type": "boolean"
+        },
+        "resident_notice_required": {
+          "type": "boolean"
+        }
+      }
+    },
+    "visibility": {
+      "type": "string",
+      "enum": ["private", "participant_only", "participant_and_operator", "operator_only", "community_summary"]
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": ["low", "medium", "high"]
+    },
+    "resident_touch": {
+      "type": "string",
+      "enum": ["none", "optional", "direct"]
+    },
+    "privacy_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["real_identity_required", "camera_feed_allowed", "raw_video_storage_allowed", "public_profile_required"],
+      "properties": {
+        "real_identity_required": { "type": "boolean" },
+        "camera_feed_allowed": { "type": "boolean" },
+        "raw_video_storage_allowed": { "type": "boolean" },
+        "public_profile_required": { "type": "boolean" },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "fallback": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["owner", "condition", "action"],
+      "properties": {
+        "owner": { "type": "string", "enum": ["resident", "operator", "human_helper", "safety_staff", "system"] },
+        "condition": { "type": "string" },
+        "action": { "type": "string" }
+      }
+    },
+    "feedback": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["retention_signal", "trust_signal", "acceptance_signal"],
+      "properties": {
+        "retention_signal": { "type": "string" },
+        "trust_signal": { "type": "string" },
+        "acceptance_signal": { "type": "string" },
+        "incident_signal": { "type": "string" }
+      }
+    },
+    "lifecycle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "allowed_next_states"],
+      "properties": {
+        "state": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "proposed",
+            "needs_resident_notice",
+            "needs_operator_approval",
+            "approved",
+            "scheduled",
+            "running",
+            "paused",
+            "input_required",
+            "auth_required",
+            "completed",
+            "rejected",
+            "canceled",
+            "failed",
+            "incident_review"
+          ]
+        },
+        "allowed_next_states": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "draft",
+              "proposed",
+              "needs_resident_notice",
+              "needs_operator_approval",
+              "approved",
+              "scheduled",
+              "running",
+              "paused",
+              "input_required",
+              "auth_required",
+              "completed",
+              "rejected",
+              "canceled",
+              "failed",
+              "incident_review"
+            ]
+          }
+        }
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["artifact_type", "description"],
+        "properties": {
+          "artifact_type": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "extensions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "data_policy": {
+      "const": "fictional_or_synthetic_only"
+    }
+  }
+}

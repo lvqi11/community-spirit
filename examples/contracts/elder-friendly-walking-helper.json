@@ -1,0 +1,56 @@
+{
+  "schema_version": "cacp.community_task_contract.v0.1",
+  "contract_id": "ctc-elder-friendly-walking-helper",
+  "title": "Elder-friendly Walking Helper",
+  "intent": "Create a slow, low-noise walking route with optional helper support for residents who prefer gentle participation.",
+  "place": {
+    "poi_id": "poi-clubhouse",
+    "route_id": "route-community-explorer-loop",
+    "activity_id": "activity-community-explorer-trail",
+    "task_id": "task-community-explorer-quest"
+  },
+  "actor": "mixed",
+  "interaction_mode": "elder_friendly",
+  "permission": {
+    "level": "operator_approved",
+    "approved_by": "community_ops",
+    "human_review_required": true,
+    "resident_notice_required": true
+  },
+  "visibility": "participant_and_operator",
+  "risk_level": "medium",
+  "resident_touch": "direct",
+  "privacy_boundary": {
+    "real_identity_required": false,
+    "camera_feed_allowed": false,
+    "raw_video_storage_allowed": false,
+    "public_profile_required": false,
+    "notes": ["Helper assignment must avoid exposing health or family information."]
+  },
+  "fallback": {
+    "owner": "human_helper",
+    "condition": "Resident requests assistance, weather changes, or the discovery trail becomes crowded.",
+    "action": "Switch to assisted mode, shorten the route, or cancel with operator notice."
+  },
+  "feedback": {
+    "retention_signal": "joined_another_elder_friendly_task",
+    "trust_signal": "requested_optional_helper",
+    "acceptance_signal": "reported_belonging",
+    "incident_signal": "no_discomfort_reported"
+  },
+  "lifecycle": {
+    "state": "needs_resident_notice",
+    "allowed_next_states": ["needs_operator_approval", "approved", "rejected", "canceled"]
+  },
+  "artifacts": [
+    {
+      "artifact_type": "resident_notice",
+      "description": "Human-readable notice explaining route, helper option, data boundaries, and contact path."
+    }
+  ],
+  "extensions": [
+    "https://community-spirit.dev/cacp/extensions/elder-friendly/v0.1",
+    "https://community-spirit.dev/cacp/extensions/public-notice/v0.1"
+  ],
+  "data_policy": "fictional_or_synthetic_only"
+}

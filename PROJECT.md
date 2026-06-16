@@ -14,6 +14,14 @@ The project is designed as a physical-AI preparation layer. Before robots enter 
 
 The durable position is not robot control. As world models, embodied AI, simulation, and reinforcement learning improve, Community Spirit focuses on the layer those systems still need in daily life: human intent, low-pressure participation, permission, privacy, operator review, task contracts, trust, and acceptance.
 
+The roadmap follows the likely physical-AI progression:
+
+```text
+can do -> can adapt -> can collaborate
+```
+
+Community Spirit is focused on the collaboration layer: the community task contract that makes a real-world action socially acceptable before it is handed to a resident, operator, AI agent, or future robot.
+
 The headline demo is Community Pulse: multiple real-space events are ranked against a resident's interests, available time, social comfort, and walking distance. Switching from an after-work athlete to a weekend family or community helper changes the top recommendation, route, shared goal, reward, and property conversion context.
 
 ## Demo Links
@@ -76,6 +84,8 @@ http://127.0.0.1:4177/demo/web/index.html?task=task-robot-fire-passage-patrol
 - Risk/access review and workflow handoff cards.
 - Robot-ready semantic task export.
 - Physical-AI social layer: task contracts for human / AI / robot handoff, light social modes, privacy boundaries, and trust signals.
+- Community Task Contract direction with interaction modes, permission levels, visibility, risk, resident touch, fallback, and feedback signals.
+- Physical AI Community Roadmap from task execution to social collaboration.
 - Data validation script and CI workflow.
 - Project validation for current data scale, required materials, synthetic-data declarations, and built production assets.
 - Mobile-first seven-step demo navigation with compact progress and touch-sized actions.

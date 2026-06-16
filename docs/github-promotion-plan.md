@@ -66,6 +66,7 @@ Release highlights:
 - World Ops conversion, lifecycle, commerce, season, and Retention Loop cards.
 - Robot-ready semantic workflow export.
 - Physical-AI social layer direction for interaction modes, permission boundaries, trust, and human / AI / robot handoff.
+- Community Task Contract and Physical AI Community Roadmap docs.
 - Synthetic-only public data and automated release validation.
 
 ## Launch Sequence
@@ -108,6 +109,10 @@ Retention = whether the resident comes back
 Trust = whether residents accept AI or robot-assisted tasks
 
 This keeps the prototype explainable, auditable, and safe for public demo data.
+
+Long-term wedge:
+
+Community Spirit focuses on the "can collaborate" stage of physical AI: intent, permission, privacy, interaction mode, fallback, feedback, trust, and acceptance before a real-world task is handed to people, AI agents, or robots.
 ```
 
 ## What Not To Claim

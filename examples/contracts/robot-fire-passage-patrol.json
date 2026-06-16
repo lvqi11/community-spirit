@@ -1,0 +1,60 @@
+{
+  "schema_version": "cacp.community_task_contract.v0.1",
+  "contract_id": "ctc-robot-fire-passage-patrol",
+  "title": "Robot Fire Passage Patrol",
+  "intent": "Inspect a shared fire passage for obstruction with operator approval and strict privacy boundaries.",
+  "place": {
+    "poi_id": "poi-fire-passage",
+    "route_id": "route-robot-fire-passage-patrol",
+    "activity_id": "activity-fire-passage-safety-check",
+    "task_id": "task-robot-fire-passage-patrol"
+  },
+  "actor": "robot",
+  "interaction_mode": "robot_assist",
+  "permission": {
+    "level": "human_review_required",
+    "approved_by": "property_operator",
+    "human_review_required": true,
+    "resident_notice_required": true
+  },
+  "visibility": "operator_only",
+  "risk_level": "medium",
+  "resident_touch": "none",
+  "privacy_boundary": {
+    "real_identity_required": false,
+    "camera_feed_allowed": true,
+    "raw_video_storage_allowed": false,
+    "public_profile_required": false,
+    "notes": ["No face capture in public demo.", "Only synthetic inspection output is included."]
+  },
+  "fallback": {
+    "owner": "safety_staff",
+    "condition": "Obstacle detected, resident proximity is too close, or robot confidence is low.",
+    "action": "Pause robot task and escalate to human operator review."
+  },
+  "feedback": {
+    "retention_signal": "not_applicable",
+    "trust_signal": "no_resident_interruption_reported",
+    "acceptance_signal": "operator_review_completed",
+    "incident_signal": "no_incident"
+  },
+  "lifecycle": {
+    "state": "needs_operator_approval",
+    "allowed_next_states": ["approved", "rejected", "canceled"]
+  },
+  "artifacts": [
+    {
+      "artifact_type": "inspection_report",
+      "description": "Synthetic operator-facing report with obstruction status and no raw video storage."
+    },
+    {
+      "artifact_type": "robot_ready_payload",
+      "description": "Route and inspection goals suitable for a future robot SDK bridge after governance review."
+    }
+  ],
+  "extensions": [
+    "https://community-spirit.dev/cacp/extensions/robot-assist/v0.1",
+    "https://community-spirit.dev/cacp/extensions/incident-review/v0.1"
+  ],
+  "data_policy": "fictional_or_synthetic_only"
+}

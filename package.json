@@ -10,8 +10,9 @@
     "validate:data": "node scripts/validate-data.mjs",
     "validate:lifecycle": "node scripts/validate-pulse-lifecycle.mjs",
     "validate:retention": "node scripts/validate-retention.mjs",
+    "validate:protocol": "node scripts/validate-contracts.mjs",
     "validate:submission": "node scripts/validate-submission.mjs",
-    "check": "npm run validate:data && npm run validate:lifecycle && npm run validate:retention && node --check demo/web/app.js && npm run build && npm run validate:submission"
+    "check": "npm run validate:data && npm run validate:lifecycle && npm run validate:retention && npm run validate:protocol && node --check demo/web/app.js && npm run build && npm run validate:submission"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^4.5.2",
