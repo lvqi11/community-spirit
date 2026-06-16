@@ -170,6 +170,7 @@ The release gate validates data references, Pulse lifecycle rules, retention met
 - `docs/robot-ready-map.md`: future robot-facing semantic map direction.
 - `docs/hackathon-plan.md`: 48-hour hackathon execution plan.
 - `docs/hackathon-submission.md`: submission-ready summary.
+- `docs/hackathon-submission-form.md`: copy-ready hackathon form answers.
 - `docs/github-release-checklist.md`: first release checklist.
 - `docs/github-promotion-plan.md`: GitHub launch, release, and promotion plan.
 - `docs/demo-qa-checklist.md`: demo verification checklist.

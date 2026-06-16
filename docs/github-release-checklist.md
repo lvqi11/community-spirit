@@ -34,6 +34,7 @@ Highlights:
 - Retention Loop metrics for first participation, 7-day return, streaks, and season comparison.
 - Mobile-first demo navigation and touch-sized actions.
 - Hackathon submission package and demo script.
+- Copy-ready hackathon form answers in `docs/hackathon-submission-form.md`.
 - Demo QA checklist in `docs/demo-qa-checklist.md`.
 - Demo recording guide in `docs/demo-recording-guide.md`.
 
