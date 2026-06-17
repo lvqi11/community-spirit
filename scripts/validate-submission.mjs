@@ -75,7 +75,7 @@ for (const [file, markers] of Object.entries(requiredDocumentMarkers)) {
 }
 
 const distHtml = fs.readFileSync("dist/index.html", "utf8");
-const assetPaths = [...distHtml.matchAll(/(?:src|href)="\/(?:community-spirit\/dist\/)?(assets\/[^"]+)"/g)].map((match) => match[1]);
+const assetPaths = [...distHtml.matchAll(/(?:src|href)="\/(?:community-spirit\/(?:dist\/)?)?(assets\/[^"]+)"/g)].map((match) => match[1]);
 if (assetPaths.length < 2) errors.push("dist/index.html must reference built JavaScript and CSS assets");
 for (const assetPath of assetPaths) {
   if (!fs.existsSync(path.normalize(path.join("dist", assetPath)))) {

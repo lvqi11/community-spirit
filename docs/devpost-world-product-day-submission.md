@@ -12,8 +12,8 @@ Do not submit the external form until the final Novus.ai requirement and public 
 ## Source Assets
 
 - GitHub repository: https://github.com/lvqi11/community-spirit
-- Recommended live demo: https://lvqi11.github.io/community-spirit/dist/index.html
-- Static fallback demo: https://lvqi11.github.io/community-spirit/demo/web/index.html
+- Recommended live demo: https://lvqi11.github.io/community-spirit/
+- Local static fallback demo: `demo/web/index.html`
 - Recommended release: https://github.com/lvqi11/community-spirit/releases/tag/v0.2.0
 - Earlier open prototype release: https://github.com/lvqi11/community-spirit/releases/tag/v0.1.0
 - Current demo video file: https://github.com/lvqi11/community-spirit/blob/main/reports/community-spirit-demo.mp4
@@ -53,7 +53,7 @@ Community Spirit turns real community spaces into low-pressure quests for reside
 ## Project URL
 
 ```text
-https://lvqi11.github.io/community-spirit/dist/index.html
+https://lvqi11.github.io/community-spirit/
 ```
 
 ## Repository URL
@@ -198,13 +198,13 @@ CACP connects people, places, operators, AI agents, and robots through community
 Open:
 
 ```text
-https://lvqi11.github.io/community-spirit/dist/index.html
+https://lvqi11.github.io/community-spirit/
 ```
 
-Fallback static demo:
+Local fallback static demo:
 
 ```text
-https://lvqi11.github.io/community-spirit/demo/web/index.html
+demo/web/index.html
 ```
 
 Suggested review path:
