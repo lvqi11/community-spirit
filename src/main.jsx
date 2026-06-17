@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { AssistantPanel } from "./components/AssistantPanel";
+import { initProductAnalytics, trackProductEvent } from "./analytics";
 import { BenefitsWallet } from "./components/BenefitsWallet";
 import { CommunityMap } from "./components/CommunityMap";
 import { CommunityPulse } from "./components/CommunityPulse";
@@ -19,6 +20,8 @@ import {
 import { canCheckinPulse, isPulseAcceptingJoins } from "./pulseLifecycle";
 import { createRetentionMetrics } from "./retention";
 import "./styles.css";
+
+initProductAnalytics();
 
 function createInitialResidentProgress() {
   return Object.fromEntries(
@@ -90,6 +93,7 @@ function App() {
     const url = new URL(window.location.href);
     url.searchParams.set("task", taskId);
     window.history.replaceState({}, "", url);
+    trackProductEvent("task_selected", { task_id: taskId });
   }
 
   function ask() {
@@ -107,6 +111,7 @@ function App() {
     }
     setPulseStages((current) => ({ ...current, [pulseProgressKey]: "joined" }));
     openPulseTask();
+    trackProductEvent("pulse_joined", { pulse_id: activePulse.id, task_id: activePulse.linked_task_id });
     showActionStatus(helpers.t("pulse.joinedStatus", "Joined. Your route and participant slot are ready."));
   }
 
@@ -156,17 +161,25 @@ function App() {
     });
     setActiveSeasonId(activePulse.linked_season_id);
     openPulseTask();
+    trackProductEvent("pulse_checked_in", {
+      pulse_id: activePulse.id,
+      task_id: activePulse.linked_task_id,
+      xp_awarded: activePulse.reward.xp,
+      spirit_points_awarded: activePulse.reward.spirit_points
+    });
     showActionStatus(helpers.t("pulse.checkinStatus", "Checked in. XP and community goal progress updated."));
   }
 
   function leavePulse() {
     if (pulseStage !== "joined") return;
     setPulseStages((current) => ({ ...current, [pulseProgressKey]: "left" }));
+    trackProductEvent("pulse_left", { pulse_id: activePulse.id });
     showActionStatus(helpers.t("pulse.leftStatus", "You left the Pulse. The participant slot returned to matching."));
   }
 
   function setPulseOperationalState(nextState) {
     setPulseOperationalStates((current) => ({ ...current, [activePulse.id]: nextState }));
+    trackProductEvent("pulse_operational_state_changed", { pulse_id: activePulse.id, state: nextState });
     showActionStatus(helpers.t(`pulse.operationalStatus.${nextState}`, `Pulse state changed to ${nextState}.`));
   }
 
@@ -177,6 +190,7 @@ function App() {
     setResidentProfileId(profileId);
     setActivePulseId(bestMatch.pulse.id);
     setActiveSeasonId(bestMatch.pulse.linked_season_id);
+    trackProductEvent("resident_profile_selected", { profile_id: profileId, matched_pulse_id: bestMatch.pulse.id });
     selectTask(bestMatch.pulse.linked_task_id);
   }
 
@@ -185,6 +199,7 @@ function App() {
     if (!pulse) return;
     setActivePulseId(pulseId);
     setActiveSeasonId(pulse.linked_season_id);
+    trackProductEvent("pulse_selected", { pulse_id: pulseId, task_id: pulse.linked_task_id });
     selectTask(pulse.linked_task_id);
   }
 
@@ -229,16 +244,19 @@ function App() {
         }
       };
     });
+    trackProductEvent("benefit_claimed", { benefit_id: benefitId, pulse_id: benefit.linked_pulse_id });
     showActionStatus(helpers.t("benefits.claimedStatus", "Benefit claimed. Spirit Points deducted once."));
   }
 
   function activateBenefit(benefitId) {
     updateBenefitState(benefitId, "claimed", "activated", "activated_at");
+    trackProductEvent("benefit_activated", { benefit_id: benefitId });
     showActionStatus(helpers.t("benefits.activatedStatus", "Benefit activated and ready for redemption."));
   }
 
   function redeemBenefit(benefitId) {
     updateBenefitState(benefitId, "activated", "redeemed", "redeemed_at");
+    trackProductEvent("benefit_redeemed", { benefit_id: benefitId });
     showActionStatus(helpers.t("benefits.redeemedStatus", "Redemption recorded. This benefit cannot be redeemed twice."));
   }
 
@@ -280,10 +298,12 @@ function App() {
     const url = new URL(window.location.href);
     url.searchParams.set("task", pulse.linked_task_id);
     window.history.replaceState({}, "", url);
+    trackProductEvent("demo_reset", { pulse_id: pulse.id, task_id: pulse.linked_task_id });
     showActionStatus(helpers.t("demo.resetStatus", "Demo story reset to the opening match."));
   }
 
   function runDemoStep(stepIndex) {
+    trackProductEvent("demo_step_run", { step_index: stepIndex });
     const sportsBenefitId = "benefit-sports-drink";
     if (stepIndex === 0) {
       resetDemo();
@@ -387,6 +407,10 @@ function App() {
     anchor.download = `${selectedTask.id}.json`;
     anchor.click();
     URL.revokeObjectURL(url);
+    trackProductEvent("workflow_json_exported", {
+      task_id: selectedTask.id,
+      contract_id: selectedContract?.contract_id ?? null
+    });
     showActionStatus(helpers.t("actions.exported", "Current workflow JSON exported."));
   }
 
@@ -400,7 +424,10 @@ function App() {
         onReset={resetDemo}
         onRunStep={runDemoStep}
         onToggleDemo={() => setIsDemoMode((current) => !current)}
-        onView={setViewMode}
+        onView={(view) => {
+          setViewMode(view);
+          trackProductEvent("view_selected", { view });
+        }}
         viewMode={viewMode}
       />
       <main className={`workspace view-${viewMode}`}>

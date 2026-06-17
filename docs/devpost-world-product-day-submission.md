@@ -12,7 +12,8 @@ Do not submit the external form until the final Novus.ai requirement and public 
 ## Source Assets
 
 - GitHub repository: https://github.com/lvqi11/community-spirit
-- Live demo: https://lvqi11.github.io/community-spirit/demo/web/index.html
+- Recommended live demo: https://lvqi11.github.io/community-spirit/dist/index.html
+- Static fallback demo: https://lvqi11.github.io/community-spirit/demo/web/index.html
 - Recommended release: https://github.com/lvqi11/community-spirit/releases/tag/v0.2.0
 - Earlier open prototype release: https://github.com/lvqi11/community-spirit/releases/tag/v0.1.0
 - Current demo video file: https://github.com/lvqi11/community-spirit/blob/main/reports/community-spirit-demo.mp4
@@ -52,7 +53,7 @@ Community Spirit turns real community spaces into low-pressure quests for reside
 ## Project URL
 
 ```text
-https://lvqi11.github.io/community-spirit/demo/web/index.html
+https://lvqi11.github.io/community-spirit/dist/index.html
 ```
 
 ## Repository URL
@@ -87,6 +88,7 @@ Structured JSON data
 GitHub Actions
 GitHub Pages
 CACP draft schema
+Novus.ai / Pendo Web SDK optional analytics layer
 ```
 
 Add after integration:
@@ -196,6 +198,12 @@ CACP connects people, places, operators, AI agents, and robots through community
 Open:
 
 ```text
+https://lvqi11.github.io/community-spirit/dist/index.html
+```
+
+Fallback static demo:
+
+```text
 https://lvqi11.github.io/community-spirit/demo/web/index.html
 ```
 
@@ -232,13 +240,13 @@ A real pilot would require verified spaces, resident consent, role-based permiss
 Current status:
 
 ```text
-Not installed yet.
+Code-side optional analytics layer is ready. Account-side Novus.ai installation and dashboard screenshot are still required.
 ```
 
 Required before final Devpost submission:
 
 ```text
-Install Novus.ai on the deployed app and upload a screenshot of the Novus.ai dashboard.
+Set VITE_PENDO_API_KEY from the Novus/Pendo account, redeploy the app, generate events, and upload a screenshot of the Novus.ai dashboard.
 ```
 
 ## Eligibility / Event-window Note

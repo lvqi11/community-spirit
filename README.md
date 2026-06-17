@@ -206,6 +206,7 @@ The release gate validates data references, Pulse lifecycle rules, retention met
 - `docs/physical-ai-community-roadmap.md`: roadmap from can-do physical AI to safe human / AI / robot collaboration.
 - `docs/community-task-contract.md`: proposed contract language for intent, permission, privacy, interaction mode, fallback, trust, and handoff.
 - `docs/protocol-design.md`: CACP protocol direction, relationship to MCP/A2A, core objects, operations, and extraction path.
+- `docs/novus-analytics-integration.md`: optional Novus/Pendo analytics setup for World Product Day validation.
 - `docs/prototype-plan.md`: original prototype execution plan.
 - `docs/project-summary.md`: submission-ready project summary.
 - `docs/project-submission-form.md`: copy-ready project profile answers.
