@@ -1,4 +1,4 @@
-const pendoApiKey = import.meta.env.VITE_PENDO_API_KEY;
+const pendoApiKey = '7051f51d-0d8f-412b-8c52-1c3b5127f0ee';
 
 export function initProductAnalytics() {
   if (!pendoApiKey || typeof window === "undefined") return;
@@ -36,7 +36,7 @@ function installPendoSnippet(apiKey) {
     let z;
     o = p[d] = p[d] || {};
     o._q = o._q || [];
-    v = ["initialize", "identify", "updateOptions", "pageLoad", "track"];
+    v = ["initialize", "identify", "updateOptions", "pageLoad", "track", "trackAgent"];
     for (w = 0, x = v.length; w < x; ++w) {
       (function queueMethod(method) {
         o[method] =
