@@ -15,15 +15,22 @@ export function initProductAnalytics() {
       release: "0.2.0"
     }
   });
+  window.pendo.pageLoad?.();
+  trackProductEvent("novus_install_ping", {
+    source: "app_init",
+    page: window.location.pathname
+  });
 }
 
 export function trackProductEvent(eventName, metadata = {}) {
-  if (typeof window === "undefined" || !window.pendo?.track) return;
-  window.pendo.track(eventName, {
+  if (typeof window === "undefined" || !window.pendo) return;
+  const payload = {
     ...metadata,
     app: "community-spirit",
     data_policy: "fictional_or_synthetic_only"
-  });
+  };
+  window.pendo.track?.(eventName, payload);
+  window.pendo.trackAgent?.(eventName, payload);
 }
 
 function installPendoSnippet(apiKey) {
