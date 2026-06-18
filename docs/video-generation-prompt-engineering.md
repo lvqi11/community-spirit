@@ -90,6 +90,154 @@ Show Novus Track Events: All 17, Tracked 17, representative events.
 Line: "Community Spirit is the social layer physical AI needs before it enters everyday community life."
 ```
 
+## Two Production Routes
+
+Use Route A for the safest Devpost submission. Use Route B if you want the video to feel more like an AI product launch film while still keeping real product proof.
+
+### Route A: Judge Demo
+
+```text
+Best for: Devpost judging, requirement compliance, clear product evaluation.
+Core material: real product screencast + real Novus dashboard screenshot.
+AI model use: optional title card, thumbnail, caption polish.
+Risk: lower.
+```
+
+Recommended:
+
+```text
+70-85% actual product screen recording
+10-20% Novus / proof / GitHub evidence
+5-10% title card or light transition
+```
+
+### Route B: AI Product Launch Film
+
+```text
+Best for: making the project feel more memorable and future-facing.
+Core material: actual product screencast remains the proof layer.
+AI model use: opening hook, pain-point scene, future physical-AI transition, title cards.
+Risk: medium; avoid fake deployment claims.
+```
+
+Recommended:
+
+```text
+50-65% actual product screen recording
+10-15% Novus proof and dashboard
+20-35% generated intro / pain-point / transition / outro
+```
+
+Route B should still show the working app in the first 20 seconds.
+
+## Model Selection Matrix
+
+| Tool / Model | Best Use | Community Spirit Prompt Angle |
+| --- | --- | --- |
+| Runway Gen-4 / Gen-4.5 | Product launch opening, pain-point scene, consistent visual style | A quiet fictional community courtyard becomes a playable quest map; use for opening hook and future physical-AI mood, not product UI. |
+| Sora / Sora 2 | High-quality concept shot, cinematic opening, controlled scene generation | Create a clean concept shot of a fictional community map coming alive. Use only as intro/outro or B-roll. |
+| Kling AI | Chinese-language production style, realistic product-scene B-roll, ad-like scene transitions | Generate a warm fictional community activity scene without identifiable real residents or real property systems. |
+| Luma AI | Image-to-video, turning product screenshots / generated cards into moving shots | Animate title cards, map markers, or thumbnail concepts. Good for subtle camera movement over non-sensitive static visuals. |
+| Pika | Quick social-video transitions, short effects, caption-driven clips | Create fast transitions between Pulse, Check-in, Reward, World Ops, CACP, and Novus proof. |
+
+Important:
+
+```text
+Do not use any video model to generate fake Community Spirit UI interactions.
+Do not generate fake Novus dashboards.
+Do not imply real deployment, real residents, real access control, real cameras, real payments, or real robots.
+```
+
+## Route B Master Prompt
+
+Use this if you want Manus or another agent to assemble a more cinematic AI product launch version:
+
+```text
+Create a 2:45 Devpost demo video that feels like an AI product launch film, but remains grounded in real product screencast evidence.
+
+Product:
+Community Spirit, a community life RPG + physical-AI social layer + CACP reference implementation.
+
+Non-negotiable truth constraints:
+- Use the real product screen recording as the core evidence.
+- Use the real Novus Track Events dashboard as integration proof.
+- All community data is fictional or synthetic.
+- Do not show or imply real residents, real communities, cameras, access control, payments, robots, or sensor logs.
+- Generated scenes are mood-setting B-roll only, not proof of deployed functionality.
+
+Visual style:
+Warm, precise, modern product launch.
+More "AI product launch film" than plain screen recording, but still judge-friendly.
+Fictional community map, route lines, quest markers, resident growth, World Ops, task contracts.
+Avoid smart-city dashboard clichés.
+Avoid sci-fi robot patrol fantasy.
+
+Structure:
+0:00-0:08 Generated hook:
+A quiet fictional community courtyard/map becomes alive with a quest marker near a basketball court.
+Text: "What if a quiet space became a community quest?"
+
+0:08-0:20 Real product screen:
+Show Community Spirit and Tonight's court needs 2 more players.
+Narration explains the problem in one sentence.
+
+0:20-1:25 Real product demo:
+Run Join -> Route -> Check-in.
+Show XP, badge, Spirit Points, shared goal.
+
+1:25-1:50 Real product demo:
+Claim, activate, redeem benefit.
+Show wallet ledger and synthetic resident pass.
+
+1:50-2:15 Real product demo:
+Switch to World Ops.
+Show conversion, retention, commerce, space activation.
+
+2:15-2:32 Generated transition + real app:
+Introduce CACP as the contract layer for physical AI.
+Show task contract / robot-ready export from the actual product.
+
+2:32-2:45 Real Novus proof:
+Show Novus Track Events.
+Visible details: All 17, Tracked 17, Not Tracked 0.
+
+Closing line:
+"Community Spirit is the social layer physical AI needs before it enters everyday community life."
+
+Deliver:
+1. Shot list.
+2. Voiceover.
+3. Caption list.
+4. Generated B-roll prompts per tool.
+5. Editing notes.
+```
+
+## Route B Generated B-Roll Prompts
+
+### Runway / Sora Opening
+
+```text
+A clean, warm product-launch style scene of a fictional residential community map coming alive. A quiet basketball court receives a small glowing quest marker. A soft route line appears from a residential building to the court. The mood is optimistic and grounded, like a modern civic tech product demo. No real people close-ups, no surveillance cameras, no robots, no payment devices, no real property branding. 16:9, 6 seconds, subtle camera movement, clean daylight, minimal UI-inspired overlays.
+```
+
+### Kling Pain-Point Scene
+
+```text
+A fictional community notice board and phone group-chat metaphor: too many activity notices fade into a calm map-based quest recommendation. Warm Chinese product-ad style, clean and practical, no identifiable real residents, no real apartment complex, no real security devices. 16:9, 5 seconds.
+```
+
+### Luma Image-to-Video Transition
+
+```text
+Animate a static title card that says "Pulse -> Route -> Check-in -> Reward -> World Ops -> CACP". Use subtle route-line motion, map-grid background, small quest markers, soft green and blue accents. No people, no surveillance, no robots. 16:9, 4 seconds.
+```
+
+### Pika Fast Transition
+
+```text
+Create a fast clean transition sequence for a product demo: "Join", "Check in", "Reward", "World Ops", "Novus proof". UI-inspired motion, crisp captions, no fake app screens, no real people. 16:9, 4 seconds.
+```
+
 ## Manus Prompt
 
 Paste this into Manus as the master task:
