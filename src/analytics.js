@@ -1,7 +1,24 @@
 const pendoApiKey = '7051f51d-0d8f-412b-8c52-1c3b5127f0ee';
+const pendoScriptUrl = `https://cdn.pendo.io/agent/static/${pendoApiKey}/pendo.js`;
+const eventAliases = {
+  pulse_joined: "join_pulse",
+  pulse_checked_in: "check_in",
+  benefit_claimed: "claim_reward",
+  benefit_activated: "activate_benefit",
+  benefit_redeemed: "redeem_benefit",
+  workflow_json_exported: "export_workflow"
+};
+const debugVersion = "2026-06-18-novus-signal-v1";
 
 export function initProductAnalytics() {
   if (!pendoApiKey || typeof window === "undefined") return;
+  const debug = getAnalyticsDebug();
+  debug.version = debugVersion;
+  debug.apiKey = pendoApiKey;
+  debug.scriptUrl = pendoScriptUrl;
+  debug.initStartedAt = new Date().toISOString();
+  persistAnalyticsDebug(debug);
+  markAnalyticsStatus("init-started");
   installPendoSnippet(pendoApiKey);
   window.pendo.initialize({
     visitor: {
@@ -23,14 +40,27 @@ export function initProductAnalytics() {
 }
 
 export function trackProductEvent(eventName, metadata = {}) {
-  if (typeof window === "undefined" || !window.pendo) return;
+  if (typeof window === "undefined") return;
   const payload = {
     ...metadata,
     app: "community-spirit",
     data_policy: "fictional_or_synthetic_only"
   };
-  window.pendo.track?.(eventName, payload);
-  window.pendo.trackAgent?.(eventName, payload);
+  const debug = getAnalyticsDebug();
+  debug.version = debugVersion;
+  debug.events.push({ eventName, payload, at: new Date().toISOString() });
+  persistAnalyticsDebug(debug);
+
+  if (!window.pendo) {
+    debug.missingPendoCount += 1;
+    persistAnalyticsDebug(debug);
+    return;
+  }
+
+  sendPendoEvent(eventName, payload);
+  if (eventAliases[eventName]) {
+    sendPendoEvent(eventAliases[eventName], payload);
+  }
 }
 
 function installPendoSnippet(apiKey) {
@@ -56,7 +86,55 @@ function installPendoSnippet(apiKey) {
     y = e.createElement(n);
     y.async = true;
     y.src = `https://cdn.pendo.io/agent/static/${apiKey}/pendo.js`;
+    y.onload = function markPendoLoaded() {
+      const debug = getAnalyticsDebug();
+      debug.scriptLoadedAt = new Date().toISOString();
+      persistAnalyticsDebug(debug);
+      markAnalyticsStatus("script-loaded");
+    };
+    y.onerror = function markPendoLoadError() {
+      const debug = getAnalyticsDebug();
+      debug.scriptErrorAt = new Date().toISOString();
+      debug.scriptError = "pendo.js failed to load";
+      persistAnalyticsDebug(debug);
+      markAnalyticsStatus("script-error");
+    };
     z = e.getElementsByTagName(n)[0];
     z.parentNode.insertBefore(y, z);
   })(window, document, "script", "pendo");
+}
+
+function sendPendoEvent(eventName, payload) {
+  window.pendo.track?.(eventName, payload);
+  window.pendo.trackAgent?.(eventName, payload);
+}
+
+function getAnalyticsDebug() {
+  window.__communitySpiritAnalytics =
+    window.__communitySpiritAnalytics ||
+    {
+      apiKey: null,
+      version: debugVersion,
+      scriptUrl: null,
+      initStartedAt: null,
+      scriptLoadedAt: null,
+      scriptErrorAt: null,
+      scriptError: null,
+      missingPendoCount: 0,
+      events: []
+    };
+  return window.__communitySpiritAnalytics;
+}
+
+function persistAnalyticsDebug(debug) {
+  try {
+    window.localStorage.setItem("communitySpiritAnalyticsDebug", JSON.stringify(debug));
+  } catch {
+    // Local storage can be unavailable in restricted browser modes.
+  }
+}
+
+function markAnalyticsStatus(status) {
+  document.documentElement.dataset.communitySpiritAnalytics = status;
+  document.documentElement.dataset.communitySpiritAnalyticsVersion = debugVersion;
 }
