@@ -105,6 +105,9 @@ SVG map rendering
 Structured JSON data
 GitHub Actions
 GitHub Pages
+Novus.ai
+Pendo Web SDK
+CACP draft schema
 ```
 
 ## Links
@@ -118,7 +121,7 @@ https://github.com/lvqi11/community-spirit
 Live demo:
 
 ```text
-https://lvqi11.github.io/community-spirit/demo/web/index.html
+https://lvqi11.github.io/community-spirit/
 ```
 
 Demo video:

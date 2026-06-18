@@ -73,7 +73,7 @@ Briefly show:
 
 These are additional stories running on the same spatial quest engine.
 
-## 2:45-3:00 Reality Layer
+## 2:45-3:00 Reality Layer and Novus Proof
 
 Open the robot patrol workflow and show the structured JSON export.
 
@@ -82,3 +82,5 @@ Close with:
 > Community Spirit turns real community spaces into events, relationships, shared goals, and measurable operations.
 
 All current data is fictional or synthetic. A real pilot requires permissioned resident data, verified spaces, consent, and property approval.
+
+If recording for World Product Day, use the final 10-15 seconds to switch to Novus Track Events and show that Community Spirit is instrumented: `All 17`, `Tracked 17`, and events from the demo loop such as `pulse_joined`, `pulse_checked_in`, `benefit_claimed`, `workflow_json_exported`, and `demo_completed`.

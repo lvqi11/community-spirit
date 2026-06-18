@@ -29,6 +29,7 @@ Use a clean desktop browser around 1440 x 900. The responsive layout also suppor
 6. Let the seventh step switch to World Ops. Show recommendations, opens, joins, check-ins, space activation, and commerce conversion.
 7. Briefly demonstrate Pulse lifecycle controls, then return to `matching`.
 8. Close on the structured robot patrol export as the future reality layer.
+9. Show the Novus Track Events dashboard for 10-15 seconds: `All 17`, `Tracked 17`, and representative events such as `pulse_joined`, `pulse_checked_in`, `benefit_claimed`, `workflow_json_exported`, and `demo_completed`.
 
 ## Voiceover Spine
 
@@ -39,6 +40,7 @@ Joining creates a task and route; arriving grows resident identity and a shared 
 Spirit Points unlock useful benefits with a traceable resident pass and wallet ledger.
 The same event becomes a measurable World Ops funnel for the property team.
 This prototype uses fictional or synthetic data only.
+The deployed product is instrumented with Novus.ai; Track Events confirm that the main product loop is measurable.
 ```
 
 ## Capture Rules
@@ -46,5 +48,6 @@ This prototype uses fictional or synthetic data only.
 - Follow the seven-step controller rather than free-clicking through unrelated features.
 - Keep lifecycle controls brief so the resident story remains central.
 - Do not show terminals, tokens, browser profiles, or private files.
+- Do not show API keys or secrets in Novus admin pages; use the Track Events dashboard, not API Access.
 - Do not imply real payments, resident identities, merchants, access systems, cameras, or robots are connected.
 - Use `pitch/demo-script.md` for the full timed narration.

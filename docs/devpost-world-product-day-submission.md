@@ -27,8 +27,10 @@ Do not submit the external form until the final Novus.ai requirement and public 
 - [x] Working product, not only a pitch deck.
 - [x] Synthetic-only public data.
 - [x] No real residents, access control, cameras, payments, robots, or sensor logs.
-- [ ] Install Novus.ai on the deployed project.
-- [ ] Add a screenshot of the Novus.ai dashboard.
+- [x] Install Novus.ai on the deployed project.
+- [x] Generate Novus.ai Track Events on the deployed project.
+- [ ] Add a screenshot of the Novus.ai Track Events dashboard.
+- [ ] Add a Novus Signals screenshot if hourly analysis produces one before submission.
 - [ ] Upload the demo video to YouTube, Vimeo, or Youku and use that public URL in Devpost.
 - [ ] Final-submit Devpost only after user confirmation.
 
@@ -186,7 +188,7 @@ CACP connects people, places, operators, AI agents, and robots through community
 
 ## What's Next
 
-- Install Novus.ai and use real product analytics on the deployed demo.
+- Use the installed Novus.ai Track Events dashboard as sponsor integration proof.
 - Add a judge landing page that explains the seven-step story in one screen.
 - Refresh the demo video so it shows the Task Contract View and CACP layer.
 - Expand CACP with actor cards, audit logs, resident notice flows, and contract lifecycle transitions.
@@ -240,13 +242,21 @@ A real pilot would require verified spaces, resident consent, role-based permiss
 Current status:
 
 ```text
-Code-side optional analytics layer is ready. Account-side Novus.ai installation and dashboard screenshot are still required.
+Novus.ai / Pendo Web SDK is installed on the deployed GitHub Pages demo. The Novus Track Events dashboard shows 17/17 tracked events for the Community Spirit project, including pulse_joined, pulse_checked_in, benefit_claimed, benefit_activated, benefit_redeemed, demo_step_run, workflow_json_exported, community_agent_query_submitted, task_link_copied, and demo_completed.
 ```
 
-Required before final Devpost submission:
+Dashboard screenshot to upload:
 
 ```text
-Set VITE_PENDO_API_KEY from the Novus/Pendo account, redeploy the app, generate events, and upload a screenshot of the Novus.ai dashboard.
+https://novus.pendo.io/admin/track-events
+Project/app: xhei
+Visible proof: All 17 / Tracked 17 / Not Tracked 0
+```
+
+Signals note:
+
+```text
+The Signals page may still show "No signals yet" because Novus states that signal analysis runs hourly. Do not block final submission on Signals if Track Events and the dashboard screenshot are available.
 ```
 
 ## Eligibility / Event-window Note
