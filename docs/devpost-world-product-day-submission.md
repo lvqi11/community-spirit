@@ -16,8 +16,8 @@ Do not submit the external form until the final Novus.ai requirement and public 
 - Local static fallback demo: `demo/web/index.html`
 - Recommended release: https://github.com/lvqi11/community-spirit/releases/tag/v0.2.0
 - Earlier open prototype release: https://github.com/lvqi11/community-spirit/releases/tag/v0.1.0
-- Current demo video file: https://github.com/lvqi11/community-spirit/blob/main/reports/community-spirit-demo.mp4
-- Local video file: `reports/community-spirit-demo.mp4`
+- Current public demo video: https://youtu.be/KJaRD5GPcqA
+- Local final video file: `reports/video-assets/community-spirit-devpost-why-first-1080p.mp4`
 
 ## Submission Readiness Checklist
 
@@ -29,9 +29,9 @@ Do not submit the external form until the final Novus.ai requirement and public 
 - [x] No real residents, access control, cameras, payments, robots, or sensor logs.
 - [x] Install Novus.ai on the deployed project.
 - [x] Generate Novus.ai Track Events on the deployed project.
-- [ ] Add a screenshot of the Novus.ai Track Events dashboard.
-- [ ] Add a Novus Signals screenshot if hourly analysis produces one before submission.
-- [ ] Upload the demo video to YouTube, Vimeo, or Youku and use that public URL in Devpost.
+- [x] Add a screenshot of the Novus.ai dashboard/signals proof.
+- [x] Confirm Novus Signals and dashboard metrics are visible.
+- [x] Upload the demo video to YouTube and use that public URL in Devpost.
 - [ ] Final-submit Devpost only after user confirmation.
 
 ## Project Name
@@ -66,16 +66,10 @@ https://github.com/lvqi11/community-spirit
 
 ## Video URL
 
-Current artifact:
+Current public video:
 
 ```text
-https://github.com/lvqi11/community-spirit/blob/main/reports/community-spirit-demo.mp4
-```
-
-Devpost-ready action:
-
-```text
-Upload reports/community-spirit-demo.mp4 to YouTube, Vimeo, or Youku, then paste that public video URL here.
+https://youtu.be/KJaRD5GPcqA
 ```
 
 ## Built With
@@ -115,7 +109,7 @@ Operators see the same activity as World Ops: conversion, lifecycle state, space
 
 The newest release adds CACP, the Community AI Collaboration Protocol direction. CACP defines Community Task Contracts for what must be true before a real-world task is handed to a person, operator, AI agent, or future robot: intent, place, interaction mode, permission, visibility, risk, resident touch, privacy boundary, fallback, feedback, and lifecycle.
 
-All public data is fictional or synthetic. The demo does not connect to real residents, real communities, access-control systems, cameras, payments, robots, or sensor logs.
+This submission uses a synthetic dataset because the project is currently an early prototype built by a very small team. The direction is not to stay synthetic forever. If there is a chance to work with a community, campus, property operator, or robot company, the next step is to collect real participation and place-operation data with consent, clear permissions, privacy boundaries, audit logs, and human oversight, then use that data to validate and evolve Community Spirit and CACP in the real world.
 
 ## Inspiration
 
@@ -188,9 +182,8 @@ CACP connects people, places, operators, AI agents, and robots through community
 
 ## What's Next
 
-- Use the installed Novus.ai Track Events dashboard as sponsor integration proof.
+- Use the installed Novus.ai dashboard and Signals as sponsor integration proof.
 - Add a judge landing page that explains the seven-step story in one screen.
-- Refresh the demo video so it shows the Task Contract View and CACP layer.
 - Expand CACP with actor cards, audit logs, resident notice flows, and contract lifecycle transitions.
 - Add more synthetic scenarios for senior living communities, campuses, mixed-use parks, and robot company pilots.
 - Eventually extract CACP into an independent protocol repository while keeping Community Spirit as the first reference implementation.
@@ -231,32 +224,29 @@ Then open:
 http://127.0.0.1:5173/
 ```
 
-## Data Safety / Privacy
+## Current Data Boundary and Next Step
 
-All current data is fictional or synthetic. The prototype does not connect to real residents, real communities, payments, merchants, access control, cameras, security systems, robots, or sensor logs.
-
-A real pilot would require verified spaces, resident consent, role-based permissions, audit logs, data minimization, retention policies, and property/operator approval.
+This submission uses a synthetic dataset because the project is currently an early prototype built by a very small team. The direction is not to stay synthetic forever. If there is a chance to work with a community, campus, property operator, or robot company, the next step is to collect real participation and place-operation data with consent, clear permissions, privacy boundaries, audit logs, data minimization, retention policies, property/operator approval, and human oversight, then use that data to validate and evolve Community Spirit and CACP in the real world.
 
 ## Novus.ai Field
 
 Current status:
 
 ```text
-Novus.ai / Pendo Web SDK is installed on the deployed GitHub Pages demo. The Novus Track Events dashboard shows 17/17 tracked events for the Community Spirit project, including pulse_joined, pulse_checked_in, benefit_claimed, benefit_activated, benefit_redeemed, demo_step_run, workflow_json_exported, community_agent_query_submitted, task_link_copied, and demo_completed.
+Novus.ai / Pendo Web SDK is installed on the deployed GitHub Pages demo. Novus dashboard metrics and Signals are visible for the Community Spirit project, including home page views, demo steps executed, pulse primary actions, and product signals about the guided walkthrough and Pulse participation loop.
 ```
 
 Dashboard screenshot to upload:
 
 ```text
-https://novus.pendo.io/admin/track-events
-Project/app: xhei
-Visible proof: All 17 / Tracked 17 / Not Tracked 0
+https://novus.pendo.io/dashboard
+Visible proof: dashboard metrics, Signals, and recent Community Spirit activity.
 ```
 
 Signals note:
 
 ```text
-The Signals page may still show "No signals yet" because Novus states that signal analysis runs hourly. Do not block final submission on Signals if Track Events and the dashboard screenshot are available.
+Signals are now visible. Use the dashboard/signals screenshot if Devpost asks for Novus proof.
 ```
 
 ## Eligibility / Event-window Note
