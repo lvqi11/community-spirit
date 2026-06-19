@@ -60,7 +60,7 @@ The operator side sees the same story as World Ops: conversion, lifecycle state,
 
 The project also introduces CACP, the Community AI Collaboration Protocol. CACP is a proposed task-contract layer for physical AI in shared community spaces. Before an AI agent or future robot acts in a physical place, the community needs a clear contract: intent, place, interaction mode, permission, privacy boundary, fallback owner, feedback, and human handoff. Community Spirit is the first reference implementation and demo scene for that protocol direction.
 
-This submission uses a synthetic dataset because the project is currently an early prototype built by a very small team. The direction is not to stay synthetic forever. If there is a chance to work with a community, campus, property operator, or robot company, the next step is to collect real participation and place-operation data with consent, clear permissions, privacy boundaries, audit logs, and human oversight, then use that data to validate and evolve Community Spirit and CACP in the real world.
+This submission uses a synthetic dataset because Community Spirit is currently an early prototype that I built independently. In parallel, I am also developing CACP, the Community AI Collaboration Protocol, as the task-contract layer behind the product direction. The goal is not to stay synthetic forever. I hope to work with like-minded developers, data-collection partners, communities, campuses, property operators, and robot companies to collect real participation and place-operation data with consent, clear permissions, privacy boundaries, audit logs, and human oversight. That real-world validation is the next step for pushing Community Spirit and CACP toward practical deployment.
 
 ## Inspiration
 
@@ -119,5 +119,5 @@ CACP connects people, places, operators, AI agents, and robots through community
 ## Current Data Boundary and Next Step
 
 ```text
-This submission uses a synthetic dataset because the project is currently an early prototype built by a very small team. The direction is not to stay synthetic forever. If there is a chance to work with a community, campus, property operator, or robot company, the next step is to collect real participation and place-operation data with consent, clear permissions, privacy boundaries, audit logs, and human oversight, then use that data to validate and evolve Community Spirit and CACP in the real world.
+This submission uses a synthetic dataset because Community Spirit is currently an early prototype that I built independently. In parallel, I am also developing CACP, the Community AI Collaboration Protocol, as the task-contract layer behind the product direction. The goal is not to stay synthetic forever. I hope to work with like-minded developers, data-collection partners, communities, campuses, property operators, and robot companies to collect real participation and place-operation data with consent, clear permissions, privacy boundaries, audit logs, and human oversight. That real-world validation is the next step for pushing Community Spirit and CACP toward practical deployment.
 ```
