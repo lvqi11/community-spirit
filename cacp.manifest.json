@@ -1,0 +1,109 @@
+{
+  "schema_version": "cacp.manifest.v0.1",
+  "name": "Community AI Collaboration Protocol",
+  "short_name": "CACP",
+  "status": "draft_v0.1_inside_community_spirit",
+  "reference_implementation": {
+    "name": "Community Spirit",
+    "repository": "https://github.com/lvqi11/community-spirit",
+    "demo": "https://lvqi11.github.io/community-spirit/",
+    "role": "first_reference_implementation"
+  },
+  "data_policy": "fictional_or_synthetic_only",
+  "spec": {
+    "entry": "docs/cacp-spec-v0.1.md",
+    "design_rationale": "docs/protocol-design.md",
+    "topics": [
+      "docs/community-task-contract.md",
+      "docs/cacp-lifecycle-artifacts-evidence.md",
+      "docs/workflow-export-contract.md",
+      "docs/cacp-pilot-readiness-checklist.md",
+      "docs/cacp-extraction-plan.md",
+      "docs/cacp-schema-surface-review.md",
+      "docs/cacp-package-shape-draft.md",
+      "docs/cacp-cli-contract-draft.md",
+      "docs/cacp-extracted-repo-layout-draft.md",
+      "docs/cacp-versioning-and-compatibility-draft.md",
+      "docs/cacp-extension-governance-draft.md",
+      "docs/cacp-extension-coverage-matrix.md",
+      "docs/cacp-public-notice-semantics-draft.md",
+      "docs/cacp-repo-readme-draft.md",
+      "docs/cacp-context-fixture-contract.md",
+      "docs/cacp-new-contributor-walkthrough.md",
+      "docs/cacp-validator-troubleshooting.md"
+    ]
+  },
+  "schemas": [
+    "schemas/community-actor-card.schema.json",
+    "schemas/community-task-contract.schema.json",
+    "schemas/community-task-transition.schema.json",
+    "schemas/community-artifact.schema.json",
+    "schemas/community-evidence.schema.json",
+    "schemas/cacp-workflow-protocol-bundle.schema.json",
+    "schemas/cacp-pilot-readiness-checklist.schema.json",
+    "schemas/cacp-reference-context.schema.json",
+    "schemas/cacp-extension-registry.schema.json"
+  ],
+  "example_groups": {
+    "context": "examples/context",
+    "extensions": "examples/extensions",
+    "actors": "examples/actors",
+    "contracts": "examples/contracts",
+    "transitions": "examples/transitions",
+    "artifacts": "examples/artifacts",
+    "evidence": "examples/evidence",
+    "workflow_exports": "examples/exports",
+    "pilot_readiness": "examples/pilot-readiness"
+  },
+  "validators": [
+    "scripts/validate-contracts.mjs",
+    "scripts/validate-cacp-lifecycle.mjs",
+    "scripts/validate-cacp-workflow-export.mjs",
+    "scripts/validate-cacp-pilot-readiness.mjs",
+    "scripts/validate-cacp-manifest.mjs",
+    "scripts/validate-cacp-chain-coverage.mjs",
+    "scripts/validate-cacp-portable-extraction.mjs",
+    "scripts/validate-cacp.mjs"
+  ],
+  "reference_ui": [
+    "src/components/TaskContractView.jsx",
+    "src/components/TaskDetails.jsx",
+    "src/components/PropertyDashboard.jsx"
+  ],
+  "quality_docs": [
+    "docs/cacp-benchmark-matrix.md",
+    "docs/cacp-release-roadmap.md",
+    "docs/cacp-extraction-plan.md",
+    "docs/cacp-independence-audit.md",
+    "docs/cacp-portable-extraction-dry-run.md",
+    "docs/cacp-schema-surface-review.md",
+    "docs/cacp-package-shape-draft.md",
+    "docs/cacp-cli-contract-draft.md",
+    "docs/cacp-extracted-repo-layout-draft.md",
+    "docs/cacp-versioning-and-compatibility-draft.md",
+    "docs/cacp-extension-governance-draft.md",
+    "docs/cacp-extension-coverage-matrix.md",
+    "docs/cacp-public-notice-semantics-draft.md",
+    "docs/cacp-repo-readme-draft.md",
+    "docs/cacp-context-fixture-contract.md",
+    "docs/cacp-new-contributor-walkthrough.md",
+    "docs/cacp-validator-troubleshooting.md",
+    "docs/cacp-changelog.md",
+    "docs/cacp-release-checklist.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+    "CODE_OF_CONDUCT.md"
+  ],
+  "maturity": {
+    "current": "v0.1",
+    "next": "v0.2 independence audit, AI-agent coverage, and validator CLI hardening",
+    "extraction_target": "community-ai-collaboration-protocol"
+  },
+  "public_demo_boundary": {
+    "no_real_residents": true,
+    "no_real_property_access": true,
+    "no_real_locks_cameras_sensors_or_robots": true,
+    "no_payments_or_access_tokens": true,
+    "requires_user_approval_before_real_pilot": true
+  }
+}

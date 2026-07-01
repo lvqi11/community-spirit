@@ -1,0 +1,24 @@
+{
+  "schema_version": "cacp.community_actor_card.v0.1",
+  "actor_id": "actor-future-patrol-robot",
+  "actor_type": "robot",
+  "display_name": "Synthetic Future Patrol Robot",
+  "capabilities": ["shared_space_inspection", "human_handoff", "incident_reporting"],
+  "supported_interaction_modes": ["robot_assist"],
+  "allowed_zones": ["fire_passage", "operator_approved_route"],
+  "forbidden_zones": ["private_home", "resident_only_space", "unapproved_route"],
+  "requires_human_approval": true,
+  "data_boundaries": {
+    "real_identity_access": false,
+    "camera_access": true,
+    "raw_video_storage": false,
+    "resident_profile_access": false,
+    "notes": ["Camera use represents a future bounded capability; no real feed or device is connected."]
+  },
+  "safety_controls": {
+    "human_handoff": true,
+    "manual_stop": true,
+    "audit_log": true
+  },
+  "data_policy": "fictional_or_synthetic_only"
+}

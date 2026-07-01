@@ -66,6 +66,7 @@ function App() {
   const selectedRoute = selectedTask?.linked_route_id ? helpers.route(selectedTask.linked_route_id) : null;
   const selectedActivity = selectedTask?.linked_activity_id ? helpers.activity(selectedTask.linked_activity_id) : null;
   const selectedContract = data.communityTaskContracts.find((contract) => contract.place.task_id === selectedTask?.id) || null;
+  const selectedContractProtocol = selectedContract ? createContractProtocolBundle(data, selectedContract.contract_id) : null;
   const residentProfileBase = data.residentProfiles.find((profile) => profile.id === residentProfileId) || data.residentProfiles[0];
   const currentProgress = residentProgress[residentProfileBase.id];
   const residentProfile = {
@@ -450,6 +451,7 @@ function App() {
       route: selectedRoute,
       activity: selectedActivity,
       community_task_contract: selectedContract,
+      cacp_protocol_bundle: selectedContractProtocol ? createExportProtocolBundle(selectedContract, selectedContractProtocol) : null,
       dashboard_context: {
         managed_pois: data.pois.length,
         robot_ready_pois: data.pois.filter((poi) => poi.robot_accessible).length,
@@ -498,6 +500,9 @@ function App() {
     trackProductEvent("workflow_json_exported", {
       task_id: selectedTask.id,
       contract_id: selectedContract?.contract_id ?? null,
+      protocol_transition_count: selectedContractProtocol?.transitions.length ?? 0,
+      protocol_evidence_count: selectedContractProtocol?.evidence.length ?? 0,
+      protocol_artifact_count: selectedContractProtocol?.artifacts.length ?? 0,
       has_pulse_context: selectedTask.id === activePulse.linked_task_id,
       has_contract: !!selectedContract,
       resident_profile_id: residentProfile.id
@@ -593,6 +598,7 @@ function App() {
           />
           <TaskDetails
             contract={selectedContract}
+            protocol={selectedContractProtocol}
             helpers={helpers}
             poiContext={poiContext}
             selectedActivity={selectedActivity}
@@ -626,6 +632,7 @@ function App() {
               benefits={data.benefits}
               benefitBaseline={data.benefitOperatorBaseline}
               selectedContract={selectedContract}
+              selectedContractProtocol={selectedContractProtocol}
               selectedTask={selectedTask}
               selectedRoute={selectedRoute}
               onTask={selectTask}
@@ -639,6 +646,106 @@ function App() {
 }
 
 createRoot(document.getElementById("root")).render(<App />);
+
+function createContractProtocolBundle(data, contractId) {
+  const actorsById = Object.fromEntries(data.communityActors.map((actor) => [actor.actor_id, actor]));
+  const artifacts = data.communityArtifacts.filter((artifact) => artifact.contract_id === contractId);
+  const evidence = data.communityEvidence.filter((record) => record.contract_id === contractId);
+  const pilotReadiness = data.communityPilotReadiness.find((checklist) => checklist.contract_id === contractId) || null;
+  const transitions = data.communityTransitions
+    .filter((transition) => transition.contract_id === contractId)
+    .map((transition) => ({
+      ...transition,
+      actor: actorsById[transition.requested_by] || null,
+      evidence: transition.evidence_ids
+        .map((evidenceId) => evidence.find((record) => record.evidence_id === evidenceId))
+        .filter(Boolean),
+      artifacts: transition.artifact_ids
+        .map((artifactId) => artifacts.find((artifact) => artifact.artifact_id === artifactId))
+        .filter(Boolean)
+    }));
+
+  return {
+    actors: data.communityActors,
+    artifacts,
+    evidence,
+    pilotReadiness,
+    transitions
+  };
+}
+
+function createExportProtocolBundle(contract, protocol) {
+  const transitionActors = new Set(protocol.transitions.map((transition) => transition.requested_by));
+  const artifactActors = new Set(protocol.artifacts.map((artifact) => artifact.created_by));
+  const evidenceActors = new Set(protocol.evidence.map((record) => record.recorded_by));
+  const referencedActorIds = new Set([...transitionActors, ...artifactActors, ...evidenceActors]);
+
+  return {
+    schema_version: "cacp.workflow_protocol_bundle.v0.1",
+    contract_id: contract.contract_id,
+    lifecycle: contract.lifecycle,
+    readiness: {
+      has_transition_records: protocol.transitions.length > 0,
+      has_evidence_records: protocol.evidence.length > 0,
+      has_artifacts: protocol.artifacts.length > 0,
+      human_review_required: contract.permission.human_review_required,
+      resident_notice_required: contract.permission.resident_notice_required,
+      data_policy: contract.data_policy
+    },
+    actors: protocol.actors
+      .filter((actor) => referencedActorIds.has(actor.actor_id))
+      .map((actor) => ({
+        actor_id: actor.actor_id,
+        actor_type: actor.actor_type,
+        display_name: actor.display_name,
+        capabilities: actor.capabilities,
+        requires_human_approval: actor.requires_human_approval,
+        safety_controls: actor.safety_controls,
+        data_boundaries: actor.data_boundaries,
+        data_policy: actor.data_policy
+      })),
+    transitions: protocol.transitions.map((transition) => ({
+      transition_id: transition.transition_id,
+      from_state: transition.from_state,
+      to_state: transition.to_state,
+      occurred_at: transition.occurred_at,
+      requested_by: transition.requested_by,
+      actor_type: transition.actor?.actor_type ?? null,
+      reason: transition.reason,
+      evidence_ids: transition.evidence_ids,
+      artifact_ids: transition.artifact_ids,
+      data_policy: transition.data_policy
+    })),
+    evidence: protocol.evidence.map((record) => ({
+      evidence_id: record.evidence_id,
+      evidence_type: record.evidence_type,
+      recorded_by: record.recorded_by,
+      recorded_at: record.recorded_at,
+      facts: record.facts,
+      source_artifact_ids: record.source_artifact_ids,
+      synthetic: record.synthetic,
+      data_policy: record.data_policy
+    })),
+    artifacts: protocol.artifacts.map((artifact) => ({
+      artifact_id: artifact.artifact_id,
+      artifact_type: artifact.artifact_type,
+      created_by: artifact.created_by,
+      created_at: artifact.created_at,
+      visibility: artifact.visibility,
+      contains_personal_data: artifact.contains_personal_data,
+      summary: artifact.summary,
+      retention: artifact.retention,
+      data_policy: artifact.data_policy
+    })),
+    safety_boundary: {
+      public_demo_data: true,
+      fictional_or_synthetic_only: true,
+      excludes_real_resident_identity: true,
+      excludes_raw_camera_or_sensor_payload: true,
+      requires_real_pilot_consent_and_operator_approval: true
+    }
+  };
+}
 
 function createCredentialCode(benefit, residentId) {
   const residentCode = residentId

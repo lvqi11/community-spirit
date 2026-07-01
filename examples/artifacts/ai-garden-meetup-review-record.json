@@ -1,0 +1,13 @@
+{
+  "schema_version": "cacp.community_artifact.v0.1",
+  "artifact_id": "artifact-ai-garden-meetup-review-record",
+  "artifact_type": "approval_record",
+  "contract_id": "ctc-ai-suggested-garden-meetup",
+  "created_by": "actor-community-operator-console",
+  "created_at": "2026-06-24T11:00:00Z",
+  "visibility": "operator_only",
+  "contains_personal_data": false,
+  "summary": "Synthetic operator review record for an AI-suggested garden meetup, confirming no resident contact before approval.",
+  "retention": "audit_period",
+  "data_policy": "fictional_or_synthetic_only"
+}

@@ -4,6 +4,7 @@ import { canCheckinPulse, hasActivePulsePlace, isPulseAcceptingJoins } from "../
 
 export function TaskDetails({
   contract,
+  protocol,
   helpers,
   poiContext,
   selectedActivity,
@@ -93,7 +94,7 @@ export function TaskDetails({
           )}
         </div>
       </section>
-      <TaskContractView contract={contract} helpers={helpers} />
+      <TaskContractView contract={contract} helpers={helpers} protocol={protocol} />
     </>
   );
 }

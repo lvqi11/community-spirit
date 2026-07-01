@@ -1,0 +1,56 @@
+{
+  "schema_version": "cacp.community_task_contract.v0.1",
+  "contract_id": "ctc-ai-suggested-garden-meetup",
+  "title": "AI-suggested Garden Meetup",
+  "intent": "Let a community AI assistant propose a low-risk garden meetup based on synthetic activity patterns, while requiring operator review before scheduling.",
+  "place": {
+    "poi_id": "poi-clubhouse",
+    "route_id": "route-community-explorer-loop",
+    "activity_id": "activity-community-explorer-trail",
+    "task_id": "task-maintain-shared-world"
+  },
+  "actor": "ai_agent",
+  "interaction_mode": "operator",
+  "permission": {
+    "level": "human_review_required",
+    "approved_by": "community_ops",
+    "human_review_required": true,
+    "resident_notice_required": true
+  },
+  "visibility": "operator_only",
+  "risk_level": "medium",
+  "resident_touch": "optional",
+  "privacy_boundary": {
+    "real_identity_required": false,
+    "camera_feed_allowed": false,
+    "raw_video_storage_allowed": false,
+    "public_profile_required": false,
+    "notes": ["The AI agent may suggest a task from synthetic aggregate signals only; it cannot message real residents or schedule the activity directly."]
+  },
+  "fallback": {
+    "owner": "operator",
+    "condition": "The suggestion is unclear, duplicates an existing activity, or requires resident outreach.",
+    "action": "Keep the task in operator review, revise the notice, or reject the suggestion."
+  },
+  "feedback": {
+    "retention_signal": "operator_reviewed_ai_suggestion",
+    "trust_signal": "human_review_before_resident_contact",
+    "acceptance_signal": "ai_suggestion_kept_operator_only",
+    "incident_signal": "no_resident_contact"
+  },
+  "lifecycle": {
+    "state": "needs_operator_approval",
+    "allowed_next_states": ["approved", "rejected", "canceled"]
+  },
+  "artifacts": [
+    {
+      "artifact_type": "approval_record",
+      "description": "Synthetic operator-facing review record for an AI-generated community activity suggestion."
+    }
+  ],
+  "extensions": [
+    "https://community-spirit.dev/cacp/extensions/ai-agent-suggestion/v0.1",
+    "https://community-spirit.dev/cacp/extensions/public-notice/v0.1"
+  ],
+  "data_policy": "fictional_or_synthetic_only"
+}

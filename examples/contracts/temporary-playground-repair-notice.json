@@ -1,0 +1,55 @@
+{
+  "schema_version": "cacp.community_task_contract.v0.1",
+  "contract_id": "ctc-temporary-playground-repair-notice",
+  "title": "Temporary Playground Repair Notice",
+  "intent": "Coordinate a short resident-facing playground repair window with notice before scheduling, clear boundaries, operator ownership, and a human fallback path.",
+  "place": {
+    "poi_id": "poi-playground",
+    "route_id": "route-playground-repair-boundary",
+    "activity_id": "activity-playground-repair-window",
+    "task_id": "task-temporary-playground-repair"
+  },
+  "actor": "operator",
+  "interaction_mode": "operator",
+  "permission": {
+    "level": "operator_approved",
+    "approved_by": "community_ops",
+    "human_review_required": true,
+    "resident_notice_required": true
+  },
+  "visibility": "community_summary",
+  "risk_level": "medium",
+  "resident_touch": "direct",
+  "privacy_boundary": {
+    "real_identity_required": false,
+    "camera_feed_allowed": false,
+    "raw_video_storage_allowed": false,
+    "public_profile_required": false,
+    "notes": ["The repair notice describes a synthetic amenity closure and detour only; it does not identify residents, workers, units, or camera feeds."]
+  },
+  "fallback": {
+    "owner": "operator",
+    "condition": "Resident concern, weather, contractor delay, or safety boundary change affects the playground repair window.",
+    "action": "Pause scheduling, update the notice, keep an alternate route open, or hand off to a named operator."
+  },
+  "feedback": {
+    "retention_signal": "resident_notice_seen_before_amenity_closure",
+    "trust_signal": "notice_before_repair_window",
+    "acceptance_signal": "low_complaint_repair_window",
+    "incident_signal": "no_unnoticed_closure"
+  },
+  "lifecycle": {
+    "state": "needs_resident_notice",
+    "allowed_next_states": ["needs_operator_approval", "rejected", "canceled"]
+  },
+  "artifacts": [
+    {
+      "artifact_type": "resident_notice",
+      "description": "Plain-language synthetic public notice for a temporary playground repair window, boundary, alternate path, and contact route."
+    }
+  ],
+  "extensions": [
+    "https://community-spirit.dev/cacp/extensions/public-notice/v0.1"
+  ],
+  "data_policy": "fictional_or_synthetic_only"
+}

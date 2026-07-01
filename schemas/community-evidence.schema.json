@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://community-spirit.dev/schemas/community-evidence.v0.1.json",
+  "title": "Community Evidence",
+  "description": "A minimal, audit-friendly fact record supporting a CACP lifecycle decision.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "evidence_id", "evidence_type", "contract_id", "recorded_by", "recorded_at", "facts", "source_artifact_ids", "synthetic", "data_policy"],
+  "properties": {
+    "schema_version": { "const": "cacp.community_evidence.v0.1" },
+    "evidence_id": { "type": "string", "pattern": "^evidence-[a-z0-9-]+$" },
+    "evidence_type": {
+      "type": "string",
+      "enum": ["resident_notice", "operator_approval", "schedule_confirmation", "task_start", "task_completion", "human_handoff", "incident"]
+    },
+    "contract_id": { "type": "string", "pattern": "^ctc-[a-z0-9-]+$" },
+    "recorded_by": { "type": "string", "pattern": "^actor-[a-z0-9-]+$" },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "facts": {
+      "type": "object",
+      "additionalProperties": { "type": ["string", "boolean", "number"] },
+      "minProperties": 1
+    },
+    "source_artifact_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^artifact-[a-z0-9-]+$" }
+    },
+    "synthetic": { "const": true },
+    "data_policy": { "const": "fictional_or_synthetic_only" }
+  }
+}

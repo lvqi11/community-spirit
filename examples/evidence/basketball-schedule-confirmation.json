@@ -1,0 +1,12 @@
+{
+  "schema_version": "cacp.community_evidence.v0.1",
+  "evidence_id": "evidence-basketball-schedule-confirmation",
+  "evidence_type": "schedule_confirmation",
+  "contract_id": "ctc-evening-basketball-social-pulse",
+  "recorded_by": "actor-community-operator-console",
+  "recorded_at": "2026-06-24T09:01:00Z",
+  "facts": { "schedule_recorded": true, "capacity_checked": true },
+  "source_artifact_ids": ["artifact-basketball-schedule-record"],
+  "synthetic": true,
+  "data_policy": "fictional_or_synthetic_only"
+}

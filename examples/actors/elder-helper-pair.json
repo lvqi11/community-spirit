@@ -1,0 +1,24 @@
+{
+  "schema_version": "cacp.community_actor_card.v0.1",
+  "actor_id": "actor-elder-helper-pair",
+  "actor_type": "mixed",
+  "display_name": "Synthetic Elder and Helper Pair",
+  "capabilities": ["activity_discovery", "route_guidance", "resident_notice", "human_handoff"],
+  "supported_interaction_modes": ["elder_friendly", "helper"],
+  "allowed_zones": ["accessible_community_route", "participant_selected_route"],
+  "forbidden_zones": ["private_home", "restricted_operations_area"],
+  "requires_human_approval": false,
+  "data_boundaries": {
+    "real_identity_access": false,
+    "camera_access": false,
+    "raw_video_storage": false,
+    "resident_profile_access": false,
+    "notes": ["Represents an opted-in synthetic pairing and contains no health or identity data."]
+  },
+  "safety_controls": {
+    "human_handoff": true,
+    "manual_stop": true,
+    "audit_log": true
+  },
+  "data_policy": "fictional_or_synthetic_only"
+}

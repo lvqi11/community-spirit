@@ -1380,7 +1380,8 @@
 
 .privacy-boundary,
 .contract-feedback,
-.contract-lifecycle {
+.contract-lifecycle,
+.contract-evidence-strip {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
@@ -1388,7 +1389,8 @@
 
 .privacy-boundary span,
 .contract-feedback span,
-.contract-lifecycle span {
+.contract-lifecycle span,
+.contract-evidence-strip span {
   background: rgba(255, 255, 255, 0.74);
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -1398,7 +1400,8 @@
   padding: 6px 8px;
 }
 
-.privacy-boundary b {
+.privacy-boundary b,
+.contract-evidence-strip b {
   color: var(--ink);
   margin-right: 5px;
 }
@@ -1417,6 +1420,353 @@
   background: var(--green);
   border-color: var(--green);
   color: #fff;
+}
+
+.contract-timeline {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(47, 111, 194, 0.16);
+  border-radius: 8px;
+  display: grid;
+  gap: 9px;
+  padding: 10px;
+}
+
+.contract-timeline-header {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.contract-timeline-header span {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.contract-timeline-header strong {
+  background: rgba(24, 116, 91, 0.1);
+  border: 1px solid rgba(24, 116, 91, 0.18);
+  border-radius: 999px;
+  color: var(--green);
+  font-size: 10px;
+  padding: 5px 7px;
+}
+
+.contract-timeline ol {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.timeline-step {
+  color: var(--muted);
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  position: relative;
+}
+
+.timeline-step:not(:last-child)::after {
+  background: rgba(47, 111, 194, 0.18);
+  content: "";
+  height: 2px;
+  left: 18px;
+  position: absolute;
+  right: -6px;
+  top: 7px;
+}
+
+.timeline-dot {
+  background: #fff;
+  border: 2px solid rgba(47, 111, 194, 0.24);
+  border-radius: 999px;
+  height: 14px;
+  position: relative;
+  width: 14px;
+  z-index: 1;
+}
+
+.timeline-step div {
+  display: grid;
+  gap: 2px;
+}
+
+.timeline-step strong {
+  color: var(--ink);
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+.timeline-step small {
+  font-size: 9px;
+  line-height: 1.35;
+}
+
+.timeline-step.done .timeline-dot,
+.timeline-step.skipped .timeline-dot {
+  background: var(--green);
+  border-color: var(--green);
+}
+
+.timeline-step.done:not(:last-child)::after,
+.timeline-step.skipped:not(:last-child)::after {
+  background: rgba(24, 116, 91, 0.34);
+}
+
+.timeline-step.current .timeline-dot,
+.timeline-step.next .timeline-dot {
+  background: var(--blue);
+  border-color: var(--blue);
+  box-shadow: 0 0 0 4px rgba(47, 111, 194, 0.12);
+}
+
+.timeline-step.current strong,
+.timeline-step.next strong {
+  color: var(--blue);
+}
+
+.timeline-step.branch .timeline-dot,
+.timeline-step.locked .timeline-dot {
+  border-style: dashed;
+}
+
+.timeline-step.branch strong {
+  color: #9a6a0a;
+}
+
+.contract-evidence-view {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(24, 116, 91, 0.16);
+  border-radius: 8px;
+  display: grid;
+  gap: 10px;
+  padding: 10px;
+}
+
+.contract-evidence-view.empty {
+  border-style: dashed;
+}
+
+.contract-evidence-title,
+.evidence-transition {
+  align-items: center;
+  display: flex;
+  gap: 9px;
+  justify-content: space-between;
+}
+
+.contract-evidence-title > div,
+.contract-evidence-view.empty > div {
+  display: grid;
+  gap: 2px;
+}
+
+.contract-evidence-title span,
+.contract-evidence-view.empty span {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.contract-evidence-title strong,
+.contract-evidence-view.empty strong {
+  font-size: 13px;
+}
+
+.contract-evidence-title small {
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 800;
+  text-align: right;
+}
+
+.evidence-chain {
+  display: grid;
+  gap: 9px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.evidence-chain > li {
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  display: grid;
+  gap: 8px;
+  padding: 9px;
+}
+
+.evidence-transition span {
+  background: rgba(47, 111, 194, 0.1);
+  border: 1px solid rgba(47, 111, 194, 0.18);
+  border-radius: 999px;
+  color: var(--blue);
+  font-size: 10px;
+  font-weight: 900;
+  padding: 5px 7px;
+}
+
+.evidence-transition strong {
+  font-size: 11px;
+  line-height: 1.25;
+  text-align: right;
+}
+
+.evidence-transition small {
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.evidence-records {
+  display: grid;
+  gap: 7px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.evidence-records article {
+  background: rgba(24, 116, 91, 0.06);
+  border: 1px solid rgba(24, 116, 91, 0.14);
+  border-radius: 7px;
+  display: grid;
+  gap: 3px;
+  padding: 8px;
+}
+
+.evidence-records span {
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.evidence-records strong {
+  font-size: 11px;
+}
+
+.evidence-records small {
+  color: var(--muted);
+  font-size: 9px;
+  line-height: 1.35;
+}
+
+.evidence-guardrails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.evidence-guardrails span {
+  background: rgba(247, 246, 240, 0.9);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 800;
+  padding: 5px 7px;
+}
+
+.pilot-readiness-view {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.76), rgba(247, 246, 240, 0.86));
+  border: 1px solid rgba(154, 106, 10, 0.18);
+  border-radius: 8px;
+  display: grid;
+  gap: 10px;
+  padding: 10px;
+}
+
+.pilot-readiness-title {
+  align-items: center;
+  display: flex;
+  gap: 9px;
+  justify-content: space-between;
+}
+
+.pilot-readiness-title > div {
+  display: grid;
+  gap: 2px;
+}
+
+.pilot-readiness-title span {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.pilot-readiness-title strong {
+  color: #9a6a0a;
+  font-size: 13px;
+}
+
+.pilot-readiness-title small {
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 800;
+  text-align: right;
+}
+
+.pilot-readiness-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pilot-readiness-metrics span {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+  padding: 6px 8px;
+}
+
+.pilot-readiness-metrics b {
+  color: #9a6a0a;
+  margin-right: 5px;
+}
+
+.pilot-readiness-gates {
+  display: grid;
+  gap: 7px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.pilot-readiness-gates article {
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  display: grid;
+  gap: 3px;
+  padding: 8px;
+}
+
+.pilot-readiness-gates span {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.pilot-readiness-gates strong {
+  color: #9a6a0a;
+  font-size: 11px;
+}
+
+.pilot-readiness-gates small {
+  color: var(--muted);
+  font-size: 9px;
+  line-height: 1.35;
 }
 
 .task-contract-card.compact {
@@ -1716,6 +2066,51 @@
   .contract-fallback {
     align-items: stretch;
     flex-direction: column;
+    grid-template-columns: 1fr;
+  }
+
+  .contract-timeline ol {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-step {
+    grid-template-columns: 18px 1fr;
+  }
+
+  .timeline-step:not(:last-child)::after {
+    bottom: -10px;
+    height: auto;
+    left: 6px;
+    right: auto;
+    top: 15px;
+    width: 2px;
+  }
+
+  .contract-evidence-title,
+  .evidence-transition {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .contract-evidence-title small,
+  .evidence-transition strong {
+    text-align: left;
+  }
+
+  .evidence-records {
+    grid-template-columns: 1fr;
+  }
+
+  .pilot-readiness-title {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .pilot-readiness-title small {
+    text-align: left;
+  }
+
+  .pilot-readiness-gates {
     grid-template-columns: 1fr;
   }
 

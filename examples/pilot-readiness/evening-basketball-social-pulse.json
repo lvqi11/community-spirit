@@ -1,0 +1,104 @@
+{
+  "schema_version": "cacp.pilot_readiness_checklist.v0.1",
+  "checklist_id": "pilot-readiness-evening-basketball-social-pulse",
+  "contract_id": "ctc-evening-basketball-social-pulse",
+  "readiness_level": "public_demo_only",
+  "reviewed_by": "actor-community-operator-console",
+  "reviewed_at": "2026-06-24T09:05:00Z",
+  "summary": "Synthetic checklist for the evening basketball social Pulse. The public demo can show low-pressure participation and scheduling evidence, but a real pilot still requires community policy review and resident-facing terms.",
+  "gates": {
+    "consent": {
+      "status": "needs_real_world_review",
+      "real_pilot_requirement": "Publish clear participation terms and collect any consent required by the community operator before using real resident participation data.",
+      "evidence_ids": [],
+      "artifact_ids": [],
+      "notes": "The public demo uses synthetic profiles and does not collect real signup consent."
+    },
+    "operator_approval": {
+      "status": "not_applicable",
+      "real_pilot_requirement": "Low-risk public activities may use standing community rules instead of per-task approval.",
+      "evidence_ids": [],
+      "artifact_ids": [],
+      "notes": "The contract marks human_review_required=false."
+    },
+    "resident_notice": {
+      "status": "not_applicable",
+      "real_pilot_requirement": "Resident notice is not required for this public synthetic activity contract, but real deployments should still show participation terms.",
+      "evidence_ids": [],
+      "artifact_ids": [],
+      "notes": "The contract marks resident_notice_required=false."
+    },
+    "privacy_boundary": {
+      "status": "simulated_for_demo",
+      "real_pilot_requirement": "Confirm that public profiles, real identities, and camera capture are not required for joining a low-pressure activity.",
+      "evidence_ids": ["evidence-basketball-schedule-confirmation"],
+      "artifact_ids": ["artifact-basketball-schedule-record"],
+      "notes": "The contract privacy boundary disables real identity and raw video storage."
+    },
+    "data_minimization": {
+      "status": "simulated_for_demo",
+      "real_pilot_requirement": "Collect only participation state, time window, capacity, and aggregate retention signals needed for the activity.",
+      "evidence_ids": ["evidence-basketball-schedule-confirmation"],
+      "artifact_ids": ["artifact-basketball-schedule-record"],
+      "notes": "The synthetic export contains no real resident identity or contact fields."
+    },
+    "audit_log": {
+      "status": "needs_real_world_review",
+      "real_pilot_requirement": "Real operators should log schedule creation, cancellation, participant notifications, and benefit issuance.",
+      "evidence_ids": [],
+      "artifact_ids": [],
+      "notes": "Current public examples validate schedule evidence but do not implement production audit storage."
+    },
+    "human_handoff": {
+      "status": "simulated_for_demo",
+      "real_pilot_requirement": "Assign an operator contact for cancellation, safety concern, or participant discomfort.",
+      "evidence_ids": ["evidence-basketball-schedule-confirmation"],
+      "artifact_ids": ["artifact-basketball-schedule-record"],
+      "notes": "The contract fallback owner is operator."
+    },
+    "manual_stop": {
+      "status": "not_applicable",
+      "real_pilot_requirement": "Manual stop is not a device-control requirement for this resident social activity.",
+      "evidence_ids": [],
+      "artifact_ids": [],
+      "notes": "No connected robot, lock, camera, or sensor is used."
+    },
+    "incident_review": {
+      "status": "needs_real_world_review",
+      "real_pilot_requirement": "Define how participant discomfort, safety issues, or cancellation disputes are reviewed.",
+      "evidence_ids": [],
+      "artifact_ids": [],
+      "notes": "The protocol supports incident_review, but this example has no real incident process."
+    },
+    "data_retention": {
+      "status": "needs_real_world_review",
+      "real_pilot_requirement": "Publish retention windows for participation state, schedule records, reward logs, and deletion requests.",
+      "evidence_ids": [],
+      "artifact_ids": ["artifact-basketball-schedule-record"],
+      "notes": "The synthetic schedule artifact uses task_lifetime only as a demo placeholder."
+    },
+    "fallback_owner": {
+      "status": "simulated_for_demo",
+      "real_pilot_requirement": "Name the human operator responsible for low turnout, safety issue, or resident discomfort.",
+      "evidence_ids": ["evidence-basketball-schedule-confirmation"],
+      "artifact_ids": ["artifact-basketball-schedule-record"],
+      "notes": "The synthetic contract assigns operator as fallback owner."
+    },
+    "physical_safety_review": {
+      "status": "not_applicable",
+      "real_pilot_requirement": "Physical robot safety review is not applicable to this resident social activity.",
+      "evidence_ids": [],
+      "artifact_ids": [],
+      "notes": "The task does not operate a robot or connected physical device."
+    }
+  },
+  "public_demo_boundary": {
+    "fictional_or_synthetic_only": true,
+    "no_real_residents": true,
+    "no_real_property_access": true,
+    "no_real_locks_cameras_sensors_or_robots": true,
+    "no_payments_or_access_tokens": true,
+    "requires_user_approval_before_real_pilot": true
+  },
+  "data_policy": "fictional_or_synthetic_only"
+}

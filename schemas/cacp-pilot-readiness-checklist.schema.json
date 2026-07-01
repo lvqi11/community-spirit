@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://community-spirit.dev/schemas/cacp-pilot-readiness-checklist.v0.1.json",
+  "title": "CACP Pilot Readiness Checklist",
+  "description": "A governance checklist for deciding whether a CACP community task contract is only demo-ready, pilot-candidate, or ready for a real-world pilot.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "checklist_id",
+    "contract_id",
+    "readiness_level",
+    "reviewed_by",
+    "reviewed_at",
+    "summary",
+    "gates",
+    "public_demo_boundary",
+    "data_policy"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "cacp.pilot_readiness_checklist.v0.1"
+    },
+    "checklist_id": {
+      "type": "string",
+      "pattern": "^pilot-readiness-[a-z0-9-]+$"
+    },
+    "contract_id": {
+      "type": "string",
+      "pattern": "^ctc-[a-z0-9-]+$"
+    },
+    "readiness_level": {
+      "enum": ["public_demo_only", "pilot_candidate", "pilot_ready"]
+    },
+    "reviewed_by": {
+      "type": "string",
+      "pattern": "^actor-[a-z0-9-]+$"
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 20
+    },
+    "gates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "consent",
+        "operator_approval",
+        "resident_notice",
+        "privacy_boundary",
+        "data_minimization",
+        "audit_log",
+        "human_handoff",
+        "manual_stop",
+        "incident_review",
+        "data_retention",
+        "fallback_owner",
+        "physical_safety_review"
+      ],
+      "properties": {
+        "consent": { "$ref": "#/$defs/gate" },
+        "operator_approval": { "$ref": "#/$defs/gate" },
+        "resident_notice": { "$ref": "#/$defs/gate" },
+        "privacy_boundary": { "$ref": "#/$defs/gate" },
+        "data_minimization": { "$ref": "#/$defs/gate" },
+        "audit_log": { "$ref": "#/$defs/gate" },
+        "human_handoff": { "$ref": "#/$defs/gate" },
+        "manual_stop": { "$ref": "#/$defs/gate" },
+        "incident_review": { "$ref": "#/$defs/gate" },
+        "data_retention": { "$ref": "#/$defs/gate" },
+        "fallback_owner": { "$ref": "#/$defs/gate" },
+        "physical_safety_review": { "$ref": "#/$defs/gate" }
+      }
+    },
+    "public_demo_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fictional_or_synthetic_only",
+        "no_real_residents",
+        "no_real_property_access",
+        "no_real_locks_cameras_sensors_or_robots",
+        "no_payments_or_access_tokens",
+        "requires_user_approval_before_real_pilot"
+      ],
+      "properties": {
+        "fictional_or_synthetic_only": { "const": true },
+        "no_real_residents": { "const": true },
+        "no_real_property_access": { "const": true },
+        "no_real_locks_cameras_sensors_or_robots": { "const": true },
+        "no_payments_or_access_tokens": { "const": true },
+        "requires_user_approval_before_real_pilot": { "const": true }
+      }
+    },
+    "data_policy": {
+      "const": "fictional_or_synthetic_only"
+    }
+  },
+  "$defs": {
+    "gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "real_pilot_requirement", "evidence_ids", "artifact_ids", "notes"],
+      "properties": {
+        "status": {
+          "enum": ["simulated_for_demo", "needs_real_world_review", "satisfied", "not_applicable"]
+        },
+        "real_pilot_requirement": {
+          "type": "string",
+          "minLength": 10
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^evidence-[a-z0-9-]+$" },
+          "uniqueItems": true
+        },
+        "artifact_ids": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^artifact-[a-z0-9-]+$" },
+          "uniqueItems": true
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 10
+        }
+      }
+    }
+  }
+}

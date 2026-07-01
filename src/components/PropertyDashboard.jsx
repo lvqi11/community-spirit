@@ -18,6 +18,7 @@ export function PropertyDashboard({
   benefits,
   benefitBaseline,
   selectedContract,
+  selectedContractProtocol,
   selectedTask,
   selectedRoute,
   onTask,
@@ -229,7 +230,7 @@ export function PropertyDashboard({
           </div>
         </dl>
       </section>
-      <TaskContractView contract={selectedContract} helpers={helpers} compact />
+      <TaskContractView contract={selectedContract} helpers={helpers} protocol={selectedContractProtocol} compact />
       <div className="dashboard-lanes">
         <section>
           <h3>{helpers.t("dashboard.operationsTitle", "Operational Queue")}</h3>

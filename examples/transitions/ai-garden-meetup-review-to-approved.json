@@ -1,0 +1,13 @@
+{
+  "schema_version": "cacp.community_task_transition.v0.1",
+  "transition_id": "transition-ai-garden-meetup-review-to-approved",
+  "contract_id": "ctc-ai-suggested-garden-meetup",
+  "requested_by": "actor-community-operator-console",
+  "from_state": "needs_operator_approval",
+  "to_state": "approved",
+  "occurred_at": "2026-06-24T11:02:00Z",
+  "reason": "The operator confirmed that the AI suggestion used only synthetic aggregate signals and did not contact residents before review.",
+  "evidence_ids": ["evidence-ai-garden-meetup-operator-review"],
+  "artifact_ids": ["artifact-ai-garden-meetup-review-record"],
+  "data_policy": "fictional_or_synthetic_only"
+}

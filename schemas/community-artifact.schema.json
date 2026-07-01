@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://community-spirit.dev/schemas/community-artifact.v0.1.json",
+  "title": "Community Artifact",
+  "description": "A bounded output produced by a CACP community task.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "artifact_id", "artifact_type", "contract_id", "created_by", "created_at", "visibility", "contains_personal_data", "summary", "data_policy"],
+  "properties": {
+    "schema_version": { "const": "cacp.community_artifact.v0.1" },
+    "artifact_id": { "type": "string", "pattern": "^artifact-[a-z0-9-]+$" },
+    "artifact_type": {
+      "type": "string",
+      "enum": ["resident_notice", "schedule_record", "approval_record", "inspection_report", "benefit_pass", "participation_summary", "incident_report", "robot_ready_payload"]
+    },
+    "contract_id": { "type": "string", "pattern": "^ctc-[a-z0-9-]+$" },
+    "created_by": { "type": "string", "pattern": "^actor-[a-z0-9-]+$" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "visibility": { "type": "string", "enum": ["private", "participant_only", "participant_and_operator", "operator_only", "community_summary"] },
+    "contains_personal_data": { "type": "boolean" },
+    "summary": { "type": "string", "minLength": 10 },
+    "retention": { "type": "string", "enum": ["ephemeral", "task_lifetime", "audit_period"] },
+    "data_policy": { "const": "fictional_or_synthetic_only" }
+  }
+}

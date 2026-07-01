@@ -1,0 +1,13 @@
+{
+  "schema_version": "cacp.community_task_transition.v0.1",
+  "transition_id": "transition-playground-repair-notice-to-review",
+  "contract_id": "ctc-temporary-playground-repair-notice",
+  "requested_by": "actor-community-operator-console",
+  "from_state": "needs_resident_notice",
+  "to_state": "needs_operator_approval",
+  "occurred_at": "2026-06-25T02:02:00Z",
+  "reason": "Resident-facing repair notice was recorded before the temporary playground repair window moved into operator scheduling review.",
+  "evidence_ids": ["evidence-playground-repair-resident-notice"],
+  "artifact_ids": ["artifact-playground-repair-resident-notice"],
+  "data_policy": "fictional_or_synthetic_only"
+}

@@ -1,0 +1,126 @@
+{
+  "schema_version": "0.1.0",
+  "community_id": "omniweave-community",
+  "task_id": "task-community-explorer-quest",
+  "route_id": "route-community-explorer-loop",
+  "dashboard_context": {
+    "managed_pois": 13,
+    "robot_ready_pois": 8,
+    "open_activities": 1
+  },
+  "community_task_contract": {
+    "contract_id": "ctc-elder-friendly-walking-helper",
+    "title": "Elder-friendly Walking Helper",
+    "interaction_mode": "elder_friendly",
+    "permission": {
+      "level": "operator_approved",
+      "approved_by": "community_ops",
+      "human_review_required": true,
+      "resident_notice_required": true
+    },
+    "privacy_boundary": {
+      "real_identity_required": false,
+      "camera_feed_allowed": false,
+      "raw_video_storage_allowed": false,
+      "public_profile_required": false
+    },
+    "fallback": {
+      "owner": "human_helper",
+      "condition": "Resident requests assistance, weather changes, or the discovery trail becomes crowded.",
+      "action": "Switch to assisted mode, shorten the route, or cancel with operator notice."
+    },
+    "lifecycle": {
+      "state": "needs_resident_notice",
+      "allowed_next_states": ["needs_operator_approval", "approved", "rejected", "canceled"]
+    }
+  },
+  "cacp_protocol_bundle": {
+    "schema_version": "cacp.workflow_protocol_bundle.v0.1",
+    "contract_id": "ctc-elder-friendly-walking-helper",
+    "lifecycle": {
+      "state": "needs_resident_notice",
+      "allowed_next_states": ["needs_operator_approval", "approved", "rejected", "canceled"]
+    },
+    "readiness": {
+      "has_transition_records": true,
+      "has_evidence_records": true,
+      "has_artifacts": true,
+      "human_review_required": true,
+      "resident_notice_required": true,
+      "data_policy": "fictional_or_synthetic_only"
+    },
+    "actors": [
+      {
+        "actor_id": "actor-community-operator-console",
+        "actor_type": "operator",
+        "display_name": "Synthetic Community Operator Console",
+        "capabilities": ["resident_notice", "task_approval", "task_supervision", "human_handoff", "incident_reporting"],
+        "requires_human_approval": false,
+        "safety_controls": {
+          "human_handoff": true,
+          "manual_stop": true,
+          "audit_log": true
+        },
+        "data_boundaries": {
+          "real_identity_access": false,
+          "camera_access": false,
+          "raw_video_storage": false,
+          "resident_profile_access": false,
+          "notes": ["Displays aggregate synthetic operations signals only."]
+        },
+        "data_policy": "fictional_or_synthetic_only"
+      }
+    ],
+    "transitions": [
+      {
+        "transition_id": "transition-elder-walk-notice-to-review",
+        "from_state": "needs_resident_notice",
+        "to_state": "needs_operator_approval",
+        "occurred_at": "2026-06-24T08:02:00Z",
+        "requested_by": "actor-community-operator-console",
+        "actor_type": "operator",
+        "reason": "Resident notice and opt-out path were recorded before operator review.",
+        "evidence_ids": ["evidence-elder-walk-resident-notice"],
+        "artifact_ids": ["artifact-elder-walk-resident-notice"],
+        "data_policy": "fictional_or_synthetic_only"
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "evidence-elder-walk-resident-notice",
+        "evidence_type": "resident_notice",
+        "recorded_by": "actor-community-operator-console",
+        "recorded_at": "2026-06-24T08:01:00Z",
+        "facts": {
+          "notice_recorded": true,
+          "opt_out_available": true,
+          "real_identity_stored": false
+        },
+        "source_artifact_ids": ["artifact-elder-walk-resident-notice"],
+        "synthetic": true,
+        "data_policy": "fictional_or_synthetic_only"
+      }
+    ],
+    "artifacts": [
+      {
+        "artifact_id": "artifact-elder-walk-resident-notice",
+        "artifact_type": "resident_notice",
+        "created_by": "actor-community-operator-console",
+        "created_at": "2026-06-24T08:00:00Z",
+        "visibility": "participant_and_operator",
+        "contains_personal_data": false,
+        "summary": "Synthetic plain-language notice describing the optional helper walk and exit path.",
+        "retention": "task_lifetime",
+        "data_policy": "fictional_or_synthetic_only"
+      }
+    ],
+    "safety_boundary": {
+      "public_demo_data": true,
+      "fictional_or_synthetic_only": true,
+      "excludes_real_resident_identity": true,
+      "excludes_raw_camera_or_sensor_payload": true,
+      "requires_real_pilot_consent_and_operator_approval": true
+    }
+  },
+  "data_policy": "fictional_or_synthetic_only"
+}

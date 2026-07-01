@@ -8,6 +8,28 @@ import benefitData from "../data/sample-benefits.json";
 import basketballContract from "../examples/contracts/evening-basketball-social-pulse.json";
 import walkingContract from "../examples/contracts/elder-friendly-walking-helper.json";
 import robotPatrolContract from "../examples/contracts/robot-fire-passage-patrol.json";
+import aiGardenMeetupContract from "../examples/contracts/ai-suggested-garden-meetup.json";
+import residentCompanionActor from "../examples/actors/resident-companion-app.json";
+import operatorConsoleActor from "../examples/actors/community-operator-console.json";
+import futurePatrolRobotActor from "../examples/actors/future-patrol-robot.json";
+import elderHelperPairActor from "../examples/actors/elder-helper-pair.json";
+import communityAiAssistantActor from "../examples/actors/community-ai-assistant.json";
+import elderWalkNoticeArtifact from "../examples/artifacts/elder-walk-resident-notice.json";
+import basketballScheduleArtifact from "../examples/artifacts/basketball-schedule-record.json";
+import robotPatrolApprovalArtifact from "../examples/artifacts/robot-patrol-approval-record.json";
+import aiGardenReviewArtifact from "../examples/artifacts/ai-garden-meetup-review-record.json";
+import elderWalkNoticeEvidence from "../examples/evidence/elder-walk-resident-notice.json";
+import basketballScheduleEvidence from "../examples/evidence/basketball-schedule-confirmation.json";
+import robotPatrolApprovalEvidence from "../examples/evidence/robot-patrol-operator-approval.json";
+import aiGardenReviewEvidence from "../examples/evidence/ai-garden-meetup-operator-review.json";
+import elderWalkNoticeTransition from "../examples/transitions/elder-walk-notice-to-review.json";
+import basketballScheduleTransition from "../examples/transitions/basketball-approved-to-scheduled.json";
+import robotPatrolApprovalTransition from "../examples/transitions/robot-patrol-review-to-approved.json";
+import aiGardenReviewTransition from "../examples/transitions/ai-garden-meetup-review-to-approved.json";
+import basketballPilotReadiness from "../examples/pilot-readiness/evening-basketball-social-pulse.json";
+import walkingPilotReadiness from "../examples/pilot-readiness/elder-friendly-walking-helper.json";
+import robotPatrolPilotReadiness from "../examples/pilot-readiness/robot-fire-passage-patrol.json";
+import aiGardenPilotReadiness from "../examples/pilot-readiness/ai-suggested-garden-meetup.json";
 
 export const communityData = {
   pois: poiData.pois,
@@ -20,7 +42,12 @@ export const communityData = {
   benefits: benefitData.benefits,
   benefitCurrency: benefitData.currency,
   benefitOperatorBaseline: benefitData.operator_baseline,
-  communityTaskContracts: [basketballContract, walkingContract, robotPatrolContract]
+  communityTaskContracts: [basketballContract, walkingContract, robotPatrolContract, aiGardenMeetupContract],
+  communityActors: [residentCompanionActor, operatorConsoleActor, futurePatrolRobotActor, elderHelperPairActor, communityAiAssistantActor],
+  communityArtifacts: [elderWalkNoticeArtifact, basketballScheduleArtifact, robotPatrolApprovalArtifact, aiGardenReviewArtifact],
+  communityEvidence: [elderWalkNoticeEvidence, basketballScheduleEvidence, robotPatrolApprovalEvidence, aiGardenReviewEvidence],
+  communityTransitions: [elderWalkNoticeTransition, basketballScheduleTransition, robotPatrolApprovalTransition, aiGardenReviewTransition],
+  communityPilotReadiness: [basketballPilotReadiness, walkingPilotReadiness, robotPatrolPilotReadiness, aiGardenPilotReadiness]
 };
 
 export const promptSamples = [

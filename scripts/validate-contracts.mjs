@@ -2,13 +2,24 @@ import fs from "node:fs";
 import path from "node:path";
 
 const schemaPath = "schemas/community-task-contract.schema.json";
+const actorSchemaPath = "schemas/community-actor-card.schema.json";
+const contextSchemaPath = "schemas/cacp-reference-context.schema.json";
+const extensionRegistrySchemaPath = "schemas/cacp-extension-registry.schema.json";
+const contextPath = "examples/context/community-reference-context.json";
+const extensionRegistryPath = "examples/extensions/registry.json";
 const contractsDir = "examples/contracts";
+const actorsDir = "examples/actors";
 
 const schema = JSON.parse(fs.readFileSync(schemaPath, "utf8"));
-const pois = JSON.parse(fs.readFileSync("data/sample-pois.json", "utf8")).pois;
-const routes = JSON.parse(fs.readFileSync("data/sample-routes.json", "utf8")).routes;
-const tasks = JSON.parse(fs.readFileSync("data/sample-tasks.json", "utf8")).tasks;
-const activities = JSON.parse(fs.readFileSync("data/sample-activities.json", "utf8")).activities;
+const actorSchema = JSON.parse(fs.readFileSync(actorSchemaPath, "utf8"));
+const contextSchema = JSON.parse(fs.readFileSync(contextSchemaPath, "utf8"));
+const extensionRegistrySchema = JSON.parse(fs.readFileSync(extensionRegistrySchemaPath, "utf8"));
+const context = JSON.parse(fs.readFileSync(contextPath, "utf8"));
+const extensionRegistry = JSON.parse(fs.readFileSync(extensionRegistryPath, "utf8"));
+const pois = context.pois ?? [];
+const routes = context.routes ?? [];
+const tasks = context.tasks ?? [];
+const activities = context.activities ?? [];
 
 const poiIds = new Set(pois.map((item) => item.id));
 const routeIds = new Set(routes.map((item) => item.id));
@@ -16,15 +27,22 @@ const taskIds = new Set(tasks.map((item) => item.id));
 const activityIds = new Set(activities.map((item) => item.id));
 
 const errors = [];
+const actorFiles = fs
+  .readdirSync(actorsDir)
+  .filter((file) => file.endsWith(".json"))
+  .sort();
 const contractFiles = fs
   .readdirSync(contractsDir)
   .filter((file) => file.endsWith(".json"))
   .sort();
 
 if (!contractFiles.length) errors.push("No community task contract examples found.");
+if (!actorFiles.length) errors.push("No community actor card examples found.");
 
 const enumAt = (property) => schema.properties[property]?.enum ?? [];
 const lifecycleStates = schema.properties.lifecycle.properties.state.enum;
+const extensionUriPattern = /^https:\/\/community-spirit\.dev\/cacp\/extensions\/[a-z0-9]+(?:-[a-z0-9]+)*\/v0\.1$/;
+const extensionRegistryByUri = new Map();
 
 function assert(condition, message) {
   if (!condition) errors.push(message);
@@ -32,6 +50,106 @@ function assert(condition, message) {
 
 function assertString(value, message) {
   assert(typeof value === "string" && value.trim().length > 0, message);
+}
+
+const actorTypes = new Set();
+
+function validateReferenceContext() {
+  for (const field of contextSchema.required) {
+    assert(Object.hasOwn(context, field), `${contextPath} missing required field: ${field}`);
+  }
+
+  assert(context.schema_version === contextSchema.properties.schema_version.const, `${contextPath} has unsupported schema_version`);
+  assert(typeof context.community_id === "string" && context.community_id.trim().length > 0, `${contextPath} requires community_id`);
+  assert(context.data_policy === "fictional_or_synthetic_only", `${contextPath} must keep data_policy fictional_or_synthetic_only`);
+
+  for (const [collectionName, items] of Object.entries({
+    pois,
+    routes,
+    tasks,
+    activities
+  })) {
+    assert(Array.isArray(items) && items.length > 0, `${contextPath} requires at least one ${collectionName} item`);
+    const ids = new Set();
+
+    for (const item of items) {
+      assert(typeof item?.id === "string" && item.id.trim().length > 0, `${contextPath} ${collectionName} item requires id`);
+      assert(typeof item?.title === "string" && item.title.trim().length > 0, `${contextPath} ${collectionName} item ${item?.id ?? "(unknown)"} requires title`);
+      assert(!ids.has(item.id), `${contextPath} ${collectionName} duplicates id: ${item.id}`);
+      ids.add(item.id);
+    }
+  }
+}
+
+function validateExtensionRegistry() {
+  for (const field of extensionRegistrySchema.required) {
+    assert(Object.hasOwn(extensionRegistry, field), `${extensionRegistryPath} missing required field: ${field}`);
+  }
+
+  assert(extensionRegistry.schema_version === extensionRegistrySchema.properties.schema_version.const, `${extensionRegistryPath} has unsupported schema_version`);
+  assert(extensionRegistry.data_policy === "fictional_or_synthetic_only", `${extensionRegistryPath} must keep data_policy fictional_or_synthetic_only`);
+  assert(Array.isArray(extensionRegistry.extensions) && extensionRegistry.extensions.length > 0, `${extensionRegistryPath} requires at least one extension entry`);
+
+  for (const entry of extensionRegistry.extensions ?? []) {
+    assert(typeof entry.uri === "string" && extensionUriPattern.test(entry.uri), `${extensionRegistryPath} registry URI must follow https://community-spirit.dev/cacp/extensions/<kebab-name>/v0.1: ${entry.uri}`);
+    assert(typeof entry.name === "string" && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(entry.name), `${extensionRegistryPath} extension name must be kebab-case: ${entry.name}`);
+    assert(entry.uri?.includes(`/extensions/${entry.name}/`), `${extensionRegistryPath} extension name must match URI segment: ${entry.name}`);
+    assert(["draft", "candidate", "deprecated"].includes(entry.status), `${extensionRegistryPath} extension status is not allowed: ${entry.status}`);
+    assertString(entry.summary, `${extensionRegistryPath} extension ${entry.uri} requires summary`);
+    assert(Array.isArray(entry.applies_to_actors) && entry.applies_to_actors.length > 0, `${extensionRegistryPath} extension ${entry.uri} requires applies_to_actors`);
+    assert(Array.isArray(entry.applies_to_interaction_modes) && entry.applies_to_interaction_modes.length > 0, `${extensionRegistryPath} extension ${entry.uri} requires applies_to_interaction_modes`);
+    assert(Array.isArray(entry.example_contract_ids) && entry.example_contract_ids.length > 0, `${extensionRegistryPath} extension ${entry.uri} requires example_contract_ids`);
+    assert(typeof entry.core_candidate === "boolean", `${extensionRegistryPath} extension ${entry.uri} requires boolean core_candidate`);
+    assert(entry.data_policy === "fictional_or_synthetic_only", `${extensionRegistryPath} extension ${entry.uri} must keep data_policy fictional_or_synthetic_only`);
+    assert(!extensionRegistryByUri.has(entry.uri), `${extensionRegistryPath} duplicates extension URI: ${entry.uri}`);
+    extensionRegistryByUri.set(entry.uri, entry);
+  }
+}
+
+function validateActorCard(card, file) {
+  for (const field of actorSchema.required) {
+    assert(Object.hasOwn(card, field), `${file} missing required field: ${field}`);
+  }
+
+  assert(card.schema_version === actorSchema.properties.schema_version.const, `${file} has unsupported schema_version`);
+  assert(/^actor-[a-z0-9-]+$/.test(card.actor_id ?? ""), `${file} actor_id must start with actor- and use kebab-case`);
+  assert(actorSchema.properties.actor_type.enum.includes(card.actor_type), `${file} actor_type is not allowed: ${card.actor_type}`);
+  assertString(card.display_name, `${file} requires display_name`);
+  assert(Array.isArray(card.capabilities) && card.capabilities.length > 0, `${file} requires at least one capability`);
+  assert(Array.isArray(card.supported_interaction_modes) && card.supported_interaction_modes.length > 0, `${file} requires at least one interaction mode`);
+  assert(Array.isArray(card.allowed_zones) && card.allowed_zones.length > 0, `${file} requires at least one allowed zone`);
+  assert(Array.isArray(card.forbidden_zones), `${file} forbidden_zones must be an array`);
+  assert(card.data_policy === "fictional_or_synthetic_only", `${file} must keep data_policy fictional_or_synthetic_only`);
+
+  for (const capability of card.capabilities ?? []) {
+    assert(actorSchema.properties.capabilities.items.enum.includes(capability), `${file} capability is not allowed: ${capability}`);
+  }
+  for (const mode of card.supported_interaction_modes ?? []) {
+    assert(actorSchema.properties.supported_interaction_modes.items.enum.includes(mode), `${file} interaction mode is not allowed: ${mode}`);
+  }
+
+  const data = card.data_boundaries ?? {};
+  for (const field of ["real_identity_access", "camera_access", "raw_video_storage", "resident_profile_access"]) {
+    assert(typeof data[field] === "boolean", `${file} requires boolean data_boundaries.${field}`);
+  }
+  assert(data.real_identity_access === false, `${file} public actor examples must not access real identity`);
+  assert(data.raw_video_storage === false, `${file} public actor examples must not store raw video`);
+  assert(data.resident_profile_access === false, `${file} public actor examples must not access real resident profiles`);
+
+  const safety = card.safety_controls ?? {};
+  for (const field of ["human_handoff", "manual_stop", "audit_log"]) {
+    assert(typeof safety[field] === "boolean", `${file} requires boolean safety_controls.${field}`);
+  }
+  assert(safety.human_handoff === true, `${file} must support human handoff`);
+  assert(safety.manual_stop === true, `${file} must support manual stop`);
+  assert(safety.audit_log === true, `${file} must support an audit log`);
+
+  if (card.actor_type === "robot") {
+    assert(card.requires_human_approval === true, `${file} robot actors must require human approval`);
+    assert(card.supported_interaction_modes?.includes("robot_assist"), `${file} robot actors must support robot_assist`);
+  }
+
+  actorTypes.add(card.actor_type);
 }
 
 function validateContract(contract, file) {
@@ -88,6 +206,24 @@ function validateContract(contract, file) {
     assert(lifecycleStates.includes(state), `${file} lifecycle.allowed_next_states contains invalid state: ${state}`);
   }
 
+  if (contract.extensions) {
+    assert(Array.isArray(contract.extensions), `${file} extensions must be an array`);
+    const extensionUris = new Set();
+    for (const extension of contract.extensions ?? []) {
+      assert(typeof extension === "string", `${file} extension values must be strings`);
+      assert(extensionUriPattern.test(extension), `${file} extension URI must follow https://community-spirit.dev/cacp/extensions/<kebab-name>/v0.1: ${extension}`);
+      assert(!extensionUris.has(extension), `${file} duplicates extension URI: ${extension}`);
+      const registryEntry = extensionRegistryByUri.get(extension);
+      assert(Boolean(registryEntry), `${file} extension URI is not registered in ${extensionRegistryPath}: ${extension}`);
+      if (registryEntry) {
+        assert(registryEntry.example_contract_ids.includes(contract.contract_id), `${extensionRegistryPath} extension ${extension} must list example contract ${contract.contract_id}`);
+        assert(registryEntry.applies_to_actors.includes(contract.actor), `${extensionRegistryPath} extension ${extension} does not apply to actor ${contract.actor}`);
+        assert(registryEntry.applies_to_interaction_modes.includes(contract.interaction_mode), `${extensionRegistryPath} extension ${extension} does not apply to interaction_mode ${contract.interaction_mode}`);
+      }
+      extensionUris.add(extension);
+    }
+  }
+
   if (contract.risk_level === "high") {
     assert(permission.human_review_required === true, `${file} high-risk contracts must require human review`);
   }
@@ -100,15 +236,33 @@ function validateContract(contract, file) {
   }
 }
 
+validateReferenceContext();
+validateExtensionRegistry();
+
 for (const file of contractFiles) {
   const fullPath = path.join(contractsDir, file);
   const contract = JSON.parse(fs.readFileSync(fullPath, "utf8"));
   validateContract(contract, fullPath);
 }
 
+for (const file of actorFiles) {
+  const fullPath = path.join(actorsDir, file);
+  const card = JSON.parse(fs.readFileSync(fullPath, "utf8"));
+  validateActorCard(card, fullPath);
+}
+
+for (const file of contractFiles) {
+  const fullPath = path.join(contractsDir, file);
+  const contract = JSON.parse(fs.readFileSync(fullPath, "utf8"));
+  assert(actorTypes.has(contract.actor), `${fullPath} has no matching CommunityActorCard actor_type: ${contract.actor}`);
+}
+
 if (errors.length) {
-  console.error(errors.join("\n"));
+  console.error("CACP contract validation failed.");
+  console.error("How to fix: check the referenced file, align it with schemas/community-task-contract.schema.json, schemas/community-actor-card.schema.json, schemas/cacp-reference-context.schema.json, or schemas/cacp-extension-registry.schema.json, keep public examples synthetic-only, ensure every contract.actor has a matching CommunityActorCard actor_type, and keep extension URIs aligned with docs/cacp-extension-governance-draft.md.");
+  console.error("Troubleshooting: docs/cacp-validator-troubleshooting.md");
+  console.error(errors.map((error) => `- ${error}`).join("\n"));
   process.exit(1);
 }
 
-console.log(`Validated ${contractFiles.length} community task contracts against CACP draft schema and sample data references.`);
+console.log(`Validated ${actorFiles.length} community actor cards, ${contractFiles.length} task contracts, the portable CACP reference context fixture, and ${extensionRegistryByUri.size} registered extensions.`);

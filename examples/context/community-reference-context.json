@@ -1,0 +1,85 @@
+{
+  "schema_version": "cacp.reference_context.v0.1",
+  "community_id": "omniweave-community",
+  "pois": [
+    {
+      "id": "poi-basketball-court",
+      "title": "Basketball Court",
+      "notes": ["Synthetic sports and social meetup location for low-pressure community participation."]
+    },
+    {
+      "id": "poi-clubhouse",
+      "title": "Clubhouse",
+      "notes": ["Synthetic shared indoor gathering point for meetups and elder-friendly start locations."]
+    },
+    {
+      "id": "poi-fire-passage",
+      "title": "Fire Passage",
+      "notes": ["Synthetic safety-critical shared-space inspection target."]
+    },
+    {
+      "id": "poi-playground",
+      "title": "Playground",
+      "notes": ["Synthetic resident-facing shared amenity used to test property operation notices."]
+    }
+  ],
+  "routes": [
+    {
+      "id": "route-building-3-to-basketball-meetup",
+      "title": "Building 3 to Basketball Meetup Route"
+    },
+    {
+      "id": "route-community-explorer-loop",
+      "title": "Community Explorer Loop"
+    },
+    {
+      "id": "route-robot-fire-passage-patrol",
+      "title": "Robot Fire Passage Patrol Route"
+    },
+    {
+      "id": "route-playground-repair-boundary",
+      "title": "Playground Repair Boundary Route"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-join-evening-basketball",
+      "title": "Join Evening Basketball"
+    },
+    {
+      "id": "task-community-explorer-quest",
+      "title": "Community Explorer Quest"
+    },
+    {
+      "id": "task-robot-fire-passage-patrol",
+      "title": "Robot Fire Passage Patrol"
+    },
+    {
+      "id": "task-maintain-shared-world",
+      "title": "Maintain Shared World"
+    },
+    {
+      "id": "task-temporary-playground-repair",
+      "title": "Temporary Playground Repair"
+    }
+  ],
+  "activities": [
+    {
+      "id": "activity-evening-basketball-meetup",
+      "title": "Evening Basketball Meetup"
+    },
+    {
+      "id": "activity-community-explorer-trail",
+      "title": "Community Explorer Trail"
+    },
+    {
+      "id": "activity-fire-passage-safety-check",
+      "title": "Fire Passage Safety Check"
+    },
+    {
+      "id": "activity-playground-repair-window",
+      "title": "Playground Repair Window"
+    }
+  ],
+  "data_policy": "fictional_or_synthetic_only"
+}

@@ -1,0 +1,125 @@
+{
+  "schema_version": "0.1.0",
+  "community_id": "omniweave-community",
+  "task_id": "task-join-evening-basketball",
+  "route_id": "route-building-3-to-basketball-meetup",
+  "dashboard_context": {
+    "managed_pois": 13,
+    "robot_ready_pois": 8,
+    "open_activities": 1
+  },
+  "community_task_contract": {
+    "contract_id": "ctc-evening-basketball-social-pulse",
+    "title": "Evening Basketball Social Pulse",
+    "interaction_mode": "parallel",
+    "permission": {
+      "level": "public_activity",
+      "approved_by": "community_ops",
+      "human_review_required": false,
+      "resident_notice_required": false
+    },
+    "privacy_boundary": {
+      "real_identity_required": false,
+      "camera_feed_allowed": false,
+      "raw_video_storage_allowed": false,
+      "public_profile_required": false
+    },
+    "fallback": {
+      "owner": "operator",
+      "condition": "Low turnout, safety issue, or resident discomfort.",
+      "action": "Pause the Pulse, notify participants, and convert to a later open activity."
+    },
+    "lifecycle": {
+      "state": "approved",
+      "allowed_next_states": ["scheduled", "running", "canceled"]
+    }
+  },
+  "cacp_protocol_bundle": {
+    "schema_version": "cacp.workflow_protocol_bundle.v0.1",
+    "contract_id": "ctc-evening-basketball-social-pulse",
+    "lifecycle": {
+      "state": "approved",
+      "allowed_next_states": ["scheduled", "running", "canceled"]
+    },
+    "readiness": {
+      "has_transition_records": true,
+      "has_evidence_records": true,
+      "has_artifacts": true,
+      "human_review_required": false,
+      "resident_notice_required": false,
+      "data_policy": "fictional_or_synthetic_only"
+    },
+    "actors": [
+      {
+        "actor_id": "actor-community-operator-console",
+        "actor_type": "operator",
+        "display_name": "Synthetic Community Operator Console",
+        "capabilities": ["resident_notice", "task_approval", "task_supervision", "human_handoff", "incident_reporting"],
+        "requires_human_approval": false,
+        "safety_controls": {
+          "human_handoff": true,
+          "manual_stop": true,
+          "audit_log": true
+        },
+        "data_boundaries": {
+          "real_identity_access": false,
+          "camera_access": false,
+          "raw_video_storage": false,
+          "resident_profile_access": false,
+          "notes": ["Displays aggregate synthetic operations signals only."]
+        },
+        "data_policy": "fictional_or_synthetic_only"
+      }
+    ],
+    "transitions": [
+      {
+        "transition_id": "transition-basketball-approved-to-scheduled",
+        "from_state": "approved",
+        "to_state": "scheduled",
+        "occurred_at": "2026-06-24T09:02:00Z",
+        "requested_by": "actor-community-operator-console",
+        "actor_type": "operator",
+        "reason": "The approved Pulse received a synthetic schedule and capacity confirmation.",
+        "evidence_ids": ["evidence-basketball-schedule-confirmation"],
+        "artifact_ids": ["artifact-basketball-schedule-record"],
+        "data_policy": "fictional_or_synthetic_only"
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "evidence-basketball-schedule-confirmation",
+        "evidence_type": "schedule_confirmation",
+        "recorded_by": "actor-community-operator-console",
+        "recorded_at": "2026-06-24T09:01:00Z",
+        "facts": {
+          "schedule_recorded": true,
+          "capacity_checked": true
+        },
+        "source_artifact_ids": ["artifact-basketball-schedule-record"],
+        "synthetic": true,
+        "data_policy": "fictional_or_synthetic_only"
+      }
+    ],
+    "artifacts": [
+      {
+        "artifact_id": "artifact-basketball-schedule-record",
+        "artifact_type": "schedule_record",
+        "created_by": "actor-community-operator-console",
+        "created_at": "2026-06-24T09:00:00Z",
+        "visibility": "participant_and_operator",
+        "contains_personal_data": false,
+        "summary": "Synthetic schedule confirmation for the low-pressure evening basketball Pulse.",
+        "retention": "task_lifetime",
+        "data_policy": "fictional_or_synthetic_only"
+      }
+    ],
+    "safety_boundary": {
+      "public_demo_data": true,
+      "fictional_or_synthetic_only": true,
+      "excludes_real_resident_identity": true,
+      "excludes_raw_camera_or_sensor_payload": true,
+      "requires_real_pilot_consent_and_operator_approval": true
+    }
+  },
+  "data_policy": "fictional_or_synthetic_only"
+}

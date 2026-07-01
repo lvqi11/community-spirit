@@ -1,0 +1,78 @@
+{
+  "schema_version": "cacp.extension_registry.v0.1",
+  "extensions": [
+    {
+      "uri": "https://community-spirit.dev/cacp/extensions/ai-agent-suggestion/v0.1",
+      "name": "ai-agent-suggestion",
+      "status": "draft",
+      "summary": "Marks tasks proposed by a community AI agent that still require human/operator review before resident contact.",
+      "applies_to_actors": ["ai_agent"],
+      "applies_to_interaction_modes": ["operator"],
+      "example_contract_ids": ["ctc-ai-suggested-garden-meetup"],
+      "core_candidate": false,
+      "promotion_notes": "Keep as an extension until more AI-agent proposal patterns are represented.",
+      "data_policy": "fictional_or_synthetic_only"
+    },
+    {
+      "uri": "https://community-spirit.dev/cacp/extensions/elder-friendly/v0.1",
+      "name": "elder-friendly",
+      "status": "draft",
+      "summary": "Marks scenarios that need slower pacing, lower noise, helper fallback, and resident notice sensitivity.",
+      "applies_to_actors": ["mixed"],
+      "applies_to_interaction_modes": ["elder_friendly"],
+      "example_contract_ids": ["ctc-elder-friendly-walking-helper"],
+      "core_candidate": true,
+      "promotion_notes": "Potential future core candidate if elder-friendly participation becomes a repeated scenario family.",
+      "data_policy": "fictional_or_synthetic_only"
+    },
+    {
+      "uri": "https://community-spirit.dev/cacp/extensions/incident-review/v0.1",
+      "name": "incident-review",
+      "status": "draft",
+      "summary": "Marks scenarios where incident or obstruction review may route task outcomes back to an operator.",
+      "applies_to_actors": ["robot"],
+      "applies_to_interaction_modes": ["robot_assist"],
+      "example_contract_ids": ["ctc-robot-fire-passage-patrol"],
+      "core_candidate": false,
+      "promotion_notes": "Keep as extension until incident evidence semantics are stable across more task types.",
+      "data_policy": "fictional_or_synthetic_only"
+    },
+    {
+      "uri": "https://community-spirit.dev/cacp/extensions/light-social/v0.1",
+      "name": "light-social",
+      "status": "draft",
+      "summary": "Marks low-pressure participation scenarios where residents can join without heavy social networking or public profiles.",
+      "applies_to_actors": ["resident"],
+      "applies_to_interaction_modes": ["parallel"],
+      "example_contract_ids": ["ctc-evening-basketball-social-pulse"],
+      "core_candidate": true,
+      "promotion_notes": "Potential core candidate if low-pressure social mode becomes central to many resident tasks.",
+      "data_policy": "fictional_or_synthetic_only"
+    },
+    {
+      "uri": "https://community-spirit.dev/cacp/extensions/public-notice/v0.1",
+      "name": "public-notice",
+      "status": "draft",
+      "summary": "Marks scenarios that need resident-facing notice before scheduling, approval, public posting, or human helper coordination.",
+      "applies_to_actors": ["ai_agent", "mixed", "operator"],
+      "applies_to_interaction_modes": ["elder_friendly", "operator"],
+      "example_contract_ids": ["ctc-ai-suggested-garden-meetup", "ctc-elder-friendly-walking-helper", "ctc-temporary-playground-repair-notice"],
+      "core_candidate": true,
+      "promotion_notes": "Likely core candidate if notice semantics stabilize across AI-proposed tasks, helper coordination, and resident-facing property operations. See docs/cacp-public-notice-semantics-draft.md.",
+      "data_policy": "fictional_or_synthetic_only"
+    },
+    {
+      "uri": "https://community-spirit.dev/cacp/extensions/robot-assist/v0.1",
+      "name": "robot-assist",
+      "status": "draft",
+      "summary": "Marks future robot-assisted tasks that require operator approval, manual stop, and privacy boundaries.",
+      "applies_to_actors": ["robot"],
+      "applies_to_interaction_modes": ["robot_assist"],
+      "example_contract_ids": ["ctc-robot-fire-passage-patrol"],
+      "core_candidate": false,
+      "promotion_notes": "Keep as extension until robot handoff semantics are validated beyond one patrol scenario.",
+      "data_policy": "fictional_or_synthetic_only"
+    }
+  ],
+  "data_policy": "fictional_or_synthetic_only"
+}

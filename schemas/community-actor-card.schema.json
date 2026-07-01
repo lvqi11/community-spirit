@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://community-spirit.dev/schemas/community-actor-card.v0.1.json",
+  "title": "Community Actor Card",
+  "description": "CACP capability card for a synthetic resident client, operator console, AI agent, human helper, or future robot.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "actor_id",
+    "actor_type",
+    "display_name",
+    "capabilities",
+    "supported_interaction_modes",
+    "allowed_zones",
+    "forbidden_zones",
+    "requires_human_approval",
+    "data_boundaries",
+    "safety_controls",
+    "data_policy"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "cacp.community_actor_card.v0.1"
+    },
+    "actor_id": {
+      "type": "string",
+      "pattern": "^actor-[a-z0-9-]+$"
+    },
+    "actor_type": {
+      "type": "string",
+      "enum": ["resident", "family", "elder", "operator", "ai_agent", "robot", "mixed"]
+    },
+    "display_name": {
+      "type": "string",
+      "minLength": 3
+    },
+    "capabilities": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "activity_discovery",
+          "route_guidance",
+          "resident_notice",
+          "task_proposal",
+          "governance_suggestion",
+          "task_approval",
+          "task_supervision",
+          "human_handoff",
+          "shared_space_inspection",
+          "incident_reporting"
+        ]
+      }
+    },
+    "supported_interaction_modes": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": ["solo", "parallel", "buddy", "family", "elder_friendly", "helper", "operator", "robot_assist"]
+      }
+    },
+    "allowed_zones": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string" }
+    },
+    "forbidden_zones": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string" }
+    },
+    "requires_human_approval": {
+      "type": "boolean"
+    },
+    "data_boundaries": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["real_identity_access", "camera_access", "raw_video_storage", "resident_profile_access"],
+      "properties": {
+        "real_identity_access": { "type": "boolean" },
+        "camera_access": { "type": "boolean" },
+        "raw_video_storage": { "type": "boolean" },
+        "resident_profile_access": { "type": "boolean" },
+        "notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "safety_controls": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["human_handoff", "manual_stop", "audit_log"],
+      "properties": {
+        "human_handoff": { "type": "boolean" },
+        "manual_stop": { "type": "boolean" },
+        "audit_log": { "type": "boolean" }
+      }
+    },
+    "data_policy": {
+      "const": "fictional_or_synthetic_only"
+    }
+  }
+}

@@ -10,7 +10,8 @@
     "validate:data": "node scripts/validate-data.mjs",
     "validate:lifecycle": "node scripts/validate-pulse-lifecycle.mjs",
     "validate:retention": "node scripts/validate-retention.mjs",
-    "validate:protocol": "node scripts/validate-contracts.mjs",
+    "validate:protocol": "node scripts/validate-cacp.mjs",
+    "validate:protocol:portable": "node scripts/validate-cacp-portable-extraction.mjs",
     "validate:submission": "node scripts/validate-submission.mjs",
     "check": "npm run validate:data && npm run validate:lifecycle && npm run validate:retention && npm run validate:protocol && node --check demo/web/app.js && npm run build && npm run validate:submission"
   },

@@ -184,7 +184,9 @@ The next technical step is to make the contract explicit in data and validation 
 
 Current draft assets:
 
+- `schemas/community-actor-card.schema.json`
 - `schemas/community-task-contract.schema.json`
+- `examples/actors/`
 - `examples/contracts/evening-basketball-social-pulse.json`
 - `examples/contracts/elder-friendly-walking-helper.json`
 - `examples/contracts/robot-fire-passage-patrol.json`

@@ -1,0 +1,13 @@
+{
+  "schema_version": "cacp.community_task_transition.v0.1",
+  "transition_id": "transition-elder-walk-notice-to-review",
+  "contract_id": "ctc-elder-friendly-walking-helper",
+  "requested_by": "actor-community-operator-console",
+  "from_state": "needs_resident_notice",
+  "to_state": "needs_operator_approval",
+  "occurred_at": "2026-06-24T08:02:00Z",
+  "reason": "Resident notice and opt-out path were recorded before operator review.",
+  "evidence_ids": ["evidence-elder-walk-resident-notice"],
+  "artifact_ids": ["artifact-elder-walk-resident-notice"],
+  "data_policy": "fictional_or_synthetic_only"
+}

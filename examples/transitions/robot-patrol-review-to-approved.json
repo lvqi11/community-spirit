@@ -1,0 +1,13 @@
+{
+  "schema_version": "cacp.community_task_transition.v0.1",
+  "transition_id": "transition-robot-patrol-review-to-approved",
+  "contract_id": "ctc-robot-fire-passage-patrol",
+  "requested_by": "actor-community-operator-console",
+  "from_state": "needs_operator_approval",
+  "to_state": "approved",
+  "occurred_at": "2026-06-24T10:02:00Z",
+  "reason": "The operator confirmed route boundaries, manual stop, and privacy controls.",
+  "evidence_ids": ["evidence-robot-patrol-operator-approval"],
+  "artifact_ids": ["artifact-robot-patrol-approval-record"],
+  "data_policy": "fictional_or_synthetic_only"
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": "cacp.community_actor_card.v0.1",
+  "actor_id": "actor-resident-companion-app",
+  "actor_type": "resident",
+  "display_name": "Synthetic Resident Companion",
+  "capabilities": ["activity_discovery", "route_guidance", "resident_notice", "human_handoff"],
+  "supported_interaction_modes": ["solo", "parallel", "buddy", "family", "elder_friendly", "helper"],
+  "allowed_zones": ["community_public_space", "participant_selected_route"],
+  "forbidden_zones": ["private_home", "restricted_operations_area"],
+  "requires_human_approval": false,
+  "data_boundaries": {
+    "real_identity_access": false,
+    "camera_access": false,
+    "raw_video_storage": false,
+    "resident_profile_access": false,
+    "notes": ["Uses synthetic preference profiles in the public reference implementation."]
+  },
+  "safety_controls": {
+    "human_handoff": true,
+    "manual_stop": true,
+    "audit_log": true
+  },
+  "data_policy": "fictional_or_synthetic_only"
+}

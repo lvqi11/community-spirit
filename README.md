@@ -1,10 +1,33 @@
 # Community Spirit / 社区精灵：未来社区 RPG 引擎
 
-Community Spirit is a community life RPG and physical-AI social layer grounded in real spatial operations.
+[![CI](https://github.com/lvqi11/community-spirit/actions/workflows/ci.yml/badge.svg)](https://github.com/lvqi11/community-spirit/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Protocol: CACP draft](https://img.shields.io/badge/CACP-draft_v0.1-blue.svg)](docs/cacp-spec-v0.1.md)
+[![Data: synthetic only](https://img.shields.io/badge/data-synthetic_only-orange.svg)](SECURITY.md)
+
+Community Spirit is a community life RPG and physical-AI social layer grounded in real spatial operations. It is also the first reference implementation for **CACP: Community AI Collaboration Protocol**.
 
 社区精灵不是传统智慧社区后台，而是把真实社区变成一个可探索、可接任务、可运营、可连接未来机器人的生活 RPG 世界。
 
 This is not a dashboard for managing communities. It is an operating grammar for future communities: a shared task language that lets residents, property operators, AI agents, and future service robots understand the same physical space.
+
+```text
+Community Spirit = reference product and demo
+CACP = protocol draft for community task contracts
+Public data = fictional_or_synthetic_only
+```
+
+Run the full project check:
+
+```powershell
+npm.cmd run check
+```
+
+Run only the CACP protocol capsule check:
+
+```powershell
+node scripts\validate-cacp.mjs
+```
 
 The long-term goal is to prepare the interaction layer before physical AI enters daily life. Community Spirit turns lightweight, low-pressure community participation into spatial quests so young residents, families, elders, operators, and future robots can coordinate around real places without requiring heavy social networking or real personal data.
 
@@ -30,13 +53,44 @@ CACP connects people, places, operators, AI agents, and robots through community
 
 Current protocol assets:
 
+- `cacp.manifest.json`
 - `docs/protocol-design.md`
+- `docs/cacp-spec-v0.1.md`
+- `docs/cacp-developer-guide.md`
+- `docs/cacp-new-contributor-walkthrough.md`
+- `docs/cacp-validator-troubleshooting.md`
+- `docs/cacp-independence-audit.md`
+- `docs/cacp-benchmark-matrix.md`
+- `docs/cacp-release-roadmap.md`
+- `docs/cacp-extraction-plan.md`
+- `docs/cacp-changelog.md`
+- `docs/cacp-release-checklist.md`
 - `docs/community-task-contract.md`
+- `docs/cacp-lifecycle-artifacts-evidence.md`
+- `docs/cacp-pilot-readiness-checklist.md`
+- `schemas/community-actor-card.schema.json`
 - `schemas/community-task-contract.schema.json`
+- `schemas/community-task-transition.schema.json`
+- `schemas/community-artifact.schema.json`
+- `schemas/community-evidence.schema.json`
+- `schemas/cacp-workflow-protocol-bundle.schema.json`
+- `schemas/cacp-pilot-readiness-checklist.schema.json`
+- `examples/actors/`
 - `examples/contracts/`
+- `examples/transitions/`
+- `examples/artifacts/`
+- `examples/evidence/`
+- `examples/exports/`
+- `examples/pilot-readiness/`
 - `scripts/validate-contracts.mjs`
+- `scripts/validate-cacp-lifecycle.mjs`
+- `scripts/validate-cacp-workflow-export.mjs`
+- `scripts/validate-cacp-pilot-readiness.mjs`
+- `scripts/validate-cacp-manifest.mjs`
+- `scripts/validate-cacp-chain-coverage.mjs`
+- `scripts/validate-cacp.mjs`
 
-The React demo now includes a Task Contract View for selected workflows, so CACP appears as a visible product layer rather than a document-only appendix.
+The draft now validates capability discovery, task contracts, lifecycle transitions, artifacts, evidence, workflow handoff bundles, and pilot-readiness governance gates. Every sample contract must have a matching synthetic actor type that declares bounded capabilities, zones, data access, human handoff, manual stop, and audit support. The React demo also includes a Task Contract View and Contract Evidence View for selected workflows, so CACP appears as a visible and exportable product layer rather than a document-only appendix.
 
 ## Product Versions
 
@@ -205,6 +259,12 @@ The release gate validates data references, Pulse lifecycle rules, retention met
 - `docs/physical-ai-social-layer.md`: long-term social operating layer for physical-AI communities.
 - `docs/physical-ai-community-roadmap.md`: roadmap from can-do physical AI to safe human / AI / robot collaboration.
 - `docs/community-task-contract.md`: proposed contract language for intent, permission, privacy, interaction mode, fallback, trust, and handoff.
+- `docs/cacp-spec-v0.1.md`: consolidated CACP protocol draft.
+- `docs/cacp-benchmark-matrix.md`: benchmark notes from high-quality protocol/spec repositories.
+- `docs/cacp-release-roadmap.md`: CACP v0.1/v0.2/v0.3 path before independent extraction.
+- `docs/cacp-changelog.md`: protocol-draft changelog.
+- `docs/cacp-release-checklist.md`: release-readiness checklist for protocol changes.
+- `docs/cacp-lifecycle-artifacts-evidence.md`: lifecycle transition rules and the distinction between task outputs and minimal audit evidence.
 - `docs/protocol-design.md`: CACP protocol direction, relationship to MCP/A2A, core objects, operations, and extraction path.
 - `docs/novus-analytics-integration.md`: optional Novus/Pendo analytics setup for World Product Day validation.
 - `docs/prototype-plan.md`: original prototype execution plan.

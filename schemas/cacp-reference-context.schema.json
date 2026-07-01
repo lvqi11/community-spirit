@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://community-spirit.dev/schemas/cacp-reference-context.v0.1.json",
+  "title": "CACP Reference Context",
+  "description": "Minimal synthetic place context fixture for validating portable CACP examples without depending on Community Spirit product data files.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "community_id", "pois", "routes", "tasks", "activities", "data_policy"],
+  "properties": {
+    "schema_version": {
+      "const": "cacp.reference_context.v0.1"
+    },
+    "community_id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "pois": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/context_item"
+      }
+    },
+    "routes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/context_item"
+      }
+    },
+    "tasks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/context_item"
+      }
+    },
+    "activities": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/context_item"
+      }
+    },
+    "data_policy": {
+      "const": "fictional_or_synthetic_only"
+    }
+  },
+  "$defs": {
+    "context_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 3
+        },
+        "title": {
+          "type": "string",
+          "minLength": 3
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

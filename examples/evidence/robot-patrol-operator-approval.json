@@ -1,0 +1,12 @@
+{
+  "schema_version": "cacp.community_evidence.v0.1",
+  "evidence_id": "evidence-robot-patrol-operator-approval",
+  "evidence_type": "operator_approval",
+  "contract_id": "ctc-robot-fire-passage-patrol",
+  "recorded_by": "actor-community-operator-console",
+  "recorded_at": "2026-06-24T10:01:00Z",
+  "facts": { "operator_approved": true, "manual_stop_available": true, "raw_video_storage_allowed": false },
+  "source_artifact_ids": ["artifact-robot-patrol-approval-record"],
+  "synthetic": true,
+  "data_policy": "fictional_or_synthetic_only"
+}

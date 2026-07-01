@@ -1,0 +1,211 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://community-spirit.dev/schemas/cacp-workflow-protocol-bundle.v0.1.json",
+  "title": "CACP Workflow Protocol Bundle",
+  "description": "A compact handoff artifact that carries the CACP contract lifecycle, actor summaries, transitions, evidence, artifacts, and public-demo safety boundary for an exported workflow.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "contract_id",
+    "lifecycle",
+    "readiness",
+    "actors",
+    "transitions",
+    "evidence",
+    "artifacts",
+    "safety_boundary"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "cacp.workflow_protocol_bundle.v0.1"
+    },
+    "contract_id": {
+      "type": "string",
+      "pattern": "^ctc-[a-z0-9-]+$"
+    },
+    "lifecycle": {
+      "type": "object",
+      "required": ["state", "allowed_next_states"],
+      "properties": {
+        "state": { "type": "string" },
+        "allowed_next_states": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      }
+    },
+    "readiness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "has_transition_records",
+        "has_evidence_records",
+        "has_artifacts",
+        "human_review_required",
+        "resident_notice_required",
+        "data_policy"
+      ],
+      "properties": {
+        "has_transition_records": { "type": "boolean" },
+        "has_evidence_records": { "type": "boolean" },
+        "has_artifacts": { "type": "boolean" },
+        "human_review_required": { "type": "boolean" },
+        "resident_notice_required": { "type": "boolean" },
+        "data_policy": { "const": "fictional_or_synthetic_only" }
+      }
+    },
+    "actors": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/actor_summary" }
+    },
+    "transitions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/transition_summary" }
+    },
+    "evidence": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/evidence_summary" }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/artifact_summary" }
+    },
+    "safety_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "public_demo_data",
+        "fictional_or_synthetic_only",
+        "excludes_real_resident_identity",
+        "excludes_raw_camera_or_sensor_payload",
+        "requires_real_pilot_consent_and_operator_approval"
+      ],
+      "properties": {
+        "public_demo_data": { "const": true },
+        "fictional_or_synthetic_only": { "const": true },
+        "excludes_real_resident_identity": { "const": true },
+        "excludes_raw_camera_or_sensor_payload": { "const": true },
+        "requires_real_pilot_consent_and_operator_approval": { "const": true }
+      }
+    }
+  },
+  "$defs": {
+    "actor_summary": {
+      "type": "object",
+      "required": [
+        "actor_id",
+        "actor_type",
+        "display_name",
+        "capabilities",
+        "requires_human_approval",
+        "safety_controls",
+        "data_boundaries",
+        "data_policy"
+      ],
+      "properties": {
+        "actor_id": { "type": "string", "pattern": "^actor-[a-z0-9-]+$" },
+        "actor_type": { "enum": ["resident", "operator", "ai_agent", "robot", "mixed"] },
+        "display_name": { "type": "string" },
+        "capabilities": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1
+        },
+        "requires_human_approval": { "type": "boolean" },
+        "safety_controls": { "type": "object" },
+        "data_boundaries": { "type": "object" },
+        "data_policy": { "const": "fictional_or_synthetic_only" }
+      }
+    },
+    "transition_summary": {
+      "type": "object",
+      "required": [
+        "transition_id",
+        "from_state",
+        "to_state",
+        "occurred_at",
+        "requested_by",
+        "actor_type",
+        "reason",
+        "evidence_ids",
+        "artifact_ids",
+        "data_policy"
+      ],
+      "properties": {
+        "transition_id": { "type": "string", "pattern": "^transition-[a-z0-9-]+$" },
+        "from_state": { "type": "string" },
+        "to_state": { "type": "string" },
+        "occurred_at": { "type": "string", "format": "date-time" },
+        "requested_by": { "type": "string", "pattern": "^actor-[a-z0-9-]+$" },
+        "actor_type": { "enum": ["resident", "operator", "ai_agent", "robot", "mixed", null] },
+        "reason": { "type": "string" },
+        "evidence_ids": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^evidence-[a-z0-9-]+$" },
+          "minItems": 1
+        },
+        "artifact_ids": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^artifact-[a-z0-9-]+$" },
+          "minItems": 1
+        },
+        "data_policy": { "const": "fictional_or_synthetic_only" }
+      }
+    },
+    "evidence_summary": {
+      "type": "object",
+      "required": [
+        "evidence_id",
+        "evidence_type",
+        "recorded_by",
+        "recorded_at",
+        "facts",
+        "source_artifact_ids",
+        "synthetic",
+        "data_policy"
+      ],
+      "properties": {
+        "evidence_id": { "type": "string", "pattern": "^evidence-[a-z0-9-]+$" },
+        "evidence_type": { "type": "string" },
+        "recorded_by": { "type": "string", "pattern": "^actor-[a-z0-9-]+$" },
+        "recorded_at": { "type": "string", "format": "date-time" },
+        "facts": { "type": "object", "minProperties": 1 },
+        "source_artifact_ids": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^artifact-[a-z0-9-]+$" },
+          "minItems": 1
+        },
+        "synthetic": { "const": true },
+        "data_policy": { "const": "fictional_or_synthetic_only" }
+      }
+    },
+    "artifact_summary": {
+      "type": "object",
+      "required": [
+        "artifact_id",
+        "artifact_type",
+        "created_by",
+        "created_at",
+        "visibility",
+        "contains_personal_data",
+        "summary",
+        "retention",
+        "data_policy"
+      ],
+      "properties": {
+        "artifact_id": { "type": "string", "pattern": "^artifact-[a-z0-9-]+$" },
+        "artifact_type": { "type": "string" },
+        "created_by": { "type": "string", "pattern": "^actor-[a-z0-9-]+$" },
+        "created_at": { "type": "string", "format": "date-time" },
+        "visibility": { "type": "string" },
+        "contains_personal_data": { "const": false },
+        "summary": { "type": "string" },
+        "retention": { "type": "string" },
+        "data_policy": { "const": "fictional_or_synthetic_only" }
+      }
+    }
+  }
+}

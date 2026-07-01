@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://community-spirit.dev/schemas/cacp-extension-registry.v0.1.json",
+  "title": "CACP Extension Registry",
+  "description": "Draft registry for known CACP extension URIs used by public synthetic examples.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "extensions", "data_policy"],
+  "properties": {
+    "schema_version": {
+      "const": "cacp.extension_registry.v0.1"
+    },
+    "extensions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "uri",
+          "name",
+          "status",
+          "summary",
+          "applies_to_actors",
+          "applies_to_interaction_modes",
+          "example_contract_ids",
+          "core_candidate",
+          "data_policy"
+        ],
+        "properties": {
+          "uri": {
+            "type": "string",
+            "format": "uri"
+          },
+          "name": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["draft", "candidate", "deprecated"]
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 10
+          },
+          "applies_to_actors": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "enum": ["resident", "family", "elder", "operator", "ai_agent", "robot", "mixed"]
+            }
+          },
+          "applies_to_interaction_modes": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "enum": ["solo", "parallel", "buddy", "family", "elder_friendly", "helper", "operator", "robot_assist"]
+            }
+          },
+          "example_contract_ids": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "pattern": "^ctc-[a-z0-9-]+$"
+            }
+          },
+          "core_candidate": {
+            "type": "boolean"
+          },
+          "promotion_notes": {
+            "type": "string"
+          },
+          "data_policy": {
+            "const": "fictional_or_synthetic_only"
+          }
+        }
+      }
+    },
+    "data_policy": {
+      "const": "fictional_or_synthetic_only"
+    }
+  }
+}

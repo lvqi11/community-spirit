@@ -10,6 +10,8 @@ CACP is an open protocol direction for coordinating people, places, operators, A
 
 Community Spirit is the first reference implementation and demonstration environment. The protocol should be independent enough to become its own repository later, but concrete enough to avoid becoming an empty standard.
 
+For the consolidated draft, see `docs/cacp-spec-v0.1.md`. This file keeps the design rationale and working notes; the spec file is the main project-facing protocol entry point.
+
 ## Why This Protocol Exists
 
 Physical AI systems are becoming better at perception, planning, simulation, adaptation, and action execution.
@@ -99,6 +101,15 @@ data_boundaries
 security
 ```
 
+Machine-readable draft:
+
+```text
+schemas/community-actor-card.schema.json
+examples/actors/
+```
+
+The public examples are synthetic capability declarations. They do not discover or connect to real residents, operators, devices, or robots.
+
 ### CommunityTaskContract
 
 The main protocol object.
@@ -137,6 +148,8 @@ incident_review
 
 The extra states matter because public and semi-public spaces are not ordinary software queues.
 
+State changes are explicit `CommunityTaskTransition` records. The validator rejects illegal jumps and requires resident notice, operator approval, scheduling, completion, or incident evidence at protected boundaries. See `docs/cacp-lifecycle-artifacts-evidence.md`.
+
 ### CommunityArtifact
 
 Messages are for communication. Artifacts are task outputs.
@@ -151,6 +164,8 @@ Examples:
 - robot-ready route payload;
 - resident notice.
 
+Machine-readable draft: `schemas/community-artifact.schema.json` and `examples/artifacts/`.
+
 ### CommunityEvidence
 
 Evidence is the audit-friendly subset of task output.
@@ -164,6 +179,41 @@ It should answer:
 - whether raw sensor data was stored;
 - whether human review was required;
 - whether complaints, discomfort, or interruption were reported.
+
+Machine-readable draft: `schemas/community-evidence.schema.json` and `examples/evidence/`.
+
+### CACPWorkflowProtocolBundle
+
+The workflow export should not hand off only a route or robot payload. It should include the compact protocol context that proves why the handoff is allowed.
+
+The current prototype exports:
+
+- the selected `CommunityTaskContract`;
+- referenced `CommunityActorCard` summaries;
+- lifecycle `CommunityTaskTransition` records;
+- minimal `CommunityEvidence` facts;
+- linked `CommunityArtifact` summaries;
+- public-demo safety boundaries.
+
+Machine-readable draft: `schemas/cacp-workflow-protocol-bundle.schema.json`, `examples/exports/robot-fire-passage-patrol.json`, and `scripts/validate-cacp-workflow-export.mjs`.
+
+### CACPPilotReadinessChecklist
+
+The public demo is not a real pilot. Before a CACP task contract is used in a real shared space, it needs a separate readiness gate.
+
+The checklist records whether the task is `public_demo_only`, `pilot_candidate`, or `pilot_ready`, and checks governance areas such as:
+
+- consent or resident notice;
+- operator approval;
+- privacy boundary and data minimization;
+- audit log;
+- human handoff and manual stop;
+- incident review;
+- data retention;
+- fallback owner;
+- physical safety review.
+
+Machine-readable draft: `schemas/cacp-pilot-readiness-checklist.schema.json`, `examples/pilot-readiness/`, and `scripts/validate-cacp-pilot-readiness.mjs`.
 
 ## Operations
 
@@ -256,4 +306,3 @@ CACP should remain inside Community Spirit until the protocol has:
 - one reference implementation path in Community Spirit.
 
 Then it can be extracted to a separate repository, with Community Spirit as its first reference implementation.
-

@@ -1,0 +1,104 @@
+{
+  "schema_version": "cacp.pilot_readiness_checklist.v0.1",
+  "checklist_id": "pilot-readiness-ai-suggested-garden-meetup",
+  "contract_id": "ctc-ai-suggested-garden-meetup",
+  "readiness_level": "public_demo_only",
+  "reviewed_by": "actor-community-operator-console",
+  "reviewed_at": "2026-06-24T11:05:00Z",
+  "summary": "Synthetic checklist for an AI-suggested garden meetup. The public demo can show AI-agent proposal governance, but a real pilot still requires resident-facing policy, operator approval, privacy review, audit logging, and human oversight.",
+  "gates": {
+    "consent": {
+      "status": "needs_real_world_review",
+      "real_pilot_requirement": "Publish clear policy for AI-suggested tasks and collect any consent required before using real resident or participation signals.",
+      "evidence_ids": [],
+      "artifact_ids": [],
+      "notes": "The demo uses synthetic aggregate signals only."
+    },
+    "operator_approval": {
+      "status": "simulated_for_demo",
+      "real_pilot_requirement": "A named operator must review AI suggestions before resident contact, scheduling, or public posting.",
+      "evidence_ids": ["evidence-ai-garden-meetup-operator-review"],
+      "artifact_ids": ["artifact-ai-garden-meetup-review-record"],
+      "notes": "Synthetic evidence records that the AI cannot self-approve."
+    },
+    "resident_notice": {
+      "status": "needs_real_world_review",
+      "real_pilot_requirement": "Residents must receive plain-language notice if an AI-suggested task becomes public or affects participation recommendations.",
+      "evidence_ids": [],
+      "artifact_ids": [],
+      "notes": "This example stops at operator approval and does not include real resident notice."
+    },
+    "privacy_boundary": {
+      "status": "simulated_for_demo",
+      "real_pilot_requirement": "Confirm the AI suggestion uses only aggregate, synthetic, or permission-safe signals and does not access real identity or raw media.",
+      "evidence_ids": ["evidence-ai-garden-meetup-operator-review"],
+      "artifact_ids": ["artifact-ai-garden-meetup-review-record"],
+      "notes": "Synthetic evidence records real_identity_used=false."
+    },
+    "data_minimization": {
+      "status": "simulated_for_demo",
+      "real_pilot_requirement": "Collect only aggregate activity gap, place availability, and operator decision facts needed to evaluate the suggestion.",
+      "evidence_ids": ["evidence-ai-garden-meetup-operator-review"],
+      "artifact_ids": ["artifact-ai-garden-meetup-review-record"],
+      "notes": "The public export contains no resident profile, camera, sensor, or contact payload."
+    },
+    "audit_log": {
+      "status": "needs_real_world_review",
+      "real_pilot_requirement": "Log prompt/source, suggestion, human review, approval/rejection, resident notice, and later changes.",
+      "evidence_ids": [],
+      "artifact_ids": ["artifact-ai-garden-meetup-review-record"],
+      "notes": "The synthetic artifact is not a production audit store."
+    },
+    "human_handoff": {
+      "status": "simulated_for_demo",
+      "real_pilot_requirement": "A human operator must own review, editing, rejection, escalation, and resident-facing publication.",
+      "evidence_ids": ["evidence-ai-garden-meetup-operator-review"],
+      "artifact_ids": ["artifact-ai-garden-meetup-review-record"],
+      "notes": "The contract fallback owner is operator."
+    },
+    "manual_stop": {
+      "status": "needs_real_world_review",
+      "real_pilot_requirement": "Provide a stop path that prevents an AI suggestion from being scheduled, messaged, or exported after concern is raised.",
+      "evidence_ids": [],
+      "artifact_ids": [],
+      "notes": "No real automation is connected in the public demo."
+    },
+    "incident_review": {
+      "status": "needs_real_world_review",
+      "real_pilot_requirement": "Define review for harmful suggestion, duplicate event, resident complaint, or policy violation.",
+      "evidence_ids": [],
+      "artifact_ids": [],
+      "notes": "The protocol supports incident_review, but this example has no real incident process."
+    },
+    "data_retention": {
+      "status": "needs_real_world_review",
+      "real_pilot_requirement": "Publish retention windows for AI suggestion records, operator decisions, notices, and deletion events.",
+      "evidence_ids": [],
+      "artifact_ids": ["artifact-ai-garden-meetup-review-record"],
+      "notes": "The synthetic approval artifact uses audit_period only as a demo placeholder."
+    },
+    "fallback_owner": {
+      "status": "simulated_for_demo",
+      "real_pilot_requirement": "Name the operator responsible for rejecting, editing, or pausing the AI-generated suggestion.",
+      "evidence_ids": ["evidence-ai-garden-meetup-operator-review"],
+      "artifact_ids": ["artifact-ai-garden-meetup-review-record"],
+      "notes": "The synthetic contract assigns operator as fallback owner."
+    },
+    "physical_safety_review": {
+      "status": "needs_real_world_review",
+      "real_pilot_requirement": "Review the proposed place, crowding risk, accessibility, supervision plan, and cancellation criteria.",
+      "evidence_ids": [],
+      "artifact_ids": [],
+      "notes": "The public demo does not validate real place conditions."
+    }
+  },
+  "public_demo_boundary": {
+    "fictional_or_synthetic_only": true,
+    "no_real_residents": true,
+    "no_real_property_access": true,
+    "no_real_locks_cameras_sensors_or_robots": true,
+    "no_payments_or_access_tokens": true,
+    "requires_user_approval_before_real_pilot": true
+  },
+  "data_policy": "fictional_or_synthetic_only"
+}

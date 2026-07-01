@@ -1,0 +1,104 @@
+{
+  "schema_version": "cacp.pilot_readiness_checklist.v0.1",
+  "checklist_id": "pilot-readiness-robot-fire-passage-patrol",
+  "contract_id": "ctc-robot-fire-passage-patrol",
+  "readiness_level": "public_demo_only",
+  "reviewed_by": "actor-community-operator-console",
+  "reviewed_at": "2026-06-24T10:05:00Z",
+  "summary": "Synthetic checklist for the robot fire passage patrol contract. The public demo can show governance intent, but a real pilot still requires consent, property authorization, device review, audit logging, and human oversight.",
+  "gates": {
+    "consent": {
+      "status": "needs_real_world_review",
+      "real_pilot_requirement": "Collect explicit, scoped consent or lawful community notice before any resident-facing or sensor-adjacent pilot.",
+      "evidence_ids": [],
+      "artifact_ids": [],
+      "notes": "The demo contains no real residents and does not claim pilot consent."
+    },
+    "operator_approval": {
+      "status": "simulated_for_demo",
+      "real_pilot_requirement": "A named property operator must approve route boundaries, operating hours, fallback staff, and escalation rules.",
+      "evidence_ids": ["evidence-robot-patrol-operator-approval"],
+      "artifact_ids": ["artifact-robot-patrol-approval-record"],
+      "notes": "Synthetic approval exists only to demonstrate the protocol evidence shape."
+    },
+    "resident_notice": {
+      "status": "needs_real_world_review",
+      "real_pilot_requirement": "Residents must receive plain-language notice covering purpose, timing, route, data boundaries, opt-out or question path, and human contact.",
+      "evidence_ids": [],
+      "artifact_ids": [],
+      "notes": "The contract requires resident notice, but this robot patrol example has not attached a real notice artifact."
+    },
+    "privacy_boundary": {
+      "status": "simulated_for_demo",
+      "real_pilot_requirement": "Confirm no real identity capture, no raw video storage, no private-home entry, and documented redaction for any sensor-adjacent output.",
+      "evidence_ids": ["evidence-robot-patrol-operator-approval"],
+      "artifact_ids": ["artifact-robot-patrol-approval-record"],
+      "notes": "Synthetic evidence records raw_video_storage_allowed=false."
+    },
+    "data_minimization": {
+      "status": "simulated_for_demo",
+      "real_pilot_requirement": "Collect only obstruction status, bounded route metadata, timestamps, and operator decisions needed for the task.",
+      "evidence_ids": ["evidence-robot-patrol-operator-approval"],
+      "artifact_ids": ["artifact-robot-patrol-approval-record"],
+      "notes": "Public export excludes raw camera, sensor payloads, unit numbers, and access tokens."
+    },
+    "audit_log": {
+      "status": "needs_real_world_review",
+      "real_pilot_requirement": "Create tamper-evident logs for approvals, starts, pauses, stops, human handoff, incidents, and data deletion.",
+      "evidence_ids": [],
+      "artifact_ids": [],
+      "notes": "Current examples validate transition evidence but do not implement production audit storage."
+    },
+    "human_handoff": {
+      "status": "simulated_for_demo",
+      "real_pilot_requirement": "Assign a human owner who can take over when confidence is low, residents are nearby, or route conditions change.",
+      "evidence_ids": ["evidence-robot-patrol-operator-approval"],
+      "artifact_ids": ["artifact-robot-patrol-approval-record"],
+      "notes": "The contract fallback owner is safety_staff."
+    },
+    "manual_stop": {
+      "status": "simulated_for_demo",
+      "real_pilot_requirement": "Provide a tested manual stop path for property staff before any connected device moves in a shared space.",
+      "evidence_ids": ["evidence-robot-patrol-operator-approval"],
+      "artifact_ids": ["artifact-robot-patrol-approval-record"],
+      "notes": "Synthetic evidence records manual_stop_available=true."
+    },
+    "incident_review": {
+      "status": "needs_real_world_review",
+      "real_pilot_requirement": "Define incident severity, notification timing, resident complaint handling, operator review, and stop/restart rules.",
+      "evidence_ids": [],
+      "artifact_ids": [],
+      "notes": "The protocol state machine supports incident_review, but this example has no real incident process."
+    },
+    "data_retention": {
+      "status": "needs_real_world_review",
+      "real_pilot_requirement": "Publish retention windows for approval records, summaries, incident reports, and deletion/redaction events.",
+      "evidence_ids": [],
+      "artifact_ids": ["artifact-robot-patrol-approval-record"],
+      "notes": "The synthetic approval artifact uses audit_period, but real duration and deletion controls are not set."
+    },
+    "fallback_owner": {
+      "status": "simulated_for_demo",
+      "real_pilot_requirement": "Name the accountable human team and escalation contact for blocked route, resident proximity, uncertain result, or device issue.",
+      "evidence_ids": ["evidence-robot-patrol-operator-approval"],
+      "artifact_ids": ["artifact-robot-patrol-approval-record"],
+      "notes": "The synthetic contract assigns safety_staff as fallback owner."
+    },
+    "physical_safety_review": {
+      "status": "needs_real_world_review",
+      "real_pilot_requirement": "Review robot route, speed, stopping distance, obstacle behavior, fire code constraints, and staff supervision plan.",
+      "evidence_ids": [],
+      "artifact_ids": [],
+      "notes": "The public demo does not connect to any real robot or physical safety system."
+    }
+  },
+  "public_demo_boundary": {
+    "fictional_or_synthetic_only": true,
+    "no_real_residents": true,
+    "no_real_property_access": true,
+    "no_real_locks_cameras_sensors_or_robots": true,
+    "no_payments_or_access_tokens": true,
+    "requires_user_approval_before_real_pilot": true
+  },
+  "data_policy": "fictional_or_synthetic_only"
+}

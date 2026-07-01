@@ -1,0 +1,13 @@
+{
+  "schema_version": "cacp.community_task_transition.v0.1",
+  "transition_id": "transition-basketball-approved-to-scheduled",
+  "contract_id": "ctc-evening-basketball-social-pulse",
+  "requested_by": "actor-community-operator-console",
+  "from_state": "approved",
+  "to_state": "scheduled",
+  "occurred_at": "2026-06-24T09:02:00Z",
+  "reason": "The approved Pulse received a synthetic schedule and capacity confirmation.",
+  "evidence_ids": ["evidence-basketball-schedule-confirmation"],
+  "artifact_ids": ["artifact-basketball-schedule-record"],
+  "data_policy": "fictional_or_synthetic_only"
+}

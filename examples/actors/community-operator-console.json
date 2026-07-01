@@ -1,0 +1,24 @@
+{
+  "schema_version": "cacp.community_actor_card.v0.1",
+  "actor_id": "actor-community-operator-console",
+  "actor_type": "operator",
+  "display_name": "Synthetic Community Operator Console",
+  "capabilities": ["resident_notice", "task_approval", "task_supervision", "human_handoff", "incident_reporting"],
+  "supported_interaction_modes": ["operator", "robot_assist"],
+  "allowed_zones": ["community_public_space", "shared_operations_area"],
+  "forbidden_zones": ["private_home"],
+  "requires_human_approval": false,
+  "data_boundaries": {
+    "real_identity_access": false,
+    "camera_access": false,
+    "raw_video_storage": false,
+    "resident_profile_access": false,
+    "notes": ["Displays aggregate synthetic operations signals only."]
+  },
+  "safety_controls": {
+    "human_handoff": true,
+    "manual_stop": true,
+    "audit_log": true
+  },
+  "data_policy": "fictional_or_synthetic_only"
+}
