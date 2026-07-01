@@ -70,12 +70,18 @@ Highlights:
 - Demo QA checklist in `docs/demo-qa-checklist.md`.
 - Demo recording guide in `docs/demo-recording-guide.md`.
 
-## Pages Deployment Option
+## Pages Deployment
 
-The existing Pages workflow publishes the compatibility static demo. The React/Vite build in `dist/` is the primary submission artifact and should be used when the hosting target supports built assets.
+The existing Pages workflow publishes the React/Vite build from `dist/`. The public Pages URL should open at the repository root path:
 
 ```text
-/demo/web/index.html
+https://<owner>.github.io/<repo>/
+```
+
+The older static demo remains a local compatibility fallback at:
+
+```text
+demo/web/index.html
 ```
 
 ## Promotion Checklist

@@ -293,10 +293,10 @@ The GitHub Actions workflow at `.github/workflows/ci.yml` runs:
 npm.cmd run check
 ```
 
-The Pages workflow at `.github/workflows/pages.yml` publishes the static demo. After deployment, open:
+The Pages workflow at `.github/workflows/pages.yml` publishes the React/Vite build from `dist`. After deployment, open:
 
 ```text
-https://<owner>.github.io/<repo>/demo/web/index.html
+https://<owner>.github.io/<repo>/
 ```
 
 ## Roadmap

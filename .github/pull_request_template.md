@@ -9,7 +9,8 @@
 ## Verification
 
 - [ ] `npm.cmd run check`
-- [ ] Static demo loads at `/demo/web/index.html`
+- [ ] GitHub Pages React demo loads at the repository root path
+- [ ] Local static fallback still loads at `/demo/web/index.html` when relevant
 - [ ] React/Vite demo still builds
 - [ ] Public data remains fictional or synthetic
 - [ ] CACP examples remain `fictional_or_synthetic_only`
