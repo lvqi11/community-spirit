@@ -2,9 +2,35 @@
 
 CACP should stay inside `community-spirit` until the object model is stable enough to stand alone.
 
+## Current snapshot
+
+Status: post-v0.2 hardening, moving toward v0.3 package shape.
+
+As of `a887c08`, CACP validates:
+
+- 5 community actor cards;
+- 5 full synthetic task-contract chains;
+- lifecycle transitions, artifacts, evidence, workflow export bundles, and pilot-readiness checklists for every contract;
+- 6 registered extensions;
+- portable extraction dry-run with no Community Spirit coupling findings inside the portable-core audit surface.
+
+The newest full chain is:
+
+```text
+ctc-temporary-playground-repair-notice
+```
+
+This gives `public-notice` a third scenario family:
+
+- AI-agent proposal reviewed by an operator;
+- elder-friendly helper coordination;
+- resident-facing property operation notice before scheduling review.
+
+`public-notice` is now the strongest core candidate, but it should remain an extension until timing fields and evidence facts stabilize.
+
 ## v0.1: Draft inside Community Spirit
 
-Status: current.
+Status: achieved.
 
 Scope:
 
@@ -24,17 +50,21 @@ Promise:
 
 ## v0.2: Example and validator hardening
 
-Target:
+Status: achieved in the current repo state.
 
-- at least three full protocol chains:
+Achieved scope:
+
+- at least five full protocol chains:
   - resident social task;
   - elder-friendly helper task;
   - robot/operator task;
+  - AI-agent proposal scenario;
+  - resident-facing property operation notice;
 - AI-agent proposal scenario coverage;
 - clearer validator diagnostics;
 - a single CACP validator CLI entry;
 - visible pilot readiness in the reference UI;
-- CACP-specific GitHub contribution and release process.
+- CACP-specific GitHub contribution and release process;
 - schema surface review and package-shape draft.
 
 Exit criteria:
@@ -46,13 +76,23 @@ Exit criteria:
 
 ## v0.3: Package-shaped protocol capsule
 
+Status: in progress.
+
 Target:
 
 - prepare a package-like folder or publishable artifact for schemas and validators;
 - document CLI usage for protocol validation;
 - draft extracted repo layout and standalone README shape;
-- add more extension examples;
+- add more extension examples and decide which concepts deserve core proposals;
 - write an extraction checklist for a future independent repo.
+
+Near-term v0.3 work:
+
+- update public-notice from "coverage gap" to "core-candidate decision path";
+- add a notice-update, pause, cancellation, or incident-review scenario before adding more validator rules;
+- make validator diagnostics more contributor-friendly;
+- keep README and spec clear enough for readers who did not come from Devpost;
+- keep the portable extraction dry-run green while avoiding premature repo split.
 
 Possible package surfaces:
 

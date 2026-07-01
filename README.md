@@ -264,6 +264,7 @@ The release gate validates data references, Pulse lifecycle rules, retention met
 - `docs/cacp-release-roadmap.md`: CACP v0.1/v0.2/v0.3 path before independent extraction.
 - `docs/cacp-changelog.md`: protocol-draft changelog.
 - `docs/cacp-release-checklist.md`: release-readiness checklist for protocol changes.
+- `docs/community-spirit-leadership-plan.md`: living leadership plan for short-term execution, long-term strategy, decision gates, and progress reporting.
 - `docs/cacp-lifecycle-artifacts-evidence.md`: lifecycle transition rules and the distinction between task outputs and minimal audit evidence.
 - `docs/protocol-design.md`: CACP protocol direction, relationship to MCP/A2A, core objects, operations, and extraction path.
 - `docs/novus-analytics-integration.md`: optional Novus/Pendo analytics setup for World Product Day validation.

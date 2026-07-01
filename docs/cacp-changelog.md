@@ -17,6 +17,9 @@ This changelog tracks protocol-draft changes inside Community Spirit.
 - Added extension registry schema and example registry so public contract extensions are auditable.
 - Added extension coverage matrix to review core-candidate and single-chain extension status.
 - Added public-notice semantics draft to clarify notice timing, evidence, and pilot-readiness relationships.
+- Added `ctc-temporary-playground-repair-notice` as a fifth full synthetic chain covering resident-facing property operation notice before scheduling review.
+- Updated `public-notice` coverage so it spans AI-agent proposal, elder-friendly helper coordination, and operator-led property operation notice.
+- Added `docs/community-spirit-leadership-plan.md` as a living project leadership, roadmap, and progress-reporting plan.
 
 ## Release discipline
 
