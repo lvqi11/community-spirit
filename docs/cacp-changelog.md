@@ -20,6 +20,7 @@ This changelog tracks protocol-draft changes inside Community Spirit.
 - Added `ctc-temporary-playground-repair-notice` as a fifth full synthetic chain covering resident-facing property operation notice before scheduling review.
 - Updated `public-notice` coverage so it spans AI-agent proposal, elder-friendly helper coordination, and operator-led property operation notice.
 - Added `docs/community-spirit-leadership-plan.md` as a living project leadership, roadmap, and progress-reporting plan.
+- Added `docs/cacp-public-notice-core-candidate-decision.md` to keep public-notice as a draft extension while defining the core-candidate decision path.
 
 ## Release discipline
 

@@ -22,6 +22,12 @@ Registry:
 examples/extensions/registry.json
 ```
 
+Core-candidate decision memo:
+
+```text
+docs/cacp-public-notice-core-candidate-decision.md
+```
+
 ## What public notice means
 
 Public notice means a resident-facing explanation may be required before a task becomes visible, scheduled, assigned, or executed.

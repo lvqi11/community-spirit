@@ -539,24 +539,24 @@ Do this only if:
 The next best work item is:
 
 ```text
-post-push repository audit + roadmap/status doc cleanup
+public-notice notice-update / pause scenario
 ```
 
 Why:
 
-- the remote is now updated;
-- the project has crossed from "unsubmitted local work" to "public GitHub state";
-- public visitors and judges now see the new CACP material;
-- docs should reflect the actual 5-chain state;
-- this is lower risk and higher leverage than adding another feature immediately.
+- the post-push audit, roadmap/status cleanup, and Pages entrypoint cleanup are complete;
+- the README now gives new visitors a faster path to the live demo, CACP spec, leadership plan, and synthetic-data boundary;
+- the public-notice decision memo keeps the extension as a core candidate without freezing schema too early;
+- the next useful protocol proof is whether notice semantics survive an update, pause, or revised scheduling review;
+- this should happen before adding stricter public-notice validator rules.
 
 Concrete next actions:
 
-1. Check GitHub Actions / Pages result after `a887c08`.
-2. Review README first screen after the large CACP update.
-3. Update `docs/cacp-release-roadmap.md` to reflect 5 full chains and public-notice third scenario.
-4. Add a short reviewer path if the README feels too dense.
-5. Only after that, continue protocol hardening or UI improvements.
+1. Add a sixth full CACP chain or extend the playground-repair notice chain with an update/pause pattern.
+2. Prefer a property operation where the first notice must be superseded before scheduling review continues.
+3. Keep the example synthetic-only and covered by contract, transition, artifact, evidence, export, and pilot-readiness checklist.
+4. Re-run `npm.cmd run check`.
+5. Revisit public-notice validator rules only after the new evidence facts are visible.
 
 ## Progress Reporting Format
 

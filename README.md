@@ -17,6 +17,22 @@ CACP = protocol draft for community task contracts
 Public data = fictional_or_synthetic_only
 ```
 
+## Start Here
+
+For reviewers, protocol readers, and potential pilot partners:
+
+- Try the live demo: https://lvqi11.github.io/community-spirit/
+- Watch the demo video: https://youtu.be/KJaRD5GPcqA
+- Read the CACP spec: `docs/cacp-spec-v0.1.md`
+- Check the project operating map: `docs/community-spirit-leadership-plan.md`
+- Verify the repo locally with `npm.cmd run check`
+
+What to look for in the first pass:
+
+- **Product layer**: resident quests, Community Pulse, benefits, retention, and World Ops.
+- **Protocol layer**: CACP task contracts, evidence, workflow exports, and pilot-readiness gates.
+- **Safety boundary**: every public example is fictional or synthetic; no real residents, locks, cameras, payments, sensors, or robot logs are connected.
+
 Run the full project check:
 
 ```powershell
@@ -264,6 +280,7 @@ The release gate validates data references, Pulse lifecycle rules, retention met
 - `docs/cacp-release-roadmap.md`: CACP v0.1/v0.2/v0.3 path before independent extraction.
 - `docs/cacp-changelog.md`: protocol-draft changelog.
 - `docs/cacp-release-checklist.md`: release-readiness checklist for protocol changes.
+- `docs/cacp-public-notice-core-candidate-decision.md`: decision memo for keeping public-notice as a draft extension while testing its core-candidate path.
 - `docs/community-spirit-leadership-plan.md`: living leadership plan for short-term execution, long-term strategy, decision gates, and progress reporting.
 - `docs/cacp-lifecycle-artifacts-evidence.md`: lifecycle transition rules and the distinction between task outputs and minimal audit evidence.
 - `docs/protocol-design.md`: CACP protocol direction, relationship to MCP/A2A, core objects, operations, and extraction path.
