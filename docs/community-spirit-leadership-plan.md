@@ -539,7 +539,7 @@ Do this only if:
 The next best work item is:
 
 ```text
-protocol release checklist refresh
+repository public-state final audit
 ```
 
 Why:
@@ -554,13 +554,14 @@ Why:
 - aggregate validator diagnostics now print stage labels, focused commands, and troubleshooting pointers;
 - README and the CACP spec now describe the current 7-chain, v0.3 package-shaped, focused-validator protocol state without requiring Devpost context;
 - contributor walkthrough and CONTRIBUTING now explain the smallest safe full-chain contribution path;
-- package-shape, CLI, extracted README, and portable extraction drafts now match the current 7-chain corpus, 49-file portable-core dry-run, and focused validator output.
+- package-shape, CLI, extracted README, and portable extraction drafts now match the current 7-chain corpus, 49-file portable-core dry-run, and focused validator output;
+- release checklist now gates focused validator output, extension decisions, full-chain coverage, synthetic-only safety, and portable extraction readiness.
 
 Concrete next actions:
 
-1. Audit `docs/cacp-release-checklist.md` and related release docs against the current 7-chain / focused-validator state.
-2. Make sure a future protocol release checkpoint has clear gates for examples, validators, docs, synthetic-only safety, and extraction readiness.
-3. Keep changes editorial and release-process focused; avoid new scenarios or schema fields.
+1. Re-run `git status`, recent log, `npm.cmd run check`, and confirm local/remote sync after the latest docs checkpoint.
+2. Scan README/spec/release roadmap for stale counts or stale recommended-next-step language.
+3. Decide whether to stop with a clean public protocol checkpoint or start a new scenario/product UI workstream.
 4. Keep all examples synthetic-only and avoid real resident/property integrations.
 5. Re-run `npm.cmd run check` before any commit or push.
 

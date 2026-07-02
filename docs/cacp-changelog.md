@@ -29,6 +29,7 @@ This changelog tracks protocol-draft changes inside Community Spirit.
 - Updated README and `docs/cacp-spec-v0.1.md` so new readers can see the current 7-chain, v0.3 package-shaped, focused-validator protocol state without Devpost context.
 - Updated contributor guidance so new CACP contributors can choose an existing chain, preserve full-chain coverage, and use focused validator commands.
 - Updated package-shape, CLI, extracted README, and portable extraction drafts to match the current 7-chain corpus, 49-file portable-core dry-run, and focused validator output.
+- Updated the CACP release checklist with gates for focused validator output, 49-file portable extraction, current extension decisions, full-chain coverage, public-notice baselines, and incident-review evidence.
 
 ## Release discipline
 

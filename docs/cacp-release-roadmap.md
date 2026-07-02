@@ -96,6 +96,7 @@ Near-term v0.3 work:
 - keep incident-review as a draft general extension now that it spans robot and operator notice-failure scenarios;
 - keep validator diagnostics contributor-friendly with focused stage output and repair guidance;
 - keep README and spec clear enough for readers who did not come from Devpost;
+- keep release checklist gates aligned with the current validator stages, extension decisions, and portable extraction inventory;
 - keep the portable extraction dry-run green while avoiding premature repo split.
 
 Possible package surfaces:
