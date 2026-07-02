@@ -539,7 +539,7 @@ Do this only if:
 The next best work item is:
 
 ```text
-README and CACP spec clarity audit
+contributor onboarding path polish
 ```
 
 Why:
@@ -551,13 +551,14 @@ Why:
 - the notice-failure incident-review scenario now tests whether notice semantics survive a running task whose active notice becomes inaccurate;
 - the timing model review keeps public-notice as extension-backed evidence for v0.3 and identifies a conservative validator baseline;
 - incident-review is now documented as a draft general extension rather than a robot-only extension;
-- aggregate validator diagnostics now print stage labels, focused commands, and troubleshooting pointers.
+- aggregate validator diagnostics now print stage labels, focused commands, and troubleshooting pointers;
+- README and the CACP spec now describe the current 7-chain, v0.3 package-shaped, focused-validator protocol state without requiring Devpost context.
 
 Concrete next actions:
 
-1. Audit README and `docs/cacp-spec-v0.1.md` for the current 7-chain / v0.3 package-shaped protocol state.
-2. Make sure a new reader can understand Community Spirit, CACP, synthetic-only scope, and the validator path without Devpost context.
-3. Keep changes editorial and protocol-positioning focused; avoid new scenarios or schema fields.
+1. Audit `docs/cacp-new-contributor-walkthrough.md` and `CONTRIBUTING.md` against the current validator stages and 7-chain corpus.
+2. Make sure a new contributor knows the smallest safe path for adding or fixing one CACP example.
+3. Keep changes editorial and contributor-guidance focused; avoid new scenarios or schema fields.
 4. Keep all examples synthetic-only and avoid real resident/property integrations.
 5. Re-run `npm.cmd run check` before any commit or push.
 

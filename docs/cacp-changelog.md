@@ -26,6 +26,7 @@ This changelog tracks protocol-draft changes inside Community Spirit.
 - Added `docs/cacp-public-notice-timing-model-review.md` to compare five public-notice timing patterns and keep notice as an extension-backed evidence pattern for v0.3.
 - Added `docs/cacp-incident-review-extension-decision.md` to keep incident-review as a draft general extension rather than a robot-only extension or core field.
 - Improved aggregate CACP validator diagnostics with stage labels, focused re-run commands, and troubleshooting guidance for public-notice and incident-review failures.
+- Updated README and `docs/cacp-spec-v0.1.md` so new readers can see the current 7-chain, v0.3 package-shaped, focused-validator protocol state without Devpost context.
 
 ## Release discipline
 

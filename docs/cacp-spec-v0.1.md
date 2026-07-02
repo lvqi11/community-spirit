@@ -300,12 +300,22 @@ Community Spirit currently implements CACP as:
 
 - protocol docs;
 - JSON schemas;
-- synthetic examples;
+- 7 full synthetic example chains;
 - Node validators;
 - visible Task Contract View;
 - visible Contract Evidence View;
 - workflow JSON export with `cacp_protocol_bundle`;
 - pilot readiness checklist.
+
+Current example coverage:
+
+- resident social task;
+- elder-friendly helper task;
+- robot/operator patrol task;
+- AI-agent proposal review;
+- resident-facing property operation notice;
+- resident-facing property operation notice update;
+- resident-facing property operation notice failure with incident review.
 
 Community Spirit remains the product and demo environment. CACP is the protocol layer that can later be extracted into its own project.
 
@@ -317,6 +327,8 @@ Portable extracted-repo planning:
 - `docs/cacp-extracted-repo-layout-draft.md`
 - `docs/cacp-versioning-and-compatibility-draft.md`
 - `docs/cacp-extension-governance-draft.md`
+- `docs/cacp-public-notice-timing-model-review.md`
+- `docs/cacp-incident-review-extension-decision.md`
 
 ## Validation
 
@@ -331,7 +343,20 @@ This currently validates:
 - actor cards and task contracts;
 - lifecycle transitions, artifacts, and evidence;
 - workflow handoff bundles;
-- pilot readiness checklists.
+- pilot readiness checklists;
+- extension registry coverage;
+- manifest references;
+- full-chain coverage;
+- portable extraction dry-run.
+
+The aggregate validator prints focused stages and re-run commands, for example:
+
+```text
+Running CACP validator 2/7: lifecycle transitions, artifacts, evidence, public-notice, and incident-review boundaries
+Focused command: node scripts/validate-cacp-lifecycle.mjs
+```
+
+Troubleshooting guide: `docs/cacp-validator-troubleshooting.md`.
 
 Full project check:
 
@@ -382,3 +407,5 @@ Extracted repo layout draft: `docs/cacp-extracted-repo-layout-draft.md`.
 Versioning and compatibility draft: `docs/cacp-versioning-and-compatibility-draft.md`.
 Extension governance draft: `docs/cacp-extension-governance-draft.md`.
 Extension registry: `examples/extensions/registry.json`.
+Public-notice timing review: `docs/cacp-public-notice-timing-model-review.md`.
+Incident-review extension decision: `docs/cacp-incident-review-extension-decision.md`.

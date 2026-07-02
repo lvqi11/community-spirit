@@ -30,7 +30,7 @@ For reviewers, protocol readers, and potential pilot partners:
 What to look for in the first pass:
 
 - **Product layer**: resident quests, Community Pulse, benefits, retention, and World Ops.
-- **Protocol layer**: CACP task contracts, evidence, workflow exports, and pilot-readiness gates.
+- **Protocol layer**: 7 CACP full chains covering task contracts, evidence, workflow exports, pilot-readiness gates, public-notice, and incident-review decisions.
 - **Safety boundary**: every public example is fictional or synthetic; no real residents, locks, cameras, payments, sensors, or robot logs are connected.
 
 Run the full project check:
@@ -107,6 +107,15 @@ Current protocol assets:
 - `scripts/validate-cacp.mjs`
 
 The draft now validates capability discovery, task contracts, lifecycle transitions, artifacts, evidence, workflow handoff bundles, and pilot-readiness governance gates. Every sample contract must have a matching synthetic actor type that declares bounded capabilities, zones, data access, human handoff, manual stop, and audit support. The React demo also includes a Task Contract View and Contract Evidence View for selected workflows, so CACP appears as a visible and exportable product layer rather than a document-only appendix.
+
+Current CACP state:
+
+- 7 full synthetic protocol chains.
+- 6 registered extensions.
+- `public-notice` remains a draft extension and the strongest current core candidate.
+- `incident-review` remains a draft general extension, not robot-only and not core.
+- v0.3 work is package-shaped protocol hardening: validator diagnostics, portable extraction, docs, examples, and future CLI/repo shape before any independent repo split.
+- `node scripts\validate-cacp.mjs` prints focused validator stages and re-run commands for contributor repair.
 
 ## Product Versions
 
@@ -281,6 +290,8 @@ The release gate validates data references, Pulse lifecycle rules, retention met
 - `docs/cacp-changelog.md`: protocol-draft changelog.
 - `docs/cacp-release-checklist.md`: release-readiness checklist for protocol changes.
 - `docs/cacp-public-notice-core-candidate-decision.md`: decision memo for keeping public-notice as a draft extension while testing its core-candidate path.
+- `docs/cacp-public-notice-timing-model-review.md`: comparison of five public-notice timing patterns and validator baselines.
+- `docs/cacp-incident-review-extension-decision.md`: decision memo for keeping incident-review as a draft general extension.
 - `docs/community-spirit-leadership-plan.md`: living leadership plan for short-term execution, long-term strategy, decision gates, and progress reporting.
 - `docs/cacp-lifecycle-artifacts-evidence.md`: lifecycle transition rules and the distinction between task outputs and minimal audit evidence.
 - `docs/protocol-design.md`: CACP protocol direction, relationship to MCP/A2A, core objects, operations, and extraction path.
