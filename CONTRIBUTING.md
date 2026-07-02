@@ -24,6 +24,9 @@ CACP examples must remain `fictional_or_synthetic_only`. Do not include raw vide
 - Add or update examples when changing a schema.
 - Add or update validators when adding new required references.
 - Update `docs/cacp-changelog.md` for protocol-facing changes.
+- A new CACP contract must include the full chain: contract, transition, artifact, evidence, workflow export bundle, and pilot readiness checklist.
+- Run `node scripts\validate-cacp.mjs` and use the focused command printed by any failed validator stage.
+- Check `docs/cacp-new-contributor-walkthrough.md` before adding a new scenario, especially for `public-notice` or `incident-review`.
 - Keep `Community Spirit` as the reference implementation; do not rename the repository or split CACP into a package inside a casual PR.
 
 ## Local Demo
@@ -50,7 +53,8 @@ powershell -ExecutionPolicy Bypass -File .\scripts\start-vite-demo.ps1
 ## Pull Request Checklist
 
 - `npm.cmd run check` passes.
-- CACP validators pass when schemas, examples, exports, or pilot-readiness files change.
+- `node scripts\validate-cacp.mjs` passes when schemas, examples, exports, or pilot-readiness files change.
+- Every new protocol concept is linked from the relevant README/spec/decision/changelog docs.
 - Public-facing copy does not imply real community deployment unless it is clearly labeled as a prototype.
 - Public-facing CACP copy does not imply real pilot readiness unless all real-world gates are satisfied outside the public demo.
 - Screenshots or demo notes are updated when the UI changes materially.

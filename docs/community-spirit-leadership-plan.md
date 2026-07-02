@@ -539,7 +539,7 @@ Do this only if:
 The next best work item is:
 
 ```text
-contributor onboarding path polish
+portable/package shape polish
 ```
 
 Why:
@@ -552,13 +552,14 @@ Why:
 - the timing model review keeps public-notice as extension-backed evidence for v0.3 and identifies a conservative validator baseline;
 - incident-review is now documented as a draft general extension rather than a robot-only extension;
 - aggregate validator diagnostics now print stage labels, focused commands, and troubleshooting pointers;
-- README and the CACP spec now describe the current 7-chain, v0.3 package-shaped, focused-validator protocol state without requiring Devpost context.
+- README and the CACP spec now describe the current 7-chain, v0.3 package-shaped, focused-validator protocol state without requiring Devpost context;
+- contributor walkthrough and CONTRIBUTING now explain the smallest safe full-chain contribution path.
 
 Concrete next actions:
 
-1. Audit `docs/cacp-new-contributor-walkthrough.md` and `CONTRIBUTING.md` against the current validator stages and 7-chain corpus.
-2. Make sure a new contributor knows the smallest safe path for adding or fixing one CACP example.
-3. Keep changes editorial and contributor-guidance focused; avoid new scenarios or schema fields.
+1. Audit `docs/cacp-package-shape-draft.md`, `docs/cacp-cli-contract-draft.md`, and `docs/cacp-repo-readme-draft.md` against the current validator stages and 7-chain corpus.
+2. Make sure the future extracted package/repo story matches the current manifest and validator output.
+3. Keep changes editorial and package-shape focused; avoid new scenarios or schema fields.
 4. Keep all examples synthetic-only and avoid real resident/property integrations.
 5. Re-run `npm.cmd run check` before any commit or push.
 

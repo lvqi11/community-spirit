@@ -27,6 +27,15 @@ node scripts\validate-cacp.mjs
 
 The CACP-only command validates actor cards, contracts, lifecycle transitions, artifacts, evidence, workflow bundles, pilot-readiness checklists, manifest references, and full-chain example coverage.
 
+The aggregate validator prints each focused stage before running it:
+
+```text
+Running CACP validator 2/7: lifecycle transitions, artifacts, evidence, public-notice, and incident-review boundaries
+Focused command: node scripts/validate-cacp-lifecycle.mjs
+```
+
+If a stage fails, re-run the focused command shown in the output and fix the first reported error before adding more changes.
+
 ## 2. Read the protocol in this order
 
 1. `README.md` for the product/protocol positioning.
@@ -47,7 +56,19 @@ CommunityActorCard -> CommunityTaskContract -> CommunityTaskTransition
 
 ## 3. Trace one full CACP chain
 
-Use the AI-assisted garden meetup example as a compact full chain:
+The current corpus has 7 full synthetic chains. Pick the closest chain before adding a new one:
+
+| Need to understand | Start with |
+| --- | --- |
+| resident social task | `ctc-evening-basketball-social-pulse` |
+| elder/helper resident notice | `ctc-elder-friendly-walking-helper` |
+| robot/operator review | `ctc-robot-fire-passage-patrol` |
+| AI-agent proposal review | `ctc-ai-suggested-garden-meetup` |
+| property operation resident notice | `ctc-temporary-playground-repair-notice` |
+| notice update / supersession | `ctc-shared-garden-maintenance-notice-update` |
+| notice failure / incident review | `ctc-playground-repair-notice-incident-review` |
+
+For a compact AI-agent full chain:
 
 - actor card: `examples/actors/community-ai-assistant.json`
 - task contract: `examples/contracts/ai-suggested-garden-meetup.json`
@@ -58,6 +79,11 @@ Use the AI-assisted garden meetup example as a compact full chain:
 - pilot readiness: `examples/pilot-readiness/ai-suggested-garden-meetup.json`
 
 That chain demonstrates the intended CACP pattern: an AI agent may propose a community task, but a protected transition still needs human/operator review evidence before it becomes approved.
+
+For notice-specific work, read these before changing examples or validators:
+
+- `docs/cacp-public-notice-timing-model-review.md`
+- `docs/cacp-incident-review-extension-decision.md`
 
 ## 4. Add a new scenario without changing schemas first
 
@@ -70,11 +96,16 @@ When adding a new scenario, prefer examples before schema changes:
 5. Add the linked artifact and evidence.
 6. Add the workflow export bundle.
 7. Add the pilot readiness checklist.
-8. Run `node scripts\validate-cacp.mjs`.
-9. Run `node scripts\validate-cacp-portable-extraction.mjs`.
-10. Run `npm.cmd run check`.
+8. Update `examples/extensions/registry.json` if the contract uses a new or expanded extension.
+9. Update `docs/cacp-changelog.md` and any decision memo affected by the scenario.
+10. Run `node scripts\validate-cacp.mjs`.
+11. If it fails, run the focused command printed by the failed stage.
+12. Run `node scripts\validate-cacp-portable-extraction.mjs`.
+13. Run `npm.cmd run check`.
 
 Only propose a schema change after at least one complete example proves that the missing field is a stable protocol concept, not just one scenario's local wording.
+
+The smallest safe change is often to fix one broken object in an existing chain, not to add a new scenario.
 
 ## 5. Verify the reference UI
 
@@ -108,5 +139,7 @@ Then confirm:
 - every new contract has a full CACP chain;
 - examples remain synthetic-only;
 - validator failure messages are understandable;
+- `public-notice` direct resident-touch examples include resident notice evidence and a notice artifact;
+- `incident_review` transitions include incident evidence;
 - README or docs point to any new protocol concept;
 - UI changes do not hide pilot-readiness or safety boundaries.
