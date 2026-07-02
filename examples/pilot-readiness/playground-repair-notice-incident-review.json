@@ -1,0 +1,104 @@
+{
+  "schema_version": "cacp.pilot_readiness_checklist.v0.1",
+  "checklist_id": "pilot-readiness-playground-repair-notice-incident-review",
+  "contract_id": "ctc-playground-repair-notice-incident-review",
+  "readiness_level": "public_demo_only",
+  "reviewed_by": "actor-community-operator-console",
+  "reviewed_at": "2026-06-25T04:20:00Z",
+  "summary": "Synthetic checklist for a playground repair notice failure that enters incident review. The public demo can show notice failure handling, pause, updated resident notice, and operator review boundaries, but a real pilot still requires real communication rules, safety authority, and audit storage.",
+  "gates": {
+    "consent": {
+      "status": "needs_real_world_review",
+      "real_pilot_requirement": "Publish real community rules for repair notices, incident updates, resident opt-out or complaint paths, and any required consent before contacting residents.",
+      "evidence_ids": [],
+      "artifact_ids": [],
+      "notes": "The public example uses synthetic notice facts and no resident contact list."
+    },
+    "operator_approval": {
+      "status": "needs_real_world_review",
+      "real_pilot_requirement": "A named property operator must approve the pause, incident classification, updated notice, alternate access plan, and reopening criteria.",
+      "evidence_ids": [],
+      "artifact_ids": ["artifact-playground-repair-notice-incident-report"],
+      "notes": "The synthetic incident report is not production approval authority."
+    },
+    "resident_notice": {
+      "status": "simulated_for_demo",
+      "real_pilot_requirement": "Residents must receive updated plain-language notice when an active closure notice becomes inaccurate or alternate access is blocked.",
+      "evidence_ids": ["evidence-playground-repair-incident-notice-update"],
+      "artifact_ids": ["artifact-playground-repair-incident-notice-update"],
+      "notes": "Synthetic notice evidence records that an update was posted after the pause."
+    },
+    "privacy_boundary": {
+      "status": "simulated_for_demo",
+      "real_pilot_requirement": "The incident review and notice update must avoid resident identity, exact units, camera feeds, worker personal details, access tokens, and complaint histories.",
+      "evidence_ids": ["evidence-playground-repair-notice-incident", "evidence-playground-repair-incident-notice-update"],
+      "artifact_ids": ["artifact-playground-repair-notice-incident-report", "artifact-playground-repair-incident-notice-update"],
+      "notes": "Both synthetic evidence records set real_identity_stored=false."
+    },
+    "data_minimization": {
+      "status": "simulated_for_demo",
+      "real_pilot_requirement": "Store only closure timing, notice accuracy, blocked alternate route, operator contact, pause, and review facts needed for safety and resident notice.",
+      "evidence_ids": ["evidence-playground-repair-notice-incident", "evidence-playground-repair-incident-notice-update"],
+      "artifact_ids": ["artifact-playground-repair-notice-incident-report", "artifact-playground-repair-incident-notice-update"],
+      "notes": "The public example stores no resident profile, access token, sensor, camera, robot, or payment data."
+    },
+    "audit_log": {
+      "status": "needs_real_world_review",
+      "real_pilot_requirement": "Log original notice, closure start, route blockage discovery, pause decision, updated notice publication, incident review owner, and final resolution.",
+      "evidence_ids": ["evidence-playground-repair-notice-incident"],
+      "artifact_ids": ["artifact-playground-repair-notice-incident-report"],
+      "notes": "The synthetic artifact demonstrates audit shape but is not a production audit log."
+    },
+    "human_handoff": {
+      "status": "simulated_for_demo",
+      "real_pilot_requirement": "Name a human operator who can answer resident questions, stop work, reroute foot traffic, update notices, and close incident review.",
+      "evidence_ids": ["evidence-playground-repair-incident-notice-update"],
+      "artifact_ids": ["artifact-playground-repair-incident-notice-update"],
+      "notes": "The notice update keeps an operator contact path available."
+    },
+    "manual_stop": {
+      "status": "needs_real_world_review",
+      "real_pilot_requirement": "Provide a real stop or pause process for active work when a resident-facing notice becomes inaccurate or alternate access is blocked.",
+      "evidence_ids": ["evidence-playground-repair-notice-incident"],
+      "artifact_ids": ["artifact-playground-repair-notice-incident-report"],
+      "notes": "The synthetic evidence records work_paused_for_review=true."
+    },
+    "incident_review": {
+      "status": "simulated_for_demo",
+      "real_pilot_requirement": "Define how operators classify notice failures, blocked access, resident safety concerns, corrective notices, reopening criteria, and post-incident review.",
+      "evidence_ids": ["evidence-playground-repair-notice-incident"],
+      "artifact_ids": ["artifact-playground-repair-notice-incident-report"],
+      "notes": "The transition moves from running to incident_review with incident evidence."
+    },
+    "data_retention": {
+      "status": "needs_real_world_review",
+      "real_pilot_requirement": "Publish retention windows for original notices, updates, incident reports, pause decisions, route blockage facts, and resident communications.",
+      "evidence_ids": [],
+      "artifact_ids": ["artifact-playground-repair-notice-incident-report", "artifact-playground-repair-incident-notice-update"],
+      "notes": "Synthetic retention values are placeholders for protocol review."
+    },
+    "fallback_owner": {
+      "status": "simulated_for_demo",
+      "real_pilot_requirement": "Assign a named operator responsible for pausing work, correcting resident notice, keeping alternate access open, and resolving incident review.",
+      "evidence_ids": ["evidence-playground-repair-notice-incident"],
+      "artifact_ids": ["artifact-playground-repair-notice-incident-report"],
+      "notes": "The synthetic contract assigns operator as fallback owner."
+    },
+    "physical_safety_review": {
+      "status": "needs_real_world_review",
+      "real_pilot_requirement": "Review playground closure boundaries, child safety, detour route availability, contractor access, weather, signage, and reopening criteria.",
+      "evidence_ids": ["evidence-playground-repair-notice-incident"],
+      "artifact_ids": ["artifact-playground-repair-notice-incident-report"],
+      "notes": "The public demo does not inspect real site conditions."
+    }
+  },
+  "public_demo_boundary": {
+    "fictional_or_synthetic_only": true,
+    "no_real_residents": true,
+    "no_real_property_access": true,
+    "no_real_locks_cameras_sensors_or_robots": true,
+    "no_payments_or_access_tokens": true,
+    "requires_user_approval_before_real_pilot": true
+  },
+  "data_policy": "fictional_or_synthetic_only"
+}

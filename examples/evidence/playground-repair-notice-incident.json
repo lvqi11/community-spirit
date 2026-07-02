@@ -1,0 +1,18 @@
+{
+  "schema_version": "cacp.community_evidence.v0.1",
+  "evidence_id": "evidence-playground-repair-notice-incident",
+  "evidence_type": "incident",
+  "contract_id": "ctc-playground-repair-notice-incident-review",
+  "recorded_by": "actor-community-operator-console",
+  "recorded_at": "2026-06-25T04:14:00Z",
+  "facts": {
+    "notice_inaccurate_during_execution": true,
+    "closure_started_before_updated_notice": true,
+    "alternate_route_blocked": true,
+    "work_paused_for_review": true,
+    "real_identity_stored": false
+  },
+  "source_artifact_ids": ["artifact-playground-repair-notice-incident-report"],
+  "synthetic": true,
+  "data_policy": "fictional_or_synthetic_only"
+}

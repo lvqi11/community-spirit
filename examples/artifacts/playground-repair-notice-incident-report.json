@@ -1,0 +1,13 @@
+{
+  "schema_version": "cacp.community_artifact.v0.1",
+  "artifact_id": "artifact-playground-repair-notice-incident-report",
+  "artifact_type": "incident_report",
+  "contract_id": "ctc-playground-repair-notice-incident-review",
+  "created_by": "actor-community-operator-console",
+  "created_at": "2026-06-25T04:12:00Z",
+  "visibility": "community_summary",
+  "contains_personal_data": false,
+  "summary": "Synthetic incident report noting that the playground repair closure began while the prior notice was inaccurate and the alternate route was blocked.",
+  "retention": "audit_period",
+  "data_policy": "fictional_or_synthetic_only"
+}

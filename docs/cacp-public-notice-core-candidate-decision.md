@@ -33,6 +33,7 @@ Current coverage:
 - `ctc-elder-friendly-walking-helper`: resident-touch/helper-supported task with notice evidence before protected transition.
 - `ctc-temporary-playground-repair-notice`: operator-led property operation notice before scheduling review.
 - `ctc-shared-garden-maintenance-notice-update`: updated property operation notice that supersedes an earlier notice before scheduling review continues.
+- `ctc-playground-repair-notice-incident-review`: notice failure during a running property operation that pauses work and enters incident review.
 
 This is broader than the other current extensions:
 
@@ -110,23 +111,35 @@ Stable evidence facts from this example:
 
 This suggests notice updates may not require a separate first-class object yet, but they do need explicit timing and supersession facts if `public-notice` moves toward core.
 
-## Next Example Needed
+## Notice Failure Finding
 
-Add one more public-notice scenario before changing core schema.
+The playground incident-review example adds the first `public-notice` chain where the task is already running and the active notice becomes inaccurate.
 
-Best next scenario:
+Stable evidence facts from this example:
+
+- `notice_inaccurate_during_execution`
+- `closure_started_before_updated_notice`
+- `alternate_route_blocked`
+- `work_paused_for_review`
+- `updated_notice_posted_after_pause`
+- `previous_notice_marked_inaccurate`
+- `blocked_alternate_route_described`
+- `operator_contact_available`
+- `real_identity_stored=false`
+
+This suggests `public-notice` can cover notice failure and incident review, but the core field proposal still needs one more design pass before adding schema surface. The open question is whether a future timing enum needs `on_notice_failure` or whether notice failure can be modeled through lifecycle plus evidence facts.
+
+## Next Design Step
+
+Do not add another scenario merely to grow count. The next useful step is to compare the five public-notice timing patterns and decide whether they justify a draft core field or a stricter validator rule.
+
+Best next design question:
 
 ```text
-public notice becomes inaccurate during execution -> pause or incident review evidence -> updated resident notice
+should public-notice gain a minimal core notice field, or should it stay as extension evidence facts for v0.3?
 ```
 
-Good candidates:
-
-- elevator lobby cleaning notice paused because alternate route is blocked;
-- playground repair enters incident_review because closure happened before updated notice was posted;
-- shared garden maintenance pauses after unsafe wet surface is reported.
-
-The goal is to test whether `public-notice` can cover pause or incident review, not only pre-review notice updates.
+The goal is to avoid freezing schema too early while the timing model is finally visible across proposal, resident-touch, scheduling, update, and incident-review boundaries.
 
 ## Validator Direction
 
@@ -146,9 +159,10 @@ Future validator candidates:
 - if a contract uses `public-notice`, it must either start in `needs_resident_notice` or explicitly explain proposal-review timing;
 - resident notice evidence should include an operator contact or escalation fact;
 - resident notice artifacts should be visible to `community_summary` or `participant_and_operator`;
-- notice update scenarios should include a fact showing whether the previous notice was superseded.
+- notice update scenarios should include a fact showing whether the previous notice was superseded;
+- notice-failure incident scenarios should include facts showing whether the active notice was inaccurate, whether work paused, and whether an updated notice was posted.
 
-Only add those rules after one more notice-update example lands.
+Only add those rules after comparing the five timing patterns.
 
 ## Current Recommendation
 

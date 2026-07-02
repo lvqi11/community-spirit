@@ -29,10 +29,10 @@
       "uri": "https://community-spirit.dev/cacp/extensions/incident-review/v0.1",
       "name": "incident-review",
       "status": "draft",
-      "summary": "Marks scenarios where incident or obstruction review may route task outcomes back to an operator.",
-      "applies_to_actors": ["robot"],
-      "applies_to_interaction_modes": ["robot_assist"],
-      "example_contract_ids": ["ctc-robot-fire-passage-patrol"],
+      "summary": "Marks scenarios where incident, obstruction, or notice-failure review may route task outcomes back to an operator.",
+      "applies_to_actors": ["robot", "operator"],
+      "applies_to_interaction_modes": ["robot_assist", "operator"],
+      "example_contract_ids": ["ctc-robot-fire-passage-patrol", "ctc-playground-repair-notice-incident-review"],
       "core_candidate": false,
       "promotion_notes": "Keep as extension until incident evidence semantics are stable across more task types.",
       "data_policy": "fictional_or_synthetic_only"
@@ -56,9 +56,9 @@
       "summary": "Marks scenarios that need resident-facing notice before scheduling, approval, public posting, notice update, or human helper coordination.",
       "applies_to_actors": ["ai_agent", "mixed", "operator"],
       "applies_to_interaction_modes": ["elder_friendly", "operator"],
-      "example_contract_ids": ["ctc-ai-suggested-garden-meetup", "ctc-elder-friendly-walking-helper", "ctc-temporary-playground-repair-notice", "ctc-shared-garden-maintenance-notice-update"],
+      "example_contract_ids": ["ctc-ai-suggested-garden-meetup", "ctc-elder-friendly-walking-helper", "ctc-temporary-playground-repair-notice", "ctc-shared-garden-maintenance-notice-update", "ctc-playground-repair-notice-incident-review"],
       "core_candidate": true,
-      "promotion_notes": "Likely core candidate if notice semantics stabilize across AI-proposed tasks, helper coordination, resident-facing property operations, and notice updates. See docs/cacp-public-notice-semantics-draft.md.",
+      "promotion_notes": "Likely core candidate if notice semantics stabilize across AI-proposed tasks, helper coordination, resident-facing property operations, notice updates, and notice-failure incident review. See docs/cacp-public-notice-semantics-draft.md.",
       "data_policy": "fictional_or_synthetic_only"
     },
     {

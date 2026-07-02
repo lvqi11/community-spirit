@@ -1,0 +1,155 @@
+{
+  "schema_version": "0.1.0",
+  "community_id": "omniweave-community",
+  "task_id": "task-temporary-playground-repair",
+  "route_id": "route-playground-repair-boundary",
+  "dashboard_context": {
+    "managed_pois": 13,
+    "robot_ready_pois": 8,
+    "open_activities": 1
+  },
+  "community_task_contract": {
+    "contract_id": "ctc-playground-repair-notice-incident-review",
+    "title": "Playground Repair Notice Incident Review",
+    "interaction_mode": "operator",
+    "permission": {
+      "level": "operator_approved",
+      "approved_by": "community_ops",
+      "human_review_required": true,
+      "resident_notice_required": true
+    },
+    "privacy_boundary": {
+      "real_identity_required": false,
+      "camera_feed_allowed": false,
+      "raw_video_storage_allowed": false,
+      "public_profile_required": false
+    },
+    "fallback": {
+      "owner": "operator",
+      "condition": "The repair closure starts while the previous resident notice is inaccurate, or the named alternate route is blocked.",
+      "action": "Pause the repair window, publish an updated resident notice, open incident review, and keep a human operator contact path available."
+    },
+    "lifecycle": {
+      "state": "running",
+      "allowed_next_states": ["paused", "incident_review", "canceled"]
+    }
+  },
+  "cacp_protocol_bundle": {
+    "schema_version": "cacp.workflow_protocol_bundle.v0.1",
+    "contract_id": "ctc-playground-repair-notice-incident-review",
+    "lifecycle": {
+      "state": "running",
+      "allowed_next_states": ["paused", "incident_review", "canceled"]
+    },
+    "readiness": {
+      "has_transition_records": true,
+      "has_evidence_records": true,
+      "has_artifacts": true,
+      "human_review_required": true,
+      "resident_notice_required": true,
+      "data_policy": "fictional_or_synthetic_only"
+    },
+    "actors": [
+      {
+        "actor_id": "actor-community-operator-console",
+        "actor_type": "operator",
+        "display_name": "Synthetic Community Operator Console",
+        "capabilities": ["resident_notice", "task_approval", "task_supervision", "human_handoff", "incident_reporting"],
+        "requires_human_approval": false,
+        "safety_controls": {
+          "human_handoff": true,
+          "manual_stop": true,
+          "audit_log": true
+        },
+        "data_boundaries": {
+          "real_identity_access": false,
+          "camera_access": false,
+          "raw_video_storage": false,
+          "resident_profile_access": false,
+          "notes": ["Displays aggregate synthetic operations signals only."]
+        },
+        "data_policy": "fictional_or_synthetic_only"
+      }
+    ],
+    "transitions": [
+      {
+        "transition_id": "transition-playground-repair-running-to-incident-review",
+        "from_state": "running",
+        "to_state": "incident_review",
+        "occurred_at": "2026-06-25T04:16:00Z",
+        "requested_by": "actor-community-operator-console",
+        "actor_type": "operator",
+        "reason": "The active playground repair notice became inaccurate during execution because the named alternate route was blocked, so the operator paused the work and opened incident review.",
+        "evidence_ids": ["evidence-playground-repair-notice-incident", "evidence-playground-repair-incident-notice-update"],
+        "artifact_ids": ["artifact-playground-repair-notice-incident-report", "artifact-playground-repair-incident-notice-update"],
+        "data_policy": "fictional_or_synthetic_only"
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "evidence-playground-repair-notice-incident",
+        "evidence_type": "incident",
+        "recorded_by": "actor-community-operator-console",
+        "recorded_at": "2026-06-25T04:14:00Z",
+        "facts": {
+          "notice_inaccurate_during_execution": true,
+          "closure_started_before_updated_notice": true,
+          "alternate_route_blocked": true,
+          "work_paused_for_review": true,
+          "real_identity_stored": false
+        },
+        "source_artifact_ids": ["artifact-playground-repair-notice-incident-report"],
+        "synthetic": true,
+        "data_policy": "fictional_or_synthetic_only"
+      },
+      {
+        "evidence_id": "evidence-playground-repair-incident-notice-update",
+        "evidence_type": "resident_notice",
+        "recorded_by": "actor-community-operator-console",
+        "recorded_at": "2026-06-25T04:15:00Z",
+        "facts": {
+          "updated_notice_posted_after_pause": true,
+          "previous_notice_marked_inaccurate": true,
+          "blocked_alternate_route_described": true,
+          "operator_contact_available": true,
+          "real_identity_stored": false
+        },
+        "source_artifact_ids": ["artifact-playground-repair-incident-notice-update"],
+        "synthetic": true,
+        "data_policy": "fictional_or_synthetic_only"
+      }
+    ],
+    "artifacts": [
+      {
+        "artifact_id": "artifact-playground-repair-notice-incident-report",
+        "artifact_type": "incident_report",
+        "created_by": "actor-community-operator-console",
+        "created_at": "2026-06-25T04:12:00Z",
+        "visibility": "community_summary",
+        "contains_personal_data": false,
+        "summary": "Synthetic incident report noting that the playground repair closure began while the prior notice was inaccurate and the alternate route was blocked.",
+        "retention": "audit_period",
+        "data_policy": "fictional_or_synthetic_only"
+      },
+      {
+        "artifact_id": "artifact-playground-repair-incident-notice-update",
+        "artifact_type": "resident_notice",
+        "created_by": "actor-community-operator-console",
+        "created_at": "2026-06-25T04:13:00Z",
+        "visibility": "community_summary",
+        "contains_personal_data": false,
+        "summary": "Synthetic resident notice update explaining that playground repair is paused for incident review, the prior detour is blocked, and a human operator contact path remains available.",
+        "retention": "task_lifetime",
+        "data_policy": "fictional_or_synthetic_only"
+      }
+    ],
+    "safety_boundary": {
+      "public_demo_data": true,
+      "fictional_or_synthetic_only": true,
+      "excludes_real_resident_identity": true,
+      "excludes_raw_camera_or_sensor_payload": true,
+      "requires_real_pilot_consent_and_operator_approval": true
+    }
+  },
+  "data_policy": "fictional_or_synthetic_only"
+}

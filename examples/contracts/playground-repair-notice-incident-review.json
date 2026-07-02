@@ -1,0 +1,60 @@
+{
+  "schema_version": "cacp.community_task_contract.v0.1",
+  "contract_id": "ctc-playground-repair-notice-incident-review",
+  "title": "Playground Repair Notice Incident Review",
+  "intent": "Route a resident-facing playground repair into incident review when the active closure notice becomes inaccurate during execution and alternate access is blocked.",
+  "place": {
+    "poi_id": "poi-playground",
+    "route_id": "route-playground-repair-boundary",
+    "activity_id": "activity-playground-repair-window",
+    "task_id": "task-temporary-playground-repair"
+  },
+  "actor": "operator",
+  "interaction_mode": "operator",
+  "permission": {
+    "level": "operator_approved",
+    "approved_by": "community_ops",
+    "human_review_required": true,
+    "resident_notice_required": true
+  },
+  "visibility": "community_summary",
+  "risk_level": "medium",
+  "resident_touch": "direct",
+  "privacy_boundary": {
+    "real_identity_required": false,
+    "camera_feed_allowed": false,
+    "raw_video_storage_allowed": false,
+    "public_profile_required": false,
+    "notes": ["The incident-review notice records synthetic closure and detour facts only; it does not store resident identity, unit numbers, camera feeds, access tokens, or worker personal data."]
+  },
+  "fallback": {
+    "owner": "operator",
+    "condition": "The repair closure starts while the previous resident notice is inaccurate, or the named alternate route is blocked.",
+    "action": "Pause the repair window, publish an updated resident notice, open incident review, and keep a human operator contact path available."
+  },
+  "feedback": {
+    "retention_signal": "resident_notice_failure_reviewed_before_reopening",
+    "trust_signal": "inaccurate_notice_escalated_to_incident_review",
+    "acceptance_signal": "updated_notice_posted_after_pause",
+    "incident_signal": "closure_before_updated_notice"
+  },
+  "lifecycle": {
+    "state": "running",
+    "allowed_next_states": ["paused", "incident_review", "canceled"]
+  },
+  "artifacts": [
+    {
+      "artifact_type": "incident_report",
+      "description": "Synthetic incident report explaining why the active playground repair notice was no longer accurate during execution."
+    },
+    {
+      "artifact_type": "resident_notice",
+      "description": "Plain-language synthetic resident notice update that explains the pause, blocked alternate route, and operator contact path."
+    }
+  ],
+  "extensions": [
+    "https://community-spirit.dev/cacp/extensions/public-notice/v0.1",
+    "https://community-spirit.dev/cacp/extensions/incident-review/v0.1"
+  ],
+  "data_policy": "fictional_or_synthetic_only"
+}

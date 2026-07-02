@@ -2,12 +2,13 @@
 
 This document narrows the meaning of the `public-notice` extension.
 
-`public-notice` is currently the strongest extension promotion candidate because it appears in four scenario families:
+`public-notice` is currently the strongest extension promotion candidate because it appears in five scenario families:
 
 - AI-agent proposal reviewed by an operator;
 - elder-friendly helper coordination.
 - resident-facing property operation scheduling.
 - resident-facing property operation notice update.
+- resident-facing property operation notice failure during execution.
 
 It should still remain an extension until notice timing, evidence facts, and pilot-readiness gates are stable across more property operation and resident-facing cases.
 
@@ -43,7 +44,7 @@ The notice should explain:
 - what data is not collected;
 - how a resident can opt out, ask for help, or escalate.
 
-## Four current timing patterns
+## Five current timing patterns
 
 ### Proposal notice boundary
 
@@ -151,6 +152,34 @@ Current status:
 - evidence records `previous_notice_superseded=true`, alternate access, operator contact, and no real identity storage;
 - real pilot approval, production audit storage, and real resident communication channels remain real-world requirements.
 
+### Execution notice failure / incident-review boundary
+
+Used by:
+
+```text
+ctc-playground-repair-notice-incident-review
+```
+
+Meaning:
+
+```text
+active resident-facing task -> notice becomes inaccurate during execution -> pause and incident review -> updated resident notice evidence
+```
+
+Current evidence:
+
+```text
+evidence-playground-repair-notice-incident
+evidence-playground-repair-incident-notice-update
+```
+
+Current status:
+
+- resident notice failure and incident review are simulated for demo;
+- the incident artifact records that the prior playground repair notice became inaccurate while the task was running;
+- evidence records `notice_inaccurate_during_execution=true`, `closure_started_before_updated_notice=true`, `alternate_route_blocked=true`, `updated_notice_posted_after_pause=true`, and `real_identity_stored=false`;
+- real pilot approval, physical safety review, production audit storage, and real resident communication channels remain real-world requirements.
+
 ## Evidence relationship
 
 `public-notice` can be represented in two places:
@@ -166,10 +195,13 @@ The third example removes the first promotion blocker by showing notice for a no
 
 The fourth example tests notice update semantics, but `public-notice` should still remain an extension.
 
+The fifth example tests notice failure during execution and shows `public-notice` can combine with `incident-review`, but it still should not move into core until timing and minimum evidence facts are stable.
+
 Remaining blockers before `public-notice` can move into core:
 
 - decide whether the core object needs explicit notice timing fields instead of relying on lifecycle state and evidence facts;
-- stabilize the minimum resident notice evidence facts across property operations, helper workflows, AI proposals, and notice updates;
+- stabilize the minimum resident notice evidence facts across property operations, helper workflows, AI proposals, notice updates, and notice-failure incident review;
+- decide whether notice-failure incident review needs a separate timing value such as `on_notice_failure` or can reuse `before_execution` / `on_notice_update`;
 - add validator rules only after those facts stop changing between examples.
 
 ## Validator expectations

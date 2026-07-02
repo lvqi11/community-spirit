@@ -22,6 +22,7 @@ This changelog tracks protocol-draft changes inside Community Spirit.
 - Added `docs/community-spirit-leadership-plan.md` as a living project leadership, roadmap, and progress-reporting plan.
 - Added `docs/cacp-public-notice-core-candidate-decision.md` to keep public-notice as a draft extension while defining the core-candidate decision path.
 - Added `ctc-shared-garden-maintenance-notice-update` as a sixth full synthetic chain covering resident-facing notice supersession before operator scheduling review continues.
+- Added `ctc-playground-repair-notice-incident-review` as a seventh full synthetic chain covering a running playground repair whose resident notice becomes inaccurate, pauses work, and enters incident review.
 
 ## Release discipline
 

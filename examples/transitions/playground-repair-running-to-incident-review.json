@@ -1,0 +1,13 @@
+{
+  "schema_version": "cacp.community_task_transition.v0.1",
+  "transition_id": "transition-playground-repair-running-to-incident-review",
+  "contract_id": "ctc-playground-repair-notice-incident-review",
+  "requested_by": "actor-community-operator-console",
+  "from_state": "running",
+  "to_state": "incident_review",
+  "occurred_at": "2026-06-25T04:16:00Z",
+  "reason": "The active playground repair notice became inaccurate during execution because the named alternate route was blocked, so the operator paused the work and opened incident review.",
+  "evidence_ids": ["evidence-playground-repair-notice-incident", "evidence-playground-repair-incident-notice-update"],
+  "artifact_ids": ["artifact-playground-repair-notice-incident-report", "artifact-playground-repair-incident-notice-update"],
+  "data_policy": "fictional_or_synthetic_only"
+}

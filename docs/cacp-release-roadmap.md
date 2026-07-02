@@ -9,7 +9,7 @@ Status: post-v0.2 hardening, moving toward v0.3 package shape.
 As of `a887c08`, CACP validates:
 
 - 5 community actor cards;
-- 6 full synthetic task-contract chains;
+- 7 full synthetic task-contract chains;
 - lifecycle transitions, artifacts, evidence, workflow export bundles, and pilot-readiness checklists for every contract;
 - 6 registered extensions;
 - portable extraction dry-run with no Community Spirit coupling findings inside the portable-core audit surface.
@@ -17,15 +17,16 @@ As of `a887c08`, CACP validates:
 The newest full chain is:
 
 ```text
-ctc-shared-garden-maintenance-notice-update
+ctc-playground-repair-notice-incident-review
 ```
 
-This gives `public-notice` a fourth scenario family:
+This gives `public-notice` a fifth scenario family:
 
 - AI-agent proposal reviewed by an operator;
 - elder-friendly helper coordination;
 - resident-facing property operation notice before scheduling review.
 - resident-facing property operation notice update before scheduling review continues.
+- resident-facing property operation notice failure during execution, followed by pause and incident review.
 
 `public-notice` is now the strongest core candidate, but it should remain an extension until timing fields and evidence facts stabilize.
 
@@ -55,13 +56,14 @@ Status: achieved in the current repo state.
 
 Achieved scope:
 
-- at least six full protocol chains:
+- at least seven full protocol chains:
   - resident social task;
   - elder-friendly helper task;
   - robot/operator task;
   - AI-agent proposal scenario;
   - resident-facing property operation notice;
   - resident-facing property operation notice update;
+  - resident-facing property operation notice failure with incident review;
 - AI-agent proposal scenario coverage;
 - clearer validator diagnostics;
 - a single CACP validator CLI entry;
@@ -90,8 +92,8 @@ Target:
 
 Near-term v0.3 work:
 
-- update public-notice from "coverage gap" to "core-candidate decision path";
-- add a notice-update, pause, cancellation, or incident-review scenario before adding more validator rules;
+- compare public-notice timing patterns before adding a draft core field or stricter validator rules;
+- decide whether incident-review remains a general extension now that it spans robot and operator notice-failure scenarios;
 - make validator diagnostics more contributor-friendly;
 - keep README and spec clear enough for readers who did not come from Devpost;
 - keep the portable extraction dry-run green while avoiding premature repo split.
