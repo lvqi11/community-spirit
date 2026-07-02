@@ -357,7 +357,3 @@ This repository only uses fictional or synthetic community data.
 Do not commit real residential maps, resident information, unit numbers, access-control records, camera data, private property data, security routes, or robot operation logs.
 
 真实试点必须先补充权限管理、居民授权、角色访问控制、审计日志、数据最小化、保留周期和安全评审。
-
-## Status
-
-The project is in the open prototype stage. The current goal is to validate the core concept through a runnable demo, technical report, GitHub project presentation, and early customer interviews.
