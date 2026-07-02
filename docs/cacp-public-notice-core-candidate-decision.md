@@ -97,6 +97,12 @@ on_notice_update
 
 Do not add this field yet. Use the next example to test whether these timing values are sufficient.
 
+Timing comparison:
+
+```text
+docs/cacp-public-notice-timing-model-review.md
+```
+
 ## Notice Update Finding
 
 The shared garden example adds the first `public-notice` chain where a previous notice becomes inaccurate and must be superseded.
@@ -131,15 +137,15 @@ This suggests `public-notice` can cover notice failure and incident review, but 
 
 ## Next Design Step
 
-Do not add another scenario merely to grow count. The next useful step is to compare the five public-notice timing patterns and decide whether they justify a draft core field or a stricter validator rule.
+The five public-notice timing patterns have now been compared in `docs/cacp-public-notice-timing-model-review.md`.
 
-Best next design question:
+Current design answer:
 
 ```text
-should public-notice gain a minimal core notice field, or should it stay as extension evidence facts for v0.3?
+public-notice should stay as extension evidence facts for v0.3, with validator baselines for stable resident notice evidence and artifact rules.
 ```
 
-The goal is to avoid freezing schema too early while the timing model is finally visible across proposal, resident-touch, scheduling, update, and incident-review boundaries.
+The goal is to avoid freezing schema too early while still making the strongest repeated public-notice obligations machine-checkable.
 
 ## Validator Direction
 
@@ -162,7 +168,7 @@ Future validator candidates:
 - notice update scenarios should include a fact showing whether the previous notice was superseded;
 - notice-failure incident scenarios should include facts showing whether the active notice was inaccurate, whether work paused, and whether an updated notice was posted.
 
-Only add those rules after comparing the five timing patterns.
+Only add rules that are stable across the five timing patterns.
 
 ## Current Recommendation
 
@@ -175,7 +181,7 @@ draft extension + core candidate
 Next concrete work:
 
 ```text
-add a pause or incident-review notice scenario, then revisit whether notice timing deserves a core field.
+add stable public-notice validator baselines, then revisit whether notice timing deserves a core field after another external-style scenario.
 ```
 
 This gives CACP a better chance of becoming a serious protocol rather than a set of app-specific examples.

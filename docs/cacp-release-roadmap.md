@@ -115,6 +115,7 @@ v0.3 draft assets now include:
 - `docs/cacp-extension-coverage-matrix.md`
 - `docs/cacp-public-notice-semantics-draft.md`
 - `docs/cacp-public-notice-core-candidate-decision.md`
+- `docs/cacp-public-notice-timing-model-review.md`
 - `examples/extensions/registry.json`
 
 ## v1.0: Not yet promised

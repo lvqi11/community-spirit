@@ -12,6 +12,7 @@ const actors = new Map(readDirectory("examples/actors").map(([file, item]) => [i
 const artifacts = new Map();
 const evidence = new Map();
 const errors = [];
+const publicNoticeExtension = "https://community-spirit.dev/cacp/extensions/public-notice/v0.1";
 
 const allowedTransitions = {
   draft: ["proposed", "canceled"],
@@ -118,6 +119,35 @@ for (const [file, transition] of readDirectory("examples/transitions")) {
   if (transition.to_state === "running") assert(evidenceTypes.has("task_start"), `${file} requires task_start evidence`);
   if (transition.to_state === "completed") assert(evidenceTypes.has("task_completion"), `${file} requires task_completion evidence`);
   if (transition.to_state === "incident_review") assert(evidenceTypes.has("incident"), `${file} requires incident evidence`);
+}
+
+for (const [contractId, { file, item: contract }] of contracts) {
+  if (!contract.extensions?.includes(publicNoticeExtension)) continue;
+  if (contract.resident_touch !== "direct") continue;
+
+  const contractArtifacts = [...artifacts.values()].map(({ item }) => item).filter((artifact) => artifact.contract_id === contractId);
+  const contractEvidence = [...evidence.values()].map(({ item }) => item).filter((record) => record.contract_id === contractId);
+  const residentNoticeArtifacts = contractArtifacts.filter((artifact) => artifact.artifact_type === "resident_notice");
+  const residentNoticeEvidence = contractEvidence.filter((record) => record.evidence_type === "resident_notice");
+
+  assert(residentNoticeArtifacts.length > 0, `${file} uses public-notice with direct resident touch but has no resident_notice artifact`);
+  assert(residentNoticeEvidence.length > 0, `${file} uses public-notice with direct resident touch but has no resident_notice evidence`);
+
+  for (const artifact of residentNoticeArtifacts) {
+    assert(
+      ["community_summary", "participant_and_operator"].includes(artifact.visibility),
+      `${file} public-notice resident_notice artifact ${artifact.artifact_id} must be visible to community_summary or participant_and_operator`
+    );
+  }
+
+  for (const record of residentNoticeEvidence) {
+    assert(record.facts?.real_identity_stored === false, `${file} public-notice resident_notice evidence ${record.evidence_id} must record real_identity_stored=false`);
+    const sourceArtifacts = record.source_artifact_ids.map((artifactId) => artifacts.get(artifactId)?.item).filter(Boolean);
+    assert(
+      sourceArtifacts.some((artifact) => artifact.artifact_type === "resident_notice"),
+      `${file} public-notice resident_notice evidence ${record.evidence_id} must source at least one resident_notice artifact`
+    );
+  }
 }
 
 if (errors.length) {

@@ -30,6 +30,12 @@ Core-candidate decision memo:
 docs/cacp-public-notice-core-candidate-decision.md
 ```
 
+Timing model review:
+
+```text
+docs/cacp-public-notice-timing-model-review.md
+```
+
 ## What public notice means
 
 Public notice means a resident-facing explanation may be required before a task becomes visible, scheduled, assigned, or executed.
@@ -202,7 +208,7 @@ Remaining blockers before `public-notice` can move into core:
 - decide whether the core object needs explicit notice timing fields instead of relying on lifecycle state and evidence facts;
 - stabilize the minimum resident notice evidence facts across property operations, helper workflows, AI proposals, notice updates, and notice-failure incident review;
 - decide whether notice-failure incident review needs a separate timing value such as `on_notice_failure` or can reuse `before_execution` / `on_notice_update`;
-- add validator rules only after those facts stop changing between examples.
+- add only validator rules that are stable across the five timing patterns.
 
 ## Validator expectations
 
@@ -212,4 +218,4 @@ Current validators should keep checking:
 - lifecycle transitions leaving `needs_resident_notice` require `resident_notice` evidence;
 - `public-notice` extension URIs must be registered and match the contract actor and interaction mode.
 
-Future validators may check public-notice-specific evidence facts after more examples stabilize.
+The first stable public-notice validator baselines are documented in `docs/cacp-public-notice-timing-model-review.md`.

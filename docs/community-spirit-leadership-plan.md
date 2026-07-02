@@ -539,7 +539,7 @@ Do this only if:
 The next best work item is:
 
 ```text
-public-notice timing model review
+public-notice validator baseline hardening
 ```
 
 Why:
@@ -549,13 +549,13 @@ Why:
 - the public-notice decision memo keeps the extension as a core candidate without freezing schema too early;
 - the notice-update scenario now tests superseding an inaccurate public notice before scheduling review continues;
 - the notice-failure incident-review scenario now tests whether notice semantics survive a running task whose active notice becomes inaccurate;
-- the next useful protocol decision is whether these timing patterns justify a draft core field or only stricter extension-level evidence validation.
+- the timing model review keeps public-notice as extension-backed evidence for v0.3 and identifies a conservative validator baseline.
 
 Concrete next actions:
 
-1. Compare the five current public-notice timing patterns.
-2. Decide whether a minimal `notice` core field is warranted for v0.3, or whether public-notice should remain extension evidence facts.
-3. If rules are stable, add focused validator checks for common public-notice facts.
+1. Add focused validator checks for stable public-notice resident notice facts.
+2. Keep `public-notice` as a draft extension and core candidate, not a core field.
+3. Avoid checking timing-specific facts that differ across proposal, scheduling, update, and incident-review examples.
 4. Keep all examples synthetic-only and avoid real resident/property integrations.
 5. Re-run `npm.cmd run check` before any commit or push.
 

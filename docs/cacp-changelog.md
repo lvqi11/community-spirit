@@ -23,6 +23,7 @@ This changelog tracks protocol-draft changes inside Community Spirit.
 - Added `docs/cacp-public-notice-core-candidate-decision.md` to keep public-notice as a draft extension while defining the core-candidate decision path.
 - Added `ctc-shared-garden-maintenance-notice-update` as a sixth full synthetic chain covering resident-facing notice supersession before operator scheduling review continues.
 - Added `ctc-playground-repair-notice-incident-review` as a seventh full synthetic chain covering a running playground repair whose resident notice becomes inaccurate, pauses work, and enters incident review.
+- Added `docs/cacp-public-notice-timing-model-review.md` to compare five public-notice timing patterns and keep notice as an extension-backed evidence pattern for v0.3.
 
 ## Release discipline
 
