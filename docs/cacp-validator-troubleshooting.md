@@ -10,6 +10,15 @@ node scripts\validate-cacp.mjs
 
 Then fix the first reported error before adding more objects. Most CACP failures are broken references, incomplete full-chain coverage, or public-demo safety boundary violations.
 
+The aggregate validator prints a stage banner before each focused validator:
+
+```text
+Running CACP validator 2/7: lifecycle transitions, artifacts, evidence, public-notice, and incident-review boundaries
+Focused command: node scripts/validate-cacp-lifecycle.mjs
+```
+
+When a stage fails, re-run the focused command shown in the output and fix the first error in that stage before continuing.
+
 ## Common failures
 
 ### No matching CommunityActorCard for a contract actor
@@ -74,6 +83,46 @@ Fix:
 - robot/operator transitions usually need operator approval evidence;
 - scheduled social tasks usually need schedule confirmation evidence;
 - AI-proposed tasks need human/operator review evidence before approval.
+
+### Direct public-notice task lacks notice evidence
+
+Symptom:
+
+```text
+uses public-notice with direct resident touch but has no resident_notice artifact
+uses public-notice with direct resident touch but has no resident_notice evidence
+resident_notice evidence must record real_identity_stored=false
+resident_notice evidence must source at least one resident_notice artifact
+```
+
+Fix:
+
+- add a same-contract `resident_notice` artifact in `examples/artifacts/`;
+- add a same-contract `resident_notice` evidence record in `examples/evidence/`;
+- set `facts.real_identity_stored=false`;
+- make the evidence `source_artifact_ids` include a `resident_notice` artifact;
+- keep notice artifact visibility as `community_summary` or `participant_and_operator`.
+
+Do not add a core `notice` field yet. Current public-notice timing decisions live in:
+
+```text
+docs/cacp-public-notice-timing-model-review.md
+```
+
+### Incident review transition lacks incident evidence
+
+Symptom:
+
+```text
+requires incident evidence
+```
+
+Fix:
+
+- add same-contract evidence with `evidence_type="incident"`;
+- source it from an incident-related artifact such as `incident_report`;
+- keep incident facts synthetic-only and avoid real resident identity, raw camera, sensor, access, payment, or robot payloads;
+- check `docs/cacp-incident-review-extension-decision.md` before adding stricter incident-review semantics.
 
 ### Transition is not allowed
 

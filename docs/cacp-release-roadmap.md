@@ -94,7 +94,7 @@ Near-term v0.3 work:
 
 - compare public-notice timing patterns before adding a draft core field or stricter validator rules;
 - keep incident-review as a draft general extension now that it spans robot and operator notice-failure scenarios;
-- make validator diagnostics more contributor-friendly;
+- keep validator diagnostics contributor-friendly with focused stage output and repair guidance;
 - keep README and spec clear enough for readers who did not come from Devpost;
 - keep the portable extraction dry-run green while avoiding premature repo split.
 
