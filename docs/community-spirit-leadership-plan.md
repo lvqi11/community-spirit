@@ -1,6 +1,6 @@
 # Community Spirit / CACP Leadership Plan
 
-Updated: 2026-07-01
+Updated: 2026-07-02
 
 Status: living plan. Update this file whenever the project direction, partner strategy, technical scope, or founder decision changes.
 
@@ -33,10 +33,10 @@ The current public repository must stay `fictional_or_synthetic_only`. Real pilo
 
 ## Current Baseline
 
-As of 2026-07-01, the remote repository is updated to:
+As of 2026-07-02, the remote repository is updated to:
 
 ```text
-a887c08 feat: harden CACP protocol capsule
+315f8df docs: refresh CACP release checklist
 ```
 
 Current verified state:
@@ -46,7 +46,10 @@ Current verified state:
 - `npm.cmd run check` passes.
 - CACP validates 7 full synthetic protocol chains.
 - `public-notice` now spans AI proposal, elder-friendly helper coordination, resident-facing property operation notice, notice update, and notice-failure incident review.
-- CACP has schemas, examples, validators, manifest, portable extraction dry-run, extension governance, pilot readiness, and visible reference UI.
+- `public-notice` remains a draft extension and strongest current core candidate.
+- `incident-review` remains a draft general extension, not robot-only and not core.
+- CACP has schemas, examples, 7 focused validator stages, a manifest, portable extraction dry-run, extension governance, pilot readiness, and visible reference UI.
+- The portable extraction dry-run currently validates 49 portable core files, 9 portable example groups, and 3 reference UI files.
 
 Important boundary:
 
@@ -132,34 +135,29 @@ Before extraction, it should have:
 
 ### Next 1-3 Days
 
-Goal: turn the current post-Devpost CACP work into a clean, reviewable project surface.
+Goal: hold the current public protocol checkpoint clean, then choose the next workstream deliberately.
 
 Recommended order:
 
-1. **Post-push repository audit**
-   - Check GitHub rendering, README first screen, Pages deployment, CI status, and large asset behavior.
-   - Why first: remote is now updated, so the next risk is public presentation quality rather than local correctness.
+1. **Public-state final audit**
+   - Re-check GitHub synchronization, README/spec/roadmap/plan wording, `npm.cmd run check`, and stale count or Devpost-only framing.
+   - Why first: the repo is public and should remain a clean protocol checkpoint before new work begins.
 
-2. **README and reviewer path tightening**
-   - Make sure the first 30 seconds tell reviewers:
-     - what Community Spirit is;
-     - what CACP is;
-     - where to try the demo;
-     - what is synthetic-only;
-     - why this is not a dashboard.
-   - Why: new visitors will not read the whole repo before judging the idea.
+2. **Checkpoint decision**
+   - Decide whether to stop at a clean public protocol checkpoint or enter a new scenario/product UI workstream.
+   - Why: 7 full chains are enough for the current v0.3 package-shape story; more work should serve a specific next thesis.
 
-3. **CACP v0.2/v0.3 status cleanup**
-   - Update roadmap language now that CACP has 5 full chains and public-notice has a third scenario.
-   - Why: docs should reflect the state after `a887c08`, not the older "at least three chains" milestone.
-
-4. **Public-notice decision memo**
-   - Decide whether public-notice stays extension-only, becomes "core candidate", or gets a draft core field proposal.
-   - Why: it is currently the strongest signal that CACP has a real reusable concept.
-
-5. **Issue/backlog shape**
+3. **Issue/backlog shape**
    - Create GitHub-ready issue themes or local backlog sections for protocol, product UI, pilot, and ecosystem.
    - Why: the project needs a maintainable execution rhythm after the hackathon sprint.
+
+4. **Next scenario only if it adds independent evidence**
+   - Add another scenario only if it tests a meaningfully independent public-notice timing vocabulary, pilot partner shape, or operator workflow.
+   - Why: public-notice is already the strongest core candidate, but it should not move into core until the vocabulary survives another independent-style scenario.
+
+5. **Product UI workstream**
+   - Improve the reference UI only where it makes the CACP chain, pilot readiness, or resident/operator boundary easier to inspect.
+   - Why: the product should keep demonstrating the protocol instead of drifting into a generic dashboard.
 
 ### Next 1-2 Weeks
 
@@ -168,9 +166,9 @@ Goal: move from impressive prototype to coherent open-source/protocol project.
 Workstreams:
 
 - **Protocol hardening**
-  - Add one more property-operation or operator workflow scenario that stresses notice updates, pause, cancellation, or incident review.
+  - Preserve the current 7 full-chain baseline while testing only independent, high-signal additions.
   - Add validator checks only when semantics stabilize.
-  - Improve validator output so a contributor understands how to fix failures quickly.
+  - Keep validator output contributor-friendly with focused stage output and repair guidance.
 
 - **Reference UI clarity**
   - Make the CACP evidence chain easier to scan.

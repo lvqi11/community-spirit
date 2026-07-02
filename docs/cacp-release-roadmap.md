@@ -6,13 +6,14 @@ CACP should stay inside `community-spirit` until the object model is stable enou
 
 Status: post-v0.2 hardening, moving toward v0.3 package shape.
 
-As of `a887c08`, CACP validates:
+As of `315f8df`, CACP validates:
 
 - 5 community actor cards;
 - 7 full synthetic task-contract chains;
 - lifecycle transitions, artifacts, evidence, workflow export bundles, and pilot-readiness checklists for every contract;
 - 6 registered extensions;
-- portable extraction dry-run with no Community Spirit coupling findings inside the portable-core audit surface.
+- 7 focused validator stages;
+- portable extraction dry-run with 49 portable core files, 9 portable example groups, 3 reference UI files, and no Community Spirit coupling findings inside the portable-core audit surface.
 
 The newest full chain is:
 
