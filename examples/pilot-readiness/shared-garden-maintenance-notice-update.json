@@ -1,0 +1,104 @@
+{
+  "schema_version": "cacp.pilot_readiness_checklist.v0.1",
+  "checklist_id": "pilot-readiness-shared-garden-maintenance-notice-update",
+  "contract_id": "ctc-shared-garden-maintenance-notice-update",
+  "readiness_level": "public_demo_only",
+  "reviewed_by": "actor-community-operator-console",
+  "reviewed_at": "2026-06-26T02:05:00Z",
+  "summary": "Synthetic checklist for an updated shared garden maintenance notice. The public demo can show how a superseded notice is recorded before operator scheduling review continues, but a real pilot still requires operator accountability, resident communication rules, safety review, and production audit logging.",
+  "gates": {
+    "consent": {
+      "status": "needs_real_world_review",
+      "real_pilot_requirement": "Publish real community rules for maintenance notice updates and any required consent, opt-out, or resident communication policy.",
+      "evidence_ids": [],
+      "artifact_ids": [],
+      "notes": "The demo uses a synthetic updated public notice and no resident contact list."
+    },
+    "operator_approval": {
+      "status": "needs_real_world_review",
+      "real_pilot_requirement": "A named property operator must approve the updated maintenance scope, time window, alternate access, and resident communication plan.",
+      "evidence_ids": [],
+      "artifact_ids": [],
+      "notes": "The synthetic transition moves to operator review after updated notice evidence, not final approval."
+    },
+    "resident_notice": {
+      "status": "simulated_for_demo",
+      "real_pilot_requirement": "Residents must receive the updated notice before the previous garden maintenance notice is used for scheduling or execution.",
+      "evidence_ids": ["evidence-shared-garden-maintenance-notice-update"],
+      "artifact_ids": ["artifact-shared-garden-maintenance-notice-update"],
+      "notes": "Synthetic evidence records previous_notice_superseded=true."
+    },
+    "privacy_boundary": {
+      "status": "simulated_for_demo",
+      "real_pilot_requirement": "The updated notice must avoid exposing resident identities, unit numbers, worker details, complaint histories, camera feeds, or sensor payloads.",
+      "evidence_ids": ["evidence-shared-garden-maintenance-notice-update"],
+      "artifact_ids": ["artifact-shared-garden-maintenance-notice-update"],
+      "notes": "Synthetic evidence records real_identity_stored=false."
+    },
+    "data_minimization": {
+      "status": "simulated_for_demo",
+      "real_pilot_requirement": "Collect only updated maintenance window, affected place, safe boundary, alternate access, previous notice status, and operator contact facts.",
+      "evidence_ids": ["evidence-shared-garden-maintenance-notice-update"],
+      "artifact_ids": ["artifact-shared-garden-maintenance-notice-update"],
+      "notes": "The public example stores no resident profile, access token, sensor, camera, or payment data."
+    },
+    "audit_log": {
+      "status": "needs_real_world_review",
+      "real_pilot_requirement": "Log original notice, superseding notice, reason for update, publication time, resident concerns, approval, and later schedule changes.",
+      "evidence_ids": [],
+      "artifact_ids": ["artifact-shared-garden-maintenance-notice-update"],
+      "notes": "The synthetic notice artifact is not a production audit store."
+    },
+    "human_handoff": {
+      "status": "simulated_for_demo",
+      "real_pilot_requirement": "Name a human operator who can answer resident questions, supersede the notice again, pause work, or reroute access.",
+      "evidence_ids": ["evidence-shared-garden-maintenance-notice-update"],
+      "artifact_ids": ["artifact-shared-garden-maintenance-notice-update"],
+      "notes": "The contract fallback owner is operator."
+    },
+    "manual_stop": {
+      "status": "needs_real_world_review",
+      "real_pilot_requirement": "Provide a stop or pause process for unsafe conditions, inaccurate notice, blocked alternate access, or resident concern.",
+      "evidence_ids": [],
+      "artifact_ids": [],
+      "notes": "The public example has no real work order, access-control, or contractor system integration."
+    },
+    "incident_review": {
+      "status": "needs_real_world_review",
+      "real_pilot_requirement": "Define review for outdated notice use, blocked route, resident complaint, weather safety issue, or maintenance vendor mismatch.",
+      "evidence_ids": [],
+      "artifact_ids": [],
+      "notes": "The lifecycle can route to incident_review, but no real incident process is connected."
+    },
+    "data_retention": {
+      "status": "needs_real_world_review",
+      "real_pilot_requirement": "Publish retention windows for original notices, superseding notices, resident concerns, approvals, schedule changes, and incident records.",
+      "evidence_ids": [],
+      "artifact_ids": ["artifact-shared-garden-maintenance-notice-update"],
+      "notes": "The synthetic notice artifact uses task_lifetime only as a demo placeholder."
+    },
+    "fallback_owner": {
+      "status": "simulated_for_demo",
+      "real_pilot_requirement": "Assign a named operator responsible for superseding inaccurate notices and pausing scheduling review when conditions change.",
+      "evidence_ids": ["evidence-shared-garden-maintenance-notice-update"],
+      "artifact_ids": ["artifact-shared-garden-maintenance-notice-update"],
+      "notes": "The synthetic contract assigns operator as fallback owner."
+    },
+    "physical_safety_review": {
+      "status": "needs_real_world_review",
+      "real_pilot_requirement": "Review garden maintenance boundary, wet surfaces, alternate access, vendor timing, resident access needs, and reopening criteria.",
+      "evidence_ids": [],
+      "artifact_ids": [],
+      "notes": "The public demo does not validate real site conditions or maintenance safety controls."
+    }
+  },
+  "public_demo_boundary": {
+    "fictional_or_synthetic_only": true,
+    "no_real_residents": true,
+    "no_real_property_access": true,
+    "no_real_locks_cameras_sensors_or_robots": true,
+    "no_payments_or_access_tokens": true,
+    "requires_user_approval_before_real_pilot": true
+  },
+  "data_policy": "fictional_or_synthetic_only"
+}

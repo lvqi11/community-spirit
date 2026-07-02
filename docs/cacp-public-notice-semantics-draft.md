@@ -2,11 +2,12 @@
 
 This document narrows the meaning of the `public-notice` extension.
 
-`public-notice` is currently the strongest extension promotion candidate because it appears in three scenario families:
+`public-notice` is currently the strongest extension promotion candidate because it appears in four scenario families:
 
 - AI-agent proposal reviewed by an operator;
 - elder-friendly helper coordination.
 - resident-facing property operation scheduling.
+- resident-facing property operation notice update.
 
 It should still remain an extension until notice timing, evidence facts, and pilot-readiness gates are stable across more property operation and resident-facing cases.
 
@@ -42,7 +43,7 @@ The notice should explain:
 - what data is not collected;
 - how a resident can opt out, ask for help, or escalate.
 
-## Three current timing patterns
+## Four current timing patterns
 
 ### Proposal notice boundary
 
@@ -123,6 +124,33 @@ Current status:
 - the notice artifact explains repair window, affected amenity, safe boundary, alternate route, and operator contact path before scheduling review;
 - operator approval, physical safety review, audit storage, and real resident communication channels remain real-pilot requirements.
 
+### Notice update boundary
+
+Used by:
+
+```text
+ctc-shared-garden-maintenance-notice-update
+```
+
+Meaning:
+
+```text
+previous resident notice becomes inaccurate -> updated resident notice evidence -> operator scheduling review may continue
+```
+
+Current evidence:
+
+```text
+evidence-shared-garden-maintenance-notice-update
+```
+
+Current status:
+
+- resident notice update is simulated for demo;
+- the notice artifact supersedes a previous shared garden maintenance notice;
+- evidence records `previous_notice_superseded=true`, alternate access, operator contact, and no real identity storage;
+- real pilot approval, production audit storage, and real resident communication channels remain real-world requirements.
+
 ## Evidence relationship
 
 `public-notice` can be represented in two places:
@@ -136,10 +164,12 @@ Do not treat synthetic evidence as real pilot readiness.
 
 The third example removes the first promotion blocker by showing notice for a non-elder, non-AI task.
 
+The fourth example tests notice update semantics, but `public-notice` should still remain an extension.
+
 Remaining blockers before `public-notice` can move into core:
 
 - decide whether the core object needs explicit notice timing fields instead of relying on lifecycle state and evidence facts;
-- stabilize the minimum resident notice evidence facts across property operations, helper workflows, and AI proposals;
+- stabilize the minimum resident notice evidence facts across property operations, helper workflows, AI proposals, and notice updates;
 - add validator rules only after those facts stop changing between examples.
 
 ## Validator expectations

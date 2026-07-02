@@ -21,6 +21,7 @@ This changelog tracks protocol-draft changes inside Community Spirit.
 - Updated `public-notice` coverage so it spans AI-agent proposal, elder-friendly helper coordination, and operator-led property operation notice.
 - Added `docs/community-spirit-leadership-plan.md` as a living project leadership, roadmap, and progress-reporting plan.
 - Added `docs/cacp-public-notice-core-candidate-decision.md` to keep public-notice as a draft extension while defining the core-candidate decision path.
+- Added `ctc-shared-garden-maintenance-notice-update` as a sixth full synthetic chain covering resident-facing notice supersession before operator scheduling review continues.
 
 ## Release discipline
 

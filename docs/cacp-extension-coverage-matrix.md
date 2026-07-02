@@ -10,7 +10,7 @@ It helps decide whether an extension should remain scenario-specific, receive mo
 extension registry is useful, but most extensions are still single-chain signals
 ```
 
-Only `public-notice` currently appears in more than one contract, and it now spans three scenario families. The other extensions should stay draft extensions until more scenario families use them.
+Only `public-notice` currently appears in more than one contract, and it now spans four scenario families. The other extensions should stay draft extensions until more scenario families use them.
 
 ## Coverage matrix
 
@@ -20,18 +20,19 @@ Only `public-notice` currently appears in more than one contract, and it now spa
 | `elder-friendly` | `ctc-elder-friendly-walking-helper` | `mixed` | `elder_friendly` | Yes | Add at least one more elder-friendly scenario before promotion discussion. |
 | `incident-review` | `ctc-robot-fire-passage-patrol` | `robot` | `robot_assist` | No | Keep as extension until incident semantics appear outside robot patrol. |
 | `light-social` | `ctc-evening-basketball-social-pulse` | `resident` | `parallel` | Yes | Add another resident social scenario before considering core. |
-| `public-notice` | `ctc-ai-suggested-garden-meetup`, `ctc-elder-friendly-walking-helper`, `ctc-temporary-playground-repair-notice` | `ai_agent`, `mixed`, `operator` | `operator`, `elder_friendly` | Yes | Best current promotion candidate, now validated across a property operation notice chain; keep in extension until timing fields and evidence facts stabilize. |
+| `public-notice` | `ctc-ai-suggested-garden-meetup`, `ctc-elder-friendly-walking-helper`, `ctc-temporary-playground-repair-notice`, `ctc-shared-garden-maintenance-notice-update` | `ai_agent`, `mixed`, `operator` | `operator`, `elder_friendly` | Yes | Best current promotion candidate, now validated across property operation notice and notice-update chains; keep in extension until timing fields and evidence facts stabilize. |
 | `robot-assist` | `ctc-robot-fire-passage-patrol` | `robot` | `robot_assist` | No | Keep as extension until robot handoff semantics are validated beyond one scenario. |
 
 ## Promotion candidates
 
 ### Strongest current candidate
 
-`public-notice` is the strongest current candidate because it already spans three scenario families:
+`public-notice` is the strongest current candidate because it already spans four scenario families:
 
 - AI-agent proposal reviewed by an operator;
 - elder-friendly helper coordination.
 - resident-facing property operation scheduling.
+- resident-facing property operation notice update.
 
 Before promotion to core, CACP still needs:
 
@@ -66,7 +67,7 @@ They are important directionally, but still too close to one scenario family eac
 
 Useful future example additions:
 
-- another `public-notice` property-operation variant, ideally one where notice changes after scheduling or execution is paused;
+- one more `public-notice` variant where execution is paused or incident review is triggered after notice becomes inaccurate;
 - another `light-social` example outside basketball;
 - another `elder-friendly` example with a different helper or route pattern;
 - a second robot/operator task that uses `robot-assist` without also depending on fire-passage inspection;

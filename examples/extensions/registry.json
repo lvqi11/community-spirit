@@ -53,12 +53,12 @@
       "uri": "https://community-spirit.dev/cacp/extensions/public-notice/v0.1",
       "name": "public-notice",
       "status": "draft",
-      "summary": "Marks scenarios that need resident-facing notice before scheduling, approval, public posting, or human helper coordination.",
+      "summary": "Marks scenarios that need resident-facing notice before scheduling, approval, public posting, notice update, or human helper coordination.",
       "applies_to_actors": ["ai_agent", "mixed", "operator"],
       "applies_to_interaction_modes": ["elder_friendly", "operator"],
-      "example_contract_ids": ["ctc-ai-suggested-garden-meetup", "ctc-elder-friendly-walking-helper", "ctc-temporary-playground-repair-notice"],
+      "example_contract_ids": ["ctc-ai-suggested-garden-meetup", "ctc-elder-friendly-walking-helper", "ctc-temporary-playground-repair-notice", "ctc-shared-garden-maintenance-notice-update"],
       "core_candidate": true,
-      "promotion_notes": "Likely core candidate if notice semantics stabilize across AI-proposed tasks, helper coordination, and resident-facing property operations. See docs/cacp-public-notice-semantics-draft.md.",
+      "promotion_notes": "Likely core candidate if notice semantics stabilize across AI-proposed tasks, helper coordination, resident-facing property operations, and notice updates. See docs/cacp-public-notice-semantics-draft.md.",
       "data_policy": "fictional_or_synthetic_only"
     },
     {

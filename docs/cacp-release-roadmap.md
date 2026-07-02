@@ -9,7 +9,7 @@ Status: post-v0.2 hardening, moving toward v0.3 package shape.
 As of `a887c08`, CACP validates:
 
 - 5 community actor cards;
-- 5 full synthetic task-contract chains;
+- 6 full synthetic task-contract chains;
 - lifecycle transitions, artifacts, evidence, workflow export bundles, and pilot-readiness checklists for every contract;
 - 6 registered extensions;
 - portable extraction dry-run with no Community Spirit coupling findings inside the portable-core audit surface.
@@ -17,14 +17,15 @@ As of `a887c08`, CACP validates:
 The newest full chain is:
 
 ```text
-ctc-temporary-playground-repair-notice
+ctc-shared-garden-maintenance-notice-update
 ```
 
-This gives `public-notice` a third scenario family:
+This gives `public-notice` a fourth scenario family:
 
 - AI-agent proposal reviewed by an operator;
 - elder-friendly helper coordination;
 - resident-facing property operation notice before scheduling review.
+- resident-facing property operation notice update before scheduling review continues.
 
 `public-notice` is now the strongest core candidate, but it should remain an extension until timing fields and evidence facts stabilize.
 
@@ -54,12 +55,13 @@ Status: achieved in the current repo state.
 
 Achieved scope:
 
-- at least five full protocol chains:
+- at least six full protocol chains:
   - resident social task;
   - elder-friendly helper task;
   - robot/operator task;
   - AI-agent proposal scenario;
   - resident-facing property operation notice;
+  - resident-facing property operation notice update;
 - AI-agent proposal scenario coverage;
 - clearer validator diagnostics;
 - a single CACP validator CLI entry;

@@ -21,6 +21,11 @@
       "id": "poi-playground",
       "title": "Playground",
       "notes": ["Synthetic resident-facing shared amenity used to test property operation notices."]
+    },
+    {
+      "id": "poi-shared-garden",
+      "title": "Shared Garden",
+      "notes": ["Synthetic shared green space used to test resident-facing notice updates and maintenance scheduling."]
     }
   ],
   "routes": [
@@ -39,6 +44,10 @@
     {
       "id": "route-playground-repair-boundary",
       "title": "Playground Repair Boundary Route"
+    },
+    {
+      "id": "route-shared-garden-maintenance-boundary",
+      "title": "Shared Garden Maintenance Boundary Route"
     }
   ],
   "tasks": [
@@ -61,6 +70,10 @@
     {
       "id": "task-temporary-playground-repair",
       "title": "Temporary Playground Repair"
+    },
+    {
+      "id": "task-shared-garden-maintenance-notice-update",
+      "title": "Shared Garden Maintenance Notice Update"
     }
   ],
   "activities": [
@@ -79,6 +92,10 @@
     {
       "id": "activity-playground-repair-window",
       "title": "Playground Repair Window"
+    },
+    {
+      "id": "activity-shared-garden-maintenance-window",
+      "title": "Shared Garden Maintenance Window"
     }
   ],
   "data_policy": "fictional_or_synthetic_only"

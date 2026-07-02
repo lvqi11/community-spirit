@@ -1,0 +1,55 @@
+{
+  "schema_version": "cacp.community_task_contract.v0.1",
+  "contract_id": "ctc-shared-garden-maintenance-notice-update",
+  "title": "Shared Garden Maintenance Notice Update",
+  "intent": "Update a resident-facing shared garden maintenance notice after weather and resident feedback change the safe access boundary before operator scheduling review continues.",
+  "place": {
+    "poi_id": "poi-shared-garden",
+    "route_id": "route-shared-garden-maintenance-boundary",
+    "activity_id": "activity-shared-garden-maintenance-window",
+    "task_id": "task-shared-garden-maintenance-notice-update"
+  },
+  "actor": "operator",
+  "interaction_mode": "operator",
+  "permission": {
+    "level": "operator_approved",
+    "approved_by": "community_ops",
+    "human_review_required": true,
+    "resident_notice_required": true
+  },
+  "visibility": "community_summary",
+  "risk_level": "medium",
+  "resident_touch": "direct",
+  "privacy_boundary": {
+    "real_identity_required": false,
+    "camera_feed_allowed": false,
+    "raw_video_storage_allowed": false,
+    "public_profile_required": false,
+    "notes": ["The notice update describes changed access and timing only; it does not expose resident feedback identity, unit numbers, worker identity, or media feeds."]
+  },
+  "fallback": {
+    "owner": "operator",
+    "condition": "Weather, resident concern, blocked alternate path, or maintenance vendor delay makes the previous garden notice inaccurate.",
+    "action": "Supersede the previous notice, pause scheduling review, publish the updated boundary, and keep a human operator contact path open."
+  },
+  "feedback": {
+    "retention_signal": "resident_notice_update_seen_before_maintenance",
+    "trust_signal": "superseded_notice_before_operator_review",
+    "acceptance_signal": "resident_concern_reflected_in_notice",
+    "incident_signal": "no_outdated_notice_used_for_scheduling"
+  },
+  "lifecycle": {
+    "state": "needs_resident_notice",
+    "allowed_next_states": ["needs_operator_approval", "rejected", "canceled"]
+  },
+  "artifacts": [
+    {
+      "artifact_type": "resident_notice",
+      "description": "Plain-language synthetic notice update that supersedes a previous shared garden maintenance notice before operator scheduling review continues."
+    }
+  ],
+  "extensions": [
+    "https://community-spirit.dev/cacp/extensions/public-notice/v0.1"
+  ],
+  "data_policy": "fictional_or_synthetic_only"
+}

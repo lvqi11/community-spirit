@@ -32,6 +32,7 @@ Current coverage:
 - `ctc-ai-suggested-garden-meetup`: AI proposal reviewed by an operator before resident contact.
 - `ctc-elder-friendly-walking-helper`: resident-touch/helper-supported task with notice evidence before protected transition.
 - `ctc-temporary-playground-repair-notice`: operator-led property operation notice before scheduling review.
+- `ctc-shared-garden-maintenance-notice-update`: updated property operation notice that supersedes an earlier notice before scheduling review continues.
 
 This is broader than the other current extensions:
 
@@ -95,6 +96,20 @@ on_notice_update
 
 Do not add this field yet. Use the next example to test whether these timing values are sufficient.
 
+## Notice Update Finding
+
+The shared garden example adds the first `public-notice` chain where a previous notice becomes inaccurate and must be superseded.
+
+Stable evidence facts from this example:
+
+- `previous_notice_superseded`
+- `updated_window_posted_before_review`
+- `alternate_access_described`
+- `operator_contact_available`
+- `real_identity_stored=false`
+
+This suggests notice updates may not require a separate first-class object yet, but they do need explicit timing and supersession facts if `public-notice` moves toward core.
+
 ## Next Example Needed
 
 Add one more public-notice scenario before changing core schema.
@@ -102,16 +117,16 @@ Add one more public-notice scenario before changing core schema.
 Best next scenario:
 
 ```text
-property operation notice update -> resident notice evidence -> pause or revised operator review
+public notice becomes inaccurate during execution -> pause or incident review evidence -> updated resident notice
 ```
 
 Good candidates:
 
-- playground repair window changes after weather delay;
-- shared garden maintenance notice updated after resident concern;
-- elevator lobby cleaning notice paused because alternate route is blocked.
+- elevator lobby cleaning notice paused because alternate route is blocked;
+- playground repair enters incident_review because closure happened before updated notice was posted;
+- shared garden maintenance pauses after unsafe wet surface is reported.
 
-The goal is to test whether `public-notice` covers updates and pauses, not only first-time notices.
+The goal is to test whether `public-notice` can cover pause or incident review, not only pre-review notice updates.
 
 ## Validator Direction
 
@@ -146,7 +161,7 @@ draft extension + core candidate
 Next concrete work:
 
 ```text
-add a notice-update / pause scenario, then revisit whether notice timing deserves a core field.
+add a pause or incident-review notice scenario, then revisit whether notice timing deserves a core field.
 ```
 
 This gives CACP a better chance of becoming a serious protocol rather than a set of app-specific examples.

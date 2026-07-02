@@ -1,0 +1,13 @@
+{
+  "schema_version": "cacp.community_task_transition.v0.1",
+  "transition_id": "transition-shared-garden-maintenance-notice-update-to-review",
+  "contract_id": "ctc-shared-garden-maintenance-notice-update",
+  "requested_by": "actor-community-operator-console",
+  "from_state": "needs_resident_notice",
+  "to_state": "needs_operator_approval",
+  "occurred_at": "2026-06-26T02:02:00Z",
+  "reason": "The updated shared garden maintenance notice superseded the previous notice before operator scheduling review continued.",
+  "evidence_ids": ["evidence-shared-garden-maintenance-notice-update"],
+  "artifact_ids": ["artifact-shared-garden-maintenance-notice-update"],
+  "data_policy": "fictional_or_synthetic_only"
+}

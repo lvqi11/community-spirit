@@ -539,7 +539,7 @@ Do this only if:
 The next best work item is:
 
 ```text
-public-notice notice-update / pause scenario
+public-notice pause or incident-review scenario
 ```
 
 Why:
@@ -547,13 +547,14 @@ Why:
 - the post-push audit, roadmap/status cleanup, and Pages entrypoint cleanup are complete;
 - the README now gives new visitors a faster path to the live demo, CACP spec, leadership plan, and synthetic-data boundary;
 - the public-notice decision memo keeps the extension as a core candidate without freezing schema too early;
-- the next useful protocol proof is whether notice semantics survive an update, pause, or revised scheduling review;
+- the notice-update scenario now tests superseding an inaccurate public notice before scheduling review continues;
+- the next useful protocol proof is whether notice semantics survive pause or incident review after a notice becomes inaccurate during execution;
 - this should happen before adding stricter public-notice validator rules.
 
 Concrete next actions:
 
-1. Add a sixth full CACP chain or extend the playground-repair notice chain with an update/pause pattern.
-2. Prefer a property operation where the first notice must be superseded before scheduling review continues.
+1. Add a public-notice scenario where execution pauses or enters incident review because resident-facing notice is inaccurate.
+2. Prefer an operator property operation with clear resident safety and alternate access implications.
 3. Keep the example synthetic-only and covered by contract, transition, artifact, evidence, export, and pilot-readiness checklist.
 4. Re-run `npm.cmd run check`.
 5. Revisit public-notice validator rules only after the new evidence facts are visible.

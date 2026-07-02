@@ -1,0 +1,19 @@
+{
+  "schema_version": "cacp.community_evidence.v0.1",
+  "evidence_id": "evidence-shared-garden-maintenance-notice-update",
+  "evidence_type": "resident_notice",
+  "contract_id": "ctc-shared-garden-maintenance-notice-update",
+  "recorded_by": "actor-community-operator-console",
+  "recorded_at": "2026-06-26T02:01:00Z",
+  "facts": {
+    "notice_recorded": true,
+    "previous_notice_superseded": true,
+    "updated_window_posted_before_review": true,
+    "alternate_access_described": true,
+    "operator_contact_available": true,
+    "real_identity_stored": false
+  },
+  "source_artifact_ids": ["artifact-shared-garden-maintenance-notice-update"],
+  "synthetic": true,
+  "data_policy": "fictional_or_synthetic_only"
+}
