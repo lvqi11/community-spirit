@@ -47,6 +47,13 @@ Current local command:
 node scripts\validate-cacp.mjs
 ```
 
+Current validator behavior:
+
+- runs 7 focused validator stages;
+- prints the focused command for each stage;
+- validates 7 full synthetic chains, 6 registered extensions, and the portable extraction dry-run;
+- keeps the current portable-core inventory at 49 files plus example groups and reference UI links.
+
 Future package command:
 
 ```powershell
@@ -105,7 +112,8 @@ Community Spirit should continue to:
 Do not publish a package until:
 
 - schema names are stable across one development cycle;
-- validator entry point is stable;
+- validator entry point and focused stage names are stable;
 - package README can explain CACP without Community Spirit-specific context;
+- extracted README matches the current 7-chain corpus and focused validator output;
 - examples remain synthetic-only;
 - package does not include real-world deployment claims.

@@ -539,7 +539,7 @@ Do this only if:
 The next best work item is:
 
 ```text
-portable/package shape polish
+protocol release checklist refresh
 ```
 
 Why:
@@ -553,13 +553,14 @@ Why:
 - incident-review is now documented as a draft general extension rather than a robot-only extension;
 - aggregate validator diagnostics now print stage labels, focused commands, and troubleshooting pointers;
 - README and the CACP spec now describe the current 7-chain, v0.3 package-shaped, focused-validator protocol state without requiring Devpost context;
-- contributor walkthrough and CONTRIBUTING now explain the smallest safe full-chain contribution path.
+- contributor walkthrough and CONTRIBUTING now explain the smallest safe full-chain contribution path;
+- package-shape, CLI, extracted README, and portable extraction drafts now match the current 7-chain corpus, 49-file portable-core dry-run, and focused validator output.
 
 Concrete next actions:
 
-1. Audit `docs/cacp-package-shape-draft.md`, `docs/cacp-cli-contract-draft.md`, and `docs/cacp-repo-readme-draft.md` against the current validator stages and 7-chain corpus.
-2. Make sure the future extracted package/repo story matches the current manifest and validator output.
-3. Keep changes editorial and package-shape focused; avoid new scenarios or schema fields.
+1. Audit `docs/cacp-release-checklist.md` and related release docs against the current 7-chain / focused-validator state.
+2. Make sure a future protocol release checkpoint has clear gates for examples, validators, docs, synthetic-only safety, and extraction readiness.
+3. Keep changes editorial and release-process focused; avoid new scenarios or schema fields.
 4. Keep all examples synthetic-only and avoid real resident/property integrations.
 5. Re-run `npm.cmd run check` before any commit or push.
 

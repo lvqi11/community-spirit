@@ -18,6 +18,8 @@ That command should mean:
 validate the full portable CACP protocol capsule
 ```
 
+Current local behavior already runs 7 focused validator stages and prints a focused command before each stage.
+
 ## Default command
 
 Recommended default:
@@ -54,7 +56,7 @@ cacp validate portable-extraction
 | `cacp validate` | Run the full portable protocol validator chain. | `node scripts/validate-cacp.mjs` |
 | `cacp validate manifest` | Check that manifest references every portable-core asset. | `node scripts/validate-cacp-manifest.mjs` |
 | `cacp validate contracts` | Check actor cards, contracts, and portable context fixture references. | `node scripts/validate-contracts.mjs` |
-| `cacp validate lifecycle` | Check transitions, artifacts, and evidence rules. | `node scripts/validate-cacp-lifecycle.mjs` |
+| `cacp validate lifecycle` | Check transitions, artifacts, evidence, public-notice baselines, and incident-review boundaries. | `node scripts/validate-cacp-lifecycle.mjs` |
 | `cacp validate exports` | Check workflow protocol bundles against source objects. | `node scripts/validate-cacp-workflow-export.mjs` |
 | `cacp validate pilot-readiness` | Check governance gates and public-demo boundaries. | `node scripts/validate-cacp-pilot-readiness.mjs` |
 | `cacp validate chain-coverage` | Check that every contract has a complete example chain. | `node scripts/validate-cacp-chain-coverage.mjs` |
@@ -65,6 +67,8 @@ cacp validate portable-extraction
 The CLI should preserve the current validator style:
 
 - fail fast on the first broken validator stage;
+- print the current stage label before running it;
+- print the focused re-run command for each stage;
 - print a short human-readable repair hint;
 - point to troubleshooting docs when the problem is structural;
 - keep success output compact and machine-scannable.

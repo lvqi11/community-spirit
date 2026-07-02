@@ -69,12 +69,15 @@ CODE_OF_CONDUCT.md
 
 ## Reference examples
 
-The draft currently carries four full synthetic-only protocol chains:
+The draft currently carries seven full synthetic-only protocol chains:
 
 - resident social task;
 - elder-friendly helper task;
 - robot/operator patrol task;
 - AI-agent proposal with human review.
+- resident-facing property operation notice;
+- resident-facing property operation notice update;
+- resident-facing property operation notice failure with incident review.
 
 The portable context fixture should also travel with the repo:
 
@@ -105,7 +108,17 @@ The validator chain should confirm:
 - lifecycle transitions have required evidence;
 - workflow bundles match source chain objects;
 - pilot-readiness examples preserve governance gates;
+- extension registry coverage is aligned with examples;
+- public-notice direct resident-touch examples have notice evidence and artifacts;
+- incident-review transitions have incident evidence;
 - the portable-core audit surface does not hide reference-implementation coupling.
+
+The aggregate validator should print focused stages and commands:
+
+```text
+Running CACP validator 2/7: lifecycle transitions, artifacts, evidence, public-notice, and incident-review boundaries
+Focused command: node scripts/validate-cacp-lifecycle.mjs
+```
 
 ## Safety boundary
 
@@ -146,6 +159,6 @@ The protocol should stay understandable even if the reader never opens the React
 ## Near-term roadmap
 
 1. Keep the v0.1 object model stable.
-2. Expand synthetic example coverage without adding product-specific fields too early.
-3. Harden validator ergonomics and contributor docs.
+2. Keep the 7-chain synthetic corpus coherent without adding product-specific fields too early.
+3. Harden validator ergonomics, contributor docs, and package-shaped CLI expectations.
 4. Extract only when protocol docs, schemas, examples, and validators clearly stand on their own.
