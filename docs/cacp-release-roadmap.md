@@ -93,7 +93,7 @@ Target:
 Near-term v0.3 work:
 
 - compare public-notice timing patterns before adding a draft core field or stricter validator rules;
-- decide whether incident-review remains a general extension now that it spans robot and operator notice-failure scenarios;
+- keep incident-review as a draft general extension now that it spans robot and operator notice-failure scenarios;
 - make validator diagnostics more contributor-friendly;
 - keep README and spec clear enough for readers who did not come from Devpost;
 - keep the portable extraction dry-run green while avoiding premature repo split.
@@ -113,6 +113,7 @@ v0.3 draft assets now include:
 - `docs/cacp-versioning-and-compatibility-draft.md`
 - `docs/cacp-extension-governance-draft.md`
 - `docs/cacp-extension-coverage-matrix.md`
+- `docs/cacp-incident-review-extension-decision.md`
 - `docs/cacp-public-notice-semantics-draft.md`
 - `docs/cacp-public-notice-core-candidate-decision.md`
 - `docs/cacp-public-notice-timing-model-review.md`

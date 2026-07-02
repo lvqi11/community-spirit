@@ -12,6 +12,12 @@ extension registry is useful, but most extensions are still single-chain signals
 
 `public-notice` currently appears in more than one contract and now spans five scenario families. `incident-review` now appears in both robot patrol and operator-led notice-failure review, but it should still stay draft until incident evidence semantics are stable across more task types.
 
+Incident-review decision memo:
+
+```text
+docs/cacp-incident-review-extension-decision.md
+```
+
 ## Coverage matrix
 
 | Extension | Contract coverage | Actor coverage | Interaction mode coverage | Core candidate | Current recommendation |
@@ -65,6 +71,8 @@ These should stay as extensions for now:
 
 They are important directionally, but still either early or too close to one implementation family.
 
+`incident-review` is now a general extension rather than robot-only, but it still should not move into core until more incident categories and post-review outcomes are represented.
+
 ## Next coverage targets
 
 Useful future example additions:
@@ -73,7 +81,7 @@ Useful future example additions:
 - another `light-social` example outside basketball;
 - another `elder-friendly` example with a different helper or route pattern;
 - a second robot/operator task that uses `robot-assist` without also depending on fire-passage inspection;
-- another non-robot scenario that enters `incident_review`, if the protocol keeps `incident-review` as a general extension.
+- another incident-review scenario with a different post-review outcome, if the protocol keeps `incident-review` as a general extension.
 
 ## Registry relationship
 

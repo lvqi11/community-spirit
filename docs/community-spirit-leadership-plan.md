@@ -539,7 +539,7 @@ Do this only if:
 The next best work item is:
 
 ```text
-public-notice validator baseline hardening
+validator diagnostics and contributor repair guidance
 ```
 
 Why:
@@ -549,13 +549,14 @@ Why:
 - the public-notice decision memo keeps the extension as a core candidate without freezing schema too early;
 - the notice-update scenario now tests superseding an inaccurate public notice before scheduling review continues;
 - the notice-failure incident-review scenario now tests whether notice semantics survive a running task whose active notice becomes inaccurate;
-- the timing model review keeps public-notice as extension-backed evidence for v0.3 and identifies a conservative validator baseline.
+- the timing model review keeps public-notice as extension-backed evidence for v0.3 and identifies a conservative validator baseline;
+- incident-review is now documented as a draft general extension rather than a robot-only extension.
 
 Concrete next actions:
 
-1. Add focused validator checks for stable public-notice resident notice facts.
-2. Keep `public-notice` as a draft extension and core candidate, not a core field.
-3. Avoid checking timing-specific facts that differ across proposal, scheduling, update, and incident-review examples.
+1. Improve validator diagnostics so contributors can identify the failing protocol surface quickly.
+2. Keep validator rules conservative and tied to stable CACP semantics.
+3. Update troubleshooting docs when validator behavior changes.
 4. Keep all examples synthetic-only and avoid real resident/property integrations.
 5. Re-run `npm.cmd run check` before any commit or push.
 
